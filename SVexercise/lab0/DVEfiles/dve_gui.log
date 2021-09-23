@@ -1,0 +1,49 @@
+Chronologic VCS simulator copyright 1991-2016
+Contains Synopsys proprietary information.
+Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Sep 23 10:26 2021
+VCD+ Writer L-2016.06_Full64 Copyright (c) 1991-2016 by Synopsys Inc.
+The file '/home/milo/Codes/ICCodes/SVexercise/lab0/inter.vpd' was opened successfully.
+332935520000 ps
+332936520000 ps
+332936620000 ps
+332936620100 ps
+332936620200 ps
+332936621200 ps
+332936631200 ps
+332936631300 ps
+332936631400 ps
+332936631500 ps
+332936631600 ps
+332936631700 ps
+347955796000 ps
+dve> 1us
+Error: 1us
+Error: invalid command name "1us"
+dve> run 1us
+347956796000 ps
+347956796100 ps
+347956796200 ps
+347956796300 ps
+347956796400 ps
+347956796500 ps
+347956796600 ps
+347956796700 ps
+347956796800 ps
+347956796900 ps
+347956797000 ps
+347956797100 ps
+347956797200 ps
+347956797300 ps
+347956797400 ps
+348056797400 ps
+348156797400 ps
+Chronologic VCS simulator copyright 1991-2016
+Contains Synopsys proprietary information.
+Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Sep 23 10:37 2021
+VCD+ Writer L-2016.06_Full64 Copyright (c) 1991-2016 by Synopsys Inc.
+The file '/home/milo/Codes/ICCodes/SVexercise/lab0/inter.vpd' was opened successfully.
+1000000 ps
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1000000 ps
+CPU Time:      0.080 seconds;       Data structure size:   0.0Mb
+Thu Sep 23 10:39:55 2021

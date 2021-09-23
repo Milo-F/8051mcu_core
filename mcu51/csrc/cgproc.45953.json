@@ -1,0 +1,39 @@
+{
+    "Modules": {
+        "...MASTER...": {},
+        "ALU": {
+            "Compiled": "Yes",
+            "Compiled Times": 5
+        }
+    },
+    "reusePaths": {},
+    "CompUnits": {
+        "amcQw_d": {
+            "mod": "...MASTER...",
+            "out": "objs/amcQw_d.o",
+            "mode": 4,
+            "bytes": 7566,
+            "checksum": 0
+        },
+        "trjvP_d": {
+            "mod": "ALU",
+            "archive": "archive.4/_45953_archive_1.a",
+            "out": "trjvP_d.o",
+            "mode": 4,
+            "bytes": 14056,
+            "checksum": 0
+        }
+    },
+    "ObjArchives": [
+        {
+            "archive": "archive.4/_45953_archive_1.a",
+            "objects": [
+                [
+                    "trjvP_d.o",
+                    14056
+                ]
+            ],
+            "size": 14056
+        }
+    ]
+}

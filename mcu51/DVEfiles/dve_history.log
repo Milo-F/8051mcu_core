@@ -1,0 +1,59 @@
+# Preference setting overrides
+gui_create_pref_key -category {Globals} -key {load_detail_for_funcov} -value_type {bool} -value {false}
+gui_create_pref_category -category {schem_obj_name}
+gui_create_pref_key -category {schem_obj_name} -key {show_cell_and_pin_with_symbol_name} -value_type {bool} -value {false}
+gui_create_pref_key -category {schem_pin_hc} -key {textExtFont} -value_type {string} -value {Helvetica,10,-1,5,50,0,0,0,0,0}
+gui_set_pref_value -category {waveCompare} -key {end_unit} -value {100ps}
+gui_set_pref_value -category {waveCompare} -key {start_unit} -value {100ps}
+
+# State setting overrides
+gui_state_default_create -off -ini
+gui_set_state_value -category Layout -key child_console_size_x -value 1919
+gui_set_state_value -category Layout -key child_console_size_y -value 233
+gui_set_state_value -category Layout -key child_data_size_x -value 232
+gui_set_state_value -category Layout -key child_data_size_y -value 646
+gui_set_state_value -category Layout -key child_hier_col3 -value {-1}
+gui_set_state_value -category Layout -key child_hier_colpd -value 0
+gui_set_state_value -category Layout -key child_hier_size_x -value 146
+gui_set_state_value -category Layout -key child_hier_size_y -value 646
+gui_set_state_value -category Layout -key child_schematic_docknewline -value false
+gui_set_state_value -category Layout -key child_schematic_pos_x -value {-2}
+gui_set_state_value -category Layout -key child_schematic_pos_y -value {-15}
+gui_set_state_value -category Layout -key child_schematic_size_x -value 1556
+gui_set_state_value -category Layout -key child_schematic_size_y -value 657
+gui_set_state_value -category Layout -key child_source_docknewline -value false
+gui_set_state_value -category Layout -key child_source_pos_x -value {-2}
+gui_set_state_value -category Layout -key child_source_pos_y -value {-15}
+gui_set_state_value -category Layout -key child_source_size_x -value 1544
+gui_set_state_value -category Layout -key child_source_size_y -value 641
+gui_set_state_value -category Layout -key child_wave_colname -value 269
+gui_set_state_value -category Layout -key child_wave_colvalue -value 270
+gui_set_state_value -category Layout -key child_wave_left -value 543
+gui_set_state_value -category Layout -key child_wave_right -value 1323
+gui_set_state_value -category Layout -key main_pos_x -value 1
+gui_set_state_value -category Layout -key main_pos_y -value 38
+gui_set_state_value -category Layout -key main_size_x -value 1920
+gui_set_state_value -category Layout -key main_size_y -value 1024
+gui_set_state_value -category Layout -key stand_wave_child_docknewline -value false
+gui_set_state_value -category Layout -key stand_wave_child_pos_x -value {-2}
+gui_set_state_value -category Layout -key stand_wave_child_pos_y -value {-15}
+gui_set_state_value -category Layout -key stand_wave_child_size_x -value 1876
+gui_set_state_value -category Layout -key stand_wave_child_size_y -value 903
+gui_set_state_value -category Layout -key stand_wave_top_pos_x -value 48
+gui_set_state_value -category Layout -key stand_wave_top_pos_y -value 80
+gui_set_state_value -category Layout -key stand_wave_top_size_x -value 1919
+gui_set_state_value -category Layout -key stand_wave_top_size_y -value 1095
+gui_create_state_key -category FindDialog -key m_pMatchCase -value_type bool -value false
+gui_create_state_key -category FindDialog -key m_pMatchWord -value_type bool -value false
+gui_create_state_key -category FindDialog -key m_pUseCombo -value_type string -value {}
+gui_create_state_key -category FindDialog -key m_pWrapAround -value_type bool -value true
+gui_state_default_create -off
+
+# Begin command logging
+gui_sim_run Ucli -exe ./simv -args {-ucligui  } -dir .
+gui_list_select -id Data.1 -selected  { ALU.c_in   }
+gui_list_select -id Data.1 -selected  { ALU.c_in  {ALU.a_data[7:0]}  {ALU.b_data[7:0]}  {ALU.alu_op[4:0]}  {ALU.ans[7:0]}  ALU.c_out   }
+gui_open_window Wave
+gui_list_add -id Wave.1 -from Data.1 { ALU.c_in {ALU.a_data[7:0]} {ALU.b_data[7:0]} {ALU.alu_op[4:0]} {ALU.ans[7:0]} ALU.c_out } -insertionbar
+gui_sim_continue  
+gui_close_window -window TopLevel.2

@@ -1,0 +1,5 @@
+@elabcom rc file Version 1.0
+[oh]
+invokeDir = /home/milo/Codes/ICCodes/SVexercise/lab0
+hostCommand = -lib simv.daidir/work -elab simv.daidir/kdb -simflow -top "tb1 " -Lf work -SNPS_ELABCOM -saveElab
+simType = VCS
