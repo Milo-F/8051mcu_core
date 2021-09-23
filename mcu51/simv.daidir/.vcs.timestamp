@@ -1,5 +1,5 @@
 0 
-34
+35
 +itf+/home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/vcsdp.tab
 +memcbk
 +v2k
@@ -33,6 +33,7 @@
 -picarchive
 /home/milo/apps/Synopsys/vcs_2016.06/linux64/bin/vcs1
 ALU.v
+ALU_tb.v
 vcs.log
 35
 sysc_uni_pwd=/home/milo/Codes/ICCodes/mcu51
@@ -51,7 +52,7 @@ VCS_ARCH_OVERRIDE=linux
 VCS_ARCH=linux64
 UVM_HOME=/home/milo/UVM/1800.2-2020-1.1
 UNAME=/bin/uname
-TURBO_LOG_DIR=/tmp/vcs_20210923022415_45592
+TURBO_LOG_DIR=/tmp/vcs_20210923081641_62306
 TOOL_HOME=/home/milo/apps/Synopsys/vcs_2016.06/linux64
 SCRNAME=vcs
 SCRIPT_NAME=vcs
@@ -71,12 +72,13 @@ LC_ALL=C
 LC_ADDRESS=zh_CN.UTF-8
 COLORTERM=truecolor
 0
-2
-1632362689 ALU.v
+3
+1632366387 ALU.v
+1632384985 ALU_tb.v
 1464145466 /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/vcsdp.tab
 4
 0 
 1464147802 /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libvirsim.so
 1464147272 /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/liberrorinf.so
 1464147248 /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libsnpsmalloc.so
-1632363857 simv.daidir
+1632385002 simv.daidir

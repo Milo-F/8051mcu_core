@@ -2027,7 +2027,6 @@ extern "C" {
 void  hsM_0_0__simv_daidir (UB  * pcode, scalar  val);
 void  hsM_0_1__simv_daidir (UB  * pcode, scalar  val, U  I643, scalar  * I1111, U  did);
 void  hsM_0_2__simv_daidir (UB  * pcode);
-void  hsM_0_5__simv_daidir (UB  * pcode, UB  val);
 void  hsG_0 (struct dummyq_struct * I1093, EBLK  * I1094, U  I651);
 #ifdef __cplusplus
 }

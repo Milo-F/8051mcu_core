@@ -1,7 +1,7 @@
 {
-    "ALU": [
-        "ALU",
-        "trjvP",
+    "ALU_tb": [
+        "ALU_tb",
+        "EA54p",
         "module"
     ],
     "...MASTER...": [

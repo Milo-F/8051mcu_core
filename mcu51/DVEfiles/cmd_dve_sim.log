@@ -9,23 +9,34 @@ synopsys::dump -autoflush on -fid VPD0
 set ::dve_fid VPD0
 synUtils::setDVEInitPhase 0
 ucliCore::getToolPID
-synUtils::sendTool -active _icl_setToolSocket /tmp/smlnprQLYZ0
-synUtils::sendTool -active {_icl_start_rpc -version "L-2016.06_Full64" -sync_file /tmp/vcs_dve_rpc.milo.46184}
-synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.milo.46184}
+synUtils::sendTool -active _icl_setToolSocket /tmp/smlnpRb8UhM
+synUtils::sendTool -active {_icl_start_rpc -version "L-2016.06_Full64" -sync_file /tmp/vcs_dve_rpc.milo.62857}
+synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.milo.62857}
 config endofsim noexit
 config onfail enable all
 config syscaddplainmembers
 config syscaddsourcenames
 config syscaddstructtypes
 synopsys::listing -disable
-synopsys::dump -add {ALU.a_data ALU.alu_op ALU.ans ALU.b_data ALU.c_in ALU.c_out } -aggregates  -fid VPD0
-synopsys::run
+synopsys::dump -add {ALU_tb.a_data ALU_tb.alu_op ALU_tb.ans ALU_tb.b_data ALU_tb.c_in ALU_tb.c_out ALU_tb.rst_n } -aggregates  -fid VPD0
+synopsys::run -relative 100ns
 set ucliGUI::state
 set ucliGUI::state
 set ucliGUI::state
 set ucliGUI::state
-if [catch {gui_sim_terminate}] {gui_sim_terminate -kill}
-synopsys::finish
+set ucliGUI::state
+synopsys::run -relative 100ns
 set ucliGUI::state
 set ucliGUI::state
-ucli_exit
+set ucliGUI::state
+set ucliGUI::state
+set ucliGUI::state
+synopsys::run -relative 100ns
+set ucliGUI::state
+set ucliGUI::state
+set ucliGUI::state
+set ucliGUI::state
+set ucliGUI::state
+ucliGUI::getSignalValues -scope ALU_tb -radix {binary } -list {{a_data[7:0]} }
+ucliGUI::getSignalValues -scope ALU_tb -radix {binary } -list {{b_data[7:0]} }
+ucliGUI::getSignalValues -scope ALU_tb -radix {binary } -list {{ans[7:0]} }
