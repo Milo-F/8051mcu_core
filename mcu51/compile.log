@@ -1,0 +1,34 @@
+                         Chronologic VCS (TM)
+         Version L-2016.06_Full64 -- Fri Oct  8 17:26:11 2021
+               Copyright (c) 1991-2016 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+Parsing design file './CPU/tb_cpu.v'
+Parsing design file './CPU/CPU.v'
+Parsing design file './CPU/ALU.v'
+Parsing design file './CPU/ALEGen.v'
+Parsing design file './CPU/ClkDiv.v'
+Top Level Modules:
+       tb_cpu
+       ALU
+TimeScale is 1 ns / 1 ps
+Starting vcs inline pass...
+Parsing design file './CPU/tb_cpu.v'
+Parsing design file './CPU/CPU.v'
+Parsing design file './CPU/ALU.v'
+Parsing design file './CPU/ALEGen.v'
+Parsing design file './CPU/ClkDiv.v'
+Top Level Modules:
+       tb_cpu
+       ALU
+TimeScale is 1 ns / 1 ps
+3 unique modules to generate
+3 modules and 0 UDP read. 
+recompiling module tb_cpu
+recompiling module ALU
+recompiling module ClkDiv
+All of 3 modules done

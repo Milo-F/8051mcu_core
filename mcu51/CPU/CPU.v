@@ -10,7 +10,7 @@ module CPU (
     input           clk,        // 振荡时钟12M
     input           reset,      // 复位信号，低电平有效
     inout   [7:0]   data_bus,   // 数据总线，16位寻址时用作低八位
-    output  [7:0]   ddr_bus,    // 地址总线，以及16位寻址中的高八位
+    output  [7:0]   addr_bus,    // 地址总线，以及16位寻址中的高八位
     input           EA,         // 内/外部程序存储器选择使能，1：内部；0：外部
     input   [1:0]   interupt,   // 中断控制信号
     input   [1:0]   timing,     // 计时器中断控制信号
@@ -23,8 +23,6 @@ module CPU (
 );
 
     // CPU内部寄存器定义
-    wire        clk_6M; // 时钟周期
-    wire         clk_1M; // 机器周期
     reg [3:0] cnt_rst = 4'b0; // 复位信号计数器 
     reg rst_n = 1'b1; // 有效复位信号
     reg [15:0]  program_counter; // 程序计数器
@@ -51,15 +49,15 @@ module CPU (
     // 复位信号持续10个时钟周期有效
      always @(posedge clk) begin
         if (!reset) begin
-            if (cnt_rst == 4'b1010) begin
-                rst_n <= reset;
+            if (cnt_rst == 10) begin
+                rst_n <= 1'b0;
             end
             else begin
-                cnt <= cnt + 1'b1;
+                cnt_rst <= cnt_rst + 1'b1;
             end
         end
         else begin
-            rst_n <= reset;
+            rst_n <= 1'b1;
             cnt_rst <= 4'b0;
         end
      end 

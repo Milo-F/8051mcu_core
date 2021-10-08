@@ -1,0 +1,5 @@
+/home/milo/Codes/ICCodes/mcu51/CPU/ALEGen.v
+/home/milo/Codes/ICCodes/mcu51/CPU/ALU.v
+/home/milo/Codes/ICCodes/mcu51/CPU/CPU.v
+/home/milo/Codes/ICCodes/mcu51/CPU/ClkDiv.v
+/home/milo/Codes/ICCodes/mcu51/CPU/tb_cpu.v

@@ -1,0 +1,5 @@
+./CPU/ClkDiv.v
+./CPU/CPU.v
+./CPU/ALEGen.v
+./CPU/ALU.v
+./CPU/tb_cpu.v

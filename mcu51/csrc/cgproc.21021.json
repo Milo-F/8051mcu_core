@@ -1,0 +1,71 @@
+{
+    "Modules": {
+        "ALU": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "...MASTER...": {},
+        "ClkDiv": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "tb_cpu": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        }
+    },
+    "CompUnits": {
+        "I5T21_d": {
+            "archive": "archive.0/_21021_archive_1.a",
+            "mod": "tb_cpu",
+            "out": "I5T21_d.o",
+            "bytes": 25498,
+            "mode": 4,
+            "checksum": 0
+        },
+        "amcQw_d": {
+            "mod": "...MASTER...",
+            "out": "objs/amcQw_d.o",
+            "bytes": 7692,
+            "mode": 4,
+            "checksum": 0
+        },
+        "PJbHW_d": {
+            "archive": "archive.0/_21021_archive_1.a",
+            "mod": "ClkDiv",
+            "out": "PJbHW_d.o",
+            "bytes": 18932,
+            "mode": 4,
+            "checksum": 0
+        },
+        "trjvP_d": {
+            "archive": "archive.0/_21021_archive_1.a",
+            "mod": "ALU",
+            "out": "trjvP_d.o",
+            "bytes": 14401,
+            "mode": 4,
+            "checksum": 0
+        }
+    },
+    "reusePaths": {},
+    "ObjArchives": [
+        {
+            "archive": "archive.0/_21021_archive_1.a",
+            "objects": [
+                [
+                    "I5T21_d.o",
+                    25498
+                ],
+                [
+                    "trjvP_d.o",
+                    14401
+                ],
+                [
+                    "PJbHW_d.o",
+                    18932
+                ]
+            ],
+            "size": 58831
+        }
+    ]
+}

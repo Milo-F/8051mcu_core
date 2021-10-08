@@ -15,11 +15,11 @@ module ALEGen (
 
     always @(posedge clk, negedge rst_n) begin
         if (!rst_n) begin
-            ALE <= 1'b0;
+            ALE <= 1'b1;
             cnt <= 3'b0;
         end
         else begin
-            if (cnt == 3) begin
+            if (cnt == 1) begin
                 ALE <= ~ALE;
                 cnt <= cnt + 1;
             end

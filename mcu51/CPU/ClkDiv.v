@@ -23,7 +23,7 @@ module ClkDiv #(
             cnt_n <= 4'b0;
             clk_p <= 1'b0;
             clk_n <= 1'b0;
-            clk_o <= 1'b0;
+            clk_o <= 1'b1;
         end
         else begin
             if (DIV_NUM % 2 == 0) begin // 偶数分频

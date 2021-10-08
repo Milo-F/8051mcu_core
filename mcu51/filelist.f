@@ -5,5 +5,8 @@
 -lca
 -l compile.log
 
-./CPU/tb_ale_gen.v
+./CPU/tb_cpu.v
+./CPU/CPU.v
+./CPU/ALU.v
 ./CPU/ALEGen.v
+./CPU/ClkDiv.v

@@ -1,0 +1,22 @@
+{
+    "ClkDiv": [
+        "ClkDiv",
+        "PJbHW",
+        "module"
+    ],
+    "tb_cpu": [
+        "tb_cpu",
+        "I5T21",
+        "module"
+    ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module"
+    ],
+    "ALU": [
+        "ALU",
+        "trjvP",
+        "module"
+    ]
+}

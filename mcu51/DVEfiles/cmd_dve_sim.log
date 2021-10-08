@@ -1,0 +1,37 @@
+set ucliGUI::state
+set ucliGUI::state
+ucliCore::getToolPID
+synopsys::env hasTB
+trigger_hier_stack_context_switch 0
+synUtils::setDVEInitPhase 1
+synopsys::dump -type VPD -file /home/milo/Codes/ICCodes/mcu51/inter.vpd -locking
+synopsys::dump -autoflush on -fid VPD0
+set ::dve_fid VPD0
+synUtils::setDVEInitPhase 0
+ucliCore::getToolPID
+synUtils::sendTool -active _icl_setToolSocket /tmp/smlnpFxEcUk
+synUtils::sendTool -active {_icl_start_rpc -version "L-2016.06_Full64" -sync_file /tmp/vcs_dve_rpc.milo.21206}
+synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.milo.21206}
+config endofsim noexit
+config onfail enable all
+config syscaddplainmembers
+config syscaddsourcenames
+config syscaddstructtypes
+synopsys::listing -disable
+synopsys::dump -add {ALU} -scope "." -depth 1 -fid VPD0
+synopsys::dump -add {tb_cpu} -scope "." -depth 1 -fid VPD0
+synopsys::dump -add {tb_cpu.cpu} -scope "." -depth 1 -fid VPD0
+synopsys::dump -add {tb_cpu.cpu.ale} -scope "." -depth 1 -fid VPD0
+synopsys::dump -add {tb_cpu.cpu.clk_1} -scope "." -depth 1 -fid VPD0
+synopsys::dump -add {tb_cpu.cpu.clk_6} -scope "." -depth 1 -fid VPD0
+synopsys::run -relative 100ns
+set ucliGUI::state
+set ucliGUI::state
+set ucliGUI::state
+set ucliGUI::state
+set ucliGUI::state
+if [catch {gui_sim_terminate}] {gui_sim_terminate -kill}
+synopsys::finish
+set ucliGUI::state
+set ucliGUI::state
+ucli_exit
