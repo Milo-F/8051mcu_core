@@ -1,4 +1,0 @@
-Command Line: /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libnz4w_r.so -usevlogan_front -lib simv.daidir/work -q -enable_vfs_mp -enable_vfs_mt -flush_textdoc_sdb -enable_vfs_lock -incsave
-uname(Linux milo-VirtualBox 5.11.0-37-generic #41~20.04.2-Ubuntu SMP Fri Sep 24 09:06:38 UTC 2021 x86_64)
-au time 0.083115 -1.966898 0.000000 delta 81575936 81575936 total 269742080 269742080
-au time 0.130716 0.080342 0.012385 delta 80818176 80818176 total 268984320 268984320

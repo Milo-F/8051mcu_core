@@ -1,0 +1,71 @@
+@verdi rc file Version 1.0
+[General]
+VerdiVersion = Verdi3_L-2016.06-1
+[KeyNote]
+Line1 = Automatic Backup 0
+[TestBench]
+ConstrViewShow = 0
+InherViewShow = 0
+FSDBMsgShow = 0
+AnnotationShow = 0
+powerDumped = 0
+[hb]
+postSimFile = /home/milo/Codes/ICCodes/SVexercise/lab1/inter.fsdb
+syncTime = 1000000
+viewport = 0 26 1920 987 433 372 358 1273
+activeNode = "tb1"
+activeScope = "tb1"
+activeFile = "./tb1.sv"
+interactiveMode = False
+viewType = Source
+simulatorMode = False
+sourceBeginLine = 2
+baMode = False
+srcLineNum = True
+syncSignal = False
+traceMode = Hierarchical
+showTraceInSchema = True
+paMode = False
+funcMode = False
+traceCrossHier = True
+DnDtraceCrossHierOnly = True
+traceIncTopPort = False
+leadingZero = False
+signalPane = True
+Scope1 = "tb1"
+rangeSelection = 3 3 1 5 1 1
+sdfCheckUndef = FALSE
+simFlow = FALSE
+[hb.sourceTab.1]
+scope = tb1
+File = /home/milo/Codes/ICCodes/SVexercise/lab1/tb1.sv
+Line = 3
+[imp.design1]
+dbEnum =  oh
+invokeDir = /home/milo/Codes/ICCodes/SVexercise/lab1
+design = DebussyLib
+hostCommand = hostCommand -elab ./simv.daidir/kdb.elab++
+topName = tb1 
+fromLibrary = TRUE
+[nMemoryManager]
+FsdbFile = /home/milo/Codes/ICCodes/SVexercise/lab1/inter.fsdb
+UserActionNum = 0
+nMemWindowNum = 0
+[wave.0]
+viewPort = -10 19 1920 987 194 65
+SessionFile = /home/milo/Codes/ICCodes/SVexercise/lab1/verdiLog/novas_autosave.ses.wave.0
+displayGrid = FALSE
+hierarchicalName = FALSE
+snap = TRUE
+displayLeadingZeros = FALSE
+fixDelta = FALSE
+displayCursorMarker = FALSE
+autoUpdate = FALSE
+highlightGlitchs = FALSE
+waveformSync = FALSE
+displayErrors = TRUE
+displayMsgSymbols = TRUE
+showMsgDescriptions = TRUE
+autoFit = FALSE
+displayDeltaY = FALSE
+centerCursor = FALSE

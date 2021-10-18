@@ -9,12 +9,12 @@
 module CPU (
     input           clk,        // 振荡时钟12M
     input           reset,      // 复位信号，低电平有效
-    inout   [7:0]   data_bus,   // 数据总线，16位寻址时用作低八位
-    output  [7:0]   addr_bus,    // 地址总线，以及16位寻址中的高八位
+    inout   [7:0]   data_bus,   // 数据总线，16位寻址时用作高八位
+    output  reg[7:0]   addr_bus,    // 地址总线，以及16位寻址中的低八位
     input           EA,         // 内/外部程序存储器选择使能，1：内部；0：外部
     input   [1:0]   interupt,   // 中断控制信号
     input   [1:0]   timing,     // 计时器中断控制信号
-    output          read_en,    // 读数据使能
+    output  reg     read_en,    // 读数据使能
     output          write_en,   // 写数据使能
     output          clk_1M,     // 机器周期
     output          clk_6M,    // 时钟周期
@@ -23,6 +23,8 @@ module CPU (
 );
 
     // CPU内部寄存器定义
+    wire [7:0] data_in;
+    reg [7:0] data_out = 8'b0;
     reg [3:0] cnt_rst = 4'b0; // 复位信号计数器 
     reg rst_n = 1'b1; // 有效复位信号
     reg [15:0]  program_counter; // 程序计数器
@@ -32,18 +34,17 @@ module CPU (
     reg [7:0]   instruction_register; // 指令寄存器
     reg [7:0]   psw; // 程序状态字寄存器
     reg [7:0]   accumulator; // 累加器A
-    reg [7:0]   b; // 辅助寄存器B
 
-    // 寄存器复位
+    // 系统复位
     always @(negedge rst_n) begin
-        program_counter <= 16'b0;
+        addr_bus <= 8'b0;
+        read_en <= 1'b1;
         addr_register <= 16'b0;
         data_register <= 8'b0;
         temp_register <= 8'b0;
         instruction_register <= 8'b0;
         psw <= 8'b0;
         accumulator <= 8'b0;
-        b <= 8'b0;
     end   
 
     // 复位信号持续10个时钟周期有效
@@ -81,14 +82,60 @@ module CPU (
         .ALE(ALE)
     );
 
-    // 从数据总线读取数据
-    always @(read_en) begin
-        if (read_en) begin
-            data_register <= data_bus; // 读数据使有效时把数据写入数据寄存器
+    // 读写控制信号
+    assign write_en = ~read_en;
+
+    // inout端口
+    assign data_bus = (write_en) ? data_out : 8'bz;
+    assign data_in = data_bus;
+
+    // 取指
+    always @(posedge clk, negedge rst_n) begin
+        if (!rst_n) begin
+            read_en <= 1'b1;
+            instruction_register <= 8'b0;
+        end
+        else begin
+            get_instruction();
         end
     end
 
-    // 将数据写入数据总线
-    assign data_bus = (write_en) ? temp_register : 8'bz;
+    // 取指任务
+    task get_instruction;
+        begin
+            addr_bus <= program_counter[7:0]; // 寻址地址送给地址总线
+            read_en <= 1'b1;  // 读使能
+            if (read_en) begin
+                instruction_register <= data_in; // 读指令
+                read_en <= 1'b0;
+            end
+        end
+    endtask
+
+    wire ID_ready;
+    wire [15:0] program_counter_next;
+    wire alu_en;
+    wire [5:0] alu_op;
+
+    always @(posedge clk, negedge rst_n) begin
+        if (!rst_n) begin
+            program_counter <= 16'b0;
+        end
+        else begin
+            program_counter <= program_counter_next;
+        end
+    end
+    // 译码
+    InsDecoder ID(
+        .clk(clk),
+        .rst_n(rst_n),
+        .read_en(read_en),
+        .instruction(instruction_register),
+        .pc_in(program_counter),
+        .pc_out(program_counter_next),
+        .ready(ID_ready),
+        .alu_en(alu_en),
+        .alu_op(alu_op)
+    );
 
 endmodule

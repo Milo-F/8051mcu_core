@@ -1,0 +1,120 @@
+0 
+32
++itf+/home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/vcsdp.tab
++memcbk
++v2k
++vcsd
++vpi
+-Mamsrun=
+-Masflags=
+-Mcc=gcc-4.8
+-Mcfl= -pipe -fPIC -O -I/home/milo/apps/Synopsys/vcs_2016.06/include
+-Mcplusplus=g++-4.8
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=
+-Mexternalobj=
+-Mldflags= -Wl,--no-as-needed -rdynamic
+-Mobjects= /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libvirsim.so /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/liberrorinf.so /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libsnpsmalloc.so
+-Mout=simv
+-Msaverestoreobj=/home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/vcs_save_restore_new.o
+-Msyslibs=-ldl
+-Mvcsaceobjs=
+-Mxcflags= -pipe -fPIC -I/home/milo/apps/Synopsys/vcs_2016.06/include
+-Xpiyushb1=0x80
+-debug_access+all+dmptf+bc
+-debug_region=cell+lib
+-f filelist.f
+-full64
+-gen_obj
+-l
+-picarchive
+-sverilog
+/home/milo/apps/Synopsys/vcs_2016.06/linux64/bin/vcs1
+com.log
+71
+sysc_uni_pwd=/home/milo/Codes/ICCodes/SVexercise/lab1
+XMODIFIERS=@im=ibus
+XDG_SESSION_TYPE=x11
+XDG_SESSION_DESKTOP=ubuntu
+XDG_SESSION_CLASS=user
+XDG_RUNTIME_DIR=/run/user/1000
+XDG_MENU_PREFIX=gnome-
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+VTE_VERSION=6003
+VMR_MODE_FLAG=64
+VERDI_HOME=/home/milo/apps/Synopsys/verdi_2016.06-1
+VCS_MX_HOME_INTERNAL=1
+VCS_MODE_FLAG=64
+VCS_LOG_FILE=com.log
+VCS_LCAMSG_PRINT_OFF=1
+VCS_HOME=/home/milo/apps/Synopsys/vcs_2016.06
+VCS_DEPTH=0
+VCS_ARG_ADDED_FOR_TMP=1
+VCS_ARCH_OVERRIDE=linux
+VCS_ARCH=linux64
+UVM_HOME=/home/milo/UVM/1800.2-2020-1.1
+USERNAME=milo
+UNAME=/bin/uname
+TOOL_HOME=/home/milo/apps/Synopsys/vcs_2016.06/linux64
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+SSH_AGENT_PID=1185
+SESSION_MANAGER=local/milo-VirtualBox:@/tmp/.ICE-unix/1259,unix/milo-VirtualBox:/tmp/.ICE-unix/1259
+SCRNAME=vcs
+SCRIPT_NAME=vcs
+QT_IM_MODULE=ibus
+QT_ACCESSIBILITY=1
+PAPERSIZE=a4
+OVA_UUM=0
+NOVAS_HOME=/home/milo/apps/Synopsys/verdi_2016.06-1
+MFLAGS=
+MANAGERPID=951
+MAKE_TERMOUT=/dev/pts/0
+MAKE_TERMERR=/dev/pts/0
+MAKELEVEL=1
+MAKEFLAGS=
+LESSOPEN=| /usr/bin/lesspipe %s
+LESSCLOSE=/usr/bin/lesspipe %s %s
+LC_TIME=zh_CN.UTF-8
+LC_TELEPHONE=zh_CN.UTF-8
+LC_PAPER=zh_CN.UTF-8
+LC_NUMERIC=zh_CN.UTF-8
+LC_NAME=zh_CN.UTF-8
+LC_MONETARY=zh_CN.UTF-8
+LC_MEASUREMENT=zh_CN.UTF-8
+LC_IDENTIFICATION=zh_CN.UTF-8
+LC_ALL=C
+LC_ADDRESS=zh_CN.UTF-8
+JOURNAL_STREAM=8:31212
+INVOCATION_ID=0a6e8df1390d4ac484ed1e63a0968cef
+IM_CONFIG_PHASE=1
+GTK_MODULES=gail:atk-bridge
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+GNOME_TERMINAL_SERVICE=:1.133
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/99d3671a_297c_4f5b_8f8a_8ab68e6bcb5a
+GNOME_SHELL_SESSION_MODE=ubuntu
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GJS_DEBUG_TOPICS=JS ERROR;JS LOG
+GJS_DEBUG_OUTPUT=stderr
+GDMSESSION=ubuntu
+DESKTOP_SESSION=ubuntu
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+COLORTERM=truecolor
+0
+6
+1633696464 ./MCDT/v1/slave_fifo.v
+1633696464 ./MCDT/v1/mcdt.v
+1633696464 ./MCDT/v1/arbiter.v
+1633700283 ./tb1.sv
+1633698274 filelist.f
+1464145466 /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/vcsdp.tab
+4
+0 
+1464147802 /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libvirsim.so
+1464147272 /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/liberrorinf.so
+1464147248 /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libsnpsmalloc.so
+1633700314 simv.daidir

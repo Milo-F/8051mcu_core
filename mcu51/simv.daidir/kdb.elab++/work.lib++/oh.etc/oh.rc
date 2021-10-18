@@ -1,5 +1,0 @@
-@elabcom rc file Version 1.0
-[oh]
-invokeDir = /home/milo/Codes/ICCodes/mcu51
-hostCommand = -lib simv.daidir/work -elab simv.daidir/kdb -simflow -top "tb_cpu ALU " -SNPS_ELABCOM -saveElab
-simType = VCS

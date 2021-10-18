@@ -11,6 +11,7 @@ module ALU (
     input[7:0] a_data, // 输入数据data1
     input[7:0] b_data, // 输入数据data2
     input[4:0] alu_op, // ALU运算模式选择
+    input alu_en,
     output reg[7:0] ans, // 运算结果
     output reg c_out // 进位/借位
 );
@@ -20,7 +21,7 @@ module ALU (
             ans <= 8'b0;
             c_out <= 1'b0;
         end
-        else begin
+        else if (alu_en) begin
             case(alu_op)
                 5'h0: {c_out, ans} = a_data + b_data; // ADD 无进位加法
                 5'h1: {c_out, ans} = a_data + b_data + c_in; // ADDC 带进位的加法

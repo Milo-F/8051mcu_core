@@ -1,0 +1,43 @@
+{
+    "CompUnits": {
+        "Lu0Uq_d": {
+            "archive": "archive.1/_34549_archive_1.a",
+            "mode": 4,
+            "mod": "tb1",
+            "out": "Lu0Uq_d.o",
+            "bytes": 92257,
+            "checksum": 0
+        }
+    },
+    "Modules": {
+        "...MASTER...": {},
+        "std": {
+            "Compiled Times": 2,
+            "Compiled": "Yes"
+        },
+        "tb1": {
+            "Compiled Times": 2,
+            "Compiled": "Yes"
+        }
+    },
+    "reusePaths": {
+        "amcQw_d": {
+            "icPath": "csrc"
+        },
+        "reYIK_d": {
+            "icPath": "csrc"
+        }
+    },
+    "ObjArchives": [
+        {
+            "archive": "archive.1/_34549_archive_1.a",
+            "objects": [
+                [
+                    "Lu0Uq_d.o",
+                    92257
+                ]
+            ],
+            "size": 92257
+        }
+    ]
+}
