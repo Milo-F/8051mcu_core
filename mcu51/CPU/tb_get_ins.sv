@@ -22,9 +22,13 @@ module tb_get_ins;
         #30 rst_n = 1;
     end
     initial begin
+        instruction = 0;
         @(posedge clk);
-        instruction = 8'h04;
-        #70 instruction = 8'h0;
+        forever begin
+            #2 instruction = 4;
+            #10 instruction = 0;
+            #6 instruction = 'h14;
+        end
         // forever begin
         //     #2 instruction = instruction;
         // end

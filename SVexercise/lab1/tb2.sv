@@ -1,4 +1,4 @@
-`timescale 1ns/1ps
+`timescale 1ps/1ps
 
 module tb2;
 logic         clk;
@@ -41,15 +41,23 @@ mcdt dut(
 
 // clock generation
 // TODO:: please create task clk_gen(int peroid)
-task clk_gen();
+// task clk_gen();
+//   clk <= 0;
+//   forever begin
+//     #5 clk<= !clk;
+//   end
+// endtask
+
+task clk_gen(int peroid);
   clk <= 0;
   forever begin
-    #5 clk<= !clk;
+    #(peroid / 2) clk <= ~clk;
   end
 endtask
 
 initial begin
   // generate clk
+  clk_gen(20);
 end
 
 // reset trigger
@@ -62,6 +70,7 @@ endtask
 
 initial begin
   // trigger rstn
+    rstn_gen();
 end
 
 

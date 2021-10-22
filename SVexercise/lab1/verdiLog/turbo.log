@@ -1,3 +1,0 @@
-Command Line: /home/milo/apps/Synopsys/verdi_2016.06-1/platform/LINUXAMD64/bin/Novas -i -simflow -simBin ./simv -simDelim -a sim.log
-uname(Linux milo-VirtualBox 5.11.0-37-generic #41~20.04.2-Ubuntu SMP Fri Sep 24 09:06:38 UTC 2021 x86_64)
-au time 4091.362882 96.374571 41.302843 delta 206336000 206336000 total 536674304 536674304

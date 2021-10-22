@@ -1,3 +1,0 @@
-Command Line: /home/milo/apps/Synopsys/vcs_2016.06/linux64/bin/elabcom -logdir simv.daidir/elabcomLog -simvdaidir simv.daidir -lib simv.daidir/work -elab simv.daidir/kdb -simflow -top tb1  -ssz -ssv -ssy -ssz -ssv -ssy
-uname(Linux milo-VirtualBox 5.11.0-37-generic #41~20.04.2-Ubuntu SMP Fri Sep 24 09:06:38 UTC 2021 x86_64)
-au time 0.061633 0.011727 0.021277 delta 228257792 228257792 total 292823040 292823040

@@ -116,6 +116,7 @@ module CPU (
     wire [15:0] program_counter_next;
     wire alu_en;
     wire [5:0] alu_op;
+    wire [1:0] process_type;
 
     always @(posedge clk, negedge rst_n) begin
         if (!rst_n) begin
@@ -133,9 +134,34 @@ module CPU (
         .instruction(instruction_register),
         .pc_in(program_counter),
         .pc_out(program_counter_next),
-        .ready(ID_ready),
+        .ID_ready(ID_ready),
         .alu_en(alu_en),
-        .alu_op(alu_op)
+        .alu_op(alu_op),
+        .process_type(process_type)
     );
+
+    wire [7:0] psw_nxt;
+    wire [7:0] accumulator_nxt;
+    wire pro_ready;
+    // 处理指令
+    ProcessIns pro_ins(
+        .clk(clk),
+        .rst_n(rst_n),
+        .process_type(process_type),
+        .ID_ready(ID_ready),
+        .alu_en(alu_en),
+        .alu_op(alu_op),
+        .acc(accumulator),
+        .b(temp_register),
+        .psw(psw),
+        .psw_out(psw_nxt),
+        .ans(accumulator_nxt),
+        .pro_ready(pro_ready)
+    );
+    
+    always @(posedge clk) begin
+        accumulator <= accumulator_nxt;
+        psw <= psw_nxt;
+    end
 
 endmodule

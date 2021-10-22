@@ -17,19 +17,23 @@ function void set_name(string s);
 endfunction
 
 task chnl_write(input logic[31:0] data);
-  // USER TODO
-  // drive valid data
-  // ...
-
-  $display("%t channel initial [%s] sent data %x", $time, name, data);
-  chnl_idle();
+    // USER TODO
+    // drive valid data
+    @(posedge clk);
+    ch_data <= data;
+    ch_valid <= 1'b1;
+    @(negedge clk);
+    wait(ch_ready == 1);
+    $display("%t channel initial [%s] sent data %x", $time, name, data);
+    chnl_idle();
 endtask
 
 task chnl_idle();
   // USER TODO
   // drive idle data
-  // ...
-
+    @(posedge clk);
+    ch_valid <= 1'b0;
+    ch_data <= 32'b0;
 endtask
 
 endmodule
@@ -94,7 +98,14 @@ logic [31:0] chnl2_arr[];
 // USER TODO
 // generate 100 data for each dynamic array
 initial begin
-  //...
+    chnl0_arr = new[100];
+    chnl1_arr = new[100];
+    chnl2_arr = new[100];
+    foreach (chnl0_arr[i]) begin
+        chnl0_arr[i] = 32'h00c0_0000 + i;
+        chnl1_arr[i] = 32'h00c1_0000 + i;
+        chnl2_arr[i] = 32'h00c2_0000 + i;
+    end
 end
 
 // USER TODO
