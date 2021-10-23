@@ -9,13 +9,13 @@
 module CPU (
     input               clk,        // 振荡时钟12M
     input               reset,      // 复位信号，低电平有效
-    inout   [7:0]       data_bus,   // 数据总线，16位寻址时用作高八位
-    output  reg[7:0]    addr_bus,    // 地址总线，以及16位寻址中的低八位
+    inout   [7:0]       data_bus,   // 数据总线
+    output  reg[15:0]   addr_bus,    // 地址总线
     input               EA,         // 内/外部程序存储器选择使能，1：内部；0：外部
     input   [1:0]       interupt,   // 中断控制信号
     input   [1:0]       timing,     // 计时器中断控制信号
     output  reg         read_en,    // 读数据使能
-    output  reg         write_en,   // 写数据使能
+    output              write_en,   // 写数据使能
     output              clk_1M,     // 机器周期
     output              clk_6M,    // 时钟周期
     output              ALE,        // 输出锁存控制信号
@@ -81,17 +81,26 @@ module CPU (
     reg[7:0]    status, status_nxt; // 状态
     reg[2:0]    nop_cnt, nop_cnt_nxt; // NOP指令空闲时钟计数器
     wire[2:0]   nop_cnt_minus1;
+    reg[15:0]   program_counter, program_counter_nxt;
+    wire[15:0]  program_counter_plus1;
+    reg         get_ins_done;
+
 
     // 计数器
-    assign nop_cnt_minus1 = nop_cnt - 1;
+    assign nop_cnt_minus1 = nop_cnt - 1'b1;
+    assign program_counter_plus1 = program_counter + 1'b1;
 
     // 状态转移逻辑，包含次态方程和相关线网的处理
     always @(*) begin
         status_nxt = status;
         nop_cnt_nxt = nop_cnt;
+        program_counter_nxt = program_counter;
         case (status)
             GET_INS:begin
-                
+                if (get_ins_done) begin // 当取指完成转移到下个状态
+                    status_nxt = INS_DECODE;
+                    program_counter_nxt = program_counter_plus1; // 
+                end
             end 
             INS_DECODE: begin
                 
@@ -127,106 +136,46 @@ module CPU (
 
     always @(posedge clk, negedge rst_n) begin
         if (!rst_n) begin
-            status <= 8'b0;
+            status <= GET_INS;
             nop_cnt <= NOP_DURATION;
+            program_counter <= 16'ha845;
         end
         else begin
             status <= status_nxt;
             nop_cnt <= nop_cnt_nxt;
+            program_counter <= program_counter_nxt;
         end
     end
 
-
-
-
-
-
-
-
-
-    wire[7:0]   data_in;
+    // data_bus双向端口设置
     reg[7:0]    data_out;
-    wire        read_en_nxt, write_en_nxt;
-
-
-    // io端口读写控制
-    assign write_en_nxt = ~read_en_nxt;
-    assign data_bus = (write_en) ? data_out : 8'bz;
+    wire[7:0]   data_in;
+    assign data_bus = (!read_en) ? data_out : 8'bz;
     assign data_in = data_bus;
+    assign write_en = ~read_en;
 
     // 取指
+    reg[7:0]    ins_register;
     always @(posedge clk, negedge rst_n) begin
         if (!rst_n) begin
-            read_en <= 1'b1;
-            instruction_register <= 8'b0;
+            ins_register <= 8'b0;
+            read_en <= 1'b0;
+            addr_bus <= 16'b0;
+            get_ins_done <= 1'b0;
+            data_out <= 8'b0;
         end
         else begin
-            get_instruction();
-        end
-    end
-
-    // 取指任务/取数任务
-    task get_instruction;
-        begin
-            addr_bus <= program_counter[7:0]; // 寻址地址送给地址总线
-            read_en <= 1'b1;  // 读使能
-            if (read_en) begin
-                instruction_register <= data_in; // 读指令
-                read_en <= 1'b0;
+            if (status == GET_INS) begin
+                addr_bus <= program_counter;
+                read_en <= 1'b1;
+                get_ins_done <= 1'b1;
+                if (read_en) begin
+                    ins_register <= data_in;
+                    read_en <= 1'b0;
+                    get_ins_done <= 1'b0;
+                end
             end
         end
-    endtask
-
-    wire ID_ready;
-    wire [15:0] program_counter_next;
-    wire alu_en;
-    wire [4:0] alu_op;
-    wire [1:0] process_type;
-
-    always @(posedge clk, negedge rst_n) begin
-        if (!rst_n) begin
-            program_counter <= 16'b0;
-        end
-        else begin
-            program_counter <= program_counter_next;
-        end
-    end
-    // 译码
-    InsDecoder ID(
-        .clk(clk),
-        .rst_n(rst_n),
-        .read_en(read_en),
-        .instruction(instruction_register),
-        .pc_in(program_counter),
-        .pc_out(program_counter_next),
-        .ID_ready(ID_ready),
-        .alu_en(alu_en),
-        .alu_op(alu_op),
-        .process_type(process_type)
-    );
-
-    wire [7:0] psw_nxt;
-    wire [7:0] accumulator_nxt;
-    wire pro_ready;
-    // 处理指令
-    ProcessIns pro_ins(
-        .clk(clk),
-        .rst_n(rst_n),
-        .process_type(process_type),
-        .ID_ready(ID_ready),
-        .alu_en(alu_en),
-        .alu_op(alu_op),
-        .acc(accumulator),
-        .b(temp_register),
-        .psw(psw),
-        .psw_out(psw_nxt),
-        .ans(accumulator_nxt),
-        .pro_ready(pro_ready)
-    );
-    
-    always @(posedge clk) begin
-        accumulator <= accumulator_nxt;
-        psw <= psw_nxt;
     end
 
 endmodule

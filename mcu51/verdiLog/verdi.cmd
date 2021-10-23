@@ -1,23 +1,50 @@
 debImport "-i" "-simflow" "-simBin" "./simv" "-simDelim" "-a sim.log"
 verdiWindowResize -win $_Verdi_1 -10 "19" "1920" "987"
 srcTBInvokeSim
+srcHBSelect "tb_get_ins.cpu" -win $_nTrace1
+srcSetScope -win $_nTrace1 "tb_get_ins.cpu" -delim "."
 srcSignalView -on
-srcSignalViewSelect "tb_get_ins.read_en"
-srcSignalViewSelect "tb_get_ins.read_en" "tb_get_ins.addr_bus\[7:0\]" \
-           "tb_get_ins.data_bus\[7:0\]" "tb_get_ins.data_out\[7:0\]" \
-           "tb_get_ins.clk" "tb_get_ins.rst_n" "tb_get_ins.instruction\[7:0\]"
-srcSignalViewSelect "tb_get_ins.read_en" "tb_get_ins.addr_bus\[7:0\]" \
-           "tb_get_ins.data_bus\[7:0\]" "tb_get_ins.data_out\[7:0\]" \
-           "tb_get_ins.clk" "tb_get_ins.rst_n" "tb_get_ins.instruction\[7:0\]"
+srcSignalViewSelect "tb_get_ins.cpu.EA"
+srcSignalViewSelect "tb_get_ins.cpu.EA" "tb_get_ins.cpu.clk" \
+           "tb_get_ins.cpu.reset" "tb_get_ins.cpu.interupt\[1:0\]" \
+           "tb_get_ins.cpu.timing\[1:0\]" "tb_get_ins.cpu.ALE" \
+           "tb_get_ins.cpu.PSEN" "tb_get_ins.cpu.clk_1M" \
+           "tb_get_ins.cpu.clk_6M" "tb_get_ins.cpu.read_en" \
+           "tb_get_ins.cpu.write_en" "tb_get_ins.cpu.addr_bus\[15:0\]" \
+           "tb_get_ins.cpu.data_bus\[7:0\]" "tb_get_ins.cpu.data_in\[7:0\]" \
+           "tb_get_ins.cpu.nop_cnt_minus1\[2:0\]" \
+           "tb_get_ins.cpu.program_counter_plus1\[15:0\]" \
+           "tb_get_ins.cpu.get_ins_done" "tb_get_ins.cpu.rst_n" \
+           "tb_get_ins.cpu.cnt_rst\[3:0\]" "tb_get_ins.cpu.data_out\[7:0\]" \
+           "tb_get_ins.cpu.ins_register\[7:0\]" \
+           "tb_get_ins.cpu.nop_cnt\[2:0\]" "tb_get_ins.cpu.nop_cnt_nxt\[2:0\]" \
+           "tb_get_ins.cpu.program_counter\[15:0\]" \
+           "tb_get_ins.cpu.program_counter_nxt\[15:0\]" \
+           "tb_get_ins.cpu.status\[7:0\]" "tb_get_ins.cpu.status_nxt\[7:0\]"
+srcSignalViewSelect "tb_get_ins.cpu.EA" "tb_get_ins.cpu.clk" \
+           "tb_get_ins.cpu.reset" "tb_get_ins.cpu.interupt\[1:0\]" \
+           "tb_get_ins.cpu.timing\[1:0\]" "tb_get_ins.cpu.ALE" \
+           "tb_get_ins.cpu.PSEN" "tb_get_ins.cpu.clk_1M" \
+           "tb_get_ins.cpu.clk_6M" "tb_get_ins.cpu.read_en" \
+           "tb_get_ins.cpu.write_en" "tb_get_ins.cpu.addr_bus\[15:0\]" \
+           "tb_get_ins.cpu.data_bus\[7:0\]" "tb_get_ins.cpu.data_in\[7:0\]" \
+           "tb_get_ins.cpu.nop_cnt_minus1\[2:0\]" \
+           "tb_get_ins.cpu.program_counter_plus1\[15:0\]" \
+           "tb_get_ins.cpu.get_ins_done" "tb_get_ins.cpu.rst_n" \
+           "tb_get_ins.cpu.cnt_rst\[3:0\]" "tb_get_ins.cpu.data_out\[7:0\]" \
+           "tb_get_ins.cpu.ins_register\[7:0\]" \
+           "tb_get_ins.cpu.nop_cnt\[2:0\]" "tb_get_ins.cpu.nop_cnt_nxt\[2:0\]" \
+           "tb_get_ins.cpu.program_counter\[15:0\]" \
+           "tb_get_ins.cpu.program_counter_nxt\[15:0\]" \
+           "tb_get_ins.cpu.status\[7:0\]" "tb_get_ins.cpu.status_nxt\[7:0\]"
 wvCreateWindow
 srcSignalViewAddSelectedToWave -win $_nTrace1
 srcTBRunSim -opt {100ns}
-wvSetCursor -win $_nWave3 31894.736842 -snap {("G2" 0)}
 srcSignalView -off
 verdiDockWidgetMaximize -dock windowDock_nWave_3
-wvSelectSignal -win $_nWave3 {( "G1" 7 )} 
-wvSelectSignal -win $_nWave3 {( "G1" 6 )} 
-wvSelectSignal -win $_nWave3 {( "G1" 4 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 16 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 15 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 17 )} 
 srcSignalView -on
 srcSignalView -off
 srcSignalView -on

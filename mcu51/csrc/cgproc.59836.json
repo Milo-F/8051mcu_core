@@ -1,0 +1,71 @@
+{
+    "Modules": {
+        "...MASTER...": {},
+        "std": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "tb_get_ins": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "ClkDiv": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        }
+    },
+    "ObjArchives": [
+        {
+            "objects": [
+                [
+                    "reYIK_d.o",
+                    41566
+                ],
+                [
+                    "GLQFB_d.o",
+                    34603
+                ],
+                [
+                    "PJbHW_d.o",
+                    19803
+                ]
+            ],
+            "archive": "archive.0/_59836_archive_1.a",
+            "size": 95972
+        }
+    ],
+    "CompUnits": {
+        "reYIK_d": {
+            "mod": "std",
+            "out": "reYIK_d.o",
+            "bytes": 41566,
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_59836_archive_1.a"
+        },
+        "amcQw_d": {
+            "mod": "...MASTER...",
+            "out": "objs/amcQw_d.o",
+            "bytes": 7568,
+            "mode": 4,
+            "checksum": 0
+        },
+        "PJbHW_d": {
+            "mod": "ClkDiv",
+            "out": "PJbHW_d.o",
+            "bytes": 19803,
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_59836_archive_1.a"
+        },
+        "GLQFB_d": {
+            "mod": "tb_get_ins",
+            "out": "GLQFB_d.o",
+            "bytes": 34603,
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_59836_archive_1.a"
+        }
+    },
+    "reusePaths": {}
+}

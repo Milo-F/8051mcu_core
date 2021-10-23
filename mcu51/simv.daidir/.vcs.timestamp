@@ -114,19 +114,16 @@ COLORTERM=truecolor
 CHROME_DESKTOP=code-url-handler.desktop
 BREAKPAD_DUMP_LOCATION=/home/milo/.config/Code/exthost Crash Reports
 0
-9
+6
 1633684846 ./CPU/ClkDiv.v
 1633685162 ./CPU/ALEGen.v
-1634869756 ./CPU/ALU.v
-1634890348 ./CPU/ProcessIns.v
-1634890216 ./CPU/InsDecoder.v
-1634890302 ./CPU/CPU.v
-1634786124 ./CPU/tb_get_ins.sv
-1634887706 filelist.f
+1634993596 ./CPU/CPU.v
+1634992686 ./CPU/tb_get_ins.sv
+1634991541 filelist.f
 1464145466 /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/vcsdp.tab
 4
 0 
 1464147802 /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libvirsim.so
 1464147272 /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/liberrorinf.so
 1464147248 /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libsnpsmalloc.so
-1634890363 simv.daidir
+1634993609 simv.daidir

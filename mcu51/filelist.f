@@ -6,8 +6,5 @@
 
 ./CPU/tb_get_ins.sv
 ./CPU/CPU.v
-./CPU/InsDecoder.v
-./CPU/ProcessIns.v
-./CPU/ALU.v
 ./CPU/ALEGen.v
 ./CPU/ClkDiv.v
