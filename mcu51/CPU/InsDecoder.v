@@ -23,6 +23,7 @@ module InsDecoder(
     parameter MOV = 2'b10;
     parameter CODE_CON = 2'b11;
 
+    // reg[1:0] ins_epoch = 2'b0; // 指令周期，当前表示指令需要几个额外执行周期
     reg ready = 1'b1;
 	// 两级寄存器缓冲一个流水线初始化间隙
     always @(posedge clk, negedge rst_n) begin
@@ -45,35 +46,40 @@ module InsDecoder(
 		end
 		else begin
 			@(posedge read_en);
-			case (instruction)
-				8'h00: begin // NOP: do nothing but program counter + 1
-					pc_out <= pc_in + 1'b1;
-                    process_type <= WAITE;
-				end
-				8'h01: begin // AJUMP
-					
-				end
-				8'h02: begin // LJUMP
-					
-				end
-				8'h03: begin // RR A
-					
-				end
-				8'h04: begin // INC A; A = A + 1;
-					pc_out <= pc_in + 1'b1;
-					alu_en <= 1'b1;
-					alu_op <= 5'h2;
-                    process_type <= ALU_CAL;
-				end	
-                8'h14: begin // DEC A; A = A - 1;
-                    pc_out <= pc_in + 1'b1;
-                    alu_en <= 1'b1;
-                    alu_op <= 5'h3;
-                    process_type <= ALU_CAL;
-                end
-				default: begin
-				end																														
-			endcase
+			// if (ins_epoch == 0)) begin // 当前字节是指令字节
+                case (instruction)
+                    8'h00: begin // NOP: do nothing but program counter + 1
+                        pc_out <= pc_in + 1'b1;
+                        process_type <= WAITE;
+                    end
+                    8'h01: begin // AJUMP
+                        
+                    end
+                    8'h02: begin // LJUMP
+                        
+                    end
+                    8'h03: begin // RR A
+                        
+                    end
+                    8'h04: begin // INC A; A = A + 1;
+                        pc_out <= pc_in + 1'b1;
+                        alu_en <= 1'b1;
+                        alu_op <= 5'h2;
+                        process_type <= ALU_CAL;
+                    end	
+                    8'h14: begin // DEC A; A = A - 1;
+                        pc_out <= pc_in + 1'b1;
+                        alu_en <= 1'b1;
+                        alu_op <= 5'h3;
+                        process_type <= ALU_CAL;
+                    end
+                    default: begin
+                    end																														
+			    endcase
+            // end
+            // else begin // 当前字节是操作数字节
+                
+            // end
 		end
 	end
 	// ALU使能关闭

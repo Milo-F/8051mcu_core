@@ -1,0 +1,132 @@
+0 
+32
++itf+/home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/vcsdp.tab
++memcbk
++v2k
++vcsd
++vpi
+-Mamsrun=
+-Masflags=
+-Mcc=gcc-4.8
+-Mcfl= -pipe -fPIC -O -I/home/milo/apps/Synopsys/vcs_2016.06/include
+-Mcplusplus=g++-4.8
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=
+-Mexternalobj=
+-Mldflags= -Wl,--no-as-needed -rdynamic
+-Mobjects= /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libvirsim.so /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/liberrorinf.so /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libsnpsmalloc.so
+-Mout=simv
+-Msaverestoreobj=/home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/vcs_save_restore_new.o
+-Msyslibs=-ldl
+-Mvcsaceobjs=
+-Mxcflags= -pipe -fPIC -I/home/milo/apps/Synopsys/vcs_2016.06/include
+-Xpiyushb1=0x80
+-debug_access+all+dmptf+bc
+-debug_region=cell+lib
+-f filelist.f
+-full64
+-gen_obj
+-l
+-picarchive
+-sverilog
+/home/milo/apps/Synopsys/vcs_2016.06/linux64/bin/vcs1
+com.log
+80
+sysc_uni_pwd=/home/milo/Codes/ICCodes/mcu51
+XMODIFIERS=@im=ibus
+XDG_SESSION_TYPE=x11
+XDG_SESSION_DESKTOP=ubuntu
+XDG_SESSION_CLASS=user
+XDG_RUNTIME_DIR=/run/user/1000
+XDG_MENU_PREFIX=gnome-
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+XDG_CURRENT_DESKTOP=Unity
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+VSCODE_GIT_IPC_HANDLE=/run/user/1000/vscode-git-0e85bf0852.sock
+VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
+VSCODE_GIT_ASKPASS_MAIN=/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
+VMR_MODE_FLAG=64
+VERDI_HOME=/home/milo/apps/Synopsys/verdi_2016.06-1
+VCS_MX_HOME_INTERNAL=1
+VCS_MODE_FLAG=64
+VCS_LOG_FILE=com.log
+VCS_LCAMSG_PRINT_OFF=1
+VCS_HOME=/home/milo/apps/Synopsys/vcs_2016.06
+VCS_DEPTH=0
+VCS_ARG_ADDED_FOR_TMP=1
+VCS_ARCH_OVERRIDE=linux
+VCS_ARCH=linux64
+UVM_HOME=/home/milo/UVM/1800.2-2020-1.1
+USERNAME=milo
+UNAME=/bin/uname
+TOOL_HOME=/home/milo/apps/Synopsys/vcs_2016.06/linux64
+TERM_PROGRAM_VERSION=1.60.2
+TERM_PROGRAM=vscode
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+SSH_AGENT_PID=1214
+SESSION_MANAGER=local/milo-VirtualBox:@/tmp/.ICE-unix/1286,unix/milo-VirtualBox:/tmp/.ICE-unix/1286
+SCRNAME=vcs
+SCRIPT_NAME=vcs
+QT_IM_MODULE=ibus
+QT_ACCESSIBILITY=1
+PAPERSIZE=a4
+OVA_UUM=0
+ORIGINAL_XDG_CURRENT_DESKTOP=ubuntu:GNOME
+NOVAS_HOME=/home/milo/apps/Synopsys/verdi_2016.06-1
+MFLAGS=
+MANAGERPID=977
+MAKE_TERMOUT=/dev/pts/0
+MAKE_TERMERR=/dev/pts/0
+MAKELEVEL=1
+MAKEFLAGS=
+LESSOPEN=| /usr/bin/lesspipe %s
+LESSCLOSE=/usr/bin/lesspipe %s %s
+LC_TIME=zh_CN.UTF-8
+LC_TELEPHONE=zh_CN.UTF-8
+LC_PAPER=zh_CN.UTF-8
+LC_NUMERIC=zh_CN.UTF-8
+LC_NAME=zh_CN.UTF-8
+LC_MONETARY=zh_CN.UTF-8
+LC_MEASUREMENT=zh_CN.UTF-8
+LC_IDENTIFICATION=zh_CN.UTF-8
+LC_ALL=C
+LC_ADDRESS=zh_CN.UTF-8
+JOURNAL_STREAM=8:32811
+INVOCATION_ID=0ab39af0ff79455d9fc2fc5eac41c9d0
+IM_CONFIG_PHASE=1
+GTK_MODULES=gail:atk-bridge
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+GNOME_SHELL_SESSION_MODE=ubuntu
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GJS_DEBUG_TOPICS=JS ERROR;JS LOG
+GJS_DEBUG_OUTPUT=stderr
+GIT_ASKPASS=/usr/share/code/resources/app/extensions/git/dist/askpass.sh
+GIO_LAUNCHED_DESKTOP_FILE_PID=2484
+GIO_LAUNCHED_DESKTOP_FILE=/usr/share/applications/code.desktop
+GDMSESSION=ubuntu
+GDK_BACKEND=x11
+DESKTOP_SESSION=ubuntu
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+COLORTERM=truecolor
+CHROME_DESKTOP=code-url-handler.desktop
+BREAKPAD_DUMP_LOCATION=/home/milo/.config/Code/exthost Crash Reports
+0
+9
+1633684846 ./CPU/ClkDiv.v
+1633685162 ./CPU/ALEGen.v
+1634869756 ./CPU/ALU.v
+1634890348 ./CPU/ProcessIns.v
+1634890216 ./CPU/InsDecoder.v
+1634890302 ./CPU/CPU.v
+1634786124 ./CPU/tb_get_ins.sv
+1634887706 filelist.f
+1464145466 /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/vcsdp.tab
+4
+0 
+1464147802 /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libvirsim.so
+1464147272 /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/liberrorinf.so
+1464147248 /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libsnpsmalloc.so
+1634890363 simv.daidir

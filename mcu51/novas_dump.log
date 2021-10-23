@@ -1,0 +1,506 @@
+ANF: vcsd_register_1st_RTL_rfn('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vcsd_register_1st_RTL_rfn')
+ANF: vcsd_register_1st_sequential_rfn('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vcsd_register_1st_sequential_rfn')
+ANF: vcsd_register_2nd_RTL_rfn('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vcsd_register_2nd_RTL_rfn')
+ANF: vcsd_register_2nd_sequential_rfn('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vcsd_register_2nd_sequential_rfn')
+ANF: scsd_xprop_is_enabled('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: scsd_xprop_is_enabled')
+ANF: scsd_xprop_sig_is_promoted('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: scsd_xprop_sig_is_promoted')
+ANF: scsd_xprop_int_xvalue('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: scsd_xprop_int_xvalue')
+ANF: scsd_xprop_bool_xvalue('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: scsd_xprop_bool_xvalue')
+ANF: scsd_xprop_enum_xvalue('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: scsd_xprop_enum_xvalue')
+ANF: scsd_xprop_register_merge_mode_cb('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: scsd_xprop_register_merge_mode_cb')
+ANF: scsd_xprop_delete_merge_mode_cb('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: scsd_xprop_delete_merge_mode_cb')
+ANF: scsd_xprop_get_merge_mode('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: scsd_xprop_get_merge_mode')
+ANF: msvEnableDumpingMode('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvEnableDumpingMode')
+ANF: msvGetVersion('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvGetVersion')
+ANF: msvGetInstProp('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvGetInstProp')
+ANF: msvIsSpiceEngineReady('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvIsSpiceEngineReady')
+ANF: msvSetAddProbeCallback('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvSetAddProbeCallback')
+ANF: msvGetInstHandle('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvGetInstHandle')
+ANF: msvGetProbeByInst('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvGetProbeByInst')
+ANF: msvGetSigHandle('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvGetSigHandle')
+ANF: msvGetProbeBySig('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvGetProbeBySig')
+ANF: msvGetProbeInfo('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvGetProbeInfo')
+ANF: msvRelease('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvRelease')
+ANF: msvSetVcCallbackFunc('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvSetVcCallbackFunc')
+ANF: msvCheckVcCallback('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvCheckVcCallback')
+ANF: msvAddVcCallback('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvAddVcCallback')
+ANF: msvRemoveVcCallback('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvRemoveVcCallback')
+ANF: msvGetLatestValue('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvGetLatestValue')
+ANF: msvSetEndofSimCallback('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvSetEndofSimCallback')
+ANF: msvIgnoredProbe('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvIgnoredProbe')
+ANF: msvGetThruNetInfo('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvGetThruNetInfo')
+ANF: msvFreeThruNetInfo('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvFreeThruNetInfo')
+ANF: PI_ace_get_output_time_unit('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: PI_ace_get_output_time_unit')
+ANF: PI_ace_sim_sync('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: PI_ace_sim_sync')
+ANF: msvGetRereadInitFile('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvGetRereadInitFile')
+ANF: msvSetBeforeRereadCallback('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvSetBeforeRereadCallback')
+ANF: msvSetAfterRereadCallback('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvSetAfterRereadCallback')
+ANF: msvSetForceCallback('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvSetForceCallback')
+ANF: msvSetReleaseCallback('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvSetReleaseCallback')
+ANF: msvGetForceStatus('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: msvGetForceStatus')
+ANF: vhdi_dt_get_type('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_dt_get_type')
+ANF: vhdi_dt_get_key('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_dt_get_key')
+ANF: vhdi_dt_get_vhdl_enum_info('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_dt_get_vhdl_enum_info')
+ANF: vhdi_dt_get_vhdl_physical_info('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_dt_get_vhdl_physical_info')
+ANF: vhdi_dt_get_vhdl_array_info('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_dt_get_vhdl_array_info')
+ANF: vhdi_dt_get_vhdl_record_info('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_dt_get_vhdl_record_info')
+ANF: vhdi_def_traverse_module('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_def_traverse_module')
+ANF: vhdi_def_traverse_scope('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_def_traverse_scope')
+ANF: vhdi_def_traverse_variable('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_def_traverse_variable')
+ANF: vhdi_def_get_module_id_by_vhpi('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_def_get_module_id_by_vhpi')
+ANF: vhdi_def_get_handle_by_module_id('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_def_get_handle_by_module_id')
+ANF: vhdi_def_free('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_def_free')
+ANF: vhdi_ist_traverse_scope('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_ist_traverse_scope')
+ANF: vhdi_ist_traverse_variable('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_ist_traverse_variable')
+ANF: vhdi_ist_convert_by_vhpi('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_ist_convert_by_vhpi')
+ANF: vhdi_ist_clone('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_ist_clone')
+ANF: vhdi_ist_free('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_ist_free')
+ANF: vhdi_ist_hash_key('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_ist_hash_key')
+ANF: vhdi_ist_compare('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_ist_compare')
+ANF: vhdi_ist_get_value_addr('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_ist_get_value_addr')
+ANF: vhdi_set_scsd_callback('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_set_scsd_callback')
+ANF: vhdi_ist_check_scsd_callback('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_ist_check_scsd_callback')
+ANF: vhdi_ist_add_scsd_callback('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_ist_add_scsd_callback')
+ANF: vhdi_ist_remove_scsd_callback('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_ist_remove_scsd_callback')
+ANF: vhdi_ist_get_scsd_user_data('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_ist_get_scsd_user_data')
+ANF: vhdi_add_time_change_callback('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_add_time_change_callback')
+ANF: vhdi_get_real_value_by_value_addr('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_get_real_value_by_value_addr')
+ANF: vhdi_get_64_value_by_value_addr('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_get_64_value_by_value_addr')
+ANF: vhdi_xprop_inst_is_promoted('/home/milo/Codes/ICCodes/mcu51/simv: undefined symbol: vhdi_xprop_inst_is_promoted')
+VCS compile option:
+ option[0]: /home/milo/Codes/ICCodes/mcu51/simv
+ option[1]: -ucli
+ option[2]: -a
+ option[3]: sim.log
+ option[4]: +UVM_CONFIG_DB_TRACE
+ option[5]: +UVM_PHASE_TRACE
+ option[6]: +UVM_OBJECTION_TRACE
+ option[7]: +UVM_RESOURCE_DB_TRACE
+ option[8]: +UVM_LOG_RECORD
+ option[9]: +UVM_VERDI_TRACE=UVM_AWARE
+ option[10]: -ucli2Proc
+ option[11]: -lca
+ option[12]: /home/milo/apps/Synopsys/vcs_2016.06/linux64/bin/vcs1
+ option[13]: -Mcc=gcc-4.8
+ option[14]: -Mcplusplus=g++-4.8
+ option[15]: -Masflags=
+ option[16]: -Mcfl= -pipe -fPIC -O -I/home/milo/apps/Synopsys/vcs_2016.06/include 
+ option[17]: -Mxcflags= -pipe -fPIC -I/home/milo/apps/Synopsys/vcs_2016.06/include
+ option[18]: -Mldflags= -Wl,--no-as-needed -rdynamic 
+ option[19]: -Mout=simv
+ option[20]: -Mamsrun=
+ option[21]: -Mvcsaceobjs=
+ option[22]: -Mobjects= /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libvirsim.so /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/liberrorinf.so /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libsnpsmalloc.so 
+ option[23]: -Mexternalobj=
+ option[24]: -Msaverestoreobj=/home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/vcs_save_restore_new.o
+ option[25]: -Mcrt0=
+ option[26]: -Mcrtn=
+ option[27]: -Mcsrc=
+ option[28]: -Msyslibs=-ldl 
+ option[29]: -l
+ option[30]: com.log
+ option[31]: -full64
+ option[32]: +v2k
+ option[33]: -debug_access+all+dmptf+bc
+ option[34]: +vpi
+ option[35]: +vcsd
+ option[36]: +memcbk
+ option[37]: +itf+/home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/vcsdp.tab
+ option[38]: -debug_region=cell+lib
+ option[39]: -Xpiyushb1=0x80
+ option[40]: -picarchive
+ option[41]: -sverilog
+ option[42]: -gen_obj
+ option[43]: -f
+ option[44]: filelist.f
+Chronologic Simulation VCS Release L-2016.06_Full64
+Linux 5.11.0-38-generic #42~20.04.1-Ubuntu SMP Tue Sep 28 20:41:07 UTC 2021 x86_64
+CPU cores: 4
+Limit information:
+======================================
+cputime			unlimited
+filesize		unlimited
+datasize		unlimited
+stacksize		8192 kbytes
+coredumpsize	0 kbytes
+memoryuse		unlimited
+vmemoryuse		unlimited
+descriptors		1048576
+memorylocked	65536 kbytes
+maxproc			19509
+======================================
+(Special)Runtime environment variables:
+
+Runtime environment variables:
+SHELL=/bin/bash
+SESSION_MANAGER=local/milo-VirtualBox:@/tmp/.ICE-unix/1286,unix/milo-VirtualBox:/tmp/.ICE-unix/1286
+QT_ACCESSIBILITY=1
+COLORTERM=truecolor
+VCS_ARCH_OVERRIDE=linux
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_MENU_PREFIX=gnome-
+TERM_PROGRAM_VERSION=1.60.2
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+VCS_HOME=/home/milo/apps/Synopsys/vcs_2016.06
+LANGUAGE=zh_CN:en_US:en
+MAKE_TERMOUT=/dev/pts/0
+SPS_RGB_PATH=/home/milo/apps/Synopsys/verdi_2016.06-1/etc/rgb
+LC_ADDRESS=zh_CN.UTF-8
+GNOME_SHELL_SESSION_MODE=ubuntu
+LC_NAME=zh_CN.UTF-8
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+BREAKPAD_DUMP_LOCATION=/home/milo/.config/Code/exthost Crash Reports
+XMODIFIERS=@im=none
+VERDI_HOME=/home/milo/apps/Synopsys/verdi_2016.06-1
+DESKTOP_SESSION=ubuntu
+LC_MONETARY=zh_CN.UTF-8
+SSH_AGENT_PID=1214
+GTK_MODULES=gail:atk-bridge
+PWD=/home/milo/Codes/ICCodes/mcu51
+LOGNAME=milo
+XDG_SESSION_DESKTOP=ubuntu
+XDG_SESSION_TYPE=x11
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+SPS_FONT_PATH=/home/milo/apps/Synopsys/verdi_2016.06-1/font
+VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
+GJS_DEBUG_TOPICS=JS ERROR;JS LOG
+WINDOWPATH=2
+XNLSPATH=/home/milo/apps/Synopsys/verdi_2016.06-1/etc/access/nls
+HOME=/home/milo
+USERNAME=milo
+IM_CONFIG_PHASE=1
+LD_NOVERSION=1
+LANG=C
+LC_PAPER=zh_CN.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+XDG_CURRENT_DESKTOP=Unity
+GIT_ASKPASS=/usr/share/code/resources/app/extensions/git/dist/askpass.sh
+UVM_HOME=/home/milo/UVM/1800.2-2020-1.1
+INVOCATION_ID=0ab39af0ff79455d9fc2fc5eac41c9d0
+VERDI_ORIGNAL_LD_LIBRARY_PATH=
+MANAGERPID=977
+CHROME_DESKTOP=code-url-handler.desktop
+MFLAGS=
+GJS_DEBUG_OUTPUT=stderr
+SPS_XFONT_PATH=/home/milo/apps/Synopsys/verdi_2016.06-1/XFont
+NOVASHLPPATH=/home/milo/apps/Synopsys/verdi_2016.06-1/doc
+LESSCLOSE=/usr/bin/lesspipe %s %s
+MAKEFLAGS=
+XDG_SESSION_CLASS=user
+TERM=xterm-256color
+LC_IDENTIFICATION=zh_CN.UTF-8
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=milo
+MAKE_TERMERR=/dev/pts/0
+VSCODE_GIT_IPC_HANDLE=/run/user/1000/vscode-git-0e85bf0852.sock
+DISPLAY=:0
+VCS_PATHMAP_PRELOAD_DONE=1
+SHLVL=1
+MAKELEVEL=1
+LC_TELEPHONE=zh_CN.UTF-8
+QT_IM_MODULE=ibus
+LC_MEASUREMENT=zh_CN.UTF-8
+NOVAS_SYNC_MOTIF_DISP=
+PAPERSIZE=a4
+LM_LICENSE_FILE=27000@milo-VirtualBox
+LD_LIBRARY_PATH=
+XDG_RUNTIME_DIR=/run/user/1000
+LC_TIME=zh_CN.UTF-8
+SYS_PROG_NAME=verdi
+LC_ALL=C
+VSCODE_GIT_ASKPASS_MAIN=/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
+JOURNAL_STREAM=8:32811
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+GDK_BACKEND=x11
+PATH=/bin:/home/milo/.local/bin:/home/milo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/milo/apps/Synopsys/vcs_2016.06/gui/dve/bin:/home/milo/apps/Synopsys/vcs_2016.06/bin:/home/milo/apps/Synopsys/verdi_2016.06-1/bin:/home/milo/apps/Synopsys/scl_11.9/linux/bin:/home/milo/apps/Synopsys/vcs_2016.06/gui/dve/bin:/home/milo/apps/Synopsys/vcs_2016.06/bin:/home/milo/apps/Synopsys/verdi_2016.06-1/bin:/home/milo/apps/Synopsys/scl_11.9/linux/bin
+GDMSESSION=ubuntu
+ORIGINAL_XDG_CURRENT_DESKTOP=ubuntu:GNOME
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+QT_PLUGIN_PATH=/home/milo/apps/Synopsys/verdi_2016.06-1/platform/LINUXAMD64/bin/plugins
+SYS_INST_DIR=/home/milo/apps/Synopsys/verdi_2016.06-1
+GIO_LAUNCHED_DESKTOP_FILE_PID=2484
+GIO_LAUNCHED_DESKTOP_FILE=/usr/share/applications/code.desktop
+LC_NUMERIC=zh_CN.UTF-8
+OLDPWD=/home/milo/Codes/ICCodes
+NOVAS_HOME=/home/milo/apps/Synopsys/verdi_2016.06-1
+TERM_PROGRAM=vscode
+NOVAS_LC_ALL=C
+NOVAS_SIGNAL_BASE_EXTRACTION=1
+SIGNAL_BASE_EXTRACTION=1
+NOVAS_VERDI_SVTB_BETA=1
+VERDI_SVTB_BETA=1
+NOVAS_VERDI_SVTB_ALPHA=1
+VERDI_SVTB_ALPHA=1
+NOVAS_WAVE_REDRAW_ALLVC=1
+WAVE_REDRAW_ALLVC=1
+NOVAS_TCL_LIBRARY=/home/milo/apps/Synopsys/verdi_2016.06-1/etc/access/tcl86_library
+TCL_LIBRARY=/home/milo/apps/Synopsys/verdi_2016.06-1/etc/access/tcl86_library
+XKEYSYMDB=/home/milo/apps/Synopsys/verdi_2016.06-1/etc/access/XKeysymDB2.1
+XLOCALEDIR=/home/milo/apps/Synopsys/verdi_2016.06-1/etc/access/locale
+NOVAS_SIGNAL_BASED_BA=0
+SIGNAL_BASED_BA=0
+SYNOPSYS_SIM=/home/milo/apps/Synopsys/vcs_2016.06
+DISABLE_LIBRARY_MAP_CHECK=1
+SNPS_SIM_DEFAULT_GUI=verdi
+FSDB_FILE=/home/milo/Codes/ICCodes/mcu51/inter.fsdb
+VCS_UCLI_STDIN_BLOCKING=1
+FSDB_RD_IR_ENABLE=1
+FSDB_SVA_STATUS=1
+VCS_STOP_SAFE=1
+DVE_SIM_SELECT_LOOP=on
+VCS_LCAMSG_PRINT_OFF=1
+Runtime command line arguments:
+argv[0]=/home/milo/Codes/ICCodes/mcu51/simv
+argv[1]=-ucli
+argv[2]=-a
+argv[3]=sim.log
+argv[4]=+UVM_CONFIG_DB_TRACE
+argv[5]=+UVM_PHASE_TRACE
+argv[6]=+UVM_OBJECTION_TRACE
+argv[7]=+UVM_RESOURCE_DB_TRACE
+argv[8]=+UVM_LOG_RECORD
+argv[9]=+UVM_VERDI_TRACE=UVM_AWARE
+argv[10]=-ucli2Proc
+argv[11]=-lca
+265 profile - 100
+          CPU/Mem usage: 0.010 sys,  0.020 user,  143.46M sys,  0.00M vm
+266 VC callback profile - scalar:0 vector:0
+267 Fri Oct 22 16:13:04 2021
+268 pliAppInit
+269 ndpGetenv(FSDB_FILE): /home/milo/Codes/ICCodes/mcu51/inter.fsdb
+270 ndpGetenv(FSDB_SVA_STATUS): 1
+271 *Verdi3* : FSDB_GATE is set.
+272 *Verdi3* : FSDB_RTL is set.
+273 *Verdi3* : Enable Parallel Dumping.
+274 pliAppMiscSet: New Sim Round
+275 pliEntryInit
+276 LIBSSCORE=found /home/milo/apps/Synopsys/verdi_2016.06-1/share/PLI/lib/LINUXAMD64/libsscore_vcs201606.so through $NOVAS_HOME setting.
+277 FSDB Dumper for VCS, Release Verdi3_L-2016.06-1, Linux x86_64/64bit, 07/10/2016
+278 (C) 1996 - 2016 by Synopsys, Inc.
+279 sps_tcl_fsdbDumpfile
+280 argv[0]: /home/milo/Codes/ICCodes/mcu51/inter.fsdb
+281 *Verdi3* : Create FSDB file '/home/milo/Codes/ICCodes/mcu51/inter.fsdb'
+282 sps_tcl_fsdbDumpflush
+283 *Verdi3* : Flush all FSDB Files at 0 ps.
+284 sps_tcl_fsdbDumpflush
+285 *Verdi3* : Flush all FSDB Files at 0 ps.
+286 sps_tcl_fsdbDumpvars
+287 argv[0]: 1
+288 argv[1]: tb_get_ins.read_en
+289 *Verdi3* : Dumping the signal (tb_get_ins.read_en).
+290 fsdbDumpvars traverse var: profile - 
+          CPU/Mem usage: 0.020 sys,  0.060 user,  249.18M sys,  0.00M vm
+                   incr: 0.010 sys,  0.000 user,  8.24M sys,  0.00M vm
+                   accu: 0.010 sys,  0.000 user,  8.24M sys,  0.00M vm
+              accu incr: 0.010 sys,  0.000 user,  8.24M sys,  0.00M vm
+
+          Count usage: 1 var,  1 idcode,  1 callback
+                 incr: 1 var,  1 idcode,  1 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 1 var,  1 idcode,  1 callback
+291 VC callback profile - scalar:0 vector:0
+292 Fri Oct 22 16:13:17 2021
+293 fsdbDumpvars: profile - 
+          CPU/Mem usage: 0.020 sys,  0.060 user,  250.23M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  1.05M sys,  0.00M vm
+                   accu: 0.010 sys,  0.000 user,  9.29M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  1.05M sys,  0.00M vm
+
+          Count usage: 1 var,  1 idcode,  1 callback
+                 incr: 0 var,  0 idcode,  0 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 0 var,  0 idcode,  0 callback
+294 VC callback profile - scalar:1 vector:0
+295 Fri Oct 22 16:13:17 2021
+296 sps_tcl_fsdbDumpflush
+297 *Verdi3* : Flush all FSDB Files at 0 ps.
+298 sps_tcl_fsdbDumpvars
+299 argv[0]: 1
+300 argv[1]: tb_get_ins.addr_bus
+301 *Verdi3* : Dumping the signal (tb_get_ins.addr_bus).
+302 fsdbDumpvars traverse var: profile - 
+          CPU/Mem usage: 0.020 sys,  0.060 user,  251.98M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+
+          Count usage: 2 var,  2 idcode,  2 callback
+                 incr: 1 var,  1 idcode,  1 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 1 var,  1 idcode,  1 callback
+303 VC callback profile - scalar:1 vector:0
+304 Fri Oct 22 16:13:17 2021
+305 fsdbDumpvars: profile - 
+          CPU/Mem usage: 0.020 sys,  0.060 user,  251.98M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  -0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  -0.00M sys,  0.00M vm
+
+          Count usage: 2 var,  2 idcode,  2 callback
+                 incr: 0 var,  0 idcode,  0 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 0 var,  0 idcode,  0 callback
+306 VC callback profile - scalar:1 vector:1
+307 Fri Oct 22 16:13:17 2021
+308 sps_tcl_fsdbDumpflush
+309 *Verdi3* : Flush all FSDB Files at 0 ps.
+310 sps_tcl_fsdbDumpvars
+311 argv[0]: 1
+312 argv[1]: tb_get_ins.data_bus
+313 *Verdi3* : Dumping the signal (tb_get_ins.data_bus).
+314 fsdbDumpvars traverse var: profile - 
+          CPU/Mem usage: 0.020 sys,  0.060 user,  251.98M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+
+          Count usage: 3 var,  3 idcode,  3 callback
+                 incr: 1 var,  1 idcode,  1 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 1 var,  1 idcode,  1 callback
+315 VC callback profile - scalar:1 vector:1
+316 Fri Oct 22 16:13:17 2021
+317 fsdbDumpvars: profile - 
+          CPU/Mem usage: 0.020 sys,  0.060 user,  251.98M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  -0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  -0.00M sys,  0.00M vm
+
+          Count usage: 3 var,  3 idcode,  3 callback
+                 incr: 0 var,  0 idcode,  0 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 0 var,  0 idcode,  0 callback
+318 VC callback profile - scalar:1 vector:2
+319 Fri Oct 22 16:13:17 2021
+320 sps_tcl_fsdbDumpflush
+321 *Verdi3* : Flush all FSDB Files at 0 ps.
+322 sps_tcl_fsdbDumpvars
+323 argv[0]: 1
+324 argv[1]: tb_get_ins.data_out
+325 *Verdi3* : Dumping the signal (tb_get_ins.data_out).
+326 fsdbDumpvars traverse var: profile - 
+          CPU/Mem usage: 0.020 sys,  0.060 user,  253.03M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  1.06M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  1.06M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  1.06M sys,  0.00M vm
+
+          Count usage: 4 var,  4 idcode,  3 callback
+                 incr: 1 var,  1 idcode,  0 callback
+                 accu: 1 var,  1 idcode,  0 callback
+            accu incr: 1 var,  1 idcode,  0 callback
+327 VC callback profile - scalar:1 vector:2
+328 Fri Oct 22 16:13:17 2021
+329 fsdbDumpvars: profile - 
+          CPU/Mem usage: 0.020 sys,  0.060 user,  253.03M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  -0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  1.05M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  -0.00M sys,  0.00M vm
+
+          Count usage: 4 var,  4 idcode,  3 callback
+                 incr: 0 var,  0 idcode,  0 callback
+                 accu: 1 var,  1 idcode,  0 callback
+            accu incr: 0 var,  0 idcode,  0 callback
+330 VC callback profile - scalar:1 vector:2
+331 Fri Oct 22 16:13:17 2021
+332 sps_tcl_fsdbDumpflush
+333 *Verdi3* : Flush all FSDB Files at 0 ps.
+334 sps_tcl_fsdbDumpvars
+335 argv[0]: 1
+336 argv[1]: tb_get_ins.clk
+337 *Verdi3* : Dumping the signal (tb_get_ins.clk).
+338 fsdbDumpvars traverse var: profile - 
+          CPU/Mem usage: 0.020 sys,  0.060 user,  253.03M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+
+          Count usage: 5 var,  5 idcode,  4 callback
+                 incr: 1 var,  1 idcode,  1 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 1 var,  1 idcode,  1 callback
+339 VC callback profile - scalar:1 vector:2
+340 Fri Oct 22 16:13:17 2021
+341 fsdbDumpvars: profile - 
+          CPU/Mem usage: 0.020 sys,  0.060 user,  253.03M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  -0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  -0.00M sys,  0.00M vm
+
+          Count usage: 5 var,  5 idcode,  4 callback
+                 incr: 0 var,  0 idcode,  0 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 0 var,  0 idcode,  0 callback
+342 VC callback profile - scalar:2 vector:2
+343 Fri Oct 22 16:13:17 2021
+344 sps_tcl_fsdbDumpflush
+345 *Verdi3* : Flush all FSDB Files at 0 ps.
+346 sps_tcl_fsdbDumpvars
+347 argv[0]: 1
+348 argv[1]: tb_get_ins.rst_n
+349 *Verdi3* : Dumping the signal (tb_get_ins.rst_n).
+350 fsdbDumpvars traverse var: profile - 
+          CPU/Mem usage: 0.030 sys,  0.060 user,  253.03M sys,  0.00M vm
+                   incr: 0.010 sys,  0.000 user,  0.00M sys,  0.00M vm
+                   accu: 0.010 sys,  0.000 user,  0.00M sys,  0.00M vm
+              accu incr: 0.010 sys,  0.000 user,  0.00M sys,  0.00M vm
+
+          Count usage: 6 var,  6 idcode,  5 callback
+                 incr: 1 var,  1 idcode,  1 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 1 var,  1 idcode,  1 callback
+351 VC callback profile - scalar:2 vector:2
+352 Fri Oct 22 16:13:17 2021
+353 fsdbDumpvars: profile - 
+          CPU/Mem usage: 0.030 sys,  0.060 user,  253.03M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  -0.00M sys,  0.00M vm
+                   accu: 0.010 sys,  0.000 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  -0.00M sys,  0.00M vm
+
+          Count usage: 6 var,  6 idcode,  5 callback
+                 incr: 0 var,  0 idcode,  0 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 0 var,  0 idcode,  0 callback
+354 VC callback profile - scalar:3 vector:2
+355 Fri Oct 22 16:13:17 2021
+356 sps_tcl_fsdbDumpflush
+357 *Verdi3* : Flush all FSDB Files at 0 ps.
+358 sps_tcl_fsdbDumpvars
+359 argv[0]: 1
+360 argv[1]: tb_get_ins.instruction
+361 *Verdi3* : Dumping the signal (tb_get_ins.instruction).
+362 fsdbDumpvars traverse var: profile - 
+          CPU/Mem usage: 0.030 sys,  0.060 user,  253.03M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+
+          Count usage: 7 var,  7 idcode,  6 callback
+                 incr: 1 var,  1 idcode,  1 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 1 var,  1 idcode,  1 callback
+363 VC callback profile - scalar:3 vector:2
+364 Fri Oct 22 16:13:17 2021
+365 fsdbDumpvars: profile - 
+          CPU/Mem usage: 0.030 sys,  0.060 user,  253.03M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  -0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  -0.00M sys,  0.00M vm
+
+          Count usage: 7 var,  7 idcode,  6 callback
+                 incr: 0 var,  0 idcode,  0 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 0 var,  0 idcode,  0 callback
+366 VC callback profile - scalar:3 vector:3
+367 Fri Oct 22 16:13:17 2021
+368 sps_tcl_fsdbDumpflush
+369 *Verdi3* : Flush all FSDB Files at 0 ps.
+370 sps_tcl_fsdbDumpflush
+371 *Verdi3* : Flush all FSDB Files at 100,000 ps.
+372 End of simulation at 100000
+373 VC callback profile - scalar:150 vector:121
+374 Fri Oct 22 16:13:39 2021
+375 Parallel profile    -  Flush:19 Expand:0 ProduceWait:0 ConsumerWait:0 BlockUsed:0
+376                        ProduceTime:0.101601851 ConsumerTime:0.000000000 Buffer:64MB
+377 SimExit
+378 Sim process exit

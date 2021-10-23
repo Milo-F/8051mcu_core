@@ -7,7 +7,7 @@ module ProcessIns (
     input clk,
     input rst_n,
 
-    input process_type, // 指令处理类型，空、算术、数据转移
+    input [1:0] process_type, // 指令处理类型，空、算术、数据转移
     input ID_ready, // 控制时钟
     input alu_en, // alu使能
     input [4:0] alu_op, // alu功能选择
