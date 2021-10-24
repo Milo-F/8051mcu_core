@@ -15,10 +15,10 @@ module CPU (
     input   [1:0]       interupt,   // 中断控制信号
     input   [1:0]       timing,     // 计时器中断控制信号
     output  reg         read_en,    // 读数据使能
-    output              write_en,   // 写数据使能
+    output  reg         write_en,   // 写数据使能
     output              clk_1M,     // 机器周期
     output              clk_6M,    // 时钟周期
-    output              ALE,        // 输出锁存控制信号
+    // output              ALE,        // 输出锁存控制信号
     output              PSEN        // 外部程序存储器访问控制信号
 );
 
@@ -55,16 +55,16 @@ module CPU (
         .rst_n(rst_n),
         .clk_out(clk_1M)
     );
-    // ALE信号产生
-    ALEGen ale(
-        .clk(clk),
-        .rst_n(rst_n),
-        .ALE(ALE)
-    );
+    // // ALE信号产生
+    // ALEGen ale(
+    //     .clk(clk),
+    //     .rst_n(rst_n),
+    //     .ALE(ALE)
+    // );
     //--------------------------------------------------------------------------------------------
 
     /**********************************************指令处理***************************************/
-    // 状态机状态定义
+    // 独热码状态机状态定义
     localparam NOP = 8'b0000_0001; // NOP指令，空闲等待若干个时钟周期
     localparam GET_INS = 8'b0000_0010; // 取指令
     localparam INS_DECODE = 8'b0000_0100; // 译码
@@ -74,6 +74,15 @@ module CPU (
     localparam RAM_WRITE = 8'b0100_0000; // 回写ram
     localparam ROM_WRITE = 8'b1000_0000; // 回写rom
 
+    localparam NOP_INDEX = 0;
+    localparam GET_INS_INDEX = 1;
+    localparam INS_DECODE_INDEX = 2;
+    localparam RAM_READ_INDEX = 3;
+    localparam ROM_READ_INDEX = 4;
+    localparam PROCESS_INDEX = 5;
+    localparam RAM_WRITE_INDEX = 6;
+    localparam ROM_WRITE_INDEX = 7;
+
     // 常量定义
     parameter NOP_DURATION = 6; // NOP指令空闲6个时钟周期
     
@@ -81,11 +90,17 @@ module CPU (
     reg[7:0]    status, status_nxt; // 状态
     reg[2:0]    nop_cnt, nop_cnt_nxt; // NOP指令空闲时钟计数器
     wire[2:0]   nop_cnt_minus1;
-    reg[15:0]   program_counter, program_counter_nxt;
+    reg[15:0]   program_counter, program_counter_nxt; // 程序计数器
     wire[15:0]  program_counter_plus1;
-    reg         get_ins_done;
-
-
+    reg         get_ins_done, get_ins_done_nxt; // 状态完成标志
+    reg[7:0]    ins_register, ins_register_nxt;
+    reg         read_en_nxt;
+    reg[15:0]   addr_bus_nxt;
+    // data_bus双向端口设置
+    reg[7:0]    data_out;
+    wire[7:0]   data_in;
+    assign data_bus = (!read_en) ? data_out : 8'bz;
+    assign data_in = data_bus;
     // 计数器
     assign nop_cnt_minus1 = nop_cnt - 1'b1;
     assign program_counter_plus1 = program_counter + 1'b1;
@@ -95,32 +110,44 @@ module CPU (
         status_nxt = status;
         nop_cnt_nxt = nop_cnt;
         program_counter_nxt = program_counter;
-        case (status)
-            GET_INS:begin
+        read_en_nxt = 1'b0;
+        get_ins_done_nxt = 1'b0;
+        ins_register_nxt = ins_register;
+        addr_bus_nxt = addr_bus;
+        case (1'b1)
+            status[GET_INS_INDEX]:begin
+                ins_register_nxt = data_in;
                 if (get_ins_done) begin // 当取指完成转移到下个状态
                     status_nxt = INS_DECODE;
-                    program_counter_nxt = program_counter_plus1; // 
+                    read_en_nxt = 1'b0;
+                    get_ins_done_nxt = 1'b0;
+                    program_counter_nxt = program_counter_plus1; // 完成取指程序计数器+1
+                end
+                else begin
+                    addr_bus_nxt = program_counter;
+                    read_en_nxt = 1'b1;
+                    get_ins_done_nxt = 1'b1;
                 end
             end 
-            INS_DECODE: begin
+            status[INS_DECODE_INDEX]: begin
                 
             end
-            RAM_READ: begin
+            status[RAM_READ_INDEX]: begin
                 
             end
-            ROM_READ: begin
+            status[ROM_READ_INDEX]: begin
                 
             end
-            PROCESS: begin
+            status[PROCESS_INDEX]: begin
                 
             end
-            RAM_WRITE: begin
+            status[RAM_WRITE_INDEX]: begin
                 
             end
-            ROM_WRITE: begin
+            status[ROM_WRITE_INDEX]: begin
                 
             end
-            NOP: begin
+            status[NOP_INDEX]: begin
                 if (nop_cnt == 0) begin
                     status_nxt = GET_INS; // 空闲6个时钟周期之后，跳回取指状态
                     nop_cnt_nxt = NOP_DURATION; // 空闲计数器复位
@@ -133,31 +160,12 @@ module CPU (
             end 
         endcase
     end
-
+    // 次态传递
     always @(posedge clk, negedge rst_n) begin
         if (!rst_n) begin
-            status <= GET_INS;
+            status <= NOP;
             nop_cnt <= NOP_DURATION;
             program_counter <= 16'ha845;
-        end
-        else begin
-            status <= status_nxt;
-            nop_cnt <= nop_cnt_nxt;
-            program_counter <= program_counter_nxt;
-        end
-    end
-
-    // data_bus双向端口设置
-    reg[7:0]    data_out;
-    wire[7:0]   data_in;
-    assign data_bus = (!read_en) ? data_out : 8'bz;
-    assign data_in = data_bus;
-    assign write_en = ~read_en;
-
-    // 取指
-    reg[7:0]    ins_register;
-    always @(posedge clk, negedge rst_n) begin
-        if (!rst_n) begin
             ins_register <= 8'b0;
             read_en <= 1'b0;
             addr_bus <= 16'b0;
@@ -165,16 +173,13 @@ module CPU (
             data_out <= 8'b0;
         end
         else begin
-            if (status == GET_INS) begin
-                addr_bus <= program_counter;
-                read_en <= 1'b1;
-                get_ins_done <= 1'b1;
-                if (read_en) begin
-                    ins_register <= data_in;
-                    read_en <= 1'b0;
-                    get_ins_done <= 1'b0;
-                end
-            end
+            status <= status_nxt;
+            nop_cnt <= nop_cnt_nxt;
+            program_counter <= program_counter_nxt;
+            addr_bus <= addr_bus_nxt;
+            ins_register <= ins_register_nxt;
+            read_en <= read_en_nxt;
+            get_ins_done <= get_ins_done_nxt;
         end
     end
 

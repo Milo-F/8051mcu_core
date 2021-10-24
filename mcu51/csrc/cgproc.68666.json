@@ -1,0 +1,87 @@
+{
+    "reusePaths": {},
+    "Modules": {
+        "...MASTER...": {},
+        "std": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "ALEGen": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "tb_get_ins": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "ClkDiv": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        }
+    },
+    "CompUnits": {
+        "reYIK_d": {
+            "mod": "std",
+            "out": "reYIK_d.o",
+            "bytes": 41566,
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_68666_archive_1.a"
+        },
+        "amcQw_d": {
+            "mod": "...MASTER...",
+            "out": "objs/amcQw_d.o",
+            "bytes": 8270,
+            "mode": 4,
+            "checksum": 0
+        },
+        "GLQFB_d": {
+            "mod": "tb_get_ins",
+            "out": "GLQFB_d.o",
+            "bytes": 31430,
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_68666_archive_1.a"
+        },
+        "x91G7_d": {
+            "mod": "ALEGen",
+            "out": "x91G7_d.o",
+            "bytes": 10634,
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_68666_archive_1.a"
+        },
+        "PJbHW_d": {
+            "mod": "ClkDiv",
+            "out": "PJbHW_d.o",
+            "bytes": 19803,
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_68666_archive_1.a"
+        }
+    },
+    "ObjArchives": [
+        {
+            "archive": "archive.0/_68666_archive_1.a",
+            "size": 103433,
+            "objects": [
+                [
+                    "reYIK_d.o",
+                    41566
+                ],
+                [
+                    "GLQFB_d.o",
+                    31430
+                ],
+                [
+                    "x91G7_d.o",
+                    10634
+                ],
+                [
+                    "PJbHW_d.o",
+                    19803
+                ]
+            ]
+        }
+    ]
+}

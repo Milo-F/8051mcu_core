@@ -7,12 +7,12 @@ UUM=FALSE
 KDB=TRUE
 USE_NOVAS_HOME=FALSE
 COSIM=FALSE
-TOP=tb_get_ins 
+TOP=tb_get_ins ALEGen 
 OPTION=-ssz -ssv -ssy -ssz -ssv -ssy 
 ELAB=TRUE
 SIMV_WRAPPER=FALSE
 [vcs]
-RUN_ELABCOM=\rm -rf simv.daidir/kdb.elab++ ;unset TURBO_LOG_DIR ; /home/milo/apps/Synopsys/vcs_2016.06/linux64/bin/elabcom -logdir simv.daidir/elabcomLog  -simvdaidir simv.daidir -lib simv.daidir/work -elab simv.daidir/kdb -simflow -top 'tb_get_ins ' -ssz -ssv -ssy -ssz -ssv -ssy  >& /dev/null 
+RUN_ELABCOM=\rm -rf simv.daidir/kdb.elab++ ;unset TURBO_LOG_DIR ; /home/milo/apps/Synopsys/vcs_2016.06/linux64/bin/elabcom -logdir simv.daidir/elabcomLog  -simvdaidir simv.daidir -lib simv.daidir/work -elab simv.daidir/kdb -simflow -top 'tb_get_ins ALEGen ' -ssz -ssv -ssy -ssz -ssv -ssy  >& /dev/null 
 
 [Value]
 WREALX=ffff534e50535f58

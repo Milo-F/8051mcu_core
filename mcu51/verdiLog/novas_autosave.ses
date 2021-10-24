@@ -11,7 +11,7 @@ AnnotationShow = 0
 powerDumped = 0
 [hb]
 postSimFile = /home/milo/Codes/ICCodes/mcu51/inter.fsdb
-syncTime = 100000
+syncTime = 45000
 viewport = 0 19 1920 987 535 305 228 898
 activeNode = "tb_get_ins"
 activeScope = "tb_get_ins"
@@ -46,14 +46,14 @@ dbEnum =  oh
 invokeDir = /home/milo/Codes/ICCodes/mcu51
 design = DebussyLib
 hostCommand = hostCommand -elab ./simv.daidir/kdb.elab++
-topName = tb_get_ins 
+topName = tb_get_ins ALEGen 
 fromLibrary = TRUE
 [nMemoryManager]
 FsdbFile = /home/milo/Codes/ICCodes/mcu51/inter.fsdb
 UserActionNum = 0
 nMemWindowNum = 0
 [wave.0]
-viewPort = 0 28 1920 829 211 65
+viewPort = 0 28 1920 829 100 65
 SessionFile = /home/milo/Codes/ICCodes/mcu51/verdiLog/novas_autosave.ses.wave.0
 displayGrid = FALSE
 hierarchicalName = FALSE
