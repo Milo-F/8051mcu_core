@@ -1,42 +1,42 @@
 Command: ./simv -gui=verdi -l sim.log
-Command: /home/milo/Codes/ICCodes/mcu51/simv -ucli -a sim.log +UVM_CONFIG_DB_TRACE +UVM_PHASE_TRACE +UVM_OBJECTION_TRACE +UVM_RESOURCE_DB_TRACE +UVM_LOG_RECORD +UVM_VERDI_TRACE=UVM_AWARE -ucli2Proc -lca
+Command: /mnt/d/Cumt/Documents/ICCodes/mcu51/simv -ucli -a sim.log +UVM_CONFIG_DB_TRACE +UVM_PHASE_TRACE +UVM_OBJECTION_TRACE +UVM_RESOURCE_DB_TRACE +UVM_LOG_RECORD +UVM_VERDI_TRACE=UVM_AWARE -ucli2Proc -lca
 Warning-[LCA_FEATURES_ENABLED] Usage warning
   LCA features enabled by '-lca' argument on the command line.  For more 
   information regarding list of LCA features please refer to Chapter "LCA 
   features" in the VCS/VCS-MX Release Notes
 Chronologic VCS simulator copyright 1991-2016
 Contains Synopsys proprietary information.
-Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 24 11:40 2021
+Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 25 18:44 2021
 
 ucli% synUtils::getArch
 linux64
-ucli% loaddl -simv /home/milo/apps/Synopsys/verdi_2016.06-1/share/PLI/VCS/LINUXAMD64/libnovas.so LoadFSDBDumpCmd;LoadFSDBDumpCmd
+ucli% loaddl -simv /home/milo/Synopsys/verdi/share/PLI/VCS/LINUXAMD64/libnovas.so LoadFSDBDumpCmd;LoadFSDBDumpCmd
 
-ucli% config ckptfsdbcheck off;config endofsim noexit;config onfail {enable all};catch {setUcliVerdiConnected};cbug::config pretty_print auto;fsdbDumpfile {/home/milo/Codes/ICCodes/mcu51/inter.fsdb}; fsdbDumpflush;
+ucli% config ckptfsdbcheck off;config endofsim noexit;config onfail {enable all};catch {setUcliVerdiConnected};cbug::config pretty_print auto;fsdbDumpfile {/mnt/d/Cumt/Documents/ICCodes/mcu51/inter.fsdb}; fsdbDumpflush;
 *Verdi3* Loading libsscore_vcs201606.so
 *Verdi3* : FSDB_GATE is set.
 *Verdi3* : FSDB_RTL is set.
 *Verdi3* : Enable Parallel Dumping.
 FSDB Dumper for VCS, Release Verdi3_L-2016.06-1, Linux x86_64/64bit, 07/10/2016
 (C) 1996 - 2016 by Synopsys, Inc.
-*Verdi3* : Create FSDB file '/home/milo/Codes/ICCodes/mcu51/inter.fsdb'
+*Verdi3* : Create FSDB file '/mnt/d/Cumt/Documents/ICCodes/mcu51/inter.fsdb'
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
 ucli% sps_interactive
-*Verdi3* : Enable RPC Server(68932)
+*Verdi3* : Enable RPC Server(8505)
 
 ucli% ucliCore::getToolPID
-68932
+8505
 ucli% if {[catch {ucliCore::setFocus tool}]} {}
 
 ucli% puts $ucliCore::nativeUcliMode
 0
 
 ucli% ucliCore::getToolTopPID
-68932
+8505
 ucli% pid
-68939
-ucli% synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.milo.68932 }
+8512
+ucli% synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.milo.8505 }
 
 ucli% if { [info vars watch::vcbp_str_len_limit_of_get_value] != ""} {set watch::vcbp_str_len_limit_of_get_value 1024}
 1024
@@ -81,7 +81,7 @@ line: 3
 logFilename: sim.log
 macroIndex: -1
 macroOffset: -1
-pid: 68932
+pid: 8505
 scope: tb_get_ins
 startCol: 0
 state: stopped
@@ -102,6 +102,34 @@ There are no checkpoints present.
 ucli% stop
 No stop points are set
 ucli% if {[catch {ucliCore::setFocus tool}]} {}
+
+ucli% fsdbDumpvars 1 {tb_get_ins.read_en} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.read_en).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+ucli% fsdbDumpvars 1 {tb_get_ins.addr_bus} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.addr_bus).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+ucli% fsdbDumpvars 1 {tb_get_ins.data_bus} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.data_bus).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+ucli% fsdbDumpvars 1 {tb_get_ins.data_out} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.data_out).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+ucli% fsdbDumpvars 1 {tb_get_ins.clk} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.clk).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+ucli% fsdbDumpvars 1 {tb_get_ins.rst_n} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.rst_n).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+ucli% fsdbDumpvars 1 {tb_get_ins.instruction} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.instruction).
+*Verdi3* : Flush all FSDB Files at 0 ps.
 
 ucli% fsdbDumpvars 1 {tb_get_ins.cpu.EA} ;fsdbDumpflush
 *Verdi3* : Dumping the signal (tb_get_ins.cpu.EA).
@@ -133,6 +161,10 @@ ucli% fsdbDumpvars 1 {tb_get_ins.cpu.clk_1M} ;fsdbDumpflush
 
 ucli% fsdbDumpvars 1 {tb_get_ins.cpu.clk_6M} ;fsdbDumpflush
 *Verdi3* : Dumping the signal (tb_get_ins.cpu.clk_6M).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+ucli% fsdbDumpvars 1 {tb_get_ins.cpu.memory_select} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.memory_select).
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
 ucli% fsdbDumpvars 1 {tb_get_ins.cpu.read_en} ;fsdbDumpflush
@@ -169,6 +201,10 @@ ucli% fsdbDumpvars 1 {tb_get_ins.cpu.get_ins_done} ;fsdbDumpflush
 
 ucli% fsdbDumpvars 1 {tb_get_ins.cpu.get_ins_done_nxt} ;fsdbDumpflush
 *Verdi3* : Dumping the signal (tb_get_ins.cpu.get_ins_done_nxt).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+ucli% fsdbDumpvars 1 {tb_get_ins.cpu.memory_select_nxt} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.memory_select_nxt).
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
 ucli% fsdbDumpvars 1 {tb_get_ins.cpu.read_en_nxt} ;fsdbDumpflush
@@ -228,7 +264,7 @@ ucli% if {[catch {ucliCore::setFocus tool}]} {}
 ucli% run 100ns
 100000 ps
 ucli% ucliCore::getToolPID
-68932
+8505
 ucli% synEnv::isFinished
 0
 ucli% if {[catch {ucliCore::setFocus tool}]} {}
@@ -254,7 +290,7 @@ line: 3
 logFilename: sim.log
 macroIndex: -1
 macroOffset: -1
-pid: 68932
+pid: 8505
 scope: tb_get_ins
 startCol: 0
 state: stopped
@@ -281,8 +317,8 @@ ucli% if {[catch {ucliCore::setFocus tool}]} {}
 ucli% finish; quit
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 100000 ps
-CPU Time:      0.130 seconds;       Data structure size:   0.0Mb
-Sun Oct 24 11:42:00 2021
+CPU Time:      0.400 seconds;       Data structure size:   0.0Mb
+Mon Oct 25 18:45:05 2021
 
 VERDI_SIM_Terminated
 

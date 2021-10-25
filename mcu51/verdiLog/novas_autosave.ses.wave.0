@@ -2,11 +2,11 @@ Magic 271485
 Revision Verdi3_L-2016.06-1
 
 ; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
-viewPort 0 28 1920 829 100 65
+viewPort 0 28 1908 889 100 65
 
 ; File list:
 ; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
-openDirFile -d / "" "/home/milo/Codes/ICCodes/mcu51/inter.fsdb"
+openDirFile -d / "" "/mnt/d/Cumt/Documents/ICCodes/mcu51/inter.fsdb"
 
 ; file time scale:
 ; fileTimeScale ### s|ms|us|ns|ps
@@ -17,15 +17,15 @@ signalSpacing 5
 ; windowTimeUnit is used for zoom, cursor & marker
 ; waveform viewport range
 zoom 0.000000 101000.000000
-cursor 45000.000000
-marker 49000.000000
+cursor 100000.000000
+marker 0.000000
 
 ; user define markers
 ; userMarker time_pos marker_name color linestyle
 ; visible top row signal index
-top 0
+top 3
 ; marker line index
-markerPos 30
+markerPos 39
 
 ; event list
 ; addEvent event_name event_expression
@@ -45,16 +45,15 @@ COMPLEX_EVENT_END
 curSTATUS ByChange
 
 
-aliasmapname CPU.status
-nalias GET_INS_INDEX		8'b00000010		NULL
-nalias NOP_INDEX		8'b00000001		NULL
-nalias INS_DECODE		8'b00000100		NULL
-
-aliasmapname CPU.nop_cnt
-nalias NOP_DURATION		3'b110		NULL
-
 addGroup "G1"
-activeDirFile "" "/home/milo/Codes/ICCodes/mcu51/inter.fsdb"
+activeDirFile "" "/mnt/d/Cumt/Documents/ICCodes/mcu51/inter.fsdb"
+addSignal -h 15 /tb_get_ins/read_en
+addSignal -h 15 /tb_get_ins/addr_bus[7:0]
+addSignal -h 15 /tb_get_ins/data_bus[7:0]
+addSignal -h 15 /tb_get_ins/data_out[7:0]
+addSignal -h 15 /tb_get_ins/clk
+addSignal -h 15 /tb_get_ins/rst_n
+addSignal -h 15 /tb_get_ins/instruction[7:0]
 addSignal -h 15 /tb_get_ins/cpu/EA
 addSignal -h 15 /tb_get_ins/cpu/clk
 addSignal -h 15 /tb_get_ins/cpu/reset
@@ -63,6 +62,7 @@ addSignal -h 15 /tb_get_ins/cpu/timing[1:0]
 addSignal -h 15 /tb_get_ins/cpu/PSEN
 addSignal -h 15 /tb_get_ins/cpu/clk_1M
 addSignal -h 15 /tb_get_ins/cpu/clk_6M
+addSignal -h 15 /tb_get_ins/cpu/memory_select
 addSignal -h 15 /tb_get_ins/cpu/read_en
 addSignal -h 15 /tb_get_ins/cpu/write_en
 addSignal -h 15 /tb_get_ins/cpu/addr_bus[15:0]
@@ -72,6 +72,7 @@ addSignal -h 15 /tb_get_ins/cpu/nop_cnt_minus1[2:0]
 addSignal -h 15 /tb_get_ins/cpu/program_counter_plus1[15:0]
 addSignal -h 15 /tb_get_ins/cpu/get_ins_done
 addSignal -h 15 /tb_get_ins/cpu/get_ins_done_nxt
+addSignal -h 15 /tb_get_ins/cpu/memory_select_nxt
 addSignal -h 15 /tb_get_ins/cpu/read_en_nxt
 addSignal -h 15 /tb_get_ins/cpu/rst_n
 addSignal -h 15 /tb_get_ins/cpu/addr_bus_nxt[15:0]

@@ -1,9 +1,9 @@
 #!/bin/sh -h 
-PYTHONHOME=/home/milo/apps/Synopsys/vcs_2016.06/etc/search/pyh
+PYTHONHOME=/home/milo/Synopsys/vcs/etc/search/pyh
 export PYTHONHOME
-PYTHONPATH=/home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/pylib27
+PYTHONPATH=/home/milo/Synopsys/vcs/linux64/lib/pylib27
 export PYTHONPATH
-LD_LIBRARY_PATH=/home/milo/apps/Synopsys/vcs_2016.06/linux64/lib:/home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/pylib27
+LD_LIBRARY_PATH=/home/milo/Synopsys/vcs/linux64/lib:/home/milo/Synopsys/vcs/linux64/lib/pylib27
 export LD_LIBRARY_PATH
-/home/milo/apps/Synopsys/vcs_2016.06/linux64/bin/vcsfind_create_index.exe  -z  "/home/milo/Codes/ICCodes/mcu51/simv.daidir/debug_dump/fsearch/./idents_tapi.xml.gz" "/home/milo/Codes/ICCodes/mcu51/simv.daidir/debug_dump/fsearch/./idents_lcDZGn.xml.gz" -o "/home/milo/Codes/ICCodes/mcu51/simv.daidir/debug_dump/fsearch/fsearch.db_tmp"
-\mv "/home/milo/Codes/ICCodes/mcu51/simv.daidir/debug_dump/fsearch/fsearch.db_tmp" "/home/milo/Codes/ICCodes/mcu51/simv.daidir/debug_dump/fsearch/fsearch.db"
+/home/milo/Synopsys/vcs/linux64/bin/vcsfind_create_index.exe  -z  "/mnt/d/Cumt/Documents/ICCodes/mcu51/simv.daidir/debug_dump/fsearch/./idents_5rMBK2.xml.gz" "/mnt/d/Cumt/Documents/ICCodes/mcu51/simv.daidir/debug_dump/fsearch/./idents_tapi.xml.gz" -o "/mnt/d/Cumt/Documents/ICCodes/mcu51/simv.daidir/debug_dump/fsearch/fsearch.db_tmp"
+\mv "/mnt/d/Cumt/Documents/ICCodes/mcu51/simv.daidir/debug_dump/fsearch/fsearch.db_tmp" "/mnt/d/Cumt/Documents/ICCodes/mcu51/simv.daidir/debug_dump/fsearch/fsearch.db"

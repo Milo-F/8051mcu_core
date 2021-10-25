@@ -1,6 +1,6 @@
 psSimBaseName                      	simv
 psLogFileName                      	com.log
-pDaiDir                            	/home/milo/Codes/ICCodes/mcu51/simv.daidir
+pDaiDir                            	/mnt/d/Cumt/Documents/ICCodes/mcu51/simv.daidir
 destPath                           	csrc/
 fSharedMaster                      	0
 hsMainFileCount                    	0

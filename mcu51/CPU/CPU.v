@@ -18,6 +18,7 @@ module CPU (
     output  reg         write_en,   // 写数据使能
     output              clk_1M,     // 机器周期
     output              clk_6M,    // 时钟周期
+    output  reg         memory_select, // 片选，1为ram，0为rom
     // output              ALE,        // 输出锁存控制信号
     output              PSEN        // 外部程序存储器访问控制信号
 );
@@ -94,13 +95,15 @@ module CPU (
     wire[15:0]  program_counter_plus1;
     reg         get_ins_done, get_ins_done_nxt; // 状态完成标志
     reg[7:0]    ins_register, ins_register_nxt;
-    reg         read_en_nxt;
+    reg         read_en_nxt, memory_select_nxt;
     reg[15:0]   addr_bus_nxt;
+
     // data_bus双向端口设置
     reg[7:0]    data_out;
     wire[7:0]   data_in;
     assign data_bus = (!read_en) ? data_out : 8'bz;
     assign data_in = data_bus;
+
     // 计数器
     assign nop_cnt_minus1 = nop_cnt - 1'b1;
     assign program_counter_plus1 = program_counter + 1'b1;
@@ -114,8 +117,10 @@ module CPU (
         get_ins_done_nxt = 1'b0;
         ins_register_nxt = ins_register;
         addr_bus_nxt = addr_bus;
+        memory_select_nxt = memory_select;
         case (1'b1)
             status[GET_INS_INDEX]:begin
+                memory_select_nxt = 1'b0; // 选中rom
                 ins_register_nxt = data_in;
                 if (get_ins_done) begin // 当取指完成转移到下个状态
                     status_nxt = INS_DECODE;
@@ -160,6 +165,7 @@ module CPU (
             end 
         endcase
     end
+    
     // 次态传递
     always @(posedge clk, negedge rst_n) begin
         if (!rst_n) begin
@@ -171,6 +177,7 @@ module CPU (
             addr_bus <= 16'b0;
             get_ins_done <= 1'b0;
             data_out <= 8'b0;
+            memory_select <= 1'b1;
         end
         else begin
             status <= status_nxt;
@@ -180,6 +187,7 @@ module CPU (
             ins_register <= ins_register_nxt;
             read_en <= read_en_nxt;
             get_ins_done <= get_ins_done_nxt;
+            memory_select <= memory_select_nxt;
         end
     end
 

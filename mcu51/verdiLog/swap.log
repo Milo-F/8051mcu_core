@@ -1,20 +1,20 @@
 version: (200506)
 
 available memory: 64M bytes
-used memory: 147456 bytes [need 144K bytes if disable swap]
+used memory: 155648 bytes [need 152K bytes if disable swap]
 
-used block: 4 [memory(4) file(0)]
-                 [ 8K(2) 64K(2) { total 144K bytes } ]
-overhead: (9522) bytes for (4) blocks [Average: (2380) bytes/block]
+used block: 5 [memory(5) file(0)]
+                 [ 8K(3) 64K(2) { total 152K bytes } ]
+overhead: (9522) bytes for (5) blocks [Average: (1904) bytes/block]
 
 write  => 0(times) 0K(bytes) [0K bytes to file]
-read   => 2(times) 27K(bytes) [5K bytes compressed data from file]
-access => 62083(times) 490M(bytes)
-          [hit ratio: 99.9968%]
+read   => 2(times) 28K(bytes) [5K bytes compressed data from file]
+access => 70206(times) 554M(bytes)
+          [hit ratio: 99.9972%]
 
 time: write(0) read(0)  unit: second
 
-swap file directory: (/home/milo/Codes/ICCodes/mcu51/verdiLog)
+swap file directory: (/mnt/d/Cumt/Documents/ICCodes/mcu51/verdiLog)
 used swap file number: (3)
 
 
@@ -25,18 +25,18 @@ idxCnt: (4)
 closeHead: (1)
 closeTail: (3)
 openCnt: (3)
-fid(3): fd(1073741825) fileName(/home/milo/Codes/ICCodes/mcu51/simv.daidir/kdb.elab++/work.lib++/CPU.v.tdc)
-	size(7225) lastModTime(1635046834) curModTime(1635046834)
+fid(3): fd(1073741825) fileName(/mnt/d/Cumt/Documents/ICCodes/mcu51/simv.daidir/kdb.elab++/work.lib++/CPU.v.tdc)
+	size(7510) lastModTime(1635158646) curModTime(1635158646)
 	mode(rb)	hot(0) cool(2) pos(0)
-fid(2): fd(36) fileName(/home/milo/Codes/ICCodes/mcu51/verdiLog/_swap_0001#2088271309#68857)
-	size(0) lastModTime(0) curModTime(1635046840)
+fid(2): fd(29) fileName(/mnt/d/Cumt/Documents/ICCodes/mcu51/verdiLog/_swap_0001#8323329#8445)
+	size(0) lastModTime(0) curModTime(1635158658)
 	mode(w+b)	hot(3) cool(1) pos(0)
-fid(1): fd(1073741824) fileName(/home/milo/Codes/ICCodes/mcu51/simv.daidir/kdb.elab++/work.lib++/tb_get_ins.sv.tdc)
-	size(1857) lastModTime(1635046834) curModTime(1635046834)
+fid(1): fd(1073741824) fileName(/mnt/d/Cumt/Documents/ICCodes/mcu51/simv.daidir/kdb.elab++/work.lib++/tb_get_ins.sv.tdc)
+	size(1862) lastModTime(1635158646) curModTime(1635158646)
 	mode(rb)	hot(2) cool(0) pos(0)
 fid(0): fd(0) fileName(NULL)
 	mode(NULL)	hot(0) cool(0) pos(0)
 ==================================================
-mySelf(11976c80) pre(1034b410) next(0)
+mySelf(129ba180) pre(111e5280) next(0)
 version(200506)
 date(May 20 2016 01:21:05)

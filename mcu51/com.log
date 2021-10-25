@@ -2,7 +2,7 @@ Command: vcs -full64 -cpp g++-4.8 -cc gcc-4.8 -LDFLAGS -Wl,--no-as-needed -f fil
 +v2k -sverilog -debug_all -l com.log
 *** Using c compiler gcc-4.8 instead of cc ...
                          Chronologic VCS (TM)
-         Version L-2016.06_Full64 -- Sun Oct 24 11:40:34 2021
+         Version L-2016.06_Full64 -- Mon Oct 25 18:44:06 2021
                Copyright (c) 1991-2016 by Synopsys Inc.
                          ALL RIGHTS RESERVED
 
@@ -46,7 +46,7 @@ Starting vcs inline pass...
 Warning-[KDB-ELAB-W] Verdi KDB elaboration with warning
   Verdi KDB elaboration finished with 0 error(s) and 1 warning(s).
   Please look at this Verdi elaboration log file for details. 
-  /home/milo/Codes/ICCodes/mcu51/simv.daidir/elabcomLog/compiler.log
+  /mnt/d/Cumt/Documents/ICCodes/mcu51/simv.daidir/elabcomLog/compiler.log
 
 4 unique modules to generate
 4 modules and 0 UDP read. 
@@ -55,19 +55,18 @@ recompiling module tb_get_ins
 recompiling module ALEGen
 recompiling module ClkDiv
 All of 4 modules done
-make[1]: Entering directory '/home/milo/Codes/ICCodes/mcu51/csrc'
+make[1]: Entering directory '/mnt/d/Cumt/Documents/ICCodes/mcu51/csrc'
 rm -f _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
 if [ -x ../simv ]; then chmod -x ../simv; fi
 g++-4.8  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ \
 -Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -Wl,--no-as-needed -rdynamic   amcQwB.o \
-objs/amcQw_d.o   _68666_archive_1.so  SIM_l.o       rmapats_mop.o rmapats.o rmar.o \
-rmar_llvm_0_1.o rmar_llvm_0_0.o          /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libzerosoft_rt_stubs.so \
-/home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libvirsim.so /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/liberrorinf.so \
-/home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libsnpsmalloc.so    /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libvcsnew.so \
-/home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libsimprofile.so /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libuclinative.so \
--Wl,-whole-archive /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libvcsucli.so \
--Wl,-no-whole-archive          /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/vcs_save_restore_new.o \
--ldl  -lc -lm -lpthread -ldl 
+objs/amcQw_d.o   _8224_archive_1.so  SIM_l.o       rmapats_mop.o rmapats.o rmar.o \
+rmar_llvm_0_1.o rmar_llvm_0_0.o          /home/milo/Synopsys/vcs/linux64/lib/libzerosoft_rt_stubs.so \
+/home/milo/Synopsys/vcs/linux64/lib/libvirsim.so /home/milo/Synopsys/vcs/linux64/lib/liberrorinf.so \
+/home/milo/Synopsys/vcs/linux64/lib/libsnpsmalloc.so    /home/milo/Synopsys/vcs/linux64/lib/libvcsnew.so \
+/home/milo/Synopsys/vcs/linux64/lib/libsimprofile.so /home/milo/Synopsys/vcs/linux64/lib/libuclinative.so \
+-Wl,-whole-archive /home/milo/Synopsys/vcs/linux64/lib/libvcsucli.so -Wl,-no-whole-archive \
+/home/milo/Synopsys/vcs/linux64/lib/vcs_save_restore_new.o -ldl  -lc -lm -lpthread \
+-ldl 
 ../simv up to date
-make[1]: Leaving directory '/home/milo/Codes/ICCodes/mcu51/csrc'
-CPU time: .257 seconds to compile + .339 seconds to elab + .223 seconds to link
+make[1]: Leaving directory '/mnt/d/Cumt/Documents/ICCodes/mcu51/csrc'

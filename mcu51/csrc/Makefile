@@ -18,10 +18,10 @@ PRODUCT_TIMESTAMP=product_timestamp
 
 # Path to runtime library
 DEPLIBS=
-VCSUCLI=/home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libvcsucli.so
-RUNTIME=/home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libvcsnew.so /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libsimprofile.so /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libuclinative.so $(DEPLIBS) 
+VCSUCLI=/home/milo/Synopsys/vcs/linux64/lib/libvcsucli.so
+RUNTIME=/home/milo/Synopsys/vcs/linux64/lib/libvcsnew.so /home/milo/Synopsys/vcs/linux64/lib/libsimprofile.so /home/milo/Synopsys/vcs/linux64/lib/libuclinative.so $(DEPLIBS) 
 
-VCS_SAVE_RESTORE_OBJ=/home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/vcs_save_restore_new.o
+VCS_SAVE_RESTORE_OBJ=/home/milo/Synopsys/vcs/linux64/lib/vcs_save_restore_new.o
 
 # Select your favorite compiler
 
@@ -63,15 +63,15 @@ TMPSPECENV=$(VCSTMPSPECENV)
 CC=$(TMPSPECENV) $(VCS_CC) $(TMPSPECARG)
 
 # C flags for compilation
-CFLAGS=-w  -pipe -fPIC -O -I/home/milo/apps/Synopsys/vcs_2016.06/include   
+CFLAGS=-w  -pipe -fPIC -O -I/home/milo/Synopsys/vcs/include   
 
-CFLAGS_CG=-w   -pipe -fPIC -I/home/milo/apps/Synopsys/vcs_2016.06/include -O  
+CFLAGS_CG=-w   -pipe -fPIC -I/home/milo/Synopsys/vcs/include -O  
 
 LD_PARTIAL_LOADER=ld
 # Partial linking
 LD_PARTIAL=$(LD_PARTIAL_LOADER) -r -o
 ASFLAGS=
-LIBS=/home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libzerosoft_rt_stubs.so /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libvirsim.so /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/liberrorinf.so /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libsnpsmalloc.so 
+LIBS=/home/milo/Synopsys/vcs/linux64/lib/libzerosoft_rt_stubs.so /home/milo/Synopsys/vcs/linux64/lib/libvirsim.so /home/milo/Synopsys/vcs/linux64/lib/liberrorinf.so /home/milo/Synopsys/vcs/linux64/lib/libsnpsmalloc.so 
 # Note: if make gives you errors about include, either get gmake, or
 # replace the following line with the contents of the file filelist,
 # EACH TIME IT CHANGES

@@ -1,17 +1,13 @@
 {
+    "CompileProcesses": [
+        "cgproc.8224.json"
+    ],
     "MlibObjs": {},
     "PrevCompiledModules": {},
-    "CurCompileUdps": {},
-    "PEModules": [],
     "NameTable": {
         "std": [
             "std",
             "reYIK",
-            "module"
-        ],
-        "ALEGen": [
-            "ALEGen",
-            "x91G7",
             "module"
         ],
         "tb_get_ins": [
@@ -24,11 +20,78 @@
             "PJbHW",
             "module"
         ],
+        "ALEGen": [
+            "ALEGen",
+            "x91G7",
+            "module"
+        ],
         "...MASTER...": [
             "SIM",
             "amcQw",
             "module"
         ]
+    },
+    "Misc": {
+        "cwd": "/mnt/d/Cumt/Documents/ICCodes/mcu51",
+        "archive_dir": "archive.0",
+        "csrc": "csrc",
+        "daidir_abs": "/mnt/d/Cumt/Documents/ICCodes/mcu51/simv.daidir",
+        "csrc_abs": "/mnt/d/Cumt/Documents/ICCodes/mcu51/csrc",
+        "daidir": "simv.daidir",
+        "default_output_dir": "csrc"
+    },
+    "CompileStrategy": "fullobj",
+    "stat": {
+        "mop/quad": 2.206528562460766,
+        "ru_self_cgstart": {
+            "ru_utime_sec": 0.071832999999999994,
+            "ru_stime_sec": 0.191556,
+            "ru_maxrss_kb": 104676,
+            "ru_minflt": 7800,
+            "ru_nvcsw": 2220,
+            "ru_majflt": 0,
+            "ru_nivcsw": 1
+        },
+        "nMops": 3515,
+        "ru_childs_end": {
+            "ru_utime_sec": 0.021749999999999999,
+            "ru_stime_sec": 0.0,
+            "ru_maxrss_kb": 101628,
+            "ru_minflt": 950,
+            "ru_nvcsw": 392,
+            "ru_majflt": 0,
+            "ru_nivcsw": 0
+        },
+        "outputSizePerQuad": 127.0,
+        "ru_self_end": {
+            "ru_utime_sec": 0.11484800000000001,
+            "ru_stime_sec": 0.20417399999999999,
+            "ru_maxrss_kb": 114980,
+            "ru_minflt": 9745,
+            "ru_nvcsw": 2678,
+            "ru_majflt": 0,
+            "ru_nivcsw": 2
+        },
+        "ru_childs_cgstart": {
+            "ru_utime_sec": 0.021749999999999999,
+            "ru_stime_sec": 0.0,
+            "ru_maxrss_kb": 101628,
+            "ru_minflt": 950,
+            "ru_nvcsw": 392,
+            "ru_majflt": 0,
+            "ru_nivcsw": 0
+        },
+        "nQuads": 1593,
+        "mopSpeed": 81715.680576543047,
+        "totalObjSize": 203894,
+        "Frontend(%)": 62.546147952075778,
+        "quadSpeed": 37033.592932697888,
+        "CodeGen(%)": 37.453852047924215
+    },
+    "CurCompileUdps": {},
+    "SIMBData": {
+        "bytes": 91159,
+        "out": "amcQwB.o"
     },
     "CurCompileModules": [
         "...MASTER...",
@@ -42,72 +105,9 @@
         "ClkDiv",
         "ClkDiv"
     ],
-    "CompileStrategy": "fullobj",
-    "CompileProcesses": [
-        "cgproc.68666.json"
-    ],
-    "stat": {
-        "ru_self_cgstart": {
-            "ru_utime_sec": 0.072137000000000007,
-            "ru_minflt": 7953,
-            "ru_stime_sec": 0.029703,
-            "ru_majflt": 1,
-            "ru_maxrss_kb": 98936,
-            "ru_nvcsw": 45,
-            "ru_nivcsw": 417
-        },
-        "ru_childs_cgstart": {
-            "ru_utime_sec": 0.026609000000000001,
-            "ru_minflt": 13730,
-            "ru_stime_sec": 0.034750999999999997,
-            "ru_majflt": 0,
-            "ru_maxrss_kb": 95652,
-            "ru_nvcsw": 20,
-            "ru_nivcsw": 152
-        },
-        "nMops": 3452,
-        "nQuads": 1544,
-        "quadSpeed": 34471.980352757317,
-        "totalObjSize": 202902,
-        "outputSizePerQuad": 131.0,
-        "ru_self_end": {
-            "ru_utime_sec": 0.116927,
-            "ru_minflt": 9882,
-            "ru_stime_sec": 0.033406999999999999,
-            "ru_majflt": 1,
-            "ru_maxrss_kb": 108896,
-            "ru_nvcsw": 45,
-            "ru_nivcsw": 420
-        },
-        "ru_childs_end": {
-            "ru_utime_sec": 0.026609000000000001,
-            "ru_minflt": 13730,
-            "ru_stime_sec": 0.034750999999999997,
-            "ru_majflt": 0,
-            "ru_maxrss_kb": 95652,
-            "ru_nvcsw": 20,
-            "ru_nivcsw": 152
-        },
-        "mopSpeed": 77070.774726501462,
-        "mop/quad": 2.2357512953367875,
-        "Frontend(%)": 61.694048423375278,
-        "CodeGen(%)": 38.305951576624722
-    },
-    "SIMBData": {
-        "out": "amcQwB.o",
-        "bytes": 91199
-    },
     "LVLData": [
         "SIM"
     ],
-    "Misc": {
-        "archive_dir": "archive.0",
-        "cwd": "/home/milo/Codes/ICCodes/mcu51",
-        "daidir_abs": "/home/milo/Codes/ICCodes/mcu51/simv.daidir",
-        "csrc": "csrc",
-        "csrc_abs": "/home/milo/Codes/ICCodes/mcu51/csrc",
-        "daidir": "simv.daidir",
-        "default_output_dir": "csrc"
-    },
+    "PEModules": [],
     "CompileStatus": "Successful"
 }

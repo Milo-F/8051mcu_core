@@ -1,0 +1,87 @@
+{
+    "ObjArchives": [
+        {
+            "size": 104465,
+            "archive": "archive.0/_8224_archive_1.a",
+            "objects": [
+                [
+                    "reYIK_d.o",
+                    41566
+                ],
+                [
+                    "GLQFB_d.o",
+                    32462
+                ],
+                [
+                    "x91G7_d.o",
+                    10634
+                ],
+                [
+                    "PJbHW_d.o",
+                    19803
+                ]
+            ]
+        }
+    ],
+    "reusePaths": {},
+    "Modules": {
+        "...MASTER...": {},
+        "std": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "tb_get_ins": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "ClkDiv": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "ALEGen": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        }
+    },
+    "CompUnits": {
+        "amcQw_d": {
+            "mod": "...MASTER...",
+            "bytes": 8270,
+            "out": "objs/amcQw_d.o",
+            "mode": 4,
+            "checksum": 0
+        },
+        "reYIK_d": {
+            "archive": "archive.0/_8224_archive_1.a",
+            "mod": "std",
+            "bytes": 41566,
+            "out": "reYIK_d.o",
+            "mode": 4,
+            "checksum": 0
+        },
+        "GLQFB_d": {
+            "archive": "archive.0/_8224_archive_1.a",
+            "mod": "tb_get_ins",
+            "bytes": 32462,
+            "out": "GLQFB_d.o",
+            "mode": 4,
+            "checksum": 0
+        },
+        "PJbHW_d": {
+            "archive": "archive.0/_8224_archive_1.a",
+            "mod": "ClkDiv",
+            "bytes": 19803,
+            "out": "PJbHW_d.o",
+            "mode": 4,
+            "checksum": 0
+        },
+        "x91G7_d": {
+            "archive": "archive.0/_8224_archive_1.a",
+            "mod": "ALEGen",
+            "bytes": 10634,
+            "out": "x91G7_d.o",
+            "mode": 4,
+            "checksum": 0
+        }
+    }
+}

@@ -14,7 +14,7 @@ access => 0(times) 0K(bytes)
 
 time: write(0) read(0)  unit: second
 
-swap file directory: (/home/milo/Codes/ICCodes/mcu51/libnz4w_r.soLog)
+swap file directory: (/mnt/d/Cumt/Documents/ICCodes/mcu51/libnz4w_r.soLog)
 used swap file number: (0)
 
 
@@ -25,8 +25,8 @@ idxCnt: (2)
 closeHead: (0)
 closeTail: (0)
 openCnt: (0)
-fid(1): fd(0) fileName(/home/milo/Codes/ICCodes/mcu51/libnz4w_r.soLog/_swap_0001#2088271309#68666)
-	size(0) lastModTime(0) curModTime(1635046834)
+fid(1): fd(0) fileName(/mnt/d/Cumt/Documents/ICCodes/mcu51/libnz4w_r.soLog/_swap_0001#8323329#8224)
+	size(0) lastModTime(0) curModTime(1635158646)
 	mode(w+b)	hot(0) cool(0) pos(0)
 fid(0): fd(0) fileName(NULL)
 	mode(NULL)	hot(0) cool(0) pos(0)
@@ -46,7 +46,7 @@ access => 0(times) 0K(bytes)
 
 time: write(0) read(0)  unit: second
 
-swap file directory: (/home/milo/Codes/ICCodes/mcu51/libnz4w_r.soLog)
+swap file directory: (/mnt/d/Cumt/Documents/ICCodes/mcu51/libnz4w_r.soLog)
 used swap file number: (0)
 
 
@@ -57,7 +57,7 @@ idxCnt: (2)
 closeHead: (0)
 closeTail: (0)
 openCnt: (0)
-fid(1): fd(0) fileName(/home/milo/Codes/ICCodes/mcu51/libnz4w_r.soLog/_swap_0001#2088271309#68666)
+fid(1): fd(0) fileName(/mnt/d/Cumt/Documents/ICCodes/mcu51/libnz4w_r.soLog/_swap_0001#8323329#8224)
 	size(-1) lastModTime(0) curModTime(-1)
 	mode(w+b)	hot(0) cool(0) pos(0)
 fid(0): fd(0) fileName(NULL)

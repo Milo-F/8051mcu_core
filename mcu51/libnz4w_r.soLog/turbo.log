@@ -1,4 +1,4 @@
-Command Line: /home/milo/apps/Synopsys/vcs_2016.06/linux64/lib/libnz4w_r.so -usevlogan_front -lib simv.daidir/work -2012 -q -enable_vfs_mp -enable_vfs_mt -flush_textdoc_sdb -enable_vfs_lock -incsave
-uname(Linux milo-VirtualBox 5.11.0-38-generic #42~20.04.1-Ubuntu SMP Tue Sep 28 20:41:07 UTC 2021 x86_64)
-au time 0.067653 -1.975391 -1.988182 delta 77484032 77484032 total 265682944 265682944
-au time 0.140266 0.091225 0.021589 delta 78626816 78626816 total 266825728 266825728
+Command Line: /home/milo/Synopsys/vcs/linux64/lib/libnz4w_r.so -usevlogan_front -lib simv.daidir/work -2012 -q -enable_vfs_mp -enable_vfs_mt -flush_textdoc_sdb -enable_vfs_lock -incsave
+uname(Linux Milo 5.10.43.3-microsoft-standard-WSL2 #1 SMP Wed Jun 16 23:47:55 UTC 2021 x86_64)
+au time 0.497728 -1.962511 -1.958659 delta 84283392 84283392 total 281034752 281034752
+au time 0.627946 0.074863 0.166092 delta 78794752 78794752 total 275546112 275546112
