@@ -3,91 +3,74 @@
 	Function:译码指令
 	Author:Milo
 	Data:2021/9/27
-	Version:1.0
+	Version:2.0
 ----------------------------------------------------*/
 
 module InsDecoder(
-	input clk,
-	input rst_n,
-	input read_en, // 其上升沿为译码开始标志
-	input [7:0] instruction, // 需要译码的指令
-	input [15:0] pc_in, // 输入程序计数器
-	output reg[15:0] pc_out, // 输出程序计数器
-	output reg ID_ready, // 该次译码完成标志位
-	output reg alu_en, // alu enable
-	output reg[4:0] alu_op, // alu_op
-    output reg[1:0] process_type // 下级处理类型，alu运算、控制转移还是mov赋值
+    input           clk, // 时钟
+    input           rst_n, // 复位
+    input [7:0]     instruction, // 指令
+    output reg[2:0] next_status // 下个状态标识
 );
-    parameter WAITE= 2'b00;
-    parameter ALU_CAL = 2'b01;
-    parameter MOV = 2'b10;
-    parameter CODE_CON = 2'b11;
 
-    // reg[1:0] ins_epoch = 2'b0; // 指令周期，当前表示指令需要几个额外执行周期
-    reg ready = 1'b1;
-	// 两级寄存器缓冲一个流水线初始化间隙
+    // 下个状态标识定义
+    parameter TO_NOP = 3'b000;
+    parameter TO_RAM_READ= 3'b001;
+    parameter TO_ROM_READ = 3'b010;
+    parameter TO_PROCESS = 3'b011;
+    parameter TO_RAM_WRITE = 3'b100;
+    parameter NOT_DONE = 3'b111;
+
+    reg[2:0] next_status_nxt;
+
+	always @(*) begin
+        next_status_nxt = NOT_DONE;
+        casez (instruction)
+            8'h00: begin // NOP
+                next_status_nxt = TO_NOP;
+            end
+            8'b1110_1???: begin // MOV A, Rn
+                next_status_nxt = TO_RAM_READ;
+            end
+            8'b1110_0101: begin // MOV A, direct
+                next_status_nxt = TO_ROM_READ;
+            end
+            8'b1110_101?: begin // MOV A, @Ri
+                next_status_nxt = TO_RAM_READ;
+            end
+            8'b0111_0100: begin // MOV A, #data
+                next_status_nxt = TO_ROM_READ;
+            end
+            8'b1111_1???: begin // MOV Rn, A
+                next_status_nxt = TO_RAM_WRITE;
+            end
+            8'b1010_1???: begin // MOV Rn, direct
+                next_status_nxt = TO_ROM_READ;
+            end
+            8'b0111_1???: begin // MOV Rn, #data
+                next_status_nxt = TO_ROM_READ;
+            end
+            8'b1111_0101: begin // MOV direct, A
+                next_status_nxt = TO_ROM_READ;
+            end
+            8'b1000_1???: begin // MOV direct, Rn
+                next_status_nxt = TO_RAM_READ;
+            end
+            8'b1000_0101: begin // MOV direct, direct
+                next_status_nxt = TO_ROM_READ;
+            end
+            default: begin
+            end
+        endcase
+    end
+
     always @(posedge clk, negedge rst_n) begin
         if (!rst_n) begin
-            ready <= 1'b1;
-            ID_ready <= 1'b1;
+            next_status <= NOT_DONE;
         end
         else begin
-            ready <= read_en;  
-            ID_ready <= ready;  
+            next_status <= next_status_nxt;
         end
     end
 
-	always @(posedge clk or negedge rst_n) begin
-		if (!rst_n) begin
-			pc_out <= 16'b0;
-			alu_en <= 1'b0;
-			alu_op <= 5'b0;
-            process_type <= 2'b0;
-		end
-		else begin
-			@(posedge read_en);
-			// if (ins_epoch == 0)) begin // 当前字节是指令字节
-                case (instruction)
-                    8'h00: begin // NOP: do nothing but program counter + 1
-                        pc_out <= pc_in + 1'b1;
-                        process_type <= WAITE;
-                    end
-                    8'h01: begin // AJUMP
-                        
-                    end
-                    8'h02: begin // LJUMP
-                        
-                    end
-                    8'h03: begin // RR A
-                        
-                    end
-                    8'h04: begin // INC A; A = A + 1;
-                        pc_out <= pc_in + 1'b1;
-                        alu_en <= 1'b1;
-                        alu_op <= 5'h2;
-                        process_type <= ALU_CAL;
-                    end	
-                    8'h14: begin // DEC A; A = A - 1;
-                        pc_out <= pc_in + 1'b1;
-                        alu_en <= 1'b1;
-                        alu_op <= 5'h3;
-                        process_type <= ALU_CAL;
-                    end
-                    default: begin
-                    end																														
-			    endcase
-            // end
-            // else begin // 当前字节是操作数字节
-                
-            // end
-		end
-	end
-	// ALU使能关闭
-	always @(posedge clk) begin
-		@(negedge read_en);
-		alu_en <= 1'b0;
-	end
-	
-
-	
 endmodule

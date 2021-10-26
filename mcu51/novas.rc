@@ -112,7 +112,6 @@ Branch = 1
 IfShowModule = {TRUE, FALSE}
 [DisabledMessages]
 version = Verdi3_L-2016.06-1
-184615126 = disabled
 [Editor]
 editorName = TurboEditor
 [Emacs]
@@ -217,7 +216,7 @@ prefKey_Link-LineWidth = 1
 Selection-LineColor = ID_BLUE2
 Selection-LineWidth = 1
 [FSM_Dlg-Print]
-Orientation = Landscape     
+Orientation = Landscape
 [Form]
 version = Verdi3_L-2016.06-1
 [General]
@@ -275,7 +274,7 @@ PinNameToCase =
 [InteractiveDebug]
 tbvLocalWatchArrayLimit = 50
 Watch_0 = 150 80 80 0
-Watch_1 = 150 80 80 306
+Watch_1 = 150 80 80 200
 Watch_2 = 150 80 80 200
 Watch_3 = 150 80 80 200
 Watch_4 = 150 80 80 200
@@ -358,7 +357,7 @@ saveFsdbStat = TRUE
 savePropStat = FALSE
 savePropDtl = TRUE
 [QtDialog]
-QwUserAskDlg = 836,553,324,134
+QwUserAskDlg = 860,661,324,134
 [Relationship]
 hideRecursiceNode = FALSE
 [Session Cache]
@@ -548,7 +547,7 @@ pdmlCommand = ID_BLACK
 pdmlMacro = ID_BLACK
 font = COURIER12
 [Text.1]
-viewport = -32 -32 1908 1047 45
+viewport = 0 23 1536 841 45
 [TextPrinter]
 Orientation = Landscape
 Indicator = FALSE
@@ -650,7 +649,7 @@ scope_to_save_with_macro
 open_file_dir
 open_rc_file_dir
 getSignalForm = 0 0 800 479 100 30 100 30
-viewPort = 0 28 1264 402 100 65
+viewPort = 0 28 1017 304 100 65
 signalSpacing = 5
 digitalSignalHeight = 15
 analogSignalHeight = 98
@@ -1149,7 +1148,7 @@ AddImportArgument = TRUE
 LineBreakWithScope = TRUE
 StopAfterCompileOption = -tcl
 [turboSchema_Printer_Options]
-Orientation = Landscape     
+Orientation = Landscape
 [turbo_library]
 bdb_load_scope = 
 [verisity]
@@ -1161,7 +1160,7 @@ AddImportArgument = FALSE
 LineBreakWithScope = TRUE
 StopAfterCompileOption = -s
 [wave.0]
-viewPort = 0 28 1264 402 100 65
+viewPort = 0 28 1017 304 100 65
 [wave.1]
 viewPort = 127 219 960 332 100 65
 [wave.2]

@@ -1,4 +1,5 @@
 /mnt/d/Cumt/Documents/ICCodes/mcu51/CPU/ALEGen.v
 /mnt/d/Cumt/Documents/ICCodes/mcu51/CPU/CPU.v
 /mnt/d/Cumt/Documents/ICCodes/mcu51/CPU/ClkDiv.v
+/mnt/d/Cumt/Documents/ICCodes/mcu51/CPU/InsDecoder.v
 /mnt/d/Cumt/Documents/ICCodes/mcu51/CPU/tb_get_ins.sv

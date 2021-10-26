@@ -1,9 +1,18 @@
 {
-    "CompileProcesses": [
-        "cgproc.8224.json"
-    ],
-    "MlibObjs": {},
+    "Misc": {
+        "archive_dir": "archive.0",
+        "csrc": "csrc",
+        "cwd": "/mnt/d/Cumt/Documents/ICCodes/mcu51",
+        "csrc_abs": "/mnt/d/Cumt/Documents/ICCodes/mcu51/csrc",
+        "daidir": "simv.daidir",
+        "daidir_abs": "/mnt/d/Cumt/Documents/ICCodes/mcu51/simv.daidir",
+        "default_output_dir": "csrc"
+    },
     "PrevCompiledModules": {},
+    "MlibObjs": {},
+    "CompileProcesses": [
+        "cgproc.6979.json"
+    ],
     "NameTable": {
         "std": [
             "std",
@@ -15,11 +24,6 @@
             "GLQFB",
             "module"
         ],
-        "ClkDiv": [
-            "ClkDiv",
-            "PJbHW",
-            "module"
-        ],
         "ALEGen": [
             "ALEGen",
             "x91G7",
@@ -29,70 +33,66 @@
             "SIM",
             "amcQw",
             "module"
+        ],
+        "ClkDiv": [
+            "ClkDiv",
+            "PJbHW",
+            "module"
         ]
-    },
-    "Misc": {
-        "cwd": "/mnt/d/Cumt/Documents/ICCodes/mcu51",
-        "archive_dir": "archive.0",
-        "csrc": "csrc",
-        "daidir_abs": "/mnt/d/Cumt/Documents/ICCodes/mcu51/simv.daidir",
-        "csrc_abs": "/mnt/d/Cumt/Documents/ICCodes/mcu51/csrc",
-        "daidir": "simv.daidir",
-        "default_output_dir": "csrc"
     },
     "CompileStrategy": "fullobj",
     "stat": {
-        "mop/quad": 2.206528562460766,
-        "ru_self_cgstart": {
-            "ru_utime_sec": 0.071832999999999994,
-            "ru_stime_sec": 0.191556,
-            "ru_maxrss_kb": 104676,
-            "ru_minflt": 7800,
-            "ru_nvcsw": 2220,
-            "ru_majflt": 0,
-            "ru_nivcsw": 1
-        },
-        "nMops": 3515,
-        "ru_childs_end": {
-            "ru_utime_sec": 0.021749999999999999,
-            "ru_stime_sec": 0.0,
-            "ru_maxrss_kb": 101628,
-            "ru_minflt": 950,
-            "ru_nvcsw": 392,
-            "ru_majflt": 0,
-            "ru_nivcsw": 0
-        },
-        "outputSizePerQuad": 127.0,
         "ru_self_end": {
-            "ru_utime_sec": 0.11484800000000001,
-            "ru_stime_sec": 0.20417399999999999,
-            "ru_maxrss_kb": 114980,
-            "ru_minflt": 9745,
-            "ru_nvcsw": 2678,
+            "ru_utime_sec": 0.172129,
             "ru_majflt": 0,
-            "ru_nivcsw": 2
+            "ru_maxrss_kb": 114764,
+            "ru_stime_sec": 0.236677,
+            "ru_nivcsw": 6,
+            "ru_nvcsw": 2827,
+            "ru_minflt": 9795
         },
+        "Frontend(%)": 80.290944582260977,
+        "outputSizePerQuad": 114.0,
+        "ru_self_cgstart": {
+            "ru_utime_sec": 0.13820399999999999,
+            "ru_majflt": 0,
+            "ru_maxrss_kb": 104564,
+            "ru_stime_sec": 0.21717800000000001,
+            "ru_nivcsw": 6,
+            "ru_nvcsw": 2336,
+            "ru_minflt": 7906
+        },
+        "mop/quad": 2.2790070156502966,
         "ru_childs_cgstart": {
-            "ru_utime_sec": 0.021749999999999999,
-            "ru_stime_sec": 0.0,
-            "ru_maxrss_kb": 101628,
-            "ru_minflt": 950,
-            "ru_nvcsw": 392,
+            "ru_utime_sec": 0.022338,
             "ru_majflt": 0,
-            "ru_nivcsw": 0
+            "ru_maxrss_kb": 101904,
+            "ru_stime_sec": 0.0058300000000000001,
+            "ru_nivcsw": 0,
+            "ru_nvcsw": 406,
+            "ru_minflt": 952
         },
-        "nQuads": 1593,
-        "mopSpeed": 81715.680576543047,
-        "totalObjSize": 203894,
-        "Frontend(%)": 62.546147952075778,
-        "quadSpeed": 37033.592932697888,
-        "CodeGen(%)": 37.453852047924215
+        "nMops": 4223,
+        "nQuads": 1853,
+        "totalObjSize": 211968,
+        "ru_childs_end": {
+            "ru_utime_sec": 0.022338,
+            "ru_majflt": 0,
+            "ru_maxrss_kb": 101904,
+            "ru_stime_sec": 0.0058300000000000001,
+            "ru_nivcsw": 0,
+            "ru_nvcsw": 406,
+            "ru_minflt": 952
+        },
+        "mopSpeed": 124480.47162859244,
+        "CodeGen(%)": 19.709055417739027,
+        "quadSpeed": 54620.486366985984
+    },
+    "SIMBData": {
+        "out": "amcQwB.o",
+        "bytes": 91329
     },
     "CurCompileUdps": {},
-    "SIMBData": {
-        "bytes": 91159,
-        "out": "amcQwB.o"
-    },
     "CurCompileModules": [
         "...MASTER...",
         "...MASTER...",

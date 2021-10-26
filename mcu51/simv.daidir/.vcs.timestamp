@@ -32,15 +32,17 @@
 -sverilog
 /home/milo/Synopsys/vcs/linux64/bin/vcs1
 com.log
-49
+51
 sysc_uni_pwd=/mnt/d/Cumt/Documents/ICCodes/mcu51
 XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
 XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
-WSL_INTEROP=/run/WSL/5371_interop
+WT_SESSION=d590e236-1efe-40b2-aa2d-948e701dfb28
+WT_PROFILE_ID={2c4de342-38b7-51cf-b940-2309a097f518}
+WSL_INTEROP=/run/WSL/6350_interop
 WSL_DISTRO_NAME=Ubuntu
-WSLENV=VSCODE_WSL_EXT_LOCATION/up
+WSLENV=ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
 WAYLAND_DISPLAY=wayland-0
-VSCODE_IPC_HOOK_CLI=/mnt/wslg/runtime-dir/vscode-ipc-e5e4cc16-1cc9-46f0-adc7-ec276963eb94.sock
+VSCODE_IPC_HOOK_CLI=/mnt/wslg/runtime-dir/vscode-ipc-f5956a96-7338-4e7e-8e2e-84058317f671.sock
 VSCODE_GIT_IPC_HANDLE=/mnt/wslg/runtime-dir/vscode-git-9067cc4ad2.sock
 VSCODE_GIT_ASKPASS_NODE=/home/milo/.vscode-server/bin/6cba118ac49a1b88332f312a8f67186f7f3c1643/node
 VSCODE_GIT_ASKPASS_MAIN=/home/milo/.vscode-server/bin/6cba118ac49a1b88332f312a8f67186f7f3c1643/extensions/git/dist/askpass-main.js
@@ -68,7 +70,7 @@ PULSE_SERVER=/mnt/wslg/PulseServer
 PT_HOME=/home/milo/Synopsys/pt
 OVA_UUM=0
 NOVAS_HOME=/home/milo/Synopsys/verdi
-NAME=Milo
+NAME=Code
 MFLAGS=
 MAKE_TERMOUT=/dev/pts/2
 MAKE_TERMERR=/dev/pts/2
@@ -83,16 +85,17 @@ FM_HOME=/home/milo/Synopsys/fm
 DC_HOME=/home/milo/Synopsys/dc
 COLORTERM=truecolor
 0
-6
+7
 1633684846 ./CPU/ClkDiv.v
 1633685162 ./CPU/ALEGen.v
-1635150305 ./CPU/CPU.v
-1634992686 ./CPU/tb_get_ins.sv
-1634991541 filelist.f
+1635225959 ./CPU/InsDecoder.v
+1635226075 ./CPU/CPU.v
+1635226041 ./CPU/tb_get_ins.sv
+1635216366 filelist.f
 1464145466 /home/milo/Synopsys/vcs/linux64/lib/vcsdp.tab
 4
 0 
 1464147802 /home/milo/Synopsys/vcs/linux64/lib/libvirsim.so
 1464147272 /home/milo/Synopsys/vcs/linux64/lib/liberrorinf.so
 1464147248 /home/milo/Synopsys/vcs/linux64/lib/libsnpsmalloc.so
-1635158649 simv.daidir
+1635226540 simv.daidir

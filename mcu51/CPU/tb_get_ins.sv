@@ -5,9 +5,17 @@ module tb_get_ins;
     reg clk;
     reg rst_n;
     reg [7:0] instruction;
+    reg EA;
+    reg[1:0]    interupt;
+    reg[1:0]    timer;
     wire [7:0] data_bus;
     wire read_en;
-    wire [7:0] addr_bus;
+    wire write_en;
+    wire clk_1M;
+    wire clk_6M;
+    wire memory_select;
+    wire psen;
+    wire [15:0] addr_bus;
     wire [7:0] data_out;
 
     initial begin
@@ -22,12 +30,12 @@ module tb_get_ins;
         #30 rst_n = 1;
     end
     initial begin
-        instruction = 1;
+        instruction = 0;
         @(posedge clk);
         forever begin
-            #2 instruction = 4;
-            #10 instruction = 5;
-            #6 instruction = 'h14;
+            #4 instruction = 4;
+            #4 instruction = 10;
+            #4 instruction = 'h14;
         end
         // forever begin
         //     #2 instruction = instruction;
@@ -41,7 +49,15 @@ module tb_get_ins;
         .reset(rst_n),
         .data_bus(data_bus),
         .addr_bus(addr_bus),
-        .read_en(read_en)
+        .read_en(read_en),
+        .write_en(write_en),
+        .EA(EA),
+        .interupt(interupt),
+        .timer(timer),
+        .clk_1M(clk_1M),
+        .clk_6M(clk_6M),
+        .memory_select(memory_select),
+        .PSEN(psen)
     );
 
 endmodule

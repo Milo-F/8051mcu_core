@@ -13,7 +13,7 @@ module CPU (
     output  reg[15:0]   addr_bus,    // 地址总线
     input               EA,         // 内/外部程序存储器选择使能，1：内部；0：外部
     input   [1:0]       interupt,   // 中断控制信号
-    input   [1:0]       timing,     // 计时器中断控制信号
+    input   [1:0]       timer,     // 计时器中断控制信号
     output  reg         read_en,    // 读数据使能
     output  reg         write_en,   // 写数据使能
     output              clk_1M,     // 机器周期
@@ -66,14 +66,14 @@ module CPU (
 
     /**********************************************指令处理***************************************/
     // 独热码状态机状态定义
-    localparam NOP = 8'b0000_0001; // NOP指令，空闲等待若干个时钟周期
-    localparam GET_INS = 8'b0000_0010; // 取指令
-    localparam INS_DECODE = 8'b0000_0100; // 译码
-    localparam RAM_READ = 8'b0000_1000; // 取ram中的操作数
-    localparam ROM_READ = 8'b0001_0000; // 取rom中的操作数
-    localparam PROCESS = 8'b0010_0000; // 执行指令
-    localparam RAM_WRITE = 8'b0100_0000; // 回写ram
-    localparam ROM_WRITE = 8'b1000_0000; // 回写rom
+    localparam NOP = 7'b000_0001; // NOP指令，空闲等待若干个时钟周期
+    localparam GET_INS = 7'b000_0010; // 取指令
+    localparam INS_DECODE = 7'b000_0100; // 译码
+    localparam RAM_READ = 7'b000_1000; // 取ram中的操作数
+    localparam ROM_READ = 7'b001_0000; // 取rom中的操作数
+    localparam PROCESS = 7'b010_0000; // 执行指令
+    localparam RAM_WRITE = 7'b100_0000; // 回写ram
+    // localparam ROM_WRITE = 8'b1000_0000; // 回写rom
 
     localparam NOP_INDEX = 0;
     localparam GET_INS_INDEX = 1;
@@ -82,13 +82,21 @@ module CPU (
     localparam ROM_READ_INDEX = 4;
     localparam PROCESS_INDEX = 5;
     localparam RAM_WRITE_INDEX = 6;
-    localparam ROM_WRITE_INDEX = 7;
+    // localparam ROM_WRITE_INDEX = 7;
+
+    // 译码器跳转标识
+    parameter DECODE_TO_NOP = 3'b000;
+    parameter DECODE_TO_RAM_READ= 3'b001;
+    parameter DECODE_TO_ROM_READ = 3'b010;
+    parameter DECODE_TO_PROCESS = 3'b011;
+    parameter DECODE_TO_RAM_WRITE = 3'b100;
+    parameter DECODE_NOT_DONE = 3'b111;
 
     // 常量定义
     parameter NOP_DURATION = 6; // NOP指令空闲6个时钟周期
     
     // 指令处理线网定义
-    reg[7:0]    status, status_nxt; // 状态
+    reg[6:0]    status, status_nxt; // 状态
     reg[2:0]    nop_cnt, nop_cnt_nxt; // NOP指令空闲时钟计数器
     wire[2:0]   nop_cnt_minus1;
     reg[15:0]   program_counter, program_counter_nxt; // 程序计数器
@@ -102,11 +110,20 @@ module CPU (
     reg[7:0]    data_out;
     wire[7:0]   data_in;
     assign data_bus = (!read_en) ? data_out : 8'bz;
-    assign data_in = data_bus;
+    assign data_in = (read_en) ? data_bus : data_in;
 
     // 计数器
     assign nop_cnt_minus1 = nop_cnt - 1'b1;
     assign program_counter_plus1 = program_counter + 1'b1;
+
+    // 译码器
+    wire[2:0]   decoder_next_status;
+    InsDecoder insdecoder(
+        .clk(clk),
+        .rst_n(rst_n),
+        .instruction(ins_register),
+        .next_status(decoder_next_status)
+    );
 
     // 状态转移逻辑，包含次态方程和相关线网的处理
     always @(*) begin
@@ -135,7 +152,26 @@ module CPU (
                 end
             end 
             status[INS_DECODE_INDEX]: begin
-                
+                case (decoder_next_status)
+                    DECODE_TO_NOP: begin
+                        status_nxt = NOP;
+                    end
+                    DECODE_TO_PROCESS: begin
+                        status_nxt = PROCESS;
+                    end
+                    DECODE_TO_RAM_READ: begin
+                        status_nxt = RAM_READ;
+                    end
+                    DECODE_TO_ROM_READ: begin
+                        status_nxt = ROM_READ;
+                    end
+                    DECODE_TO_RAM_WRITE: begin
+                        status_nxt = RAM_WRITE;
+                    end
+                    default: begin
+                        status_nxt = status;
+                    end
+                endcase
             end
             status[RAM_READ_INDEX]: begin
                 
@@ -147,9 +183,6 @@ module CPU (
                 
             end
             status[RAM_WRITE_INDEX]: begin
-                
-            end
-            status[ROM_WRITE_INDEX]: begin
                 
             end
             status[NOP_INDEX]: begin

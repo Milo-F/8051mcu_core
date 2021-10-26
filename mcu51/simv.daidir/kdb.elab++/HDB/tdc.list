@@ -1,4 +1,5 @@
 ./CPU/ClkDiv.v
+./CPU/InsDecoder.v
 ./CPU/CPU.v
 ./CPU/ALEGen.v
 ./CPU/tb_get_ins.sv

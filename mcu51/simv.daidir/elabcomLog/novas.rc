@@ -216,7 +216,7 @@ prefKey_Link-LineWidth = 1
 Selection-LineColor = ID_BLUE2
 Selection-LineWidth = 1
 [FSM_Dlg-Print]
-Orientation = Landscape      
+Orientation = Landscape 
 [Form]
 version = Verdi3_L-2016.06-1
 [General]
@@ -349,7 +349,7 @@ saveFsdbStat = TRUE
 savePropStat = FALSE
 savePropDtl = TRUE
 [QtDialog]
-QwUserAskDlg = 830,526,324,130
+QwUserAskDlg = 860,661,324,130
 [Relationship]
 hideRecursiceNode = FALSE
 [Session Cache]
@@ -530,7 +530,7 @@ pdmlCommand = ID_BLACK
 pdmlMacro = ID_BLACK
 font = COURIER12
 [Text.1]
-viewport = 508 204 900 700 45
+viewport = 217 264 900 700 45
 [TextPrinter]
 Orientation = Landscape
 Indicator = FALSE
@@ -626,6 +626,9 @@ ovaForbidSuccessColor = -c ID_GREEN5
 SigGroupRuleFile = 
 DisplayFileName = FALSE
 waveform_vertical_scroll_bar = TRUE
+scope_to_save_with_macro
+open_file_dir
+open_rc_file_dir
 viewPort = 54 237 960 332 100 65
 signalSpacing = 5
 digitalSignalHeight = 15
@@ -798,7 +801,6 @@ ResolveSymbolicLink = TRUE
 signal_rc_abspath = TRUE
 signal_rc_no_natural_bus_range = FALSE
 save_scope_with_macro = FALSE
-scope_to_save_with_macro
 TipInSignalWin = FALSE
 DisplaySignalTypeAheadOfSignalName = TRUE ICON
 TipInCurveWin = FALSE
@@ -875,8 +877,6 @@ hspiceIncOpenMode = TRUE
 pcSelectMode = TRUE
 hierarchyDelimiter = /
 open_file_time_range = FALSE
-open_file_dir
-open_rc_file_dir
 value_window_aligment = Right
 signal_window_alignment = Auto
 ShowDeltaTime = TRUE
@@ -951,6 +951,7 @@ HvpMergeTool =
 ShowMergeMenuItem = FALSE
 fsmScoreMode = transition
 [eco]
+NameRule = 
 IsFreezeSilicon = FALSE
 cellQuantityManagement = FALSE
 ManageMode = INSTANCE_NAME
@@ -958,7 +959,6 @@ SpareCellsPinsManagement = TRUE
 LogCommitReport = FALSE
 InputPinStatus = 1
 OutputPinStatus = 2
-NameRule = 
 RevisedComponentColor = ID_BLUE5
 SpareCellColor = ID_RED5
 UserName = milo
@@ -1088,9 +1088,9 @@ Selection = darkblue
 Standard = black
 Keyword = blue
 Comment = gray25
-Number = black 
-String = black 
-Identifier = darkred 
+Number = black
+String = black
+Identifier = darkred
 Inline = green
 colorIdentifier = green
 Value = darkgreen
@@ -1126,7 +1126,7 @@ AddImportArgument = TRUE
 LineBreakWithScope = TRUE
 StopAfterCompileOption = -tcl
 [turboSchema_Printer_Options]
-Orientation = Landscape      
+Orientation = Landscape 
 [turbo_library]
 bdb_load_scope = 
 [verisity]

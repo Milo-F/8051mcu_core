@@ -6,7 +6,7 @@ Warning-[LCA_FEATURES_ENABLED] Usage warning
   features" in the VCS/VCS-MX Release Notes
 Chronologic VCS simulator copyright 1991-2016
 Contains Synopsys proprietary information.
-Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 25 18:44 2021
+Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 26 13:36 2021
 
 ucli% synUtils::getArch
 linux64
@@ -23,20 +23,20 @@ FSDB Dumper for VCS, Release Verdi3_L-2016.06-1, Linux x86_64/64bit, 07/10/2016
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
 ucli% sps_interactive
-*Verdi3* : Enable RPC Server(8505)
+*Verdi3* : Enable RPC Server(7277)
 
 ucli% ucliCore::getToolPID
-8505
+7277
 ucli% if {[catch {ucliCore::setFocus tool}]} {}
 
 ucli% puts $ucliCore::nativeUcliMode
 0
 
 ucli% ucliCore::getToolTopPID
-8505
+7277
 ucli% pid
-8512
-ucli% synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.milo.8505 }
+7284
+ucli% synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.milo.7277 }
 
 ucli% if { [info vars watch::vcbp_str_len_limit_of_get_value] != ""} {set watch::vcbp_str_len_limit_of_get_value 1024}
 1024
@@ -81,7 +81,7 @@ line: 3
 logFilename: sim.log
 macroIndex: -1
 macroOffset: -1
-pid: 8505
+pid: 7277
 scope: tb_get_ins
 startCol: 0
 state: stopped
@@ -103,8 +103,28 @@ ucli% stop
 No stop points are set
 ucli% if {[catch {ucliCore::setFocus tool}]} {}
 
+ucli% fsdbDumpvars 1 {tb_get_ins.clk_1M} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.clk_1M).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+ucli% fsdbDumpvars 1 {tb_get_ins.clk_6M} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.clk_6M).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+ucli% fsdbDumpvars 1 {tb_get_ins.memory_select} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.memory_select).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+ucli% fsdbDumpvars 1 {tb_get_ins.psen} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.psen).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
 ucli% fsdbDumpvars 1 {tb_get_ins.read_en} ;fsdbDumpflush
 *Verdi3* : Dumping the signal (tb_get_ins.read_en).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+ucli% fsdbDumpvars 1 {tb_get_ins.write_en} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.write_en).
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
 ucli% fsdbDumpvars 1 {tb_get_ins.addr_bus} ;fsdbDumpflush
@@ -119,6 +139,10 @@ ucli% fsdbDumpvars 1 {tb_get_ins.data_out} ;fsdbDumpflush
 *Verdi3* : Dumping the signal (tb_get_ins.data_out).
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
+ucli% fsdbDumpvars 1 {tb_get_ins.EA} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.EA).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
 ucli% fsdbDumpvars 1 {tb_get_ins.clk} ;fsdbDumpflush
 *Verdi3* : Dumping the signal (tb_get_ins.clk).
 *Verdi3* : Flush all FSDB Files at 0 ps.
@@ -131,194 +155,21 @@ ucli% fsdbDumpvars 1 {tb_get_ins.instruction} ;fsdbDumpflush
 *Verdi3* : Dumping the signal (tb_get_ins.instruction).
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.EA} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.EA).
+ucli% fsdbDumpvars 1 {tb_get_ins.interupt} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.interupt).
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.clk} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.clk).
+ucli% fsdbDumpvars 1 {tb_get_ins.timer} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.timer).
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.reset} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.reset).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.interupt} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.interupt).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.timing} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.timing).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.PSEN} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.PSEN).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.clk_1M} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.clk_1M).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.clk_6M} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.clk_6M).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.memory_select} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.memory_select).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.read_en} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.read_en).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.write_en} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.write_en).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.addr_bus} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.addr_bus).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.data_bus} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.data_bus).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.data_in} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.data_in).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.nop_cnt_minus1} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.nop_cnt_minus1).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.program_counter_plus1} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.program_counter_plus1).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.get_ins_done} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.get_ins_done).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.get_ins_done_nxt} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.get_ins_done_nxt).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.memory_select_nxt} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.memory_select_nxt).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.read_en_nxt} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.read_en_nxt).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.rst_n} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.rst_n).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.addr_bus_nxt} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.addr_bus_nxt).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.cnt_rst} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.cnt_rst).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.data_out} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.data_out).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.ins_register} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.ins_register).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.ins_register_nxt} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.ins_register_nxt).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.nop_cnt} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.nop_cnt).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.nop_cnt_nxt} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.nop_cnt_nxt).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.program_counter} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.program_counter).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.program_counter_nxt} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.program_counter_nxt).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.status} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.status).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.status_nxt} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.status_nxt).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% run 100ns
-100000 ps
-ucli% ucliCore::getToolPID
-8505
-ucli% synEnv::isFinished
-0
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% fsdbDumpflush 
-*Verdi3* : Flush all FSDB Files at 100,000 ps.
-
-ucli% senv
-activeDomain: Verilog
-activeFile: ./CPU/tb_get_ins.sv
-activeFrame: 
-activeLine: 3
-activeScope: tb_get_ins
-activeThread: 
-endCol: 0
-file: ./CPU/tb_get_ins.sv
-frame: 
-fsdbFilename: 
-hasTB: 0
-inputFilename: 
-keyFilename: ucli.key
-line: 3
-logFilename: sim.log
-macroIndex: -1
-macroOffset: -1
-pid: 8505
-scope: tb_get_ins
-startCol: 0
-state: stopped
-thread: 
-time: 100000
-timePrecision: 1 ps
-vcdFilename: 
-vpdFilename:
-ucli% synUtils::resolveSourceFilename ./CPU/tb_get_ins.sv
-./CPU/tb_get_ins.sv
-ucli% puts $::ucliCore::cbug_active
-0
-
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% checkpoint -list -all
-There are no checkpoints present.
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% stop
-No stop points are set
 ucli% if {[catch {ucliCore::setFocus tool}]} {}
 
 ucli% finish; quit
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 100000 ps
-CPU Time:      0.400 seconds;       Data structure size:   0.0Mb
-Mon Oct 25 18:45:05 2021
+Time: 0 ps
+CPU Time:      0.250 seconds;       Data structure size:   0.0Mb
+Tue Oct 26 13:37:00 2021
 
 VERDI_SIM_Terminated
 
