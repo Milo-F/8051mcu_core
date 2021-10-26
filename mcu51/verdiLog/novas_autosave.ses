@@ -10,9 +10,9 @@ FSDBMsgShow = 0
 AnnotationShow = 0
 powerDumped = 0
 [hb]
-postSimFile = /mnt/d/Cumt/Documents/ICCodes/mcu51/inter.fsdb
+postSimFile = /home/milo/ICCodes/mcu51/inter.fsdb
 syncTime = 0
-viewport = 0 23 1536 841 484 293 206 898
+viewport = 0 23 1536 841 422 271 326 1016
 activeNode = "tb_get_ins"
 activeScope = "tb_get_ins"
 activeFile = "./CPU/tb_get_ins.sv"
@@ -31,9 +31,9 @@ traceCrossHier = True
 DnDtraceCrossHierOnly = True
 traceIncTopPort = False
 leadingZero = False
-signalPane = True
+signalPane = False
 Scope1 = "tb_get_ins"
-multipleSelection = 1 13 3 0 0
+multipleSelection = 1 2 2 0 0
 sdfCheckUndef = FALSE
 simFlow = FALSE
 [hb.sourceTab.1]
@@ -42,30 +42,12 @@ File = /mnt/d/Cumt/Documents/ICCodes/mcu51/CPU/tb_get_ins.sv
 Line = 3
 [imp.design1]
 dbEnum =  oh
-invokeDir = /mnt/d/Cumt/Documents/ICCodes/mcu51
+invokeDir = /home/milo/ICCodes/mcu51
 design = DebussyLib
 hostCommand = hostCommand -elab ./simv.daidir/kdb.elab++
 topName = tb_get_ins ALEGen 
 fromLibrary = TRUE
 [nMemoryManager]
-FsdbFile = /mnt/d/Cumt/Documents/ICCodes/mcu51/inter.fsdb
+FsdbFile = /home/milo/ICCodes/mcu51/inter.fsdb
 UserActionNum = 0
 nMemWindowNum = 0
-[wave.0]
-viewPort = 0 28 1017 304 100 65
-SessionFile = /mnt/d/Cumt/Documents/ICCodes/mcu51/verdiLog/novas_autosave.ses.wave.0
-displayGrid = FALSE
-hierarchicalName = FALSE
-snap = TRUE
-displayLeadingZeros = FALSE
-fixDelta = FALSE
-displayCursorMarker = FALSE
-autoUpdate = FALSE
-highlightGlitchs = FALSE
-waveformSync = FALSE
-displayErrors = TRUE
-displayMsgSymbols = TRUE
-showMsgDescriptions = TRUE
-autoFit = FALSE
-displayDeltaY = FALSE
-centerCursor = FALSE

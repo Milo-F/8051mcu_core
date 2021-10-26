@@ -32,22 +32,32 @@
 -sverilog
 /home/milo/Synopsys/vcs/linux64/bin/vcs1
 com.log
-51
-sysc_uni_pwd=/mnt/d/Cumt/Documents/ICCodes/mcu51
+87
+sysc_uni_pwd=/home/milo/ICCodes/mcu51
+XNLSPATH=/home/milo/Synopsys/verdi/etc/access/nls
+XMODIFIERS=@im=none
+XKEYSYMDB=/home/milo/Synopsys/verdi/etc/access/XKeysymDB2.1
 XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
 XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
-WT_SESSION=d590e236-1efe-40b2-aa2d-948e701dfb28
+WT_SESSION=d4810b52-5534-4d6c-a2bd-104c44c04ccc
 WT_PROFILE_ID={2c4de342-38b7-51cf-b940-2309a097f518}
-WSL_INTEROP=/run/WSL/6350_interop
+WSL_INTEROP=/run/WSL/8132_interop
 WSL_DISTRO_NAME=Ubuntu
 WSLENV=ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
 WAYLAND_DISPLAY=wayland-0
-VSCODE_IPC_HOOK_CLI=/mnt/wslg/runtime-dir/vscode-ipc-f5956a96-7338-4e7e-8e2e-84058317f671.sock
-VSCODE_GIT_IPC_HANDLE=/mnt/wslg/runtime-dir/vscode-git-9067cc4ad2.sock
+WAVE_REDRAW_ALLVC=1
+VSCODE_IPC_HOOK_CLI=/mnt/wslg/runtime-dir/vscode-ipc-51f30976-4035-4a06-8698-74d151d3450c.sock
+VSCODE_GIT_IPC_HANDLE=/mnt/wslg/runtime-dir/vscode-git-cfb7a7da1b.sock
 VSCODE_GIT_ASKPASS_NODE=/home/milo/.vscode-server/bin/6cba118ac49a1b88332f312a8f67186f7f3c1643/node
 VSCODE_GIT_ASKPASS_MAIN=/home/milo/.vscode-server/bin/6cba118ac49a1b88332f312a8f67186f7f3c1643/extensions/git/dist/askpass-main.js
 VMR_MODE_FLAG=64
+VERDI_SVTB_BETA=1
+VERDI_SVTB_ALPHA=1
+VERDI_ORIGNAL_LD_LIBRARY_PATH=
 VERDI_HOME=/home/milo/Synopsys/verdi
+VCS_UCLI_STDIN_BLOCKING=1
+VCS_STOP_SAFE=1
+VCS_PATHMAP_PRELOAD_DONE=1
 VCS_MX_HOME_INTERNAL=1
 VCS_MODE_FLAG=64
 VCS_LOG_FILE=com.log
@@ -61,41 +71,67 @@ UNAME=/bin/uname
 TOOL_HOME=/home/milo/Synopsys/vcs/linux64
 TERM_PROGRAM_VERSION=1.61.2
 TERM_PROGRAM=vscode
+TCL_LIBRARY=/home/milo/Synopsys/verdi/etc/access/tcl86_library
+TBSIM_SIM_LOG_PATH=/home/milo/ICCodes/mcu51/sim.log
+TBSIM_SIM_LOG_LINK_PATH=/home/milo/ICCodes/mcu51/verdiLog/sim.log
+SYS_INST_DIR=/home/milo/Synopsys/verdi
+SYNOPSYS_SIM=/home/milo/Synopsys/vcs
 SYNOPSYS=/home/milo/synopsys/dc
 SPYGLASS_HOME=/home/milo/Synopsys/SpyGlass/SpyGlass-L2016.06/SPYGLASS_HOME
 SPYGLASS_DC_PATH=/home/milo/Synopsys/dc
+SPS_XFONT_PATH=/home/milo/Synopsys/verdi/XFont
+SPS_RGB_PATH=/home/milo/Synopsys/verdi/etc/rgb
+SPS_FONT_PATH=/home/milo/Synopsys/verdi/font
+SNPS_SIM_DEFAULT_GUI=verdi
+SIGNAL_BASE_EXTRACTION=1
+SIGNAL_BASED_BA=0
 SCRNAME=vcs
 SCRIPT_NAME=vcs
+QT_PLUGIN_PATH=/home/milo/Synopsys/verdi/platform/LINUXAMD64/bin/plugins
 PULSE_SERVER=/mnt/wslg/PulseServer
 PT_HOME=/home/milo/Synopsys/pt
 OVA_UUM=0
+NOVAS_WAVE_REDRAW_ALLVC=1
+NOVAS_VERDI_SVTB_BETA=1
+NOVAS_VERDI_SVTB_ALPHA=1
+NOVAS_TCL_LIBRARY=/home/milo/Synopsys/verdi/etc/access/tcl86_library
+NOVAS_SYNC_MOTIF_DISP=
+NOVAS_SIGNAL_BASE_EXTRACTION=1
+NOVAS_SIGNAL_BASED_BA=0
+NOVAS_LC_ALL=C
 NOVAS_HOME=/home/milo/Synopsys/verdi
+NOVASHLPPATH=/home/milo/Synopsys/verdi/doc
 NAME=Code
-MFLAGS=
+MFLAGS=-w
 MAKE_TERMOUT=/dev/pts/2
 MAKE_TERMERR=/dev/pts/2
-MAKELEVEL=1
-MAKEFLAGS=
+MAKELEVEL=2
+MAKEFLAGS=w
 LESSOPEN=| /usr/bin/lesspipe %s
 LESSCLOSE=/usr/bin/lesspipe %s %s
+LD_NOVERSION=1
 LC_ALL=C
 HOSTTYPE=x86_64
 GIT_ASKPASS=/home/milo/.vscode-server/bin/6cba118ac49a1b88332f312a8f67186f7f3c1643/extensions/git/dist/askpass.sh
+FSDB_SVA_STATUS=1
+FSDB_RD_IR_ENABLE=1
+FSDB_FILE=/home/milo/ICCodes/mcu51/inter.fsdb
 FM_HOME=/home/milo/Synopsys/fm
+DISABLE_LIBRARY_MAP_CHECK=1
 DC_HOME=/home/milo/Synopsys/dc
 COLORTERM=truecolor
 0
 7
-1633684846 ./CPU/ClkDiv.v
-1633685162 ./CPU/ALEGen.v
-1635225959 ./CPU/InsDecoder.v
-1635226075 ./CPU/CPU.v
-1635226041 ./CPU/tb_get_ins.sv
-1635216366 filelist.f
+1635226771 ./CPU/ClkDiv.v
+1635226771 ./CPU/ALEGen.v
+1635226771 ./CPU/InsDecoder.v
+1635226771 ./CPU/CPU.v
+1635226771 ./CPU/tb_get_ins.sv
+1635226771 filelist.f
 1464145466 /home/milo/Synopsys/vcs/linux64/lib/vcsdp.tab
 4
 0 
 1464147802 /home/milo/Synopsys/vcs/linux64/lib/libvirsim.so
 1464147272 /home/milo/Synopsys/vcs/linux64/lib/liberrorinf.so
 1464147248 /home/milo/Synopsys/vcs/linux64/lib/libsnpsmalloc.so
-1635226540 simv.daidir
+1635233227 simv.daidir

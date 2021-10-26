@@ -1,0 +1,3 @@
+debImport "-i" "-simflow" "-simBin" "./simv" "-simDelim" "-a sim.log"
+srcTBInvokeSim
+debExit

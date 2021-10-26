@@ -59,6 +59,15 @@ module InsDecoder(
             8'b1000_0101: begin // MOV direct, direct
                 next_status_nxt = TO_ROM_READ;
             end
+            8'b1111_011?: begin // MOV direct, @Ri
+                next_status_nxt = TO_RAM_READ;
+            end
+            8'b0111_0101: begin // MOV direct, #data
+                next_status_nxt = TO_ROM_READ;
+            end
+            8'b1111_011?: begin // MOV @Ri, A
+                next_status_nxt = TO_RAM_READ;
+            end
             default: begin
             end
         endcase

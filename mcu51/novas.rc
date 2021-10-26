@@ -112,6 +112,7 @@ Branch = 1
 IfShowModule = {TRUE, FALSE}
 [DisabledMessages]
 version = Verdi3_L-2016.06-1
+184615126 = disabled
 [Editor]
 editorName = TurboEditor
 [Emacs]
@@ -273,12 +274,12 @@ CellNameToCase =
 PinNameToCase = 
 [InteractiveDebug]
 tbvLocalWatchArrayLimit = 50
-Watch_0 = 150 80 80 0
-Watch_1 = 150 80 80 200
-Watch_2 = 150 80 80 200
-Watch_3 = 150 80 80 200
-Watch_4 = 150 80 80 200
-Watch_5 = 150 80 80 200
+Watch_0 = 150 80 83 0 
+Watch_1 = 150 80 80 200 
+Watch_2 = 150 80 80 200 
+Watch_3 = 150 80 80 200 
+Watch_4 = 150 80 80 200 
+Watch_5 = 150 80 80 200 
 [Language]
 EditWindow_Font = COURIER12
 Background = ID_WHITE
@@ -357,15 +358,16 @@ saveFsdbStat = TRUE
 savePropStat = FALSE
 savePropDtl = TRUE
 [QtDialog]
-QwUserAskDlg = 860,661,324,134
+tbvRebuildRestartDlg = 543,228,450,430
+QwUserAskDlg = 641,386,324,130
 [Relationship]
 hideRecursiceNode = FALSE
 [Session Cache]
-3 = string (session file name)
 4 = string (session file name)
 5 = string (session file name)
-1 = /mnt/d/Cumt/Documents/ICCodes/mcu51/verdiLog/novas_autosave.ses
-2 = /home/milo/verdiLog/novas_autosave.ses
+1 = /home/milo/ICCodes/mcu51/verdiLog/novas_autosave.ses
+2 = /mnt/d/Cumt/Documents/ICCodes/mcu51/verdiLog/novas_autosave.ses
+3 = /home/milo/verdiLog/novas_autosave.ses
 [Simulation]
 scsPath = scsim
 scsOption = 
@@ -428,15 +430,15 @@ iscCmdSep = FALSE
 ScsDebugAll = FALSE
 NoAppendOption = FALSE
 invokeSimPath = work
+uvmAware = TRUE
+smartlog = FALSE
 simType = vcssv
 bSVTBMode = TRUE
 SimMode = TRUE
 interactiveDebugging = TRUE
 KeepBreakPoints = FALSE
 vcs_svPath = ./simv
-vcs_svOption = -a sim.log
-uvmAware = TRUE
-smartlog = FALSE
+vcs_svOption = -fromCmd
 [SimulationPlus2]
 eventDumpUnfinish = FALSE
 dumpPowerRoot = FALSE
@@ -649,7 +651,7 @@ scope_to_save_with_macro
 open_file_dir
 open_rc_file_dir
 getSignalForm = 0 0 800 479 100 30 100 30
-viewPort = 0 28 1017 304 100 65
+viewPort = 0 28 1017 319 223 65
 signalSpacing = 5
 digitalSignalHeight = 15
 analogSignalHeight = 98
@@ -897,7 +899,8 @@ curveWindow_Drag&Drop_Mode = TRUE
 hspiceIncOpenMode = TRUE
 pcSelectMode = TRUE
 hierarchyDelimiter = /
-RecentFile1 = "\"/mnt/d/Cumt/Documents/ICCodes/mcu51/inter.fsdb\""
+RecentFile1 = "\"/home/milo/ICCodes/mcu51/inter.fsdb\""
+RecentFile2 = "\"/mnt/d/Cumt/Documents/ICCodes/mcu51/inter.fsdb\""
 open_file_time_range = FALSE
 value_window_aligment = Right
 signal_window_alignment = Auto
@@ -1150,7 +1153,7 @@ StopAfterCompileOption = -tcl
 [turboSchema_Printer_Options]
 Orientation = Landscape
 [turbo_library]
-bdb_load_scope = 
+bdb_load_scope
 [verisity]
 TPLanguage = Verilog
 TPName = "Verisity SpeXsim"
@@ -1160,7 +1163,7 @@ AddImportArgument = FALSE
 LineBreakWithScope = TRUE
 StopAfterCompileOption = -s
 [wave.0]
-viewPort = 0 28 1017 304 100 65
+viewPort = 0 28 1017 319 223 65
 [wave.1]
 viewPort = 127 219 960 332 100 65
 [wave.2]

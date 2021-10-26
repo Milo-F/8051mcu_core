@@ -1,7 +1,7 @@
 rc file Version 1.0
 
 [Design]
-COMPILE_PATH=/mnt/d/Cumt/Documents/ICCodes/mcu51
+COMPILE_PATH=/home/milo/ICCodes/mcu51
 SystemC=FALSE
 UUM=FALSE
 KDB=TRUE

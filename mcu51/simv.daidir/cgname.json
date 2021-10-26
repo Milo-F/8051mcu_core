@@ -9,6 +9,11 @@
         "GLQFB",
         "module"
     ],
+    "ClkDiv": [
+        "ClkDiv",
+        "PJbHW",
+        "module"
+    ],
     "ALEGen": [
         "ALEGen",
         "x91G7",
@@ -17,11 +22,6 @@
     "...MASTER...": [
         "SIM",
         "amcQw",
-        "module"
-    ],
-    "ClkDiv": [
-        "ClkDiv",
-        "PJbHW",
         "module"
     ]
 }

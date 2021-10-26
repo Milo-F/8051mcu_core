@@ -1,6 +1,17 @@
 Invoking simulator...
 
 ./simv -ucli -a sim.log +UVM_CONFIG_DB_TRACE +UVM_PHASE_TRACE +UVM_OBJECTION_TRACE +UVM_RESOURCE_DB_TRACE +UVM_LOG_RECORD +UVM_VERDI_TRACE=UVM_AWARE -ucli2Proc -lca
+Rebuild finished!
+
+Warning-[LCA_FEATURES_ENABLED] Usage warning
+  LCA features enabled by '-lca' argument on the command line.  For more 
+  information regarding list of LCA features please refer to Chapter "LCA 
+  features" in the VCS/VCS-MX Release Notes
+
+Chronologic VCS simulator copyright 1991-2016
+Contains Synopsys proprietary information.
+Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 26 15:27 2021
+
 *Verdi3* Loading libsscore_vcs201606.so
 
 *Verdi3* : FSDB_GATE is set.
@@ -9,23 +20,12 @@ Invoking simulator...
 FSDB Dumper for VCS, Release Verdi3_L-2016.06-1, Linux x86_64/64bit, 07/10/2016
 (C) 1996 - 2016 by Synopsys, Inc.
 
-*Verdi3* : Create FSDB file '/mnt/d/Cumt/Documents/ICCodes/mcu51/inter.fsdb'
-
+*Verdi3* : Create FSDB file '/home/milo/ICCodes/mcu51/inter.fsdb'
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
-7277
+10089
 
-Warning-[LCA_FEATURES_ENABLED] Usage warning
-  LCA features enabled by '-lca' argument on the command line.  For more 
-  information regarding list of LCA features please refer to Chapter "LCA 
-  features" in the VCS/VCS-MX Release Notes
-Chronologic VCS simulator copyright 1991-2016
-Contains Synopsys proprietary information.
-Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 26 13:36 2021
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 0 ps
-CPU Time:      0.250 seconds;       Data structure size:   0.0Mb
-Tue Oct 26 13:37:00 2021
-
-VERDI_SIM_Terminated
-
+CPU Time:      0.040 seconds;       Data structure size:   0.0Mb
+Tue Oct 26 16:00:00 2021
