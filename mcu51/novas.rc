@@ -652,7 +652,7 @@ scope_to_save_with_macro
 open_file_dir
 open_rc_file_dir
 getSignalForm = 0 0 800 479 100 30 100 30
-viewPort = 0 28 1018 300 171 65
+viewPort = 0 28 1018 354 171 65
 signalSpacing = 5
 digitalSignalHeight = 15
 analogSignalHeight = 98
@@ -1163,7 +1163,7 @@ AddImportArgument = FALSE
 LineBreakWithScope = TRUE
 StopAfterCompileOption = -s
 [wave.0]
-viewPort = 0 28 1018 300 171 65
+viewPort = 0 28 1018 354 171 65
 [wave.1]
 viewPort = 127 219 960 332 100 65
 [wave.2]

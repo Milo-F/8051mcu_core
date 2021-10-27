@@ -1,9 +1,4 @@
 {
-    "ALEGen": [
-        "ALEGen",
-        "x91G7",
-        "module"
-    ],
     "std": [
         "std",
         "reYIK",
@@ -14,14 +9,19 @@
         "GLQFB",
         "module"
     ],
-    "ClkDiv": [
-        "ClkDiv",
-        "PJbHW",
+    "ALEGen": [
+        "ALEGen",
+        "x91G7",
         "module"
     ],
     "...MASTER...": [
         "SIM",
         "amcQw",
+        "module"
+    ],
+    "ClkDiv": [
+        "ClkDiv",
+        "PJbHW",
         "module"
     ]
 }

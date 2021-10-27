@@ -10,7 +10,7 @@ Warning-[LCA_FEATURES_ENABLED] Usage warning
 
 Chronologic VCS simulator copyright 1991-2016
 Contains Synopsys proprietary information.
-Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 27 12:43 2021
+Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 27 13:00 2021
 
 *Verdi3* Loading libsscore_vcs201606.so
 
@@ -20,29 +20,33 @@ Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 27 12:
 FSDB Dumper for VCS, Release Verdi3_L-2016.06-1, Linux x86_64/64bit, 07/10/2016
 (C) 1996 - 2016 by Synopsys, Inc.
 *Verdi3* : Create FSDB file '/home/milo/ICCodes/mcu51/inter.fsdb'
+
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
-2496
+4567
 
-SimCMD>fsdbDumpvars 0 {tb_get_ins.cpu.read_en} ;fsdbDumpvars 0 {tb_get_ins.cpu.write_en} ;fsdbDumpvars 0 {tb_get_ins.cpu.status} ;fsdbDumpvars 0 {tb_get_ins.cpu.run_phase_nxt} ;fsdbDumpvars 0 {tb_get_ins.cpu.run_phase} ;fsdbDumpvars 0 {tb_get_ins.cpu.run_phase_minus1} ;fsdbDumpvars 0 {tb_get_ins.cpu.run_phase_init} ;fsdbDumpvars 0 {tb_get_ins.cpu.ram_write_done} ;fsdbDumpvars 0 {tb_get_ins.cpu.ins_register} ;fsdbDumpvars 0 {tb_get_ins.cpu.data_out} ;fsdbDumpvars 0 {tb_get_ins.cpu.data_bus} ;fsdbDumpvars 0 {tb_get_ins.cpu.clk} ;fsdbDumpvars 0 {tb_get_ins.cpu.rst_n} 
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.read_en).
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.write_en).
+SimCMD>fsdbDumpvars 0 {tb_get_ins.clk_1M} ;fsdbDumpvars 0 {tb_get_ins.clk_6M} ;fsdbDumpvars 0 {tb_get_ins.memory_select} ;fsdbDumpvars 0 {tb_get_ins.psen} ;fsdbDumpvars 0 {tb_get_ins.read_en} ;fsdbDumpvars 0 {tb_get_ins.write_en} ;fsdbDumpvars 0 {tb_get_ins.addr_bus} ;fsdbDumpvars 0 {tb_get_ins.data_bus} ;fsdbDumpvars 0 {tb_get_ins.data_out} ;fsdbDumpvars 0 {tb_get_ins.EA} ;fsdbDumpvars 0 {tb_get_ins.clk} ;fsdbDumpvars 0 {tb_get_ins.rst_n} ;fsdbDumpvars 0 {tb_get_ins.instruction} ;fsdbDumpvars 0 {tb_get_ins.interupt} ;fsdbDumpvars 0 {tb_get_ins.timer} ;fsdbDumpvars 0 {tb_get_ins.cpu.status} 
+*Verdi3* : Dumping the signal (tb_get_ins.clk_1M).
+*Verdi3* : Dumping the signal (tb_get_ins.clk_6M).
+*Verdi3* : Dumping the signal (tb_get_ins.memory_select).
+*Verdi3* : Dumping the signal (tb_get_ins.psen).
+*Verdi3* : Dumping the signal (tb_get_ins.read_en).
+*Verdi3* : Dumping the signal (tb_get_ins.write_en).
+*Verdi3* : Dumping the signal (tb_get_ins.addr_bus).
+*Verdi3* : Dumping the signal (tb_get_ins.data_bus).
+*Verdi3* : Dumping the signal (tb_get_ins.data_out).
+*Verdi3* : Dumping the signal (tb_get_ins.EA).
+*Verdi3* : Dumping the signal (tb_get_ins.clk).
+*Verdi3* : Dumping the signal (tb_get_ins.rst_n).
+*Verdi3* : Dumping the signal (tb_get_ins.instruction).
+*Verdi3* : Dumping the signal (tb_get_ins.interupt).
+*Verdi3* : Dumping the signal (tb_get_ins.timer).
 *Verdi3* : Dumping the signal (tb_get_ins.cpu.status).
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.run_phase_nxt).
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.run_phase).
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.run_phase_minus1).
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.run_phase_init).
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.ram_write_done).
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.ins_register).
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.data_out).
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.data_bus).
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.clk).
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.rst_n).
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
 SimCMD>run 200ns
 200000 ps
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 200000 ps
-CPU Time:      0.070 seconds;       Data structure size:   0.0Mb
-Wed Oct 27 12:47:14 2021
+CPU Time:      0.080 seconds;       Data structure size:   0.0Mb
+Wed Oct 27 13:01:50 2021

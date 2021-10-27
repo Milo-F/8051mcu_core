@@ -16,8 +16,8 @@ signalSpacing 5
 
 ; windowTimeUnit is used for zoom, cursor & marker
 ; waveform viewport range
-zoom 0.000000 202000.000000
-cursor 200000.000000
+zoom 59934.065934 196133.437991
+cursor 67000.000000
 marker 0.000000
 
 ; user define markers
@@ -25,7 +25,7 @@ marker 0.000000
 ; visible top row signal index
 top 0
 ; marker line index
-markerPos 13
+markerPos 16
 
 ; event list
 ; addEvent event_name event_expression
@@ -45,34 +45,24 @@ COMPLEX_EVENT_END
 curSTATUS ByChange
 
 
-aliasmapname CPU.status
-nalias RAM_READ		7'b0001000		NULL
-nalias PROCESS		7'b0100000		NULL
-nalias GET_INS_INDEX		7'b0000010		NULL
-nalias RAM_WRITE		7'b1000000		NULL
-nalias ROM_READ		7'b0010000		NULL
-nalias NOP		7'b0000001		NULL
-nalias INS_DECODE		7'b0000100		NULL
-
-aliasmapname CPU.nop_cnt
-nalias NOP_DURATION		3'b110		NULL
-
 addGroup "G1"
 activeDirFile "" "/home/milo/ICCodes/mcu51/inter.fsdb"
-addSignal -h 15 /tb_get_ins/cpu/read_en
-addSignal -h 15 /tb_get_ins/cpu/write_en
-aliasname CPU.status
-addSignal -h 15 -UNSIGNED -HEX /tb_get_ins/cpu/status[6:0]
-addSignal -h 15 /tb_get_ins/cpu/run_phase_nxt[2:0]
-addSignal -h 15 /tb_get_ins/cpu/run_phase[2:0]
-addSignal -h 15 /tb_get_ins/cpu/run_phase_minus1[2:0]
-addSignal -h 15 /tb_get_ins/cpu/run_phase_init[2:0]
-addSignal -h 15 /tb_get_ins/cpu/ram_write_done
-addSignal -h 15 /tb_get_ins/cpu/ins_register[7:0]
-addSignal -h 15 /tb_get_ins/cpu/data_out[7:0]
-addSignal -h 15 /tb_get_ins/cpu/data_bus[7:0]
-addSignal -h 15 /tb_get_ins/cpu/clk
-addSignal -h 15 /tb_get_ins/cpu/rst_n
+addSignal -h 15 /tb_get_ins/clk_1M
+addSignal -h 15 /tb_get_ins/clk_6M
+addSignal -h 15 /tb_get_ins/memory_select
+addSignal -h 15 /tb_get_ins/psen
+addSignal -h 15 /tb_get_ins/read_en
+addSignal -h 15 /tb_get_ins/write_en
+addSignal -h 15 /tb_get_ins/addr_bus[15:0]
+addSignal -h 15 /tb_get_ins/data_bus[7:0]
+addSignal -h 15 /tb_get_ins/data_out[7:0]
+addSignal -h 15 /tb_get_ins/EA
+addSignal -h 15 /tb_get_ins/clk
+addSignal -h 15 /tb_get_ins/rst_n
+addSignal -h 15 /tb_get_ins/instruction[7:0]
+addSignal -h 15 /tb_get_ins/interupt[1:0]
+addSignal -h 15 /tb_get_ins/timer[1:0]
+addSignal -h 15 /tb_get_ins/cpu/status[6:0]
 addGroup "G2"
 
 ; getSignalForm Scope Hierarchy Status

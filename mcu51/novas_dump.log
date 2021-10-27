@@ -238,9 +238,9 @@ argv[9]=+UVM_VERDI_TRACE=UVM_AWARE
 argv[10]=-ucli2Proc
 argv[11]=-lca
 239 profile - 100
-          CPU/Mem usage: 0.020 sys,  0.010 user,  152.15M sys,  0.00M vm
+          CPU/Mem usage: 0.000 sys,  0.030 user,  152.15M sys,  0.00M vm
 240 VC callback profile - scalar:0 vector:0
-241 Wed Oct 27 12:43:07 2021
+241 Wed Oct 27 13:00:29 2021
 242 pliAppInit
 243 ndpGetenv(FSDB_FILE): /home/milo/ICCodes/mcu51/inter.fsdb
 244 ndpGetenv(FSDB_SVA_STATUS): 1
@@ -259,378 +259,462 @@ argv[11]=-lca
 257 *Verdi3* : Flush all FSDB Files at 0 ps.
 258 sps_tcl_fsdbDumpvars
 259 argv[0]: 0
-260 argv[1]: tb_get_ins.cpu.read_en
-261 *Verdi3* : Dumping the signal (tb_get_ins.cpu.read_en).
+260 argv[1]: tb_get_ins.clk_1M
+261 *Verdi3* : Dumping the signal (tb_get_ins.clk_1M).
 262 fsdbDumpvars traverse var: profile - 
-          CPU/Mem usage: 0.030 sys,  0.010 user,  257.79M sys,  0.00M vm
-                   incr: 0.010 sys,  0.000 user,  8.29M sys,  0.00M vm
-                   accu: 0.010 sys,  0.000 user,  8.29M sys,  0.00M vm
-              accu incr: 0.010 sys,  0.000 user,  8.29M sys,  0.00M vm
+          CPU/Mem usage: 0.010 sys,  0.030 user,  257.77M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  8.27M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  8.27M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  8.27M sys,  0.00M vm
 
-          Count usage: 1 var,  1 idcode,  1 callback
-                 incr: 1 var,  1 idcode,  1 callback
-                 accu: 1 var,  1 idcode,  1 callback
-            accu incr: 1 var,  1 idcode,  1 callback
+          Count usage: 1 var,  2 idcode,  1 callback
+                 incr: 1 var,  2 idcode,  1 callback
+                 accu: 1 var,  2 idcode,  1 callback
+            accu incr: 1 var,  2 idcode,  1 callback
 263 VC callback profile - scalar:0 vector:0
-264 Wed Oct 27 12:43:12 2021
+264 Wed Oct 27 13:00:32 2021
 265 fsdbDumpvars: profile - 
-          CPU/Mem usage: 0.030 sys,  0.010 user,  258.97M sys,  0.00M vm
-                   incr: 0.000 sys,  0.000 user,  1.19M sys,  0.00M vm
-                   accu: 0.010 sys,  0.000 user,  9.48M sys,  0.00M vm
-              accu incr: 0.000 sys,  0.000 user,  1.19M sys,  0.00M vm
+          CPU/Mem usage: 0.010 sys,  0.030 user,  258.82M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  1.05M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  9.33M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  1.05M sys,  0.00M vm
 
-          Count usage: 1 var,  1 idcode,  1 callback
+          Count usage: 1 var,  2 idcode,  1 callback
                  incr: 0 var,  0 idcode,  0 callback
-                 accu: 1 var,  1 idcode,  1 callback
+                 accu: 1 var,  2 idcode,  1 callback
             accu incr: 0 var,  0 idcode,  0 callback
 266 VC callback profile - scalar:1 vector:0
-267 Wed Oct 27 12:43:12 2021
+267 Wed Oct 27 13:00:32 2021
 268 sps_tcl_fsdbDumpvars
 269 argv[0]: 0
-270 argv[1]: tb_get_ins.cpu.write_en
-271 *Verdi3* : Dumping the signal (tb_get_ins.cpu.write_en).
+270 argv[1]: tb_get_ins.clk_6M
+271 *Verdi3* : Dumping the signal (tb_get_ins.clk_6M).
 272 fsdbDumpvars traverse var: profile - 
-          CPU/Mem usage: 0.030 sys,  0.010 user,  258.97M sys,  0.00M vm
-                   incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
-                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
-              accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+          CPU/Mem usage: 0.010 sys,  0.030 user,  258.95M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  0.13M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.13M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  0.13M sys,  0.00M vm
 
-          Count usage: 2 var,  2 idcode,  2 callback
-                 incr: 1 var,  1 idcode,  1 callback
-                 accu: 1 var,  1 idcode,  1 callback
-            accu incr: 1 var,  1 idcode,  1 callback
+          Count usage: 2 var,  4 idcode,  2 callback
+                 incr: 1 var,  2 idcode,  1 callback
+                 accu: 1 var,  2 idcode,  1 callback
+            accu incr: 1 var,  2 idcode,  1 callback
 273 VC callback profile - scalar:1 vector:0
-274 Wed Oct 27 12:43:12 2021
+274 Wed Oct 27 13:00:32 2021
 275 fsdbDumpvars: profile - 
-          CPU/Mem usage: 0.030 sys,  0.010 user,  258.97M sys,  0.00M vm
+          CPU/Mem usage: 0.010 sys,  0.030 user,  258.95M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
-                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.13M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 2 var,  2 idcode,  2 callback
+          Count usage: 2 var,  4 idcode,  2 callback
                  incr: 0 var,  0 idcode,  0 callback
-                 accu: 1 var,  1 idcode,  1 callback
+                 accu: 1 var,  2 idcode,  1 callback
             accu incr: 0 var,  0 idcode,  0 callback
 276 VC callback profile - scalar:2 vector:0
-277 Wed Oct 27 12:43:12 2021
+277 Wed Oct 27 13:00:32 2021
 278 sps_tcl_fsdbDumpvars
 279 argv[0]: 0
-280 argv[1]: tb_get_ins.cpu.status
-281 *Verdi3* : Dumping the signal (tb_get_ins.cpu.status).
+280 argv[1]: tb_get_ins.memory_select
+281 *Verdi3* : Dumping the signal (tb_get_ins.memory_select).
 282 fsdbDumpvars traverse var: profile - 
-          CPU/Mem usage: 0.030 sys,  0.010 user,  258.97M sys,  0.00M vm
+          CPU/Mem usage: 0.010 sys,  0.030 user,  258.95M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
                    accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 3 var,  3 idcode,  3 callback
+          Count usage: 3 var,  5 idcode,  3 callback
                  incr: 1 var,  1 idcode,  1 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 1 var,  1 idcode,  1 callback
 283 VC callback profile - scalar:2 vector:0
-284 Wed Oct 27 12:43:12 2021
+284 Wed Oct 27 13:00:32 2021
 285 fsdbDumpvars: profile - 
-          CPU/Mem usage: 0.030 sys,  0.010 user,  258.97M sys,  0.00M vm
+          CPU/Mem usage: 0.010 sys,  0.030 user,  258.95M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
                    accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 3 var,  3 idcode,  3 callback
+          Count usage: 3 var,  5 idcode,  3 callback
                  incr: 0 var,  0 idcode,  0 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 0 var,  0 idcode,  0 callback
-286 VC callback profile - scalar:2 vector:1
-287 Wed Oct 27 12:43:12 2021
+286 VC callback profile - scalar:3 vector:0
+287 Wed Oct 27 13:00:32 2021
 288 sps_tcl_fsdbDumpvars
 289 argv[0]: 0
-290 argv[1]: tb_get_ins.cpu.run_phase_nxt
-291 *Verdi3* : Dumping the signal (tb_get_ins.cpu.run_phase_nxt).
+290 argv[1]: tb_get_ins.psen
+291 *Verdi3* : Dumping the signal (tb_get_ins.psen).
 292 fsdbDumpvars traverse var: profile - 
-          CPU/Mem usage: 0.030 sys,  0.010 user,  258.97M sys,  0.00M vm
-                   incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
-                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
-              accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
+                   incr: 0.010 sys,  0.000 user,  0.10M sys,  0.00M vm
+                   accu: 0.010 sys,  0.000 user,  0.10M sys,  0.00M vm
+              accu incr: 0.010 sys,  0.000 user,  0.10M sys,  0.00M vm
 
-          Count usage: 4 var,  4 idcode,  4 callback
+          Count usage: 4 var,  6 idcode,  4 callback
                  incr: 1 var,  1 idcode,  1 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 1 var,  1 idcode,  1 callback
-293 VC callback profile - scalar:2 vector:1
-294 Wed Oct 27 12:43:12 2021
+293 VC callback profile - scalar:3 vector:0
+294 Wed Oct 27 13:00:32 2021
 295 fsdbDumpvars: profile - 
-          CPU/Mem usage: 0.030 sys,  0.010 user,  258.97M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
-                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+                   accu: 0.010 sys,  0.000 user,  0.10M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 4 var,  4 idcode,  4 callback
+          Count usage: 4 var,  6 idcode,  4 callback
                  incr: 0 var,  0 idcode,  0 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 0 var,  0 idcode,  0 callback
-296 VC callback profile - scalar:2 vector:2
-297 Wed Oct 27 12:43:12 2021
+296 VC callback profile - scalar:4 vector:0
+297 Wed Oct 27 13:00:32 2021
 298 sps_tcl_fsdbDumpvars
 299 argv[0]: 0
-300 argv[1]: tb_get_ins.cpu.run_phase
-301 *Verdi3* : Dumping the signal (tb_get_ins.cpu.run_phase).
+300 argv[1]: tb_get_ins.read_en
+301 *Verdi3* : Dumping the signal (tb_get_ins.read_en).
 302 fsdbDumpvars traverse var: profile - 
-          CPU/Mem usage: 0.030 sys,  0.010 user,  258.97M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
                    accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 5 var,  5 idcode,  5 callback
+          Count usage: 5 var,  7 idcode,  5 callback
                  incr: 1 var,  1 idcode,  1 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 1 var,  1 idcode,  1 callback
-303 VC callback profile - scalar:2 vector:2
-304 Wed Oct 27 12:43:12 2021
+303 VC callback profile - scalar:4 vector:0
+304 Wed Oct 27 13:00:32 2021
 305 fsdbDumpvars: profile - 
-          CPU/Mem usage: 0.030 sys,  0.010 user,  258.97M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
                    accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 5 var,  5 idcode,  5 callback
+          Count usage: 5 var,  7 idcode,  5 callback
                  incr: 0 var,  0 idcode,  0 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 0 var,  0 idcode,  0 callback
-306 VC callback profile - scalar:2 vector:3
-307 Wed Oct 27 12:43:12 2021
+306 VC callback profile - scalar:5 vector:0
+307 Wed Oct 27 13:00:32 2021
 308 sps_tcl_fsdbDumpvars
 309 argv[0]: 0
-310 argv[1]: tb_get_ins.cpu.run_phase_minus1
-311 *Verdi3* : Dumping the signal (tb_get_ins.cpu.run_phase_minus1).
+310 argv[1]: tb_get_ins.write_en
+311 *Verdi3* : Dumping the signal (tb_get_ins.write_en).
 312 fsdbDumpvars traverse var: profile - 
-          CPU/Mem usage: 0.030 sys,  0.010 user,  260.03M sys,  0.00M vm
-                   incr: 0.000 sys,  0.000 user,  1.05M sys,  0.00M vm
-                   accu: 0.000 sys,  0.000 user,  1.05M sys,  0.00M vm
-              accu incr: 0.000 sys,  0.000 user,  1.05M sys,  0.00M vm
-
-          Count usage: 6 var,  6 idcode,  5 callback
-                 incr: 1 var,  1 idcode,  0 callback
-                 accu: 1 var,  1 idcode,  0 callback
-            accu incr: 1 var,  1 idcode,  0 callback
-313 VC callback profile - scalar:2 vector:3
-314 Wed Oct 27 12:43:12 2021
-315 fsdbDumpvars: profile - 
-          CPU/Mem usage: 0.030 sys,  0.010 user,  260.03M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
-                   accu: 0.000 sys,  0.000 user,  1.05M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 6 var,  6 idcode,  5 callback
+          Count usage: 6 var,  8 idcode,  6 callback
+                 incr: 1 var,  1 idcode,  1 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 1 var,  1 idcode,  1 callback
+313 VC callback profile - scalar:5 vector:0
+314 Wed Oct 27 13:00:32 2021
+315 fsdbDumpvars: profile - 
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+
+          Count usage: 6 var,  8 idcode,  6 callback
                  incr: 0 var,  0 idcode,  0 callback
-                 accu: 1 var,  1 idcode,  0 callback
+                 accu: 1 var,  1 idcode,  1 callback
             accu incr: 0 var,  0 idcode,  0 callback
-316 VC callback profile - scalar:2 vector:3
-317 Wed Oct 27 12:43:12 2021
+316 VC callback profile - scalar:6 vector:0
+317 Wed Oct 27 13:00:32 2021
 318 sps_tcl_fsdbDumpvars
 319 argv[0]: 0
-320 argv[1]: tb_get_ins.cpu.run_phase_init
-321 *Verdi3* : Dumping the signal (tb_get_ins.cpu.run_phase_init).
+320 argv[1]: tb_get_ins.addr_bus
+321 *Verdi3* : Dumping the signal (tb_get_ins.addr_bus).
 322 fsdbDumpvars traverse var: profile - 
-          CPU/Mem usage: 0.030 sys,  0.010 user,  260.03M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
                    accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 7 var,  7 idcode,  6 callback
+          Count usage: 7 var,  9 idcode,  7 callback
                  incr: 1 var,  1 idcode,  1 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 1 var,  1 idcode,  1 callback
-323 VC callback profile - scalar:2 vector:3
-324 Wed Oct 27 12:43:12 2021
+323 VC callback profile - scalar:6 vector:0
+324 Wed Oct 27 13:00:32 2021
 325 fsdbDumpvars: profile - 
-          CPU/Mem usage: 0.030 sys,  0.010 user,  260.03M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
                    accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 7 var,  7 idcode,  6 callback
+          Count usage: 7 var,  9 idcode,  7 callback
                  incr: 0 var,  0 idcode,  0 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 0 var,  0 idcode,  0 callback
-326 VC callback profile - scalar:2 vector:4
-327 Wed Oct 27 12:43:12 2021
+326 VC callback profile - scalar:6 vector:1
+327 Wed Oct 27 13:00:32 2021
 328 sps_tcl_fsdbDumpvars
 329 argv[0]: 0
-330 argv[1]: tb_get_ins.cpu.ram_write_done
-331 *Verdi3* : Dumping the signal (tb_get_ins.cpu.ram_write_done).
+330 argv[1]: tb_get_ins.data_bus
+331 *Verdi3* : Dumping the signal (tb_get_ins.data_bus).
 332 fsdbDumpvars traverse var: profile - 
-          CPU/Mem usage: 0.030 sys,  0.010 user,  260.03M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
                    accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 8 var,  8 idcode,  7 callback
+          Count usage: 8 var,  10 idcode,  8 callback
                  incr: 1 var,  1 idcode,  1 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 1 var,  1 idcode,  1 callback
-333 VC callback profile - scalar:2 vector:4
-334 Wed Oct 27 12:43:12 2021
+333 VC callback profile - scalar:6 vector:1
+334 Wed Oct 27 13:00:32 2021
 335 fsdbDumpvars: profile - 
-          CPU/Mem usage: 0.030 sys,  0.010 user,  260.03M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
                    accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 8 var,  8 idcode,  7 callback
+          Count usage: 8 var,  10 idcode,  8 callback
                  incr: 0 var,  0 idcode,  0 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 0 var,  0 idcode,  0 callback
-336 VC callback profile - scalar:3 vector:4
-337 Wed Oct 27 12:43:12 2021
+336 VC callback profile - scalar:6 vector:2
+337 Wed Oct 27 13:00:32 2021
 338 sps_tcl_fsdbDumpvars
 339 argv[0]: 0
-340 argv[1]: tb_get_ins.cpu.ins_register
-341 *Verdi3* : Dumping the signal (tb_get_ins.cpu.ins_register).
+340 argv[1]: tb_get_ins.data_out
+341 *Verdi3* : Dumping the signal (tb_get_ins.data_out).
 342 fsdbDumpvars traverse var: profile - 
-          CPU/Mem usage: 0.040 sys,  0.020 user,  260.03M sys,  0.00M vm
-                   incr: 0.010 sys,  0.010 user,  0.00M sys,  0.00M vm
-                   accu: 0.010 sys,  0.010 user,  0.00M sys,  0.00M vm
-              accu incr: 0.010 sys,  0.010 user,  0.00M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 9 var,  9 idcode,  8 callback
+          Count usage: 9 var,  11 idcode,  9 callback
                  incr: 1 var,  1 idcode,  1 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 1 var,  1 idcode,  1 callback
-343 VC callback profile - scalar:3 vector:4
-344 Wed Oct 27 12:43:12 2021
+343 VC callback profile - scalar:6 vector:2
+344 Wed Oct 27 13:00:32 2021
 345 fsdbDumpvars: profile - 
-          CPU/Mem usage: 0.040 sys,  0.020 user,  260.03M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
-                   accu: 0.010 sys,  0.010 user,  0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 9 var,  9 idcode,  8 callback
+          Count usage: 9 var,  11 idcode,  9 callback
                  incr: 0 var,  0 idcode,  0 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 0 var,  0 idcode,  0 callback
-346 VC callback profile - scalar:3 vector:5
-347 Wed Oct 27 12:43:12 2021
+346 VC callback profile - scalar:6 vector:3
+347 Wed Oct 27 13:00:32 2021
 348 sps_tcl_fsdbDumpvars
 349 argv[0]: 0
-350 argv[1]: tb_get_ins.cpu.data_out
-351 *Verdi3* : Dumping the signal (tb_get_ins.cpu.data_out).
+350 argv[1]: tb_get_ins.EA
+351 *Verdi3* : Dumping the signal (tb_get_ins.EA).
 352 fsdbDumpvars traverse var: profile - 
-          CPU/Mem usage: 0.040 sys,  0.020 user,  260.03M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
                    accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 10 var,  10 idcode,  9 callback
+          Count usage: 10 var,  12 idcode,  10 callback
                  incr: 1 var,  1 idcode,  1 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 1 var,  1 idcode,  1 callback
-353 VC callback profile - scalar:3 vector:5
-354 Wed Oct 27 12:43:12 2021
+353 VC callback profile - scalar:6 vector:3
+354 Wed Oct 27 13:00:32 2021
 355 fsdbDumpvars: profile - 
-          CPU/Mem usage: 0.040 sys,  0.020 user,  260.03M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
                    accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 10 var,  10 idcode,  9 callback
+          Count usage: 10 var,  12 idcode,  10 callback
                  incr: 0 var,  0 idcode,  0 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 0 var,  0 idcode,  0 callback
-356 VC callback profile - scalar:3 vector:6
-357 Wed Oct 27 12:43:12 2021
+356 VC callback profile - scalar:7 vector:3
+357 Wed Oct 27 13:00:32 2021
 358 sps_tcl_fsdbDumpvars
 359 argv[0]: 0
-360 argv[1]: tb_get_ins.cpu.data_bus
-361 *Verdi3* : Dumping the signal (tb_get_ins.cpu.data_bus).
+360 argv[1]: tb_get_ins.clk
+361 *Verdi3* : Dumping the signal (tb_get_ins.clk).
 362 fsdbDumpvars traverse var: profile - 
-          CPU/Mem usage: 0.040 sys,  0.020 user,  260.03M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
                    accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 11 var,  11 idcode,  10 callback
+          Count usage: 11 var,  13 idcode,  11 callback
                  incr: 1 var,  1 idcode,  1 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 1 var,  1 idcode,  1 callback
-363 VC callback profile - scalar:3 vector:6
-364 Wed Oct 27 12:43:12 2021
+363 VC callback profile - scalar:7 vector:3
+364 Wed Oct 27 13:00:32 2021
 365 fsdbDumpvars: profile - 
-          CPU/Mem usage: 0.040 sys,  0.020 user,  260.03M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
                    accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 11 var,  11 idcode,  10 callback
+          Count usage: 11 var,  13 idcode,  11 callback
                  incr: 0 var,  0 idcode,  0 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 0 var,  0 idcode,  0 callback
-366 VC callback profile - scalar:3 vector:7
-367 Wed Oct 27 12:43:12 2021
+366 VC callback profile - scalar:8 vector:3
+367 Wed Oct 27 13:00:32 2021
 368 sps_tcl_fsdbDumpvars
 369 argv[0]: 0
-370 argv[1]: tb_get_ins.cpu.clk
-371 *Verdi3* : Dumping the signal (tb_get_ins.cpu.clk).
+370 argv[1]: tb_get_ins.rst_n
+371 *Verdi3* : Dumping the signal (tb_get_ins.rst_n).
 372 fsdbDumpvars traverse var: profile - 
-          CPU/Mem usage: 0.040 sys,  0.020 user,  260.03M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
                    accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 12 var,  12 idcode,  11 callback
+          Count usage: 12 var,  14 idcode,  12 callback
                  incr: 1 var,  1 idcode,  1 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 1 var,  1 idcode,  1 callback
-373 VC callback profile - scalar:3 vector:7
-374 Wed Oct 27 12:43:12 2021
+373 VC callback profile - scalar:8 vector:3
+374 Wed Oct 27 13:00:32 2021
 375 fsdbDumpvars: profile - 
-          CPU/Mem usage: 0.040 sys,  0.020 user,  260.03M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
                    accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 12 var,  12 idcode,  11 callback
+          Count usage: 12 var,  14 idcode,  12 callback
                  incr: 0 var,  0 idcode,  0 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 0 var,  0 idcode,  0 callback
-376 VC callback profile - scalar:4 vector:7
-377 Wed Oct 27 12:43:12 2021
+376 VC callback profile - scalar:9 vector:3
+377 Wed Oct 27 13:00:32 2021
 378 sps_tcl_fsdbDumpvars
 379 argv[0]: 0
-380 argv[1]: tb_get_ins.cpu.rst_n
-381 *Verdi3* : Dumping the signal (tb_get_ins.cpu.rst_n).
+380 argv[1]: tb_get_ins.instruction
+381 *Verdi3* : Dumping the signal (tb_get_ins.instruction).
 382 fsdbDumpvars traverse var: profile - 
-          CPU/Mem usage: 0.040 sys,  0.020 user,  260.03M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
                    accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 13 var,  13 idcode,  12 callback
+          Count usage: 13 var,  15 idcode,  13 callback
                  incr: 1 var,  1 idcode,  1 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 1 var,  1 idcode,  1 callback
-383 VC callback profile - scalar:4 vector:7
-384 Wed Oct 27 12:43:12 2021
+383 VC callback profile - scalar:9 vector:3
+384 Wed Oct 27 13:00:32 2021
 385 fsdbDumpvars: profile - 
-          CPU/Mem usage: 0.040 sys,  0.020 user,  260.03M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.030 user,  259.06M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
                    accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 13 var,  13 idcode,  12 callback
+          Count usage: 13 var,  15 idcode,  13 callback
                  incr: 0 var,  0 idcode,  0 callback
                  accu: 1 var,  1 idcode,  1 callback
             accu incr: 0 var,  0 idcode,  0 callback
-386 VC callback profile - scalar:5 vector:7
-387 Wed Oct 27 12:43:12 2021
-388 sps_tcl_fsdbDumpflush
-389 *Verdi3* : Flush all FSDB Files at 0 ps.
-390 sps_tcl_fsdbDumpflush
-391 *Verdi3* : Flush all FSDB Files at 0 ps.
-392 sps_tcl_fsdbDumpflush
-393 *Verdi3* : Flush all FSDB Files at 200,000 ps.
-394 End of simulation at 200000
-395 VC callback profile - scalar:272 vector:146
-396 Wed Oct 27 12:47:14 2021
-397 Parallel profile    -  Flush:19 Expand:0 ProduceWait:0 ConsumerWait:0 BlockUsed:0
-398                        ProduceTime:0.079682100 ConsumerTime:0.000000000 Buffer:64MB
-399 SimExit
-400 Sim process exit
+386 VC callback profile - scalar:9 vector:4
+387 Wed Oct 27 13:00:32 2021
+388 sps_tcl_fsdbDumpvars
+389 argv[0]: 0
+390 argv[1]: tb_get_ins.interupt
+391 *Verdi3* : Dumping the signal (tb_get_ins.interupt).
+392 fsdbDumpvars traverse var: profile - 
+          CPU/Mem usage: 0.020 sys,  0.040 user,  259.06M sys,  0.00M vm
+                   incr: 0.000 sys,  0.010 user,  0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.010 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.010 user,  0.00M sys,  0.00M vm
+
+          Count usage: 14 var,  16 idcode,  14 callback
+                 incr: 1 var,  1 idcode,  1 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 1 var,  1 idcode,  1 callback
+393 VC callback profile - scalar:9 vector:4
+394 Wed Oct 27 13:00:32 2021
+395 fsdbDumpvars: profile - 
+          CPU/Mem usage: 0.020 sys,  0.040 user,  259.06M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.010 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+
+          Count usage: 14 var,  16 idcode,  14 callback
+                 incr: 0 var,  0 idcode,  0 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 0 var,  0 idcode,  0 callback
+396 VC callback profile - scalar:9 vector:5
+397 Wed Oct 27 13:00:32 2021
+398 sps_tcl_fsdbDumpvars
+399 argv[0]: 0
+400 argv[1]: tb_get_ins.timer
+401 *Verdi3* : Dumping the signal (tb_get_ins.timer).
+402 fsdbDumpvars traverse var: profile - 
+          CPU/Mem usage: 0.020 sys,  0.040 user,  259.06M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+
+          Count usage: 15 var,  17 idcode,  15 callback
+                 incr: 1 var,  1 idcode,  1 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 1 var,  1 idcode,  1 callback
+403 VC callback profile - scalar:9 vector:5
+404 Wed Oct 27 13:00:32 2021
+405 fsdbDumpvars: profile - 
+          CPU/Mem usage: 0.020 sys,  0.040 user,  259.06M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+
+          Count usage: 15 var,  17 idcode,  15 callback
+                 incr: 0 var,  0 idcode,  0 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 0 var,  0 idcode,  0 callback
+406 VC callback profile - scalar:9 vector:6
+407 Wed Oct 27 13:00:32 2021
+408 sps_tcl_fsdbDumpvars
+409 argv[0]: 0
+410 argv[1]: tb_get_ins.cpu.status
+411 *Verdi3* : Dumping the signal (tb_get_ins.cpu.status).
+412 fsdbDumpvars traverse var: profile - 
+          CPU/Mem usage: 0.020 sys,  0.040 user,  259.08M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  0.02M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.02M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  0.02M sys,  0.00M vm
+
+          Count usage: 16 var,  18 idcode,  16 callback
+                 incr: 1 var,  1 idcode,  1 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 1 var,  1 idcode,  1 callback
+413 VC callback profile - scalar:9 vector:6
+414 Wed Oct 27 13:00:32 2021
+415 fsdbDumpvars: profile - 
+          CPU/Mem usage: 0.020 sys,  0.040 user,  259.07M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  -0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.02M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  -0.00M sys,  0.00M vm
+
+          Count usage: 16 var,  18 idcode,  16 callback
+                 incr: 0 var,  0 idcode,  0 callback
+                 accu: 1 var,  1 idcode,  1 callback
+            accu incr: 0 var,  0 idcode,  0 callback
+416 VC callback profile - scalar:9 vector:7
+417 Wed Oct 27 13:00:32 2021
+418 sps_tcl_fsdbDumpflush
+419 *Verdi3* : Flush all FSDB Files at 0 ps.
+420 sps_tcl_fsdbDumpflush
+421 *Verdi3* : Flush all FSDB Files at 0 ps.
+422 sps_tcl_fsdbDumpflush
+423 *Verdi3* : Flush all FSDB Files at 200,000 ps.
+424 End of simulation at 200000
+425 VC callback profile - scalar:351 vector:112
+426 Wed Oct 27 13:01:50 2021
+427 Parallel profile    -  Flush:22 Expand:0 ProduceWait:0 ConsumerWait:0 BlockUsed:0
+428                        ProduceTime:0.089651500 ConsumerTime:0.000000000 Buffer:64MB
+429 SimExit
+430 Sim process exit

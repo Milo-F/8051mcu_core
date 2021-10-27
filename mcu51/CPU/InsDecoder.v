@@ -24,6 +24,7 @@ module InsDecoder(
     parameter TO_ROM_READ = 3'b010;
     parameter TO_PROCESS = 3'b011;
     parameter TO_RAM_WRITE = 3'b100;
+    parameter TO_INS_DECODE = 3'b101;
     parameter NOT_DONE = 3'b111;
 
     // 数据来源标识
@@ -42,10 +43,11 @@ module InsDecoder(
             8'b1111_1???: begin // MOV RN, A
                 next_status = TO_RAM_WRITE;
                 data_from = FROM_A;
-                run_phase_init = 3'b100;
+                run_phase_init = 3'b1;
                 addr_register_out = {3'b0, psw[4:3], instruction[2:0]};
             end
-            default: begin
+            default: begin // 错误指令无法译码，取下一条指令
+                next_status = TO_INS_DECODE;
             end
         endcase
     end

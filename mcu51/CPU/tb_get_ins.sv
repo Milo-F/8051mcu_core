@@ -41,7 +41,7 @@ module tb_get_ins;
         // end
     end
     assign data_bus = (read_en) ? instruction : 8'bz;
-    assign data_out = data_bus;
+    assign data_out = (write_en)? data_bus : data_out;
 
     CPU cpu(
         .clk(clk),

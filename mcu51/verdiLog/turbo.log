@@ -1,3 +1,3 @@
 Command Line: /home/milo/Synopsys/verdi/platform/LINUXAMD64/bin/Novas -i -simflow -simBin ./simv -simDelim -a sim.log
 uname(Linux Milo 5.10.43.3-microsoft-standard-WSL2 #1 SMP Wed Jun 16 23:47:55 UTC 2021 x86_64)
-au time 482.450083 50.622313 19.425523 delta 476950528 476950528 total 807284736 807284736
+au time 199.027107 19.805485 8.105880 delta 224079872 224079872 total 554414080 554414080

@@ -1,40 +1,58 @@
 debImport "-i" "-simflow" "-simBin" "./simv" "-simDelim" "-a sim.log"
 srcTBInvokeSim
-srcSignalView -on
-srcSignalViewSelect "tb_get_ins.clk_1M"
-srcSignalViewSelect "tb_get_ins.clk_1M" "tb_get_ins.clk_6M" \
-           "tb_get_ins.memory_select" "tb_get_ins.psen" "tb_get_ins.read_en" \
-           "tb_get_ins.write_en" "tb_get_ins.addr_bus\[15:0\]" \
-           "tb_get_ins.data_bus\[7:0\]" "tb_get_ins.data_out\[7:0\]" \
-           "tb_get_ins.EA" "tb_get_ins.clk" "tb_get_ins.rst_n" \
-           "tb_get_ins.instruction\[7:0\]" "tb_get_ins.interupt\[1:0\]" \
-           "tb_get_ins.timer\[1:0\]"
-srcSignalViewSelect "tb_get_ins.clk_1M" "tb_get_ins.clk_6M" \
-           "tb_get_ins.memory_select" "tb_get_ins.psen" "tb_get_ins.read_en" \
-           "tb_get_ins.write_en" "tb_get_ins.addr_bus\[15:0\]" \
-           "tb_get_ins.data_bus\[7:0\]" "tb_get_ins.data_out\[7:0\]" \
-           "tb_get_ins.EA" "tb_get_ins.clk" "tb_get_ins.rst_n" \
-           "tb_get_ins.instruction\[7:0\]" "tb_get_ins.interupt\[1:0\]" \
-           "tb_get_ins.timer\[1:0\]"
-wvCreateWindow
-srcSignalViewAddSelectedToWave -win $_nTrace1
 srcHBSelect "tb_get_ins.cpu" -win $_nTrace1
 srcSetScope -win $_nTrace1 "tb_get_ins.cpu" -delim "."
+srcSignalView -on
+srcSignalViewSelect "tb_get_ins.cpu.memory_select"
+srcSignalViewSelect "tb_get_ins.cpu.read_en"
+wvCreateWindow
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.write_en"
+srcSignalViewAddSelectedToWave -win $_nTrace1
 srcSignalViewSelect "tb_get_ins.cpu.status\[6:0\]"
 srcSignalViewAddSelectedToWave -win $_nTrace1
-srcSignalViewSelect "tb_get_ins.cpu.read_en_nxt"
+srcSignalViewSelect "tb_get_ins.cpu.run_phase_nxt\[2:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.run_phase\[2:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.run_phase_minus1\[2:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.run_phase_init\[2:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
 srcSignalViewSelect "tb_get_ins.cpu.ram_write_done"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.ins_register\[7:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.data_out\[7:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.data_bus\[7:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.clk"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.write_en_nxt"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.rst_n"
 srcSignalViewAddSelectedToWave -win $_nTrace1
 srcTBRunSim -opt {200ns}
 srcSignalView -off
 verdiDockWidgetMaximize -dock windowDock_nWave_3
-wvSelectSignal -win $_nWave3 {( "G1" 16 )} 
 wvSelectSignal -win $_nWave3 {( "G1" 13 )} 
-wvSetCursor -win $_nWave3 87315.160960 -snap {("G1" 16)}
-wvSetMarker -win $_nWave3 89000.000000
-wvSetCursor -win $_nWave3 83257.485665 -snap {("G1" 16)}
-wvSetMarker -win $_nWave3 87000.000000
-wvSetCursor -win $_nWave3 88968.287931 -snap {("G1" 16)}
+wvCut -win $_nWave3
+wvSetPosition -win $_nWave3 {("G2" 0)}
+wvSetPosition -win $_nWave3 {("G1" 13)}
+wvSelectSignal -win $_nWave3 {( "G1" 3 )} 
+wvSetCursor -win $_nWave3 71032.967033 -snap {("G1" 3)}
+wvSetCursor -win $_nWave3 74521.193093 -snap {("G1" 3)}
+wvSetCursor -win $_nWave3 77850.863422 -snap {("G1" 3)}
+wvSetCursor -win $_nWave3 80070.643642 -snap {("G1" 3)}
+wvSetCursor -win $_nWave3 82924.646782 -snap {("G1" 3)}
+wvSetCursor -win $_nWave3 85937.205651 -snap {("G1" 3)}
+wvSetCursor -win $_nWave3 89108.320251 -snap {("G1" 3)}
+wvSetCursor -win $_nWave3 92279.434851 -snap {("G1" 3)}
+wvSetCursor -win $_nWave3 119551.020408 -snap {("G1" 3)}
+wvSetCursor -win $_nWave3 122405.023548 -snap {("G1" 3)}
+wvSetCursor -win $_nWave3 119551.020408 -snap {("G1" 3)}
+wvSetCursor -win $_nWave3 122722.135008 -snap {("G1" 3)}
 srcTBRebuild -fromCmd "make com" -reloadKDB -restartSim -simOpt "-a sim.log "
 wvSaveSignal -win $_nWave3 "/home/milo/ICCodes/mcu51/rebuild.rc"
 srcSignalView -on
@@ -45,9 +63,6 @@ wvRestoreSignal -win $_nWave4 "./rebuild.rc" -overWriteAutoAlias on
 srcTBRunSim -opt {200ns}
 srcSignalView -off
 verdiDockWidgetMaximize -dock windowDock_nWave_4
-wvSetCursor -win $_nWave4 68813.186813 -snap {("G1" 16)}
-wvSetCursor -win $_nWave4 70874.411303 -snap {("G1" 16)}
-wvSetCursor -win $_nWave4 74996.860283 -snap {("G1" 16)}
 srcTBRebuild -fromCmd "make com" -reloadKDB -restartSim -simOpt "-a sim.log "
 wvSaveSignal -win $_nWave4 "/home/milo/ICCodes/mcu51/rebuild.rc"
 srcSignalView -on
@@ -58,124 +73,73 @@ wvRestoreSignal -win $_nWave5 "./rebuild.rc" -overWriteAutoAlias on
 srcTBRunSim -opt {200ns}
 srcSignalView -off
 verdiDockWidgetMaximize -dock windowDock_nWave_5
-wvSelectSignal -win $_nWave5 {( "G1" 16 )} 
-wvSetCursor -win $_nWave5 48359.497645 -snap {("G1" 16)}
-wvSelectSignal -win $_nWave5 {( "G1" 17 )} 
-wvSetCursor -win $_nWave5 58507.064364 -snap {("G1" 17)}
-wvSetCursor -win $_nWave5 60092.621664 -snap {("G1" 17)}
-wvSetCursor -win $_nWave5 58665.620094 -snap {("G1" 17)}
-wvSetCursor -win $_nWave5 60726.844584 -snap {("G1" 17)}
-srcSignalView -on
-srcSignalView -off
-srcSignalView -on
-verdiDockWidgetHide -dock windowDock_nWave_5
-srcHBSelect "tb_get_ins.cpu" -win $_nTrace1
-srcSetScope -win $_nTrace1 "tb_get_ins.cpu" -delim "."
-srcSignalViewSelect "tb_get_ins.cpu.run_phase_minus1\[2:0\]"
-srcSignalViewAddSelectedToWave -win $_nTrace1
-srcSignalViewSelect "tb_get_ins.cpu.run_phase_out\[2:0\]"
-srcSignalViewAddSelectedToWave -win $_nTrace1
-srcSignalViewSelect "tb_get_ins.cpu.run_phase_init"
-srcSignalViewAddSelectedToWave -win $_nTrace1
-srcSignalViewSelect "tb_get_ins.cpu.run_phase\[2:0\]"
-srcSignalViewAddSelectedToWave -win $_nTrace1
-srcTBSimReset
-verdiDockWidgetSetCurTab -dock windowDock_nWave_5
-srcSignalView -off
-verdiDockWidgetMaximize -dock windowDock_nWave_5
-srcTBRunSim -opt {200ns}
-srcSignalView -off
-verdiDockWidgetMaximize -dock windowDock_nWave_5
-wvSelectSignal -win $_nWave5 {( "G1" 21 )} 
-srcTBRebuild -fromCmd "make com" -reloadKDB -restartSim -simOpt "-a sim.log "
-wvSaveSignal -win $_nWave5 "/home/milo/ICCodes/mcu51/rebuild.rc"
-srcSignalView -on
-srcSignalView -off
-srcSignalView -on
-wvCreateWindow
-wvRestoreSignal -win $_nWave6 "./rebuild.rc" -overWriteAutoAlias on
-srcTBRunSim -opt {200ns}
-srcSignalView -off
-verdiDockWidgetMaximize -dock windowDock_nWave_6
-wvSelectSignal -win $_nWave6 {( "G1" 20 )} 
-srcTBRebuild -fromCmd "make com" -reloadKDB -restartSim -simOpt "-a sim.log "
-wvSaveSignal -win $_nWave6 "/home/milo/ICCodes/mcu51/rebuild.rc"
-srcSignalView -on
-srcSignalView -off
-srcSignalView -on
-wvCreateWindow
-wvRestoreSignal -win $_nWave7 "./rebuild.rc" -overWriteAutoAlias on
-srcTBRunSim -opt {200ns}
-srcSignalView -off
-verdiDockWidgetMaximize -dock windowDock_nWave_7
-wvSelectSignal -win $_nWave7 {( "G1" 20 )} 
-wvSelectSignal -win $_nWave7 {( "G1" 19 )} 
-wvSetCursor -win $_nWave7 52640.502355 -snap {("G1" 20)}
-srcSignalView -on
-srcSignalView -off
-srcSignalView -on
-verdiDockWidgetRestore -dock windowDock_nWave_7
-srcHBSelect "tb_get_ins.cpu" -win $_nTrace1
-srcSetScope -win $_nTrace1 "tb_get_ins.cpu" -delim "."
-verdiDockWidgetSetCurTab -dock widgetDock_<Signal_List>
-srcSignalViewSelect "tb_get_ins.cpu.run_phase_nxt\[2:0\]"
-srcSignalViewAddSelectedToWave -win $_nTrace1
-srcSignalView -off
-verdiDockWidgetMaximize -dock windowDock_nWave_7
-wvSelectSignal -win $_nWave7 {( "G1" 20 )} {( "G2" 1 )} 
-wvSelectGroup -win $_nWave7 {G3}
-wvSelectSignal -win $_nWave7 {( "G2" 1 )} 
-wvSetPosition -win $_nWave7 {("G1" 20)}
-wvMoveSelected -win $_nWave7
-wvSetPosition -win $_nWave7 {("G1" 20)}
-wvSetPosition -win $_nWave7 {("G1" 21)}
-wvSetCursor -win $_nWave7 48518.053375 -snap {("G1" 21)}
-wvSetCursor -win $_nWave7 50737.833595 -snap {("G1" 16)}
-wvSetCursor -win $_nWave7 48993.720565 -snap {("G1" 16)}
-wvSetCursor -win $_nWave7 50262.166405 -snap {("G1" 16)}
-wvSetCursor -win $_nWave7 70398.744113 -snap {("G1" 16)}
-wvSelectSignal -win $_nWave7 {( "G1" 19 )} 
-srcTBRebuild -fromCmd "make com" -reloadKDB -restartSim -simOpt "-a sim.log "
-wvSaveSignal -win $_nWave7 "/home/milo/ICCodes/mcu51/rebuild.rc"
-srcSignalView -on
-srcSignalView -off
-srcSignalView -on
-wvCreateWindow
-wvRestoreSignal -win $_nWave8 "./rebuild.rc" -overWriteAutoAlias on
-srcTBRunSim -opt {200ns}
-srcSignalView -off
-verdiDockWidgetMaximize -dock windowDock_nWave_8
-wvSetCursor -win $_nWave8 70715.855573 -snap {("G1" 20)}
-wvSetCursor -win $_nWave8 74204.081633 -snap {("G1" 20)}
-wvSetCursor -win $_nWave8 70715.855573 -snap {("G1" 16)}
-wvSetCursor -win $_nWave8 74521.193093 -snap {("G1" 16)}
-wvSetCursor -win $_nWave8 76582.417582 -snap {("G1" 16)}
-srcTBRebuild -fromCmd "make com" -reloadKDB -restartSim -simOpt "-a sim.log "
-wvSaveSignal -win $_nWave8 "/home/milo/ICCodes/mcu51/rebuild.rc"
-srcSignalView -on
-srcSignalView -off
-srcSignalView -on
-wvCreateWindow
-wvRestoreSignal -win $_nWave9 "./rebuild.rc" -overWriteAutoAlias on
-srcTBRunSim -opt {200ns}
-srcSignalView -off
-verdiDockWidgetMaximize -dock windowDock_nWave_9
-wvSetCursor -win $_nWave9 68971.742543 -snap {("G1" 16)}
-wvSetCursor -win $_nWave9 70398.744113 -snap {("G1" 16)}
-wvSetCursor -win $_nWave9 74838.304553 -snap {("G1" 16)}
-wvSetCursor -win $_nWave9 78326.530612 -snap {("G1" 16)}
-wvSetCursor -win $_nWave9 80546.310832 -snap {("G1" 16)}
-wvSetCursor -win $_nWave9 99414.442700 -snap {("G1" 16)}
-wvSetCursor -win $_nWave9 101317.111460 -snap {("G1" 16)}
-wvSetCursor -win $_nWave9 104805.337520 -snap {("G1" 16)}
-wvSetCursor -win $_nWave9 108927.786499 -snap {("G1" 16)}
-wvSetCursor -win $_nWave9 111464.678179 -snap {("G1" 16)}
-wvSetCursor -win $_nWave9 125100.470958 -snap {("G1" 16)}
-wvSetCursor -win $_nWave9 65166.405024 -snap {("G1" 16)}
-wvSetMarker -win $_nWave9 75000.000000
-wvSelectSignal -win $_nWave9 {( "G1" 21 )} 
-srcTBRebuild -fromCmd "make com" -reloadKDB -restartSim -simOpt "-a sim.log "
-wvSaveSignal -win $_nWave9 "/home/milo/ICCodes/mcu51/rebuild.rc"
+wvSelectSignal -win $_nWave5 {( "G1" 3 )} 
+wvSelectSignal -win $_nWave5 {( "G1" 5 )} 
+schCreateWindow -delim "." -win $_nSchema1 -scope "tb_get_ins"
+verdiWindowBeWindow -win $_nSchema_6
+schSelect -win $_nSchema6 -inst "cpu"
+schPushViewIn -win $_nSchema6
+schZoomIn -win $_nSchema6
+schZoomIn -win $_nSchema6
+schZoomOut -win $_nSchema6
+schZoomOut -win $_nSchema6
+schZoomOut -win $_nSchema6
+schZoomOut -win $_nSchema6
+schZoomIn -win $_nSchema6
+schZoomIn -win $_nSchema6
+schZoomOut -win $_nSchema6
+schZoomOut -win $_nSchema6
+schZoomOut -win $_nSchema6
+schZoomIn -win $_nSchema6
+schZoomOut -win $_nSchema6
+schSelect -win $_nSchema6 -inst "CPU\(@1\):SigOp0:117:117:Combo"
+schSelect -win $_nSchema6 -inst "CPU\(@1\):SigOp1:118:118:Combo"
+schSelect -win $_nSchema6 -inst "CPU\(@1\):SigOp4:131:131:Combo"
+schFit -win $_nSchema6
+schSetOptions -win $_nSchema6 -localNetName on
+schSelect -win $_nSchema6 -signal "data_in\[7:0\]"
+schSelect -win $_nSchema6 -signal "data_bus\[7:0\]"
+schSelect -win $_nSchema6 -signal "write_en"
+schSelect -win $_nSchema6 -signal "read_en"
+schSelect -win $_nSchema6 -inst "CPU\(@1\):SigOp4:131:131:Combo"
+schSelect -win $_nSchema6 -signal "run_phase_minus1\[2:0\]"
+schSelect -win $_nSchema6 -signal "run_phase\[2:0\]"
+schSelect -win $_nSchema6 -inst "CPU\(@1\):Always3:258:299:RegCombo"
+schSelect -win $_nSchema6 -signal "program_counter_nxt\[15:0\]"
+schSelect -win $_nSchema6 -signal "run_phase_nxt\[2:0\]"
+schSelect -win $_nSchema6 -signal "get_ins_done_nxt"
+schSelect -win $_nSchema6 -signal "ram_write_done_nxt"
+schSelect -win $_nSchema6 -signal "addr_bus_nxt\[15:0\]"
+schSelect -win $_nSchema6 -signal "addr_bus_nxt\[15:0\]"
+schSelect -win $_nSchema6 -signal "read_en_nxt"
+schSelect -win $_nSchema6 -signal "write_en_nxt"
+schSelect -win $_nSchema6 -signal "memory_select_nxt"
+schSelect -win $_nSchema6 -signal "addr_register_nxt\[7:0\]"
+schSelect -win $_nSchema6 -signal "data_register_nxt\[7:0\]"
+schSelect -win $_nSchema6 -signal "ins_register_nxt\[7:0\]"
+schSelect -win $_nSchema6 -signal "addr_bus\[15:0\]"
+schSelect -win $_nSchema6 -signal "read_en"
+schSelect -win $_nSchema6 -inst "insdecoder"
+schSelect -win $_nSchema6 -inst "insdecoder"
+schSelect -win $_nSchema6 -inst "insdecoder"
+schPushViewIn -win $_nSchema6
+schPopViewUp -win $_nSchema6
+schSetOptions -win $_nSchema6 -detailRTL on
+schSelect -win $_nSchema6 -inst "CPU\(@1\):Always17#Always1:146:157:Mux"
+schZoomIn -win $_nSchema6
+schZoomOut -win $_nSchema6
+schZoomOut -win $_nSchema6
+schZoom {22130} {-7506} {46557} {12036} -win $_nSchema6
+schSelect -win $_nSchema6 -inst "CPU\(@1\):Always16#Always1:146:157:Mux"
+schSelect -win $_nSchema6 -inst "CPU\(@1\):Always17#Always1:146:157:Mux"
+schZoomOut -win $_nSchema6
+schZoomOut -win $_nSchema6
+schZoomOut -win $_nSchema6
+schZoomOut -win $_nSchema6
+schZoom {68974} {36030} {133532} {94708} -win $_nSchema6
+schZoom {102261} {37658} {141637} {90290} -win $_nSchema6
+schFit -win $_nSchema6
+schCloseWindow -win $_nSchema6
 srcSignalView -on
 srcSignalView -off
 srcSignalView -on
