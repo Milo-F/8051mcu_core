@@ -124,9 +124,9 @@ COLORTERM=truecolor
 7
 1635226771 ./CPU/ClkDiv.v
 1635226771 ./CPU/ALEGen.v
-1635226771 ./CPU/InsDecoder.v
-1635226771 ./CPU/CPU.v
-1635226771 ./CPU/tb_get_ins.sv
+1635309537 ./CPU/InsDecoder.v
+1635309773 ./CPU/CPU.v
+1635305566 ./CPU/tb_get_ins.sv
 1635226771 filelist.f
 1464145466 /home/milo/Synopsys/vcs/linux64/lib/vcsdp.tab
 4
@@ -134,4 +134,4 @@ COLORTERM=truecolor
 1464147802 /home/milo/Synopsys/vcs/linux64/lib/libvirsim.so
 1464147272 /home/milo/Synopsys/vcs/linux64/lib/liberrorinf.so
 1464147248 /home/milo/Synopsys/vcs/linux64/lib/libsnpsmalloc.so
-1635233227 simv.daidir
+1635309786 simv.daidir

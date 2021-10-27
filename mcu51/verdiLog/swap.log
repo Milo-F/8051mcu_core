@@ -1,16 +1,16 @@
 version: (200506)
 
 available memory: 64M bytes
-used memory: 147456 bytes [need 144K bytes if disable swap]
+used memory: 172032 bytes [need 168K bytes if disable swap]
 
-used block: 4 [memory(4) file(0)]
-                 [ 8K(2) 64K(2) { total 144K bytes } ]
-overhead: (9522) bytes for (4) blocks [Average: (2380) bytes/block]
+used block: 7 [memory(7) file(0)]
+                 [ 8K(5) 64K(2) { total 168K bytes } ]
+overhead: (9522) bytes for (7) blocks [Average: (1360) bytes/block]
 
 write  => 0(times) 0K(bytes) [0K bytes to file]
-read   => 2(times) 34K(bytes) [6K bytes compressed data from file]
-access => 19787(times) 158M(bytes)
-          [hit ratio: 99.9899%]
+read   => 2(times) 45K(bytes) [8K bytes compressed data from file]
+access => 164395(times) 1294M(bytes)
+          [hit ratio: 99.9988%]
 
 time: write(0) read(0)  unit: second
 
@@ -27,28 +27,28 @@ closeTail: (3)
 openCnt: (1)
 fid(3): fd(0) fileName(NULL)
 	mode(rb)	hot(1) cool(0) pos(0)
-fid(2): fd(29) fileName(/home/milo/ICCodes/mcu51/verdiLog/_swap_0001#8323329#9423)
-	size(0) lastModTime(0) curModTime(1635233183)
+fid(2): fd(29) fileName(/home/milo/ICCodes/mcu51/verdiLog/_swap_0001#8323329#1115)
+	size(0) lastModTime(0) curModTime(1635309558)
 	mode(w+b)	hot(3) cool(1) pos(0)
 fid(1): fd(0) fileName(NULL)
 	mode(rb)	hot(2) cool(3) pos(0)
 fid(0): fd(0) fileName(NULL)
 	mode(NULL)	hot(0) cool(0) pos(0)
-Swap system is reset at (Tue Oct 26 15:27:05 2021
+Swap system is reset at (Wed Oct 27 12:41:48 2021
 )
 version: (200506)
 
 available memory: 64M bytes
-used memory: 221184 bytes [need 144K bytes if disable swap]
+used memory: 245760 bytes [need 168K bytes if disable swap]
 
-used block: 6 [memory(6) file(0)]
-                 [ 8K(3) 64K(3) { total 216K bytes } ]
-overhead: (9522) bytes for (6) blocks [Average: (1587) bytes/block]
+used block: 9 [memory(9) file(0)]
+                 [ 8K(6) 64K(3) { total 240K bytes } ]
+overhead: (9522) bytes for (9) blocks [Average: (1058) bytes/block]
 
 write  => 0(times) 0K(bytes) [0K bytes to file]
-read   => 3(times) 40K(bytes) [7K bytes compressed data from file]
-access => 32269(times) 258M(bytes)
-          [hit ratio: 99.9907%]
+read   => 3(times) 51K(bytes) [9K bytes compressed data from file]
+access => 185136(times) 1458M(bytes)
+          [hit ratio: 99.9984%]
 
 time: write(0) read(0)  unit: second
 
@@ -62,12 +62,11 @@ arrSize: (256)
 idxCnt: (6)
 closeHead: (4)
 closeTail: (5)
-openCnt: (2)
-fid(5): fd(32) fileName(/home/milo/ICCodes/mcu51/verdiLog/_swap_0001#8323329#9423)
-	size(0) lastModTime(0) curModTime(1635233227)
+openCnt: (1)
+fid(5): fd(32) fileName(/home/milo/ICCodes/mcu51/verdiLog/_swap_0001#8323329#1115)
+	size(0) lastModTime(0) curModTime(1635309710)
 	mode(w+b)	hot(0) cool(4) pos(0)
-fid(4): fd(1073741824) fileName(/home/milo/ICCodes/mcu51/simv.daidir/kdb.elab++/work.lib++/tb_get_ins.sv.tdc)
-	size(2334) lastModTime(1635233226) curModTime(1635233226)
+fid(4): fd(0) fileName(NULL)
 	mode(rb)	hot(5) cool(0) pos(0)
 fid(3): fd(0) fileName(NULL)
 	mode(NULL)	hot(0) cool(0) pos(0)
@@ -77,7 +76,54 @@ fid(1): fd(0) fileName(NULL)
 	mode(NULL)	hot(0) cool(0) pos(0)
 fid(0): fd(0) fileName(NULL)
 	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Wed Oct 27 12:43:04 2021
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 319488 bytes [need 168K bytes if disable swap]
+
+used block: 11 [memory(11) file(0)]
+                 [ 8K(7) 64K(4) { total 312K bytes } ]
+overhead: (9522) bytes for (11) blocks [Average: (865) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 4(times) 57K(bytes) [10K bytes compressed data from file]
+access => 206774(times) 1630M(bytes)
+          [hit ratio: 99.9981%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/milo/ICCodes/mcu51/verdiLog)
+used swap file number: (6)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (8)
+closeHead: (6)
+closeTail: (7)
+openCnt: (2)
+fid(7): fd(36) fileName(/home/milo/ICCodes/mcu51/verdiLog/_swap_0001#8323329#1115)
+	size(0) lastModTime(0) curModTime(1635309786)
+	mode(w+b)	hot(0) cool(6) pos(0)
+fid(6): fd(1073741824) fileName(/home/milo/ICCodes/mcu51/simv.daidir/kdb.elab++/work.lib++/tb_get_ins.sv.tdc)
+	size(2303) lastModTime(1635309785) curModTime(1635309785)
+	mode(rb)	hot(7) cool(0) pos(0)
+fid(5): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
 ==================================================
-mySelf(11b6da20) pre(10cf6580) next(0)
+mySelf(14ae8570) pre(11c86700) next(0)
 version(200506)
 date(May 20 2016 01:21:05)

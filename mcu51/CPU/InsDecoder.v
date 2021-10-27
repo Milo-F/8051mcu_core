@@ -10,6 +10,11 @@ module InsDecoder(
     input           clk, // 时钟
     input           rst_n, // 复位
     input [7:0]     instruction, // 指令
+    input [2:0]     run_phase, // 执行阶段
+    input [7:0]     psw,
+    output reg[2:0] run_phase_init,
+    output reg[2:0] data_from,
+    output reg[7:0] addr_register_out,
     output reg[2:0] next_status // 下个状态标识
 );
 
@@ -21,65 +26,28 @@ module InsDecoder(
     parameter TO_RAM_WRITE = 3'b100;
     parameter NOT_DONE = 3'b111;
 
-    reg[2:0] next_status_nxt;
+    // 数据来源标识
+    parameter FROM_A = 3'b000;
+    parameter FROM_data_register = 3'b001;
+
 
 	always @(*) begin
-        next_status_nxt = NOT_DONE;
+        next_status = NOT_DONE;
+        addr_register_out = 8'b0;
+        run_phase_init = 3'b0;
         casez (instruction)
             8'h00: begin // NOP
-                next_status_nxt = TO_NOP;
+                next_status = TO_NOP;
             end
-            8'b1110_1???: begin // MOV A, Rn
-                next_status_nxt = TO_RAM_READ;
-            end
-            8'b1110_0101: begin // MOV A, direct
-                next_status_nxt = TO_ROM_READ;
-            end
-            8'b1110_101?: begin // MOV A, @Ri
-                next_status_nxt = TO_RAM_READ;
-            end
-            8'b0111_0100: begin // MOV A, #data
-                next_status_nxt = TO_ROM_READ;
-            end
-            8'b1111_1???: begin // MOV Rn, A
-                next_status_nxt = TO_RAM_WRITE;
-            end
-            8'b1010_1???: begin // MOV Rn, direct
-                next_status_nxt = TO_ROM_READ;
-            end
-            8'b0111_1???: begin // MOV Rn, #data
-                next_status_nxt = TO_ROM_READ;
-            end
-            8'b1111_0101: begin // MOV direct, A
-                next_status_nxt = TO_ROM_READ;
-            end
-            8'b1000_1???: begin // MOV direct, Rn
-                next_status_nxt = TO_RAM_READ;
-            end
-            8'b1000_0101: begin // MOV direct, direct
-                next_status_nxt = TO_ROM_READ;
-            end
-            8'b1111_011?: begin // MOV direct, @Ri
-                next_status_nxt = TO_RAM_READ;
-            end
-            8'b0111_0101: begin // MOV direct, #data
-                next_status_nxt = TO_ROM_READ;
-            end
-            8'b1111_011?: begin // MOV @Ri, A
-                next_status_nxt = TO_RAM_READ;
+            8'b1111_1???: begin // MOV RN, A
+                next_status = TO_RAM_WRITE;
+                data_from = FROM_A;
+                run_phase_init = 3'b100;
+                addr_register_out = {3'b0, psw[4:3], instruction[2:0]};
             end
             default: begin
             end
         endcase
-    end
-
-    always @(posedge clk, negedge rst_n) begin
-        if (!rst_n) begin
-            next_status <= NOT_DONE;
-        end
-        else begin
-            next_status <= next_status_nxt;
-        end
     end
 
 endmodule

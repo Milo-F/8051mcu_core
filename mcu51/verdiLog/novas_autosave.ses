@@ -11,8 +11,8 @@ AnnotationShow = 0
 powerDumped = 0
 [hb]
 postSimFile = /home/milo/ICCodes/mcu51/inter.fsdb
-syncTime = 0
-viewport = 0 23 1536 841 422 271 326 1016
+syncTime = 200000
+viewport = 0 23 1536 841 409 299 278 1016
 activeNode = "tb_get_ins"
 activeScope = "tb_get_ins"
 activeFile = "./CPU/tb_get_ins.sv"
@@ -33,12 +33,12 @@ traceIncTopPort = False
 leadingZero = False
 signalPane = False
 Scope1 = "tb_get_ins"
-multipleSelection = 1 2 2 0 0
+rangeSelection = 3 3 1 5 1 1
 sdfCheckUndef = FALSE
 simFlow = FALSE
 [hb.sourceTab.1]
 scope = tb_get_ins
-File = /mnt/d/Cumt/Documents/ICCodes/mcu51/CPU/tb_get_ins.sv
+File = /home/milo/ICCodes/mcu51/CPU/tb_get_ins.sv
 Line = 3
 [imp.design1]
 dbEnum =  oh
@@ -51,3 +51,21 @@ fromLibrary = TRUE
 FsdbFile = /home/milo/ICCodes/mcu51/inter.fsdb
 UserActionNum = 0
 nMemWindowNum = 0
+[wave.0]
+viewPort = 0 28 1536 683 171 65
+SessionFile = /home/milo/ICCodes/mcu51/verdiLog/novas_autosave.ses.wave.0
+displayGrid = FALSE
+hierarchicalName = FALSE
+snap = TRUE
+displayLeadingZeros = FALSE
+fixDelta = FALSE
+displayCursorMarker = FALSE
+autoUpdate = FALSE
+highlightGlitchs = FALSE
+waveformSync = FALSE
+displayErrors = TRUE
+displayMsgSymbols = TRUE
+showMsgDescriptions = TRUE
+autoFit = FALSE
+displayDeltaY = FALSE
+centerCursor = FALSE

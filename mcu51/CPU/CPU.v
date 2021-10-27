@@ -99,17 +99,21 @@ module CPU (
     reg[6:0]    status, status_nxt; // 状态
     reg[2:0]    nop_cnt, nop_cnt_nxt; // NOP指令空闲时钟计数器
     wire[2:0]   nop_cnt_minus1;
-    reg[15:0]   program_counter, program_counter_nxt; // 程序计数器
     wire[15:0]  program_counter_plus1;
-    reg         get_ins_done, get_ins_done_nxt; // 状态完成标志
-    reg[7:0]    ins_register, ins_register_nxt;
-    reg         read_en_nxt, memory_select_nxt;
+    reg         get_ins_done, get_ins_done_nxt, ram_write_done, ram_write_done_nxt; // 状态完成标志
+    reg         read_en_nxt, memory_select_nxt, write_en_nxt;
     reg[15:0]   addr_bus_nxt;
+    // CPU内部寄存器
+    reg[7:0]    psw, acc, b; // 程序状态字psw，累加器acc，辅助寄存器b
+    reg[15:0]   program_counter, program_counter_nxt; // rom程序计数器
+    reg[7:0]    addr_register, addr_register_nxt; // ram地址寄存器
+    reg[7:0]    ins_register, ins_register_nxt; // 指令寄存器
+    reg[7:0]    data_register, data_register_nxt; // 数据寄存器
 
     // data_bus双向端口设置
     reg[7:0]    data_out;
     wire[7:0]   data_in;
-    assign data_bus = (!read_en) ? data_out : 8'bz;
+    assign data_bus = (write_en) ? data_out : 8'bz;
     assign data_in = (read_en) ? data_bus : data_in;
 
     // 计数器
@@ -117,26 +121,58 @@ module CPU (
     assign program_counter_plus1 = program_counter + 1'b1;
 
     // 译码器
-    wire[2:0]   decoder_next_status;
+    wire[2:0]   decoder_next_status; // 下个状态标识
+    reg[2:0]    run_phase, run_phase_nxt; // 当前指令所在的执行节点
+    wire[2:0]   run_phase_init;
+    wire[2:0]   data_from; // 写ram操作数据来源标识
+    wire[2:0]   run_phase_minus1;
+    wire[7:0]   addr_register_out;
+    assign run_phase_minus1 = run_phase - 1;
+    
     InsDecoder insdecoder(
         .clk(clk),
         .rst_n(rst_n),
         .instruction(ins_register),
+        .run_phase(run_phase),
+        .run_phase_init(run_phase_init),
+        .psw(psw),
+        .data_from(data_from),
+        .addr_register_out(addr_register_out),
         .next_status(decoder_next_status)
     );
 
+    // 写ram数据来源
+    always @(*) begin
+        data_register_nxt = data_register;
+        if (write_en) begin
+            case (data_from)
+                3'b000: begin
+                    data_register_nxt = 8'b1111_0000;
+                end
+                default: begin
+                end
+            endcase 
+        end
+    end
+
     // 状态转移逻辑，包含次态方程和相关线网的处理
     always @(*) begin
+        // 状态机控制
         status_nxt = status;
         nop_cnt_nxt = nop_cnt;
-        program_counter_nxt = program_counter;
-        read_en_nxt = 1'b0;
+        run_phase_nxt = run_phase;
         get_ins_done_nxt = 1'b0;
+        ram_write_done_nxt = 1'b0;
+        // IO控制
+        read_en_nxt = 1'b0;
+        write_en_nxt = 1'b0;
+        memory_select_nxt = memory_select;
+        //内部寄存器
         ins_register_nxt = ins_register;
         addr_bus_nxt = addr_bus;
-        memory_select_nxt = memory_select;
+        program_counter_nxt = program_counter;
         case (1'b1)
-            status[GET_INS_INDEX]:begin
+            status[GET_INS_INDEX]:begin // 取指，负责把ROM中的数据取出送入ins_register
                 memory_select_nxt = 1'b0; // 选中rom
                 ins_register_nxt = data_in;
                 if (get_ins_done) begin // 当取指完成转移到下个状态
@@ -152,6 +188,7 @@ module CPU (
                 end
             end 
             status[INS_DECODE_INDEX]: begin
+                if (run_phase == 0) run_phase_nxt = run_phase_init;
                 case (decoder_next_status)
                     DECODE_TO_NOP: begin
                         status_nxt = NOP;
@@ -182,10 +219,27 @@ module CPU (
             status[PROCESS_INDEX]: begin
                 
             end
-            status[RAM_WRITE_INDEX]: begin
-                
+            status[RAM_WRITE_INDEX]: begin // RAM写操作，负责把data_register中的数据写入RAM
+                memory_select_nxt = 1'b1; // 选中ram
+                data_out = data_register; // 输出数据
+                if (ram_write_done) begin
+                    if (run_phase == 1) begin
+                        status_nxt = GET_INS; // run_phase为0表示当前指令执行完毕
+                    end
+                    else begin
+                        status_nxt = INS_DECODE; 
+                        write_en_nxt = 1'b0;
+                        ram_write_done_nxt = 1'b0;
+                    end
+                    run_phase_nxt = run_phase_minus1;
+                end
+                else begin
+                    ram_write_done_nxt = 1'b1;
+                    write_en_nxt = 1'b1;
+                    addr_register_nxt = addr_register_out;
+                end
             end
-            status[NOP_INDEX]: begin
+            status[NOP_INDEX]: begin // NOP命令空闲
                 if (nop_cnt == 0) begin
                     status_nxt = GET_INS; // 空闲6个时钟周期之后，跳回取指状态
                     nop_cnt_nxt = NOP_DURATION; // 空闲计数器复位
@@ -202,25 +256,44 @@ module CPU (
     // 次态传递
     always @(posedge clk, negedge rst_n) begin
         if (!rst_n) begin
+            // 状态机控制相关寄存器
             status <= NOP;
             nop_cnt <= NOP_DURATION;
-            program_counter <= 16'ha845;
-            ins_register <= 8'b0;
-            read_en <= 1'b0;
-            addr_bus <= 16'b0;
+            run_phase <= 3'b0;
             get_ins_done <= 1'b0;
+            ram_write_done <= 1'b0;
+            // 外部总线读写控制相关寄存器
+            read_en <= 1'b0;
+            write_en <= 1'b0;
+            addr_bus <= 16'b0;
             data_out <= 8'b0;
             memory_select <= 1'b1;
+            // 内部寄存器
+            ins_register <= 8'b0;
+            addr_register <= 8'b0;
+            data_register <= 8'b0;
+            psw <= 8'b0;
+            acc <= 8'b0;
+            b <= 8'b0;
+            program_counter <= 16'ha845;
         end
         else begin
+            // 状态机控制
             status <= status_nxt;
             nop_cnt <= nop_cnt_nxt;
-            program_counter <= program_counter_nxt;
-            addr_bus <= addr_bus_nxt;
-            ins_register <= ins_register_nxt;
-            read_en <= read_en_nxt;
+            run_phase <= run_phase_nxt;
             get_ins_done <= get_ins_done_nxt;
+            ram_write_done <= ram_write_done_nxt;
+            // IO读写
+            addr_bus <= addr_bus_nxt;
+            read_en <= read_en_nxt;
+            write_en <= write_en_nxt;
             memory_select <= memory_select_nxt;
+            // 内部寄存器
+            addr_register <= addr_register_nxt;
+            data_register <= data_register_nxt;
+            ins_register <= ins_register_nxt;
+            program_counter <= program_counter_nxt;
         end
     end
 

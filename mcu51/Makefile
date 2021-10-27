@@ -5,4 +5,4 @@ sim:
 	./simv -gui=verdi -l sim.log &
 
 clean:
-	rm -rf simv* DVEfiles *.vpd *.dump csrc libnz4w_r.soLog *.sim *.mra *.log ucli.key session* *.db vcs.key urgReport *.h log *.txt scsim* WORK/* text inter* novas* verdiLog
+	rm -rf simv* DVEfiles *.vpd *.dump csrc libnz4w_r.soLog *.sim *.mra *.log ucli.key session* *.db vcs.key urgReport *.h log *.txt scsim* WORK/* text inter* novas* verdiLog _vcs_cp_*

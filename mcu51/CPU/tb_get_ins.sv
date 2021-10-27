@@ -33,9 +33,8 @@ module tb_get_ins;
         instruction = 0;
         @(posedge clk);
         forever begin
-            #4 instruction = 4;
-            #4 instruction = 10;
-            #4 instruction = 'h14;
+            #8 instruction = 0;
+            #8 instruction = 'b1111_1001;
         end
         // forever begin
         //     #2 instruction = instruction;
