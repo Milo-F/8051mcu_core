@@ -11,8 +11,8 @@ AnnotationShow = 0
 powerDumped = 0
 [hb]
 postSimFile = /home/milo/ICCodes/mcu51/inter.fsdb
-syncTime = 67000
-viewport = 0 23 1536 841 411 245 339 1016
+syncTime = 45000
+viewport = 0 23 1536 841 409 245 339 1016
 activeNode = "tb_get_ins"
 activeScope = "tb_get_ins"
 activeFile = "./CPU/tb_get_ins.sv"
@@ -52,7 +52,7 @@ FsdbFile = /home/milo/ICCodes/mcu51/inter.fsdb
 UserActionNum = 0
 nMemWindowNum = 0
 [wave.0]
-viewPort = 0 28 1536 683 171 65
+viewPort = 0 28 1536 683 183 65
 SessionFile = /home/milo/ICCodes/mcu51/verdiLog/novas_autosave.ses.wave.0
 displayGrid = FALSE
 hierarchicalName = FALSE

@@ -1,3 +1,3 @@
 Command Line: /home/milo/Synopsys/vcs/linux64/bin/elabcom -logdir simv.daidir/elabcomLog -simvdaidir simv.daidir -lib simv.daidir/work -elab simv.daidir/kdb -simflow -top tb_get_ins ALEGen  -ssz -ssv -ssy -ssz -ssv -ssy
 uname(Linux Milo 5.10.43.3-microsoft-standard-WSL2 #1 SMP Wed Jun 16 23:47:55 UTC 2021 x86_64)
-au time 0.052564 0.009269 0.022948 delta 230260736 230260736 total 294821888 294821888
+au time 0.056302 0.013555 0.019541 delta 230252544 230252544 total 294813696 294813696

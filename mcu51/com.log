@@ -2,7 +2,7 @@ Command: vcs -full64 -cpp g++-4.8 -cc gcc-4.8 -LDFLAGS -Wl,--no-as-needed -f fil
 +v2k -sverilog -debug_all -l com.log
 *** Using c compiler gcc-4.8 instead of cc ...
                          Chronologic VCS (TM)
-         Version L-2016.06_Full64 -- Wed Oct 27 13:00:27 2021
+         Version L-2016.06_Full64 -- Wed Oct 27 14:58:46 2021
                Copyright (c) 1991-2016 by Synopsys Inc.
                          ALL RIGHTS RESERVED
 
@@ -47,7 +47,7 @@ rm -f _csrc0.so
 if [ -x ../simv ]; then chmod -x ../simv; fi
 g++-4.8  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ \
 -Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -Wl,--no-as-needed -rdynamic   amcQwB.o \
-_4359_archive_1.so _prev_archive_1.so _csrc0.so  SIM_l.o  _csrc0.so     rmapats_mop.o \
+_19385_archive_1.so _prev_archive_1.so _csrc0.so  SIM_l.o  _csrc0.so     rmapats_mop.o \
 rmapats.o rmar.o  rmar_llvm_0_1.o rmar_llvm_0_0.o          /home/milo/Synopsys/vcs/linux64/lib/libzerosoft_rt_stubs.so \
 /home/milo/Synopsys/vcs/linux64/lib/libvirsim.so /home/milo/Synopsys/vcs/linux64/lib/liberrorinf.so \
 /home/milo/Synopsys/vcs/linux64/lib/libsnpsmalloc.so    /home/milo/Synopsys/vcs/linux64/lib/libvcsnew.so \
@@ -57,4 +57,4 @@ rmapats.o rmar.o  rmar_llvm_0_1.o rmar_llvm_0_0.o          /home/milo/Synopsys/v
 -ldl 
 ../simv up to date
 make[2]: Leaving directory '/home/milo/ICCodes/mcu51/csrc'
-CPU time: .211 seconds to compile + .213 seconds to elab + .142 seconds to link
+CPU time: .220 seconds to compile + .209 seconds to elab + .157 seconds to link

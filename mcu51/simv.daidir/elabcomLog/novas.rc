@@ -216,7 +216,7 @@ prefKey_Link-LineWidth = 1
 Selection-LineColor = ID_BLUE2
 Selection-LineWidth = 1
 [FSM_Dlg-Print]
-Orientation = Landscape
+Orientation = Landscape 
 [Form]
 version = Verdi3_L-2016.06-1
 [General]
@@ -271,14 +271,6 @@ bScpecifyCellNameCase = False
 bSpecifyPinNameCase = False
 CellNameToCase = 
 PinNameToCase = 
-[InteractiveDebug]
-tbvLocalWatchArrayLimit = 50
-Watch_0 = 150 80 80 0
-Watch_1 = 150 80 80 200
-Watch_2 = 150 80 80 200
-Watch_3 = 150 80 80 200
-Watch_4 = 150 80 80 200
-Watch_5 = 150 80 80 200
 [Language]
 EditWindow_Font = COURIER12
 Background = ID_WHITE
@@ -357,18 +349,15 @@ saveFsdbStat = TRUE
 savePropStat = FALSE
 savePropDtl = TRUE
 [QtDialog]
-QwWarnMsgDlg = 458,267,600,250
-QwFileDialogT = 463,241,590,325
-tbvRebuildRestartDlg = 543,228,450,430
-QwUserAskDlg = 860,661,324,134
+QwUserAskDlg = 860,661,324,130
 [Relationship]
 hideRecursiceNode = FALSE
 [Session Cache]
+2 = string (session file name)
 3 = string (session file name)
 4 = string (session file name)
 5 = string (session file name)
-1 = /home/milo/ICCodes/mcu51/verdiLog/novas_autosave.ses
-2 = /home/milo/verdiLog/novas_autosave.ses
+1 = /home/milo/verdiLog/novas_autosave.ses
 [Simulation]
 scsPath = scsim
 scsOption = 
@@ -394,15 +383,13 @@ vcs_mixPath = simv
 vcs_mixOption = -vhdlrun "-vhpi debussy:FSDBDumpCmd"
 scs_mixPath = scsim
 scs_mixOption = -vhpi debussy:FSDBDumpCmd
+interactiveDebugging = {True, False}
+KeepBreakPoints = False
 ScsDebugAll = False
 simType = {vcssv, xl, nc, vcs, mti, mti_vlog, vhnc, scs, mixnc}
 thirdpartyIdx = -1
 iscCmdSep = FALSE
 NoAppendOption = False
-bSVTBMode = TRUE
-SimMode = TRUE
-interactiveDebugging = TRUE
-KeepBreakPoints = FALSE
 [SimulationPlus]
 xlPath = verilog
 xlOption = 
@@ -426,23 +413,18 @@ vcs_mixPath = simv
 vcs_mixOption = -vhdlrun "-vhpi debussy:FSDBDumpCmd"
 scs_mixPath = scsim
 scs_mixOption = -vhpi debussy:FSDBDumpCmd
+vcs_svPath = simv
+vcs_svOption = 
+simType = vcssv
 thirdpartyIdx = -1
+interactiveDebugging = FALSE
+KeepBreakPoints = FALSE
 iscCmdSep = FALSE
 ScsDebugAll = FALSE
 NoAppendOption = FALSE
 invokeSimPath = work
-uvmAware = TRUE
-smartlog = FALSE
-simType = vcssv
-bSVTBMode = TRUE
-SimMode = TRUE
-interactiveDebugging = TRUE
-KeepBreakPoints = FALSE
-vcs_svPath = ./simv
-vcs_svOption = -fromCmd
 [SimulationPlus2]
 eventDumpUnfinish = FALSE
-dumpPowerRoot = FALSE
 [Source]
 wordWrapOn = TRUE
 viewReuse = TRUE
@@ -467,8 +449,6 @@ ohSimType = VerilogXL
 nLineSize = 1024
 [Test]
 verbose_progress = FALSE
-[TestBenchBrowser]
-DataViewTooltip = TRUE
 [Text]
 hdlTypeName = blue4
 hdlLibrary = blue4
@@ -550,7 +530,7 @@ pdmlCommand = ID_BLACK
 pdmlMacro = ID_BLACK
 font = COURIER12
 [Text.1]
-viewport = 0 23 1536 841 45
+viewport = 217 264 900 700 45
 [TextPrinter]
 Orientation = Landscape
 Indicator = FALSE
@@ -631,8 +611,6 @@ Button4 = "Next Event" "$db_step(1);\n"
 Button3 = "Next ? Time" "#${Arg:Next Time} $stop;.\n"
 Button2 = "Next 1000 Time" "#1000 $stop;.\n"
 Button1 = "Dump All Signals" "$fsdbDumpvars;\n"
-[VIA]
-viaLogViewerDefaultRuleInterForm = share/VIA/Apps/PredefinedRules/UVM_OVM_i_rule.rc
 [Vi]
 ViFont = "Clean 14"
 ViBG = white
@@ -651,8 +629,7 @@ waveform_vertical_scroll_bar = TRUE
 scope_to_save_with_macro
 open_file_dir
 open_rc_file_dir
-getSignalForm = 0 0 800 479 100 30 100 30
-viewPort = 0 28 1018 300 171 65
+viewPort = 54 237 960 332 100 65
 signalSpacing = 5
 digitalSignalHeight = 15
 analogSignalHeight = 98
@@ -706,7 +683,6 @@ Retention_Edge_Trigger_Layer = -c ID_YELLOW6 -stipple fill_solid
 Driving_Power_Off_Layer = -c ID_YELLOW2 -stipple x
 Toggle_Layer = -c ID_YELLOW4 -stipple slash
 busSignalLayer = -c ID_ORANGE8
-busXLayer = -c ID_RED5
 busZLayer = -c ID_ORANGE6
 busMixedLayer = -c ID_GREEN5
 busNotComputedLayer = -c ID_GRAY1
@@ -900,7 +876,6 @@ curveWindow_Drag&Drop_Mode = TRUE
 hspiceIncOpenMode = TRUE
 pcSelectMode = TRUE
 hierarchyDelimiter = /
-RecentFile1 = "\"/home/milo/ICCodes/mcu51/inter.fsdb\""
 open_file_time_range = FALSE
 value_window_aligment = Right
 signal_window_alignment = Auto
@@ -1151,9 +1126,9 @@ AddImportArgument = TRUE
 LineBreakWithScope = TRUE
 StopAfterCompileOption = -tcl
 [turboSchema_Printer_Options]
-Orientation = Landscape
+Orientation = Landscape 
 [turbo_library]
-bdb_load_scope
+bdb_load_scope = 
 [verisity]
 TPLanguage = Verilog
 TPName = "Verisity SpeXsim"
@@ -1163,7 +1138,7 @@ AddImportArgument = FALSE
 LineBreakWithScope = TRUE
 StopAfterCompileOption = -s
 [wave.0]
-viewPort = 0 28 1018 300 171 65
+viewPort = 50 214 960 332 100 65
 [wave.1]
 viewPort = 127 219 960 332 100 65
 [wave.2]

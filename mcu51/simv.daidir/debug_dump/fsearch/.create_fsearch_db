@@ -5,5 +5,5 @@ PYTHONPATH=/home/milo/Synopsys/vcs/linux64/lib/pylib27
 export PYTHONPATH
 LD_LIBRARY_PATH=/home/milo/Synopsys/vcs/linux64/lib:/home/milo/Synopsys/vcs/linux64/lib/pylib27
 export LD_LIBRARY_PATH
-/home/milo/Synopsys/vcs/linux64/bin/vcsfind_create_index.exe  -z  "/home/milo/ICCodes/mcu51/simv.daidir/debug_dump/fsearch/./idents_Z1Ca6M.xml.gz" "/home/milo/ICCodes/mcu51/simv.daidir/debug_dump/fsearch/./idents_tapi.xml.gz" -o "/home/milo/ICCodes/mcu51/simv.daidir/debug_dump/fsearch/fsearch.db_tmp"
+/home/milo/Synopsys/vcs/linux64/bin/vcsfind_create_index.exe  -z  "/home/milo/ICCodes/mcu51/simv.daidir/debug_dump/fsearch/./idents_tapi.xml.gz" "/home/milo/ICCodes/mcu51/simv.daidir/debug_dump/fsearch/./idents_f41Hw2.xml.gz" -o "/home/milo/ICCodes/mcu51/simv.daidir/debug_dump/fsearch/fsearch.db_tmp"
 \mv "/home/milo/ICCodes/mcu51/simv.daidir/debug_dump/fsearch/fsearch.db_tmp" "/home/milo/ICCodes/mcu51/simv.daidir/debug_dump/fsearch/fsearch.db"

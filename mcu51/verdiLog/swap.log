@@ -1,16 +1,16 @@
 version: (200506)
 
 available memory: 64M bytes
-used memory: 163840 bytes [need 160K bytes if disable swap]
+used memory: 147456 bytes [need 144K bytes if disable swap]
 
-used block: 6 [memory(6) file(0)]
-                 [ 8K(4) 64K(2) { total 160K bytes } ]
-overhead: (9522) bytes for (6) blocks [Average: (1587) bytes/block]
+used block: 4 [memory(4) file(0)]
+                 [ 8K(2) 64K(2) { total 144K bytes } ]
+overhead: (9522) bytes for (4) blocks [Average: (2380) bytes/block]
 
 write  => 0(times) 0K(bytes) [0K bytes to file]
-read   => 2(times) 45K(bytes) [8K bytes compressed data from file]
-access => 60458(times) 481M(bytes)
-          [hit ratio: 99.9967%]
+read   => 2(times) 51K(bytes) [8K bytes compressed data from file]
+access => 42770(times) 338M(bytes)
+          [hit ratio: 99.9953%]
 
 time: write(0) read(0)  unit: second
 
@@ -27,28 +27,28 @@ closeTail: (3)
 openCnt: (1)
 fid(3): fd(0) fileName(NULL)
 	mode(rb)	hot(1) cool(0) pos(0)
-fid(2): fd(29) fileName(/home/milo/ICCodes/mcu51/verdiLog/_swap_0001#8323329#3853)
-	size(0) lastModTime(0) curModTime(1635310716)
+fid(2): fd(29) fileName(/home/milo/ICCodes/mcu51/verdiLog/_swap_0001#8323329#18892)
+	size(0) lastModTime(0) curModTime(1635317814)
 	mode(w+b)	hot(3) cool(1) pos(0)
 fid(1): fd(0) fileName(NULL)
 	mode(rb)	hot(2) cool(3) pos(0)
 fid(0): fd(0) fileName(NULL)
 	mode(NULL)	hot(0) cool(0) pos(0)
-Swap system is reset at (Wed Oct 27 13:00:27 2021
+Swap system is reset at (Wed Oct 27 14:58:45 2021
 )
 version: (200506)
 
 available memory: 64M bytes
-used memory: 237568 bytes [need 160K bytes if disable swap]
+used memory: 221184 bytes [need 144K bytes if disable swap]
 
-used block: 8 [memory(8) file(0)]
-                 [ 8K(5) 64K(3) { total 232K bytes } ]
-overhead: (9522) bytes for (8) blocks [Average: (1190) bytes/block]
+used block: 6 [memory(6) file(0)]
+                 [ 8K(3) 64K(3) { total 216K bytes } ]
+overhead: (9522) bytes for (6) blocks [Average: (1587) bytes/block]
 
 write  => 0(times) 0K(bytes) [0K bytes to file]
-read   => 3(times) 51K(bytes) [9K bytes compressed data from file]
-access => 77854(times) 618M(bytes)
-          [hit ratio: 99.9961%]
+read   => 3(times) 57K(bytes) [10K bytes compressed data from file]
+access => 60124(times) 476M(bytes)
+          [hit ratio: 99.995%]
 
 time: write(0) read(0)  unit: second
 
@@ -63,11 +63,11 @@ idxCnt: (6)
 closeHead: (4)
 closeTail: (5)
 openCnt: (2)
-fid(5): fd(32) fileName(/home/milo/ICCodes/mcu51/verdiLog/_swap_0001#8323329#3853)
-	size(0) lastModTime(0) curModTime(1635310828)
+fid(5): fd(32) fileName(/home/milo/ICCodes/mcu51/verdiLog/_swap_0001#8323329#18892)
+	size(0) lastModTime(0) curModTime(1635317927)
 	mode(w+b)	hot(0) cool(4) pos(0)
 fid(4): fd(1073741824) fileName(/home/milo/ICCodes/mcu51/simv.daidir/kdb.elab++/work.lib++/tb_get_ins.sv.tdc)
-	size(2322) lastModTime(1635310827) curModTime(1635310827)
+	size(2322) lastModTime(1635317926) curModTime(1635317926)
 	mode(rb)	hot(5) cool(0) pos(0)
 fid(3): fd(0) fileName(NULL)
 	mode(NULL)	hot(0) cool(0) pos(0)
@@ -78,6 +78,6 @@ fid(1): fd(0) fileName(NULL)
 fid(0): fd(0) fileName(NULL)
 	mode(NULL)	hot(0) cool(0) pos(0)
 ==================================================
-mySelf(14d5b7a0) pre(11004cb0) next(0)
+mySelf(146648f0) pre(11a270f0) next(0)
 version(200506)
 date(May 20 2016 01:21:05)

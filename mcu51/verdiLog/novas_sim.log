@@ -4,13 +4,14 @@ Invoking simulator...
 Rebuild finished!
 
 Warning-[LCA_FEATURES_ENABLED] Usage warning
+
   LCA features enabled by '-lca' argument on the command line.  For more 
   information regarding list of LCA features please refer to Chapter "LCA 
   features" in the VCS/VCS-MX Release Notes
 
 Chronologic VCS simulator copyright 1991-2016
 Contains Synopsys proprietary information.
-Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 27 13:00 2021
+Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 27 14:58 2021
 
 *Verdi3* Loading libsscore_vcs201606.so
 
@@ -19,34 +20,21 @@ Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 27 13:
 *Verdi3* : Enable Parallel Dumping.
 FSDB Dumper for VCS, Release Verdi3_L-2016.06-1, Linux x86_64/64bit, 07/10/2016
 (C) 1996 - 2016 by Synopsys, Inc.
+
 *Verdi3* : Create FSDB file '/home/milo/ICCodes/mcu51/inter.fsdb'
-
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
-4567
+19593
 
-SimCMD>fsdbDumpvars 0 {tb_get_ins.clk_1M} ;fsdbDumpvars 0 {tb_get_ins.clk_6M} ;fsdbDumpvars 0 {tb_get_ins.memory_select} ;fsdbDumpvars 0 {tb_get_ins.psen} ;fsdbDumpvars 0 {tb_get_ins.read_en} ;fsdbDumpvars 0 {tb_get_ins.write_en} ;fsdbDumpvars 0 {tb_get_ins.addr_bus} ;fsdbDumpvars 0 {tb_get_ins.data_bus} ;fsdbDumpvars 0 {tb_get_ins.data_out} ;fsdbDumpvars 0 {tb_get_ins.EA} ;fsdbDumpvars 0 {tb_get_ins.clk} ;fsdbDumpvars 0 {tb_get_ins.rst_n} ;fsdbDumpvars 0 {tb_get_ins.instruction} ;fsdbDumpvars 0 {tb_get_ins.interupt} ;fsdbDumpvars 0 {tb_get_ins.timer} ;fsdbDumpvars 0 {tb_get_ins.cpu.status} 
-*Verdi3* : Dumping the signal (tb_get_ins.clk_1M).
-*Verdi3* : Dumping the signal (tb_get_ins.clk_6M).
-*Verdi3* : Dumping the signal (tb_get_ins.memory_select).
-*Verdi3* : Dumping the signal (tb_get_ins.psen).
-*Verdi3* : Dumping the signal (tb_get_ins.read_en).
-*Verdi3* : Dumping the signal (tb_get_ins.write_en).
-*Verdi3* : Dumping the signal (tb_get_ins.addr_bus).
-*Verdi3* : Dumping the signal (tb_get_ins.data_bus).
-*Verdi3* : Dumping the signal (tb_get_ins.data_out).
-*Verdi3* : Dumping the signal (tb_get_ins.EA).
-*Verdi3* : Dumping the signal (tb_get_ins.clk).
-*Verdi3* : Dumping the signal (tb_get_ins.rst_n).
-*Verdi3* : Dumping the signal (tb_get_ins.instruction).
-*Verdi3* : Dumping the signal (tb_get_ins.interupt).
-*Verdi3* : Dumping the signal (tb_get_ins.timer).
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.status).
+SimCMD>fsdbDumpvarsByFile {/home/milo/ICCodes/mcu51/verdiLog/.tbsimDump_var_file};fsdbDumpflush
+*Verdi3* : Begin dumping the scopes by file (/home/milo/ICCodes/mcu51/verdiLog/.tbsimDump_var_file).
+*Verdi3* : End of dumping.
+*Verdi3* : Flush all FSDB Files at 0 ps.
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
-SimCMD>run 200ns
-200000 ps
+SimCMD>run 150ns
+150000 ps
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 200000 ps
-CPU Time:      0.080 seconds;       Data structure size:   0.0Mb
-Wed Oct 27 13:01:50 2021
+Time: 150000 ps
+CPU Time:      0.060 seconds;       Data structure size:   0.0Mb
+Wed Oct 27 14:59:30 2021
