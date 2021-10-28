@@ -214,7 +214,7 @@ module CPU (
                     get_ins_done_nxt = 1'b1;
                 end
             end 
-            status[INS_DECODE_INDEX]: begin
+            status[INS_DECODE_INDEX]: begin // 译码，根据指令输出控制信号
                 if (run_phase == 0) run_phase_nxt = run_phase_init;
                 case (decoder_next_status)
                     DECODE_TO_NOP: begin
@@ -240,7 +240,7 @@ module CPU (
                     end
                 endcase
             end
-            status[RAM_READ_INDEX]: begin
+            status[RAM_READ_INDEX]: begin // RAM读取状态，根据译码获得的ram地址读取ram
                 memory_select_nxt = 1'b1; // 选中ram
                 ram_data_register_nxt = data_in; // 读取数据
                 if (ram_read_done) begin
@@ -260,7 +260,7 @@ module CPU (
                     addr_bus_nxt[7:0] = addr_register_out;
                 end
             end
-            status[ROM_READ_INDEX]: begin
+            status[ROM_READ_INDEX]: begin // ROM读取
                 memory_select_nxt = 1'b0; // 选中rom
                 rom_data_register_nxt = data_in; // 输出数据
                 if (rom_read_done) begin
@@ -281,39 +281,39 @@ module CPU (
                     addr_bus_nxt = program_counter;
                 end
             end
-            status[PROCESS_INDEX]: begin
+            status[PROCESS_INDEX]: begin // 运算处理，通过ALU进行算数/逻辑运算的处理与赋值
                 run_phase_nxt = run_phase_minus1;
                 if (run_phase == 1) begin
                     status_nxt = GET_INS;
                 end
                 else begin
                     status_nxt = INS_DECODE;
-                    pro_psw_in = psw;
-                    case (a_data_from)
-                        FROM_A: begin
-                            pro_a = acc;
-                            acc_nxt = pro_ans;
-                            psw_nxt = {pro_psw_out[7:1], acc_nxt[0]^acc_nxt[1]^acc_nxt[2]^acc_nxt[3]^acc_nxt[4]^acc_nxt[5]^acc_nxt[6]^acc_nxt[7]}; // 对A操作时更新PSW
-                        end
-                        FROM_ROM_DATA_REG: begin
-                            pro_a = rom_data_register;
-                            rom_data_register_nxt = pro_ans;
-                        end
-                        FROM_RAM_DATA_REG: begin
-                            pro_a = ram_data_register;
-                            ram_data_register_nxt = pro_ans;
-                        end
-                        NO_USED: pro_a = 8'b0;
-                        default: ;
-                    endcase
-                    case (b_data_from)
-                        FROM_A: pro_b = acc;
-                        FROM_ROM_DATA_REG: pro_b = rom_data_register;
-                        FROM_RAM_DATA_REG: pro_b = ram_data_register;
-                        NO_USED: pro_b = 8'b0;
-                        default: ;
-                    endcase
                 end
+                pro_psw_in = psw;
+                case (a_data_from)
+                    FROM_A: begin
+                        pro_a = acc;
+                        acc_nxt = pro_ans;
+                        psw_nxt = {pro_psw_out[7:1], acc_nxt[0]^acc_nxt[1]^acc_nxt[2]^acc_nxt[3]^acc_nxt[4]^acc_nxt[5]^acc_nxt[6]^acc_nxt[7]}; // 对A操作时更新PSW
+                    end
+                    FROM_ROM_DATA_REG: begin
+                        pro_a = rom_data_register;
+                        rom_data_register_nxt = pro_ans;
+                    end
+                    FROM_RAM_DATA_REG: begin
+                        pro_a = ram_data_register;
+                        ram_data_register_nxt = pro_ans;
+                    end
+                    NO_USED: pro_a = 8'b0;
+                    default: ;
+                endcase
+                case (b_data_from)
+                    FROM_A: pro_b = acc;
+                    FROM_ROM_DATA_REG: pro_b = rom_data_register;
+                    FROM_RAM_DATA_REG: pro_b = ram_data_register;
+                    NO_USED: pro_b = 8'b0;
+                    default: ;
+                endcase
             end
             status[RAM_WRITE_INDEX]: begin // RAM写操作，负责把ram_data_register中的数据写入RAM
                 memory_select_nxt = 1'b1; // 选中ram

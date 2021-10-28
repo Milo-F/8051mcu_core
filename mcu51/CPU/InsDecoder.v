@@ -38,7 +38,7 @@ module InsDecoder(
     parameter FROM_ROM_DATA_REG = 3'b010;
     parameter NO_USED = 3'b111;
 
-    reg[7:0]   tmp, tmp_nxt;
+    reg[7:0]   tmp, tmp_nxt; // 暂存器
 
 	always @(*) begin
         next_status = NOT_DONE;
@@ -149,12 +149,39 @@ module InsDecoder(
                     default: ;
                 endcase
             end
-            8'b0000_1???: begin // inc rn
+            8'b000?_1???: begin // inc/dec rn
                 run_phase_init = 3;
                 ram_read({3'b0, psw[4:3], instruction[2:0]});
                 case (run_phase)
-                    2: pro(FROM_RAM_DATA_REG, NO_USED, `inc);
+                    2: pro(FROM_RAM_DATA_REG, NO_USED, instruction[4] ? `dec : `inc);
                     1: ram_write(FROM_RAM_DATA_REG, {3'b0, psw[4:3], instruction[2:0]});
+                    default: ;
+                endcase
+            end
+            8'b000?_0100: begin // inc/dec a
+                run_phase_init = 1;
+                pro(FROM_A, NO_USED, instruction[4] ? `dec : `inc);
+            end
+            8'b000?_0101: begin // inc/dec direct
+                run_phase_init = 4;
+                next_status = TO_ROM_READ;
+                case (run_phase)
+                    3: ram_read(rom_data_register);
+                    2: pro(FROM_RAM_DATA_REG, NO_USED, instruction[4] ? `dec : `inc);
+                    1: ram_write(FROM_RAM_DATA_REG, rom_data_register);
+                    default: ;
+                endcase
+            end
+            8'b000?_011?: begin // inc/dec @ri
+                run_phase_init = 4;
+                ram_read({3'b0, psw[4:3], 2'b0, instruction[0]});
+                case (run_phase)
+                    3: begin
+                        tmp_nxt = ram_data_register;
+                        ram_read(ram_data_register);
+                    end
+                    2: pro(FROM_RAM_DATA_REG, NO_USED, instruction[4] ? `dec : `inc);
+                    1: ram_write(FROM_RAM_DATA_REG, tmp);
                     default: ;
                 endcase
             end

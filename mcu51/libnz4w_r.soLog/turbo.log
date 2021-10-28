@@ -1,0 +1,4 @@
+Command Line: /home/milo/Synopsys/vcs/linux64/lib/libnz4w_r.so -usevlogan_front -lib simv.daidir/work -2012 -q -enable_vfs_mp -enable_vfs_mt -flush_textdoc_sdb -enable_vfs_lock -incsave
+uname(Linux Milo 5.10.43.3-microsoft-standard-WSL2 #1 SMP Wed Jun 16 23:47:55 UTC 2021 x86_64)
+au time 0.169610 -1.989697 -1.975464 delta 85803008 85803008 total 282550272 282550272
+au time 0.197757 0.134996 0.025735 delta 78635008 78635008 total 275382272 275382272

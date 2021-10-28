@@ -28,7 +28,9 @@ module Process (
         .psw_out(alu_psw_out)
     );
     reg[7:0] pro_ans = 0;
+    reg[7:0] pro_psw = 0;
 
     assign ans = (alu_op == 4'hf) ? pro_ans : alu_ans;
+    assign psw_out = (alu_op == 4'hf) ? pro_psw : alu_psw_out;
 
 endmodule

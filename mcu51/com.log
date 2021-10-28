@@ -1,0 +1,68 @@
+Command: vcs -full64 -cpp g++-4.8 -cc gcc-4.8 -LDFLAGS -Wl,--no-as-needed -f filelist.f \
++v2k -sverilog -debug_all -l com.log
+*** Using c compiler gcc-4.8 instead of cc ...
+                         Chronologic VCS (TM)
+         Version L-2016.06_Full64 -- Thu Oct 28 14:44:30 2021
+               Copyright (c) 1991-2016 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+
+Warning-[LCA_FEATURES_ENABLED] Usage warning
+  LCA features enabled by '-lca' argument on the command line.  For more 
+  information regarding list of LCA features please refer to Chapter "LCA 
+  features" in the VCS/VCS-MX Release Notes
+
+Parsing design file './CPU/tb_get_ins.sv'
+Parsing design file './CPU/CPU.v'
+Parsing included file './CPU/para.v'.
+Back to file './CPU/CPU.v'.
+Parsing design file './CPU/InsDecoder.v'
+Parsing design file './CPU/ALEGen.v'
+Parsing design file './CPU/ClkDiv.v'
+Parsing design file './CPU/Process.v'
+Parsing design file './CPU/ALU.v'
+Top Level Modules:
+       tb_get_ins
+       ALEGen
+TimeScale is 1 ns / 1 ps
+Starting vcs inline pass...
+Parsing design file './CPU/tb_get_ins.sv'
+Parsing design file './CPU/CPU.v'
+Parsing included file './CPU/para.v'.
+Back to file './CPU/CPU.v'.
+Parsing design file './CPU/InsDecoder.v'
+Parsing design file './CPU/ALEGen.v'
+Parsing design file './CPU/ClkDiv.v'
+Parsing design file './CPU/Process.v'
+Parsing design file './CPU/ALU.v'
+Top Level Modules:
+       tb_get_ins
+       ALEGen
+TimeScale is 1 ns / 1 ps
+4 unique modules to generate
+4 modules and 0 UDP read. 
+	However, due to incremental compilation, only 1 module needs to be compiled. 
+recompiling module tb_get_ins
+All of 1 modules done
+make[1]: Entering directory '/home/milo/ICCodes/mcu51/csrc'
+rm -f _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+ld -shared  -o .//../simv.daidir//_csrc0.so objs/amcQw_d.o 
+rm -f _csrc0.so
+if [ -x ../simv ]; then chmod -x ../simv; fi
+g++-4.8  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ \
+-Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -Wl,--no-as-needed -rdynamic   amcQwB.o \
+_5090_archive_1.so _prev_archive_1.so _csrc0.so  SIM_l.o  _csrc0.so     rmapats_mop.o \
+rmapats.o rmar.o  rmar_llvm_0_1.o rmar_llvm_0_0.o          /home/milo/Synopsys/vcs/linux64/lib/libzerosoft_rt_stubs.so \
+/home/milo/Synopsys/vcs/linux64/lib/libvirsim.so /home/milo/Synopsys/vcs/linux64/lib/liberrorinf.so \
+/home/milo/Synopsys/vcs/linux64/lib/libsnpsmalloc.so    /home/milo/Synopsys/vcs/linux64/lib/libvcsnew.so \
+/home/milo/Synopsys/vcs/linux64/lib/libsimprofile.so /home/milo/Synopsys/vcs/linux64/lib/libuclinative.so \
+-Wl,-whole-archive /home/milo/Synopsys/vcs/linux64/lib/libvcsucli.so -Wl,-no-whole-archive \
+/home/milo/Synopsys/vcs/linux64/lib/vcs_save_restore_new.o -ldl  -lc -lm -lpthread \
+-ldl 
+../simv up to date
+make[1]: Leaving directory '/home/milo/ICCodes/mcu51/csrc'
+CPU time: .291 seconds to compile + .225 seconds to elab + .148 seconds to link

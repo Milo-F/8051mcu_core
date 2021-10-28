@@ -1,0 +1,62 @@
+debImport "-i" "-simflow" "-simBin" "./simv" "-simDelim" "-a sim.log"
+srcTBInvokeSim
+srcSignalView -on
+srcHBSelect "tb_get_ins.cpu" -win $_nTrace1
+srcHBSelect "tb_get_ins.cpu" -win $_nTrace1
+srcHBSelect "tb_get_ins.cpu" -win $_nTrace1
+srcSetScope -win $_nTrace1 "tb_get_ins.cpu" -delim "."
+srcSignalViewSelect "tb_get_ins.cpu.status\[6:0\]"
+wvCreateWindow
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.rom_data_register\[7:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.ram_data_register\[7:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.write_en"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.read_en"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+wvSelectSignal -win $_nWave3 {( "G1" 2 )} 
+wvCut -win $_nWave3
+wvSetPosition -win $_nWave3 {("G2" 0)}
+wvSetPosition -win $_nWave3 {("G1" 4)}
+srcSignalViewSelect "tb_get_ins.cpu.memory_select"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcTBRunSim -opt {100ns}
+srcSignalView -off
+verdiDockWidgetMaximize -dock windowDock_nWave_3
+wvSetCursor -win $_nWave3 49137.301587 -snap {("G1" 1)}
+wvSetMarker -win $_nWave3 51000.000000
+wvSetCursor -win $_nWave3 51061.111111 -snap {("G1" 1)}
+wvSetMarker -win $_nWave3 55000.000000
+wvSetCursor -win $_nWave3 57153.174603 -snap {("G1" 1)}
+wvSetMarker -win $_nWave3 61000.000000
+wvSetCursor -win $_nWave3 51221.428571 -snap {("G1" 1)}
+wvSetMarker -win $_nWave3 55000.000000
+wvSetCursor -win $_nWave3 57233.333333 -snap {("G1" 1)}
+wvSetMarker -win $_nWave3 61000.000000
+srcSignalView -on
+srcSignalView -off
+srcSignalView -on
+verdiDockWidgetRestore -dock windowDock_nWave_3
+srcSignalViewSelect "tb_get_ins.addr_bus\[15:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.data_bus\[7:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcTBRunSim -opt {100ns}
+srcSignalView -off
+verdiDockWidgetMaximize -dock windowDock_nWave_3
+wvZoom -win $_nWave3 100002.664577 193333.559735
+wvSetCursor -win $_nWave3 126816.778900 -snap {("G1" 1)}
+wvSetCursor -win $_nWave3 128890.798792 -snap {("G1" 1)}
+wvSetMarker -win $_nWave3 133000.000000
+wvSetCursor -win $_nWave3 134890.642053 -snap {("G1" 1)}
+wvSetMarker -win $_nWave3 139000.000000
+wvSetCursor -win $_nWave3 141112.701730 -snap {("G1" 1)}
+wvSetMarker -win $_nWave3 143000.000000
+wvSetCursor -win $_nWave3 145038.525098 -snap {("G1" 1)}
+wvSetMarker -win $_nWave3 149000.000000
+srcSignalView -on
+srcSignalView -off
+srcSignalView -on
+debExit

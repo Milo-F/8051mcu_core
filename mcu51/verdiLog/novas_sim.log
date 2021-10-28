@@ -1,0 +1,28 @@
+SimCMD>restart
+Warning-[LCA_FEATURES_ENABLED] Usage warning
+  LCA features enabled by '-lca' argument on the command line.  For more 
+  information regarding list of LCA features please refer to Chapter "LCA 
+  features" in the VCS/VCS-MX Release Notes
+Chronologic VCS simulator copyright 1991-2016
+Contains Synopsys proprietary information.
+Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 28 14:48 2021
+*Verdi3* Loading libsscore_vcs201606.so
+*Verdi3* : FSDB_GATE is set.
+*Verdi3* : FSDB_RTL is set.
+*Verdi3* : Enable Parallel Dumping.
+FSDB Dumper for VCS, Release Verdi3_L-2016.06-1, Linux x86_64/64bit, 07/10/2016
+(C) 1996 - 2016 by Synopsys, Inc.
+*Verdi3* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi3* : Create FSDB file '/home/milo/ICCodes/mcu51/inter.fsdb'
+*Verdi3* : Flush all FSDB Files at 0 ps.
+5368
+*Verdi3* : Flush all FSDB Files at 0 ps.
+SimCMD>run 200ns
+200000 ps
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 200000 ps
+CPU Time:      0.080 seconds;       Data structure size:   0.0Mb
+Thu Oct 28 14:50:39 2021
+
+VERDI_SIM_Terminated
+
