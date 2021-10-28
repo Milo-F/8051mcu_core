@@ -1,8 +1,0 @@
-/home/milo/ICCodes/mcu51/CPU/ALEGen.v
-/home/milo/ICCodes/mcu51/CPU/ALU.v
-/home/milo/ICCodes/mcu51/CPU/CPU.v
-/home/milo/ICCodes/mcu51/CPU/ClkDiv.v
-/home/milo/ICCodes/mcu51/CPU/InsDecoder.v
-/home/milo/ICCodes/mcu51/CPU/Process.v
-/home/milo/ICCodes/mcu51/CPU/para.v
-/home/milo/ICCodes/mcu51/CPU/tb_get_ins.sv
