@@ -9,3 +9,5 @@
 ./CPU/InsDecoder.v
 ./CPU/ALEGen.v
 ./CPU/ClkDiv.v
+./CPU/Process.v 
+./CPU/ALU.v 

@@ -1,12 +1,12 @@
 {
-    "ALEGen": [
-        "ALEGen",
-        "x91G7",
-        "module"
-    ],
     "std": [
         "std",
         "reYIK",
+        "module"
+    ],
+    "ClkDiv": [
+        "ClkDiv",
+        "PJbHW",
         "module"
     ],
     "tb_get_ins": [
@@ -14,9 +14,9 @@
         "GLQFB",
         "module"
     ],
-    "ClkDiv": [
-        "ClkDiv",
-        "PJbHW",
+    "ALEGen": [
+        "ALEGen",
+        "x91G7",
         "module"
     ],
     "...MASTER...": [

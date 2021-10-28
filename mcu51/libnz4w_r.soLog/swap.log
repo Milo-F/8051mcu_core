@@ -1,11 +1,11 @@
 version: (200506)
 
 available memory: 64M bytes
-used memory: 65536 bytes [need 64K bytes if disable swap]
+used memory: 131072 bytes [need 128K bytes if disable swap]
 
-used block: 10 [memory(1) file(9)]
-                 [ 64K(10) { total 640K bytes } ]
-overhead: (27026) bytes for (10) blocks [Average: (2702) bytes/block]
+used block: 16 [memory(2) file(14)]
+                 [ 64K(16) { total 1M bytes } ]
+overhead: (40298) bytes for (16) blocks [Average: (2518) bytes/block]
 
 write  => 0(times) 0K(bytes) [0K bytes to file]
 read   => 0(times) 0K(bytes) [0K bytes compressed data from file]
@@ -25,19 +25,19 @@ idxCnt: (2)
 closeHead: (0)
 closeTail: (0)
 openCnt: (0)
-fid(1): fd(0) fileName(/home/milo/ICCodes/mcu51/libnz4w_r.soLog/_swap_0001#8323329#19385)
-	size(0) lastModTime(0) curModTime(1635317926)
+fid(1): fd(0) fileName(/home/milo/ICCodes/mcu51/libnz4w_r.soLog/_swap_0001#8323329#27806)
+	size(0) lastModTime(0) curModTime(1635398134)
 	mode(w+b)	hot(0) cool(0) pos(0)
 fid(0): fd(0) fileName(NULL)
 	mode(NULL)	hot(0) cool(0) pos(0)
 version: (200506)
 
 available memory: 64M bytes
-used memory: 65536 bytes [need 64K bytes if disable swap]
+used memory: 131072 bytes [need 128K bytes if disable swap]
 
-used block: 10 [memory(1) file(9)]
-                 [ 64K(10) { total 640K bytes } ]
-overhead: (27026) bytes for (10) blocks [Average: (2702) bytes/block]
+used block: 16 [memory(2) file(14)]
+                 [ 64K(16) { total 1M bytes } ]
+overhead: (40298) bytes for (16) blocks [Average: (2518) bytes/block]
 
 write  => 0(times) 0K(bytes) [0K bytes to file]
 read   => 0(times) 0K(bytes) [0K bytes compressed data from file]
@@ -57,7 +57,7 @@ idxCnt: (2)
 closeHead: (0)
 closeTail: (0)
 openCnt: (0)
-fid(1): fd(0) fileName(/home/milo/ICCodes/mcu51/libnz4w_r.soLog/_swap_0001#8323329#19385)
+fid(1): fd(0) fileName(/home/milo/ICCodes/mcu51/libnz4w_r.soLog/_swap_0001#8323329#27806)
 	size(-1) lastModTime(0) curModTime(-1)
 	mode(w+b)	hot(0) cool(0) pos(0)
 fid(0): fd(0) fileName(NULL)
