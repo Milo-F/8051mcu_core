@@ -11,7 +11,7 @@ AnnotationShow = 0
 powerDumped = 0
 [hb]
 postSimFile = /home/milo/ICCodes/mcu51/inter.fsdb
-syncTime = 63000
+syncTime = 81000
 viewport = 0 23 1536 841 411 232 253 1534
 activeNode = "tb_get_ins"
 activeScope = "tb_get_ins"

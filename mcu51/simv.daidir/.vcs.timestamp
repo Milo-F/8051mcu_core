@@ -84,14 +84,14 @@ DC_HOME=/home/milo/Synopsys/dc
 COLORTERM=truecolor
 0
 10
-1635475399 ./CPU/para.v
+1635482692 ./CPU/para.v
 1635481783 ./CPU/ALU.v
-1635427890 ./CPU/Process.v
+1635484725 ./CPU/Process.v
 1635226771 ./CPU/ClkDiv.v
 1635226771 ./CPU/ALEGen.v
-1635481621 ./CPU/InsDecoder.v
-1635481893 ./CPU/CPU.v
-1635478131 ./CPU/tb_get_ins.sv
+1635486076 ./CPU/InsDecoder.v
+1635483704 ./CPU/CPU.v
+1635486188 ./CPU/tb_get_ins.sv
 1635395992 filelist.f
 1464145466 /home/milo/Synopsys/vcs/linux64/lib/vcsdp.tab
 4
@@ -99,4 +99,4 @@ COLORTERM=truecolor
 1464147802 /home/milo/Synopsys/vcs/linux64/lib/libvirsim.so
 1464147272 /home/milo/Synopsys/vcs/linux64/lib/liberrorinf.so
 1464147248 /home/milo/Synopsys/vcs/linux64/lib/libsnpsmalloc.so
-1635481932 simv.daidir
+1635486195 simv.daidir

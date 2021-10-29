@@ -16,16 +16,16 @@ signalSpacing 5
 
 ; windowTimeUnit is used for zoom, cursor & marker
 ; waveform viewport range
-zoom 34533.386967 96043.443282
-cursor 63000.000000
-marker 65000.000000
+zoom 43715.205149 90761.866452
+cursor 81000.000000
+marker 85000.000000
 
 ; user define markers
 ; userMarker time_pos marker_name color linestyle
 ; visible top row signal index
 top 0
 ; marker line index
-markerPos 2
+markerPos 9
 
 ; event list
 ; addEvent event_name event_expression
@@ -48,7 +48,14 @@ curSTATUS ByChange
 addGroup "G1"
 activeDirFile "" "/home/milo/ICCodes/mcu51/inter.fsdb"
 addSignal -h 15 /tb_get_ins/cpu/status[6:0]
+addSignal -h 15 /tb_get_ins/cpu/run_phase[3:0]
 addSignal -h 15 /tb_get_ins/cpu/program_counter[15:0]
+addSignal -h 15 /tb_get_ins/cpu/ram_data_register[7:0]
+addSignal -h 15 /tb_get_ins/cpu/rom_data_register[7:0]
+addSignal -h 15 /tb_get_ins/cpu/read_en
+addSignal -h 15 /tb_get_ins/cpu/write_en
+addSignal -h 15 /tb_get_ins/cpu/addr_bus[15:0]
+addSignal -h 15 /tb_get_ins/cpu/data_bus[7:0]
 addGroup "G2"
 
 ; getSignalForm Scope Hierarchy Status

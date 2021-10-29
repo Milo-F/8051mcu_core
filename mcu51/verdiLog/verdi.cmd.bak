@@ -6,13 +6,10 @@ srcSetScope -win $_nTrace1 "tb_get_ins.cpu" -delim "."
 srcSignalViewSelect "tb_get_ins.cpu.status\[6:0\]"
 wvCreateWindow
 srcSignalViewAddSelectedToWave -win $_nTrace1
-srcSignalViewSelect "tb_get_ins.cpu.run_phase\[2:0\]"
+srcSignalViewSelect "tb_get_ins.cpu.run_phase\[3:0\]"
+srcSignalViewSelect "tb_get_ins.cpu.run_phase\[3:0\]"
 srcSignalViewAddSelectedToWave -win $_nTrace1
-srcSignalViewSelect "tb_get_ins.cpu.ram_data_register\[7:0\]"
-srcSignalViewAddSelectedToWave -win $_nTrace1
-srcSignalViewSelect "tb_get_ins.cpu.rom_data_register\[7:0\]"
-srcSignalViewAddSelectedToWave -win $_nTrace1
-srcSignalViewSelect "tb_get_ins.cpu.acc\[7:0\]"
+srcSignalViewSelect "tb_get_ins.cpu.program_counter\[15:0\]"
 srcSignalViewAddSelectedToWave -win $_nTrace1
 srcSignalViewSelect "tb_get_ins.cpu.read_en"
 srcSignalViewAddSelectedToWave -win $_nTrace1
@@ -25,55 +22,7 @@ srcSignalViewAddSelectedToWave -win $_nTrace1
 srcTBRunSim -opt {200ns}
 srcSignalView -off
 verdiDockWidgetMaximize -dock windowDock_nWave_3
-wvZoom -win $_nWave3 40627.514079 119932.421561
-wvSetCursor -win $_nWave3 45285.002612 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 49000.000000
-wvZoom -win $_nWave3 77185.609000 119804.819135
-wvSetCursor -win $_nWave3 83083.037917 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 87000.000000
-wvSetCursor -win $_nWave3 165255.120615 -snap {("G1" 1)}
-wvSetCursor -win $_nWave3 168923.869999 -snap {("G1" 1)}
-wvSetCursor -win $_nWave3 171323.986418 -snap {("G1" 1)}
-wvSetCursor -win $_nWave3 174787.011538 -snap {("G1" 1)}
-wvSetCursor -win $_nWave3 177084.265825 -snap {("G1" 1)}
-wvSetCursor -win $_nWave3 179107.221093 -snap {("G1" 1)}
-wvSetCursor -win $_nWave3 181473.050135 -snap {("G1" 1)}
-wvSetCursor -win $_nWave3 184661.776235 -snap {("G1" 1)}
-wvSetCursor -win $_nWave3 165209.644027 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 169000.000000
-srcTBRunSim -opt {200ns}
-srcSignalView -off
-verdiDockWidgetMaximize -dock windowDock_nWave_3
-wvSetCursor -win $_nWave3 290805.062492 -snap {("G1" 2)}
-wvSetCursor -win $_nWave3 285181.932594 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 289000.000000
-wvSetCursor -win $_nWave3 247203.310834 -snap {("G1" 1)}
-wvSetCursor -win $_nWave3 250700.623331 -snap {("G1" 1)}
-wvSetCursor -win $_nWave3 246723.287550 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 251000.000000
-wvSetCursor -win $_nWave3 252895.015486 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 257000.000000
-wvSetCursor -win $_nWave3 259135.318176 -snap {("G1" 1)}
-wvSetCursor -win $_nWave3 262906.929693 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 267000.000000
-wvSetCursor -win $_nWave3 253169.314505 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 257000.000000
-wvSetCursor -win $_nWave3 262975.504448 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 267000.000000
-wvSetCursor -win $_nWave3 269147.232384 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 273000.000000
-wvSetCursor -win $_nWave3 274976.086545 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 279000.000000
-wvSetCursor -win $_nWave3 269147.232384 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 273000.000000
-wvSetCursor -win $_nWave3 275044.661300 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 279000.000000
-wvSetCursor -win $_nWave3 281353.538746 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 285000.000000
-wvSetCursor -win $_nWave3 275250.385565 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 279000.000000
-wvSetCursor -win $_nWave3 282793.608597 -snap {("G1" 9)}
-wvSetMarker -win $_nWave3 285000.000000
+wvZoom -win $_nWave3 43227.674980 111806.918745
 srcSignalView -on
 srcSignalView -off
 srcSignalView -on

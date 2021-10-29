@@ -32,10 +32,14 @@ module tb_get_ins;
     end
     initial begin
         instruction = 0;
+        // forever begin
+        //     @(posedge read_en);
+        //     instruction = 8'b0010_0010;
+        // end
         ram_data = 8'h50;
         @(posedge clk);
         forever begin
-           #5 instruction = 8'b0110_0000;
+           #10 instruction = 8'b0010_0010;
         end
         // forever begin
         //     #2 instruction = instruction;

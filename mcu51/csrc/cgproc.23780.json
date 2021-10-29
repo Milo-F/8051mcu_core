@@ -1,0 +1,64 @@
+{
+    "ObjArchives": [
+        {
+            "archive": "archive.17/_23780_archive_1.a",
+            "objects": [
+                [
+                    "GLQFB_d.o",
+                    135067
+                ]
+            ],
+            "size": 135067
+        }
+    ],
+    "Modules": {
+        "Process": {
+            "Compiled": "Yes",
+            "Compiled Times": 4
+        },
+        "tb_get_ins": {
+            "Compiled": "Yes",
+            "Compiled Times": 18
+        },
+        "...MASTER...": {},
+        "ALEGen": {
+            "Compiled": "Yes",
+            "Compiled Times": 18
+        },
+        "std": {
+            "Compiled": "Yes",
+            "Compiled Times": 18
+        },
+        "ClkDiv": {
+            "Compiled": "Yes",
+            "Compiled Times": 18
+        }
+    },
+    "reusePaths": {
+        "amcQw_d": {
+            "icPath": "csrc"
+        },
+        "TNeKF_d": {
+            "icPath": "csrc"
+        },
+        "reYIK_d": {
+            "icPath": "csrc"
+        },
+        "x91G7_d": {
+            "icPath": "csrc"
+        },
+        "PJbHW_d": {
+            "icPath": "csrc"
+        }
+    },
+    "CompUnits": {
+        "GLQFB_d": {
+            "mod": "tb_get_ins",
+            "out": "GLQFB_d.o",
+            "bytes": 135067,
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.17/_23780_archive_1.a"
+        }
+    }
+}

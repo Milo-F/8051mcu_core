@@ -10,11 +10,11 @@ module InsDecoder(
     input           clk, // 时钟
     input           rst_n, // 复位
     input [7:0]     instruction, // 指令
-    input [2:0]     run_phase, // 执行阶段
+    input [3:0]     run_phase, // 执行阶段
     input [7:0]     psw,
     input [7:0]     ram_data_register,
     input [7:0]     rom_data_register,
-    output reg[2:0] run_phase_init,
+    output reg[3:0] run_phase_init,
     output reg[2:0] a_data_from,
     output reg[2:0] b_data_from,
     output reg[3:0] alu_op,
@@ -55,11 +55,11 @@ module InsDecoder(
             end
             8'b1111_1???: begin // MOV RN, A
                 run_phase_init = 1;
-                ram_write(FROM_A, {3'b0, psw[4:3], instruction[2:0]});
+                ram_write(FROM_A, `Rn);
             end
             8'b1111_011?: begin // MOV @Ri, A
                 run_phase_init = 2;
-                ram_read({3'b0, psw[4:3], 2'b0, instruction[0]});
+                ram_read(`Ri);
                 if (run_phase == 1) begin
                     ram_write(FROM_A, ram_data_register);
                 end
@@ -75,7 +75,7 @@ module InsDecoder(
                 run_phase_init = 4;
                 next_status = TO_ROM_READ;
                 case (run_phase)
-                    3: ram_read({3'b0, psw[4:3], 2'b0, instruction[0]});
+                    3: ram_read(`Ri);
                     2: ram_read(ram_data_register);
                     1: ram_write(FROM_RAM_DATA_REG, rom_data_register);
                     default:;
@@ -85,7 +85,7 @@ module InsDecoder(
                 run_phase_init = 3;
                 next_status = TO_ROM_READ;
                 case (run_phase)
-                    2: ram_read({3'b0, psw[4:3], instruction[2:0]});
+                    2: ram_read(`Rn);
                     1: ram_write(FROM_RAM_DATA_REG, rom_data_register);
                     default:;
                 endcase
@@ -93,7 +93,7 @@ module InsDecoder(
             8'b1010_011?: begin // MOV @Ri, DIRECT
                 run_phase_init = 4;
                 next_status = TO_RAM_READ;
-                ram_read({3'b0, psw[4:3], 2'b0, instruction[0]});
+                ram_read(`Ri);
                 case (run_phase)
                     3: begin
                         tmp_nxt = ram_data_register; // 缓存要写入的地址
@@ -109,7 +109,7 @@ module InsDecoder(
                 next_status = TO_ROM_READ;
                 case (run_phase)
                     2: ram_read(rom_data_register);
-                    1: ram_write(FROM_RAM_DATA_REG, {3'b0, psw[4:3], instruction[2:0]});
+                    1: ram_write(FROM_RAM_DATA_REG, `Rn);
                     default:;
                 endcase
             end
@@ -117,7 +117,7 @@ module InsDecoder(
                 run_phase_init = 3;
                 next_status = TO_ROM_READ;
                 case (run_phase)
-                    2: ram_read({3'b0, psw[4:3], 2'b0, instruction[0]}); 
+                    2: ram_read(`Ri); 
                     3: ram_write(FROM_ROM_DATA_REG, ram_data_register);
                     default:;
                 endcase
@@ -125,7 +125,7 @@ module InsDecoder(
             8'b0111_1???: begin // MOV RN, #DATA
                 run_phase_init = 2;
                 next_status = TO_ROM_READ;
-                if (run_phase == 1) ram_write(FROM_ROM_DATA_REG, {3'b0, psw[4:3], instruction[2:0]});
+                if (run_phase == 1) ram_write(FROM_ROM_DATA_REG, `Rn);
             end
             8'b1000_0101: begin // MOV DIRECT, DIRECT
                 run_phase_init = 4;
@@ -154,10 +154,10 @@ module InsDecoder(
             end
             8'b000?_1???: begin // inc/dec rn
                 run_phase_init = 3;
-                ram_read({3'b0, psw[4:3], instruction[2:0]});
+                ram_read(`Rn);
                 case (run_phase)
                     2: pro(FROM_RAM_DATA_REG, NO_USED, instruction[4] ? `dec : `inc);
-                    1: ram_write(FROM_RAM_DATA_REG, {3'b0, psw[4:3], instruction[2:0]});
+                    1: ram_write(FROM_RAM_DATA_REG, `Rn);
                     default: ;
                 endcase
             end
@@ -177,7 +177,7 @@ module InsDecoder(
             end
             8'b000?_011?: begin // inc/dec @ri
                 run_phase_init = 4;
-                ram_read({3'b0, psw[4:3], 2'b0, instruction[0]});
+                ram_read(`Ri);
                 case (run_phase)
                     3: begin
                         tmp_nxt = ram_data_register;
@@ -190,12 +190,12 @@ module InsDecoder(
             end
             8'b001?_1???: begin // add/addc a, rn
                 run_phase_init = 2;
-                ram_read({3'b0, psw[4:3], instruction[2:0]});
+                ram_read(`Rn);
                 if (run_phase == 1) pro(FROM_A, FROM_RAM_DATA_REG, (instruction[4] ? `addc : `add));
             end
             8'b001?_011?: begin // add/addc a, @ri
                 run_phase_init = 3;
-                ram_read({3'b0, psw[4:3], 2'b0, instruction[0]});
+                ram_read(`Ri);
                 case (run_phase)
                     2: ram_read(ram_data_register);
                     1: pro(FROM_A, ram_data_register, (instruction[4] ? `addc : `add));
@@ -218,12 +218,12 @@ module InsDecoder(
             end
             8'b010?_1???: begin // orl/anl a, rn
                 run_phase_init = 2;
-                ram_read({3'b0, psw[4:3], instruction[2:0]});
+                ram_read(`Rn);
                 if (run_phase == 1) pro(FROM_A, FROM_RAM_DATA_REG, (instruction[4] ? `anl : `orl));
             end
             8'b010?_011?: begin // orl/anl a, @ri
                 run_phase_init = 3;
-                ram_read({3'b0, psw[4:3], 2'b0, instruction[0]});
+                ram_read(`Ri);
                 case (run_phase)
                     2: ram_read(ram_data_register);
                     1: pro(FROM_A, ram_data_register, (instruction[4] ? `anl : `orl));
@@ -246,12 +246,12 @@ module InsDecoder(
             end
             8'b0110_1???: begin // xrl a, rn
                 run_phase_init = 2;
-                ram_read({3'b0, psw[4:3], instruction[2:0]});
+                ram_read(`Rn);
                 if (run_phase == 1) pro(FROM_A, FROM_RAM_DATA_REG, `xrl);
             end
             8'b0110_011?: begin // xrl a, @ri
                 run_phase_init = 3;
-                ram_read({3'b0, psw[4:3], 2'b0, instruction[0]});
+                ram_read(`Ri);
                 case (run_phase)
                     2: ram_read(ram_data_register);
                     1: pro(FROM_A, FROM_RAM_DATA_REG, `xrl);
@@ -274,12 +274,12 @@ module InsDecoder(
             end
             8'b1001_1???: begin // subb a, rn
                 run_phase_init = 2;
-                ram_read({3'b0, psw[4:3], instruction[2:0]});
+                ram_read(`Rn);
                 if (run_phase == 1) pro(FROM_A, FROM_RAM_DATA_REG, `subb);
             end
             8'b1001_011?: begin // subb a, @ri
                 run_phase_init = 3;
-                ram_read({3'b0, psw[4:3], 2'b0, instruction[0]});
+                ram_read(`Ri);
                 case (run_phase)
                     2: ram_read(ram_data_register);
                     1: pro(FROM_A, FROM_RAM_DATA_REG, `subb);
@@ -302,12 +302,12 @@ module InsDecoder(
             end
             8'b1110_1???: begin // mov a, rn
                 run_phase_init = 2;
-                ram_read({3'b0, psw[4:3], instruction[2:0]});
+                ram_read(`Rn);
                 if (run_phase == 1) pro(FROM_A, FROM_RAM_DATA_REG, `mov);
             end
             8'b1110_011?: begin // mov a, @ri
                 run_phase_init = 3;
-                ram_read({3'b0, psw[4:3], 2'b0, instruction[0]});
+                ram_read(`Ri);
                 case (run_phase)
                     2: ram_read(ram_data_register);
                     1: pro(FROM_A, FROM_RAM_DATA_REG, `mov);
@@ -477,6 +477,86 @@ module InsDecoder(
                     3: ram_read(`dpl);
                     2: pro(FROM_PCL, FROM_RAM_DATA_REG, `mov);
                     1: pro(FROM_PCL, FROM_A, `add);
+                    default: ;
+                endcase
+            end
+            8'b1101_1???: begin // djnz rn, rel
+                run_phase_init = 4;
+                ram_read(`Rn);
+                case (run_phase)
+                    3: pro(FROM_RAM_DATA_REG, NO_USED, `dec);
+                    2: next_status = TO_ROM_READ;
+                    1: begin
+                        if (ram_data_register == 8'b0) next_status = TO_GET_INS;
+                        else pro(FROM_PCL, FROM_ROM_DATA_REG, `add);
+                    end
+                    default: ;
+                endcase
+            end
+            8'b1101_0101: begin // djnz direct, rel
+                run_phase_init = 5;
+                next_status = TO_ROM_READ;
+                case (run_phase)
+                    4: ram_read(rom_data_register);
+                    3: pro(FROM_RAM_DATA_REG, NO_USED, `dec);
+                    2: next_status = TO_ROM_READ;
+                    1: begin
+                        if (ram_data_register == 8'b0) next_status = TO_GET_INS;
+                        else pro(FROM_PCL, FROM_ROM_DATA_REG, `add);
+                    end
+                    default: ;
+                endcase
+            end
+            8'b0001_0010: begin // lcall addr16
+                run_phase_init = 10;
+                ram_read(`sp);
+                case (run_phase)
+                    9: ram_write(FROM_PCL, ram_data_register);
+                    8: pro(FROM_RAM_DATA_REG, NO_USED, `inc);
+                    7: ram_write(FROM_PCH, ram_data_register);
+                    6: pro(FROM_RAM_DATA_REG, NO_USED, `inc);
+                    5: ram_write(FROM_RAM_DATA_REG, `sp);
+                    4: next_status = TO_ROM_READ;
+                    3: pro(FROM_PCH, FROM_ROM_DATA_REG, `mov);
+                    2: next_status = TO_ROM_READ;
+                    1: pro(FROM_PCL, FROM_ROM_DATA_REG, `mov);
+                    default: ;
+                endcase
+            end
+            8'b???1_0001: begin // acall addr11
+                run_phase_init = 9;
+                ram_read(`sp);
+                case (run_phase)
+                    8: ram_write(FROM_PCL, ram_data_register);
+                    7: pro(FROM_RAM_DATA_REG, NO_USED, `inc);
+                    6: ram_write(FROM_PCH, ram_data_register);
+                    5: pro(FROM_RAM_DATA_REG, NO_USED, `inc);
+                    4: ram_write(FROM_RAM_DATA_REG, `sp);
+                    3: begin
+                        addr_register_out = {5'b0, instruction[7:5]};
+                        pro(FROM_PCH, FROM_ADDR_OUT, `no_alu);
+                    end
+                    2: next_status = TO_ROM_READ;
+                    1: pro(FROM_PCL, FROM_ROM_DATA_REG, `mov);
+                    default: ;
+                endcase
+            end
+            8'b001?_0010: begin // ret/reti
+                run_phase_init = 7;
+                ram_read(`sp);
+                case (run_phase)
+                    6: begin
+                        tmp_nxt = ram_data_register;
+                        ram_read(ram_data_register - 8'h1);
+                    end
+                    5: pro(FROM_PCH, FROM_RAM_DATA_REG, `mov);
+                    4: ram_read(tmp - 8'h2);
+                    3: pro(FROM_PCL, FROM_RAM_DATA_REG, `mov);
+                    2: begin
+                        addr_register_out = tmp - 8'h2;
+                        pro(FROM_RAM_DATA_REG, FROM_ADDR_OUT, `mov);
+                    end
+                    1: ram_write(FROM_RAM_DATA_REG, `sp);
                     default: ;
                 endcase
             end

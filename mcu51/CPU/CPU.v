@@ -133,11 +133,11 @@ module CPU (
 
     // 译码器
     wire[2:0]   decoder_next_status; // 下个状态标识
-    reg[2:0]    run_phase, run_phase_nxt; // 当前指令所在的执行节点
-    wire[2:0]   run_phase_init; // 指令初始执行需要的步骤数
+    reg[3:0]    run_phase, run_phase_nxt; // 当前指令所在的执行节点
+    wire[3:0]   run_phase_init; // 指令初始执行需要的步骤数
     wire[2:0]   a_data_from, b_data_from; // 写ram操作数据来源标识
     wire[3:0]   alu_op;
-    wire[2:0]   run_phase_minus1; // 步骤减一
+    wire[3:0]   run_phase_minus1; // 步骤减一
     wire[7:0]   addr_register_out; // 译码器输出地址
     wire[2:0]   bit_location;
     assign run_phase_minus1 = run_phase - 1;

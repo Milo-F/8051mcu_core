@@ -1,4 +1,9 @@
 {
+    "ALEGen": [
+        "ALEGen",
+        "x91G7",
+        "module"
+    ],
     "std": [
         "std",
         "reYIK",
@@ -9,9 +14,9 @@
         "amcQw",
         "module"
     ],
-    "ALEGen": [
-        "ALEGen",
-        "x91G7",
+    "Process": [
+        "Process",
+        "TNeKF",
         "module"
     ],
     "tb_get_ins": [

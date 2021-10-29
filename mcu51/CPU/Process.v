@@ -48,9 +48,9 @@ module Process (
                     pro_psw[7] = a_data[7];
                 end // RLC 进位左移
                 8'b1100_0100: {pro_ans[3:0], pro_ans[7:4]} = a_data; // SWAP 半字节交换
-                8'b???0_0001: begin
+                8'b????_0001: begin
                     pro_ans = {a_data[7:3], b_data[2:0]};
-                end // AJUMP 中高三字节
+                end // AJUMP/ACALL 中高三字节
                 default: ;
             endcase
         end
