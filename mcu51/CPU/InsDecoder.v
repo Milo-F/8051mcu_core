@@ -18,7 +18,9 @@ module InsDecoder(
     output reg[2:0] a_data_from,
     output reg[2:0] b_data_from,
     output reg[3:0] alu_op,
-    output reg[2:0] bit_location,
+    output reg[2:0] a_bit_location,
+    output reg[2:0] b_bit_location,
+    output reg      bit_en, // 位运算标志
     output reg[7:0] addr_register_out,
     output reg[2:0] next_status // 下个状态标识
 );
@@ -39,6 +41,7 @@ module InsDecoder(
     parameter FROM_ADDR_OUT = 3'b011;
     parameter FROM_PCH = 3'b100;
     parameter FROM_PCL = 3'b101;
+    parameter FROM_B = 3'b110;
     parameter NO_USED = 3'b111;
 
     reg[7:0]   tmp, tmp_nxt; // 暂存器
@@ -48,6 +51,11 @@ module InsDecoder(
         addr_register_out = 8'b0;
         run_phase_init = 3'b0;
         tmp_nxt = tmp;
+        a_bit_location = 3'b0;
+        bit_en = 1'b0;
+        alu_op = `no_alu;
+        a_data_from = NO_USED;
+        b_data_from = NO_USED;
         // bit2addr_tmp = 11'b0;
         casez (instruction)
             8'h00: begin // NOP
@@ -330,11 +338,11 @@ module InsDecoder(
             end
             8'b1110_0100: begin // clr a
                 run_phase_init = 1;
-                pro(FROM_A, NO_USED, `mov); // A清零
+                pro(FROM_A, NO_USED, `clr); // A清零
             end
             8'b1111_0100: begin // cpl a
                 run_phase_init = 1;
-                pro(FROM_A, NO_USED, `no_alu);
+                pro(FROM_A, NO_USED, `cpl);
             end
             8'b0000_0011: begin // rr a
                 run_phase_init = 1;
@@ -560,6 +568,70 @@ module InsDecoder(
                     default: ;
                 endcase
             end
+            8'b0111_0010: begin // orl c, bit
+                run_phase_init = 6;
+                ram_read(`psw);
+                case (run_phase)
+                    5: pro(FROM_B, FROM_RAM_DATA_REG, `mov);
+                    4: next_status = TO_ROM_READ;
+                    3: begin
+                        ram_read(bit2addr(rom_data_register));
+                    end
+                    2:begin
+                        bit_en = 1;
+                        a_bit_location = 7;
+                        b_bit_location = rom_data_register[2:0];
+                        pro(FROM_B, FROM_RAM_DATA_REG, `orl);
+                    end
+                    1: ram_write(FROM_B, `psw);
+                    default: ;
+                endcase
+            end
+            8'b1000_0010: begin // anl c, bit
+                run_phase_init = 6;
+                ram_read(`psw);
+                case (run_phase)
+                    5: pro(FROM_B, FROM_RAM_DATA_REG, `mov);
+                    4: next_status = TO_ROM_READ;
+                    3: begin
+                        ram_read(bit2addr(rom_data_register));
+                    end
+                    2:begin
+                        bit_en = 1;
+                        a_bit_location = 7;
+                        b_bit_location = rom_data_register[2:0];
+                        pro(FROM_B, FROM_RAM_DATA_REG, `anl);
+                    end
+                    1: ram_write(FROM_B, `psw);
+                    default: ;
+                endcase
+            end
+            8'b110?_0011: begin // setb/clr c
+                run_phase_init = 3;
+                ram_read(`psw);
+                case (run_phase)
+                    2: begin
+                        bit_en = 1;
+                        a_bit_location = 7;
+                        pro(FROM_RAM_DATA_REG, NO_USED, `setb);
+                    end
+                    1: ram_write(FROM_RAM_DATA_REG, `psw);
+                    default: ;
+                endcase
+            end
+            8'b1011_0011: begin // cpl c
+                run_phase_init = 3;
+                ram_read(`psw);
+                case (run_phase)
+                    2: begin
+                        bit_en = 1;
+                        a_bit_location = 7;
+                        pro(FROM_RAM_DATA_REG, NO_USED, `cpl);
+                    end
+                    1: ram_write(FROM_RAM_DATA_REG, `psw);
+                    default: ;
+                endcase
+            end
             default: begin // 错误指令无法译码，取下一条指令
                 next_status = TO_GET_INS;
             end
@@ -599,12 +671,17 @@ module InsDecoder(
             alu_op = op;
         end
     endtask
-    // 位地址转ram地址，10：8为位所在位置，7：0为ram地址
-    function automatic reg[10:0] bit2addr(reg[7:0] bit_addr);
+    // 位地址转ram地址，bit_location为位所在位置，addr_register_out为ram地址
+    function reg[7:0] bit2addr(reg[7:0] bit_addr);
         begin
-            reg[10:0] addr = 11'b0;
-            // TODO
-            return addr;
+            reg[7:0] ram_addr;
+            if ((bit_addr >> 3) < 8'h0f) begin
+                ram_addr = {4'h2, bit_addr[6:3]};
+            end
+            else begin
+                ram_addr = {bit_addr[7:3], 3'b0};
+            end
+            return ram_addr;
         end
     endfunction
 

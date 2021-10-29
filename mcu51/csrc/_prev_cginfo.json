@@ -1,0 +1,175 @@
+{
+    "MlibObjs": {},
+    "SIMBData": {
+        "out": "amcQwB.o",
+        "bytes": 91905
+    },
+    "CompileStatus": "Successful",
+    "CurCompileUdps": {},
+    "PrevCompiledModules": {
+        "ALEGen": {
+            "x91G7_d": {
+                "bytes": 10634,
+                "mod": "ALEGen",
+                "mode": 4,
+                "archive": "archive.12/_prev_archive_1.a",
+                "checksum": 0,
+                "out": "x91G7_d.o"
+            }
+        },
+        "tb_get_ins": {
+            "GLQFB_d": {
+                "bytes": 143985,
+                "mod": "tb_get_ins",
+                "out": "GLQFB_d.o",
+                "mode": 4,
+                "archive": "archive.12/_9203_archive_1.a",
+                "checksum": 0
+            }
+        },
+        "ClkDiv": {
+            "PJbHW_d": {
+                "bytes": 19803,
+                "mod": "ClkDiv",
+                "mode": 4,
+                "archive": "archive.12/_prev_archive_1.a",
+                "checksum": 0,
+                "out": "PJbHW_d.o"
+            }
+        },
+        "std": {
+            "reYIK_d": {
+                "bytes": 41566,
+                "mod": "std",
+                "mode": 4,
+                "archive": "archive.12/_prev_archive_1.a",
+                "checksum": 0,
+                "out": "reYIK_d.o"
+            }
+        },
+        "...MASTER...": {
+            "amcQw_d": {
+                "bytes": 8270,
+                "mod": "...MASTER...",
+                "mode": 4,
+                "checksum": 0,
+                "out": "objs/amcQw_d.o"
+            }
+        },
+        "Process": {
+            "TNeKF_d": {
+                "bytes": 23860,
+                "mod": "Process",
+                "out": "TNeKF_d.o",
+                "mode": 4,
+                "archive": "archive.12/_prev_archive_1.a",
+                "checksum": 0
+            }
+        }
+    },
+    "NameTable": {
+        "std": [
+            "std",
+            "reYIK",
+            "module"
+        ],
+        "ClkDiv": [
+            "ClkDiv",
+            "PJbHW",
+            "module"
+        ],
+        "ALEGen": [
+            "ALEGen",
+            "x91G7",
+            "module"
+        ],
+        "tb_get_ins": [
+            "tb_get_ins",
+            "GLQFB",
+            "module"
+        ],
+        "Process": [
+            "Process",
+            "TNeKF",
+            "module"
+        ],
+        "...MASTER...": [
+            "SIM",
+            "amcQw",
+            "module"
+        ]
+    },
+    "CompileStrategy": "fullobj",
+    "stat": {
+        "mopSpeed": 284840.89569829113,
+        "ru_self_cgstart": {
+            "ru_stime_sec": 0.036028999999999999,
+            "ru_utime_sec": 0.099082000000000003,
+            "ru_maxrss_kb": 106444,
+            "ru_minflt": 8963,
+            "ru_majflt": 0,
+            "ru_nvcsw": 243,
+            "ru_nivcsw": 2
+        },
+        "ru_childs_cgstart": {
+            "ru_stime_sec": 0.0,
+            "ru_utime_sec": 0.0052350000000000001,
+            "ru_maxrss_kb": 91732,
+            "ru_minflt": 767,
+            "ru_majflt": 0,
+            "ru_nvcsw": 3,
+            "ru_nivcsw": 1
+        },
+        "nQuads": 7876,
+        "ru_self_end": {
+            "ru_stime_sec": 0.046378000000000003,
+            "ru_utime_sec": 0.166962,
+            "ru_maxrss_kb": 115844,
+            "ru_minflt": 10654,
+            "ru_majflt": 0,
+            "ru_nvcsw": 245,
+            "ru_nivcsw": 2
+        },
+        "outputSizePerQuad": 29.0,
+        "nMops": 19335,
+        "totalObjSize": 235898,
+        "ru_childs_end": {
+            "ru_stime_sec": 0.0,
+            "ru_utime_sec": 0.0069829999999999996,
+            "ru_maxrss_kb": 106444,
+            "ru_minflt": 997,
+            "ru_majflt": 0,
+            "ru_nvcsw": 4,
+            "ru_nivcsw": 1
+        },
+        "quadSpeed": 116028.28520919271,
+        "mop/quad": 2.4549263585576435,
+        "CodeGen(%)": 40.655957643056503,
+        "Frontend(%)": 59.344042356943504
+    },
+    "CurCompileModules": [
+        "...MASTER...",
+        "std",
+        "tb_get_ins",
+        "tb_get_ins",
+        "ALEGen",
+        "ClkDiv",
+        "Process"
+    ],
+    "PEModules": [],
+    "LVLData": [
+        "SIM"
+    ],
+    "CompileProcesses": [
+        "cgproc.9203.json"
+    ],
+    "Misc": {
+        "cwd": "/home/milo/ICCodes/mcu51",
+        "csrc": "csrc",
+        "default_output_dir": "csrc",
+        "csrc_abs": "/home/milo/ICCodes/mcu51/csrc",
+        "archive_dir": "archive.12",
+        "daidir": "simv.daidir",
+        "daidir_abs": "/home/milo/ICCodes/mcu51/simv.daidir"
+    }
+}

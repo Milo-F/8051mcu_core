@@ -102,6 +102,7 @@ module CPU (
     parameter FROM_ADDR_OUT = 3'b011;
     parameter FROM_PCH = 3'b100;
     parameter FROM_PCL = 3'b101;
+    parameter FROM_B = 3'b110;
     parameter NO_USED = 3'b111;
 
     // 常量定义
@@ -139,7 +140,8 @@ module CPU (
     wire[3:0]   alu_op;
     wire[3:0]   run_phase_minus1; // 步骤减一
     wire[7:0]   addr_register_out; // 译码器输出地址
-    wire[2:0]   bit_location;
+    wire[2:0]   a_bit_location, b_bit_location;
+    wire bit_en;
     assign run_phase_minus1 = run_phase - 1;
     
     InsDecoder insdecoder(
@@ -154,7 +156,9 @@ module CPU (
         .a_data_from(a_data_from),
         .b_data_from(b_data_from),
         .alu_op(alu_op),
-        .bit_location(bit_location),
+        .a_bit_location(a_bit_location),
+        .b_bit_location(b_bit_location),
+        .bit_en(bit_en),
         .addr_register_out(addr_register_out),
         .next_status(decoder_next_status)
     );
@@ -168,7 +172,9 @@ module CPU (
         .psw_in(pro_psw_in),
         .a_data(pro_a),
         .b_data(pro_b),
-        .bit_location(bit_location),
+        .a_bit_location(a_bit_location),
+        .b_bit_location(b_bit_location),
+        .bit_en(bit_en),
         .alu_op(alu_op),
         .instruction(ins_register),
         .ans(pro_ans),
@@ -326,6 +332,10 @@ module CPU (
                         pro_a = program_counter[15:8];
                         program_counter_nxt = {pro_ans, program_counter[7:0]};
                     end
+                    FROM_B: begin
+                        pro_a = b;
+                        b_nxt = pro_ans;
+                    end
                     NO_USED: pro_a = 8'b0;
                     default: ;
                 endcase
@@ -336,6 +346,7 @@ module CPU (
                     FROM_ADDR_OUT: pro_b = addr_register_out;
                     FROM_PCH: pro_b = program_counter[15:8];
                     FROM_PCL: pro_b = program_counter[7:0];
+                    FROM_B: pro_b = b;
                     NO_USED: pro_b = 8'b0;
                     default: ;
                 endcase
@@ -350,6 +361,7 @@ module CPU (
                     FROM_ADDR_OUT: data_out_nxt = addr_register_out;
                     FROM_PCL: data_out_nxt = program_counter[7:0];
                     FROM_PCH: data_out_nxt = program_counter[15:8];
+                    FROM_B: data_out_nxt = b;
                     NO_USED: data_out_nxt = 8'b0;
                     // TODO
                     default: ;

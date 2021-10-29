@@ -1,0 +1,329 @@
+version: (200506)
+
+available memory: 64M bytes
+used memory: 172032 bytes [need 168K bytes if disable swap]
+
+used block: 7 [memory(7) file(0)]
+                 [ 8K(5) 64K(2) { total 168K bytes } ]
+overhead: (9531) bytes for (7) blocks [Average: (1361) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 2(times) 70K(bytes) [11K bytes compressed data from file]
+access => 76245(times) 606M(bytes)
+          [hit ratio: 99.9974%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/milo/ICCodes/mcu51/verdiLog)
+used swap file number: (3)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (4)
+closeHead: (1)
+closeTail: (3)
+openCnt: (1)
+fid(3): fd(0) fileName(NULL)
+	mode(rb)	hot(1) cool(0) pos(0)
+fid(2): fd(29) fileName(/home/milo/ICCodes/mcu51/verdiLog/_swap_0001#8323329#6027)
+	size(0) lastModTime(0) curModTime(1635496568)
+	mode(w+b)	hot(3) cool(1) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(rb)	hot(2) cool(3) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Fri Oct 29 16:39:19 2021
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 425984 bytes [need 248K bytes if disable swap]
+
+used block: 17 [memory(17) file(0)]
+                 [ 8K(12) 64K(5) { total 416K bytes } ]
+overhead: (9531) bytes for (17) blocks [Average: (560) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 5(times) 150K(bytes) [25K bytes compressed data from file]
+access => 450066(times) 3542M(bytes)
+          [hit ratio: 99.9989%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/milo/ICCodes/mcu51/verdiLog)
+used swap file number: (7)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (8)
+closeHead: (4)
+closeTail: (7)
+openCnt: (1)
+fid(7): fd(0) fileName(NULL)
+	mode(rb)	hot(6) cool(0) pos(0)
+fid(6): fd(0) fileName(NULL)
+	mode(rb)	hot(4) cool(7) pos(0)
+fid(5): fd(32) fileName(/home/milo/ICCodes/mcu51/verdiLog/_swap_0001#8323329#6027)
+	size(0) lastModTime(0) curModTime(1635496761)
+	mode(w+b)	hot(6) cool(4) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(rb)	hot(5) cool(6) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Fri Oct 29 16:43:27 2021
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 499712 bytes [need 248K bytes if disable swap]
+
+used block: 19 [memory(19) file(0)]
+                 [ 8K(13) 64K(6) { total 488K bytes } ]
+overhead: (9531) bytes for (19) blocks [Average: (501) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 6(times) 157K(bytes) [26K bytes compressed data from file]
+access => 491376(times) 3867M(bytes)
+          [hit ratio: 99.9988%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/milo/ICCodes/mcu51/verdiLog)
+used swap file number: (8)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (10)
+closeHead: (8)
+closeTail: (9)
+openCnt: (1)
+fid(9): fd(36) fileName(/home/milo/ICCodes/mcu51/verdiLog/_swap_0001#8323329#6027)
+	size(0) lastModTime(0) curModTime(1635497008)
+	mode(w+b)	hot(0) cool(8) pos(0)
+fid(8): fd(0) fileName(NULL)
+	mode(rb)	hot(9) cool(0) pos(0)
+fid(7): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(6): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(5): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Fri Oct 29 16:47:17 2021
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 958464 bytes [need 448K bytes if disable swap]
+
+used block: 40 [memory(40) file(0)]
+                 [ 8K(29) 64K(11) { total 936K bytes } ]
+overhead: (9531) bytes for (40) blocks [Average: (238) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 11(times) 247K(bytes) [42K bytes compressed data from file]
+access => 657418(times) 5199M(bytes)
+          [hit ratio: 99.9983%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/milo/ICCodes/mcu51/verdiLog)
+used swap file number: (14)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (15)
+closeHead: (10)
+closeTail: (14)
+openCnt: (1)
+fid(14): fd(0) fileName(NULL)
+	mode(rb)	hot(13) cool(0) pos(0)
+fid(13): fd(0) fileName(NULL)
+	mode(rb)	hot(12) cool(14) pos(0)
+fid(12): fd(0) fileName(NULL)
+	mode(rb)	hot(10) cool(13) pos(0)
+fid(11): fd(43) fileName(/home/milo/ICCodes/mcu51/verdiLog/_swap_0001#8323329#6027)
+	size(0) lastModTime(0) curModTime(1635497239)
+	mode(w+b)	hot(12) cool(10) pos(0)
+fid(10): fd(0) fileName(NULL)
+	mode(rb)	hot(11) cool(12) pos(0)
+fid(9): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(8): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(7): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(6): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(5): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Fri Oct 29 16:56:01 2021
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 1032192 bytes [need 448K bytes if disable swap]
+
+used block: 42 [memory(42) file(0)]
+                 [ 8K(30) 64K(12) { total 1008K bytes } ]
+overhead: (9531) bytes for (42) blocks [Average: (226) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 12(times) 254K(bytes) [44K bytes compressed data from file]
+access => 689215(times) 5450M(bytes)
+          [hit ratio: 99.9983%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/milo/ICCodes/mcu51/verdiLog)
+used swap file number: (15)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (17)
+closeHead: (15)
+closeTail: (16)
+openCnt: (1)
+fid(16): fd(51) fileName(/home/milo/ICCodes/mcu51/verdiLog/_swap_0001#8323329#6027)
+	size(0) lastModTime(0) curModTime(1635497762)
+	mode(w+b)	hot(0) cool(15) pos(0)
+fid(15): fd(0) fileName(NULL)
+	mode(rb)	hot(16) cool(0) pos(0)
+fid(14): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(13): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(12): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(11): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(10): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(9): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(8): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(7): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(6): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(5): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Fri Oct 29 16:56:53 2021
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 2M bytes [need 448K bytes if disable swap]
+
+used block: 44 [memory(44) file(0)]
+                 [ 8K(31) 64K(13) { total 2M bytes } ]
+overhead: (9531) bytes for (44) blocks [Average: (216) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 13(times) 261K(bytes) [45K bytes compressed data from file]
+access => 721642(times) 5706M(bytes)
+          [hit ratio: 99.9982%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/milo/ICCodes/mcu51/verdiLog)
+used swap file number: (17)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (19)
+closeHead: (17)
+closeTail: (18)
+openCnt: (2)
+fid(18): fd(57) fileName(/home/milo/ICCodes/mcu51/verdiLog/_swap_0001#8323329#6027)
+	size(0) lastModTime(0) curModTime(1635497815)
+	mode(w+b)	hot(0) cool(17) pos(0)
+fid(17): fd(1073741824) fileName(/home/milo/ICCodes/mcu51/simv.daidir/kdb.elab++/work.lib++/tb_get_ins.sv.tdc)
+	size(2515) lastModTime(1635497813) curModTime(1635497813)
+	mode(rb)	hot(18) cool(0) pos(0)
+fid(16): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(15): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(14): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(13): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(12): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(11): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(10): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(9): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(8): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(7): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(6): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(5): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(4): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+==================================================
+mySelf(13678e50) pre(11bc4f00) next(0)
+version(200506)
+date(May 20 2016 01:21:05)

@@ -9,7 +9,9 @@ module Process (
     input [7:0] psw_in,
     input [7:0] a_data,
     input [7:0] b_data,
-    input [2:0] bit_location,
+    input [2:0] a_bit_location,
+    input [2:0] b_bit_location,
+    input       bit_en,
     input [3:0] alu_op,
     // output
     input[7:0] instruction,
@@ -23,7 +25,9 @@ module Process (
         .psw_in(psw_in),
         .a_data(a_data),
         .b_data(b_data),
-        .bit_location(bit_location),
+        .a_bit_location(a_bit_location),
+        .b_bit_location(b_bit_location),
+        .bit_en,
         .alu_op(alu_op),
         .ans(alu_ans),
         .psw_out(alu_psw_out)
@@ -37,7 +41,6 @@ module Process (
         if (alu_op == `no_alu) begin
             casez (instruction)
                 8'b0000_0011: pro_ans = {a_data[0], a_data[7:1]}; // rr a;
-                8'b1111_0100: pro_ans = ~a_data; //cpl a
                 8'b0001_0011: begin
                     pro_ans = {psw_in[7], a_data[7:1]};
                     pro_psw[7] = a_data[0];

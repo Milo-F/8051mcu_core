@@ -42,7 +42,6 @@
 `define subb 4'b1001 //9
 `define mul 4'b1010 //10
 `define clr 4'b1011 //11
-`define cpla 4'b1100 //12
-`define cplb 4'b1101 
+`define cpl 4'b1100 //12
 `define mov 4'b1110
 `define no_alu 4'b1111

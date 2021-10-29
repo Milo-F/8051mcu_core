@@ -1,0 +1,56 @@
+Invoking simulator...
+
+./simv -ucli -a sim.log +UVM_CONFIG_DB_TRACE +UVM_PHASE_TRACE +UVM_OBJECTION_TRACE +UVM_RESOURCE_DB_TRACE +UVM_LOG_RECORD +UVM_VERDI_TRACE=UVM_AWARE -ucli2Proc -lca
+Rebuild finished!
+
+Warning-[LCA_FEATURES_ENABLED] Usage warning
+  LCA features enabled by '-lca' argument on the command line.  For more 
+  information regarding list of LCA features please refer to Chapter "LCA 
+  features" in the VCS/VCS-MX Release Notes
+
+Chronologic VCS simulator copyright 1991-2016
+Contains Synopsys proprietary information.
+Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 29 16:56 2021
+
+*Verdi3* Loading libsscore_vcs201606.so
+
+*Verdi3* : FSDB_GATE is set.
+*Verdi3* : FSDB_RTL is set.
+*Verdi3* : Enable Parallel Dumping.
+FSDB Dumper for VCS, Release Verdi3_L-2016.06-1, Linux x86_64/64bit, 07/10/2016
+(C) 1996 - 2016 by Synopsys, Inc.
+
+*Verdi3* : Create FSDB file '/home/milo/ICCodes/mcu51/inter.fsdb'
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+10067
+
+SimCMD>fsdbDumpvars 0 {tb_get_ins.cpu.status} ;fsdbDumpvars 0 {tb_get_ins.cpu.psw} ;fsdbDumpvars 0 {tb_get_ins.instruction} ;fsdbDumpvars 0 {tb_get_ins.cpu.b_nxt} ;fsdbDumpvars 0 {tb_get_ins.cpu.b} ;fsdbDumpvars 0 {tb_get_ins.cpu.pro.ans} ;fsdbDumpvars 0 {tb_get_ins.cpu.pro.pro_ans} ;fsdbDumpvars 0 {tb_get_ins.cpu.pro.alu_ans} ;fsdbDumpvars 0 {tb_get_ins.cpu.pro_ans} ;fsdbDumpvars 0 {tb_get_ins.cpu.pro.alu.bit_en} ;fsdbDumpvars 0 {tb_get_ins.cpu.pro.alu.a_bit_location} ;fsdbDumpvars 0 {tb_get_ins.cpu.pro.alu.a_data} ;fsdbDumpvars 0 {tb_get_ins.cpu.pro.alu.alu_op} ;fsdbDumpvars 0 {tb_get_ins.cpu.pro.alu.b_bit_location} ;fsdbDumpvars 0 {tb_get_ins.cpu.pro.alu.b_data} ;fsdbDumpvars 0 {tb_get_ins.cpu.pro.alu.psw_in} ;fsdbDumpvars 0 {tb_get_ins.cpu.pro.alu.ans} ;fsdbDumpvars 0 {tb_get_ins.cpu.pro.alu.psw_out} 
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.status).
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.psw).
+*Verdi3* : Dumping the signal (tb_get_ins.instruction).
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.b_nxt).
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.b).
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.pro.ans).
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.pro.pro_ans).
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.pro.alu_ans).
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.pro_ans).
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.pro.alu.bit_en).
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.pro.alu.a_bit_location).
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.pro.alu.a_data).
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.pro.alu.alu_op).
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.pro.alu.b_bit_location).
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.pro.alu.b_data).
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.pro.alu.psw_in).
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.pro.alu.ans).
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.pro.alu.psw_out).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+SimCMD>run 50ns
+50000 ps
+SimCMD>run 50ns
+100000 ps
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 100000 ps
+CPU Time:      0.090 seconds;       Data structure size:   0.0Mb
+Fri Oct 29 16:57:35 2021
