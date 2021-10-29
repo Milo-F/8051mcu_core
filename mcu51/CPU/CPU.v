@@ -99,6 +99,9 @@ module CPU (
     parameter FROM_A = 3'b000;
     parameter FROM_RAM_DATA_REG = 3'b001;
     parameter FROM_ROM_DATA_REG = 3'b010;
+    parameter FROM_ADDR_OUT = 3'b011;
+    parameter FROM_PCH = 3'b100;
+    parameter FROM_PCL = 3'b101;
     parameter NO_USED = 3'b111;
 
     // 常量定义
@@ -115,7 +118,7 @@ module CPU (
     reg[15:0]   addr_bus_nxt;
     assign nop_cnt_minus1 = nop_cnt - 1'b1;
     // CPU内部寄存器
-    reg[7:0]    psw, acc, psw_nxt, acc_nxt; // 程序状态字psw，累加器acc，辅助寄存器b
+    reg[7:0]    psw, acc, b, b_nxt, psw_nxt, acc_nxt; // 程序状态字psw，累加器acc，辅助寄存器b
     reg[15:0]   program_counter, program_counter_nxt; // rom程序计数器
     reg[7:0]    ins_register, ins_register_nxt; // 指令寄存器
     reg[7:0]    ram_data_register, ram_data_register_nxt; // ram数据寄存器
@@ -167,6 +170,7 @@ module CPU (
         .b_data(pro_b),
         .bit_location(bit_location),
         .alu_op(alu_op),
+        .instruction(ins_register),
         .ans(pro_ans),
         .psw_out(pro_psw_out)
     );
@@ -194,6 +198,7 @@ module CPU (
         //内部寄存器
         acc_nxt = acc;
         psw_nxt = psw;
+        b_nxt = b;
         ins_register_nxt = ins_register;
         program_counter_nxt = program_counter;
         ram_data_register_nxt = ram_data_register;
@@ -202,6 +207,7 @@ module CPU (
             status[GET_INS_INDEX]:begin // 取指，负责把ROM中的数据取出送入ins_register
                 memory_select_nxt = 1'b0; // 选中rom
                 ins_register_nxt = data_in;
+                run_phase_nxt = 0;
                 if (get_ins_done) begin // 当取指完成转移到下个状态
                     status_nxt = INS_DECODE;
                     read_en_nxt = 1'b0;
@@ -242,7 +248,12 @@ module CPU (
             end
             status[RAM_READ_INDEX]: begin // RAM读取状态，根据译码获得的ram地址读取ram
                 memory_select_nxt = 1'b1; // 选中ram
-                ram_data_register_nxt = data_in; // 读取数据
+                case (addr_register_out)
+                    `acc: ram_data_register_nxt = acc;
+                    `b: ram_data_register_nxt = b;
+                    `psw: ram_data_register_nxt = psw;
+                    default: ram_data_register_nxt = data_in;
+                endcase
                 if (ram_read_done) begin
                     if (run_phase == 1) begin
                         status_nxt = GET_INS; // run_phase为0表示当前指令执行完毕
@@ -289,7 +300,7 @@ module CPU (
                 else begin
                     status_nxt = INS_DECODE;
                 end
-                pro_psw_in = psw;
+                pro_psw_in = (a_data_from == FROM_A) ? psw : 8'b0;
                 case (a_data_from)
                     FROM_A: begin
                         pro_a = acc;
@@ -304,6 +315,17 @@ module CPU (
                         pro_a = ram_data_register;
                         ram_data_register_nxt = pro_ans;
                     end
+                    FROM_ADDR_OUT: begin
+                        pro_a = addr_register_out;
+                    end
+                    FROM_PCL: begin
+                        pro_a = program_counter[7:0];
+                        program_counter_nxt = {pro_psw_out[7] ? (program_counter[15:8] + 8'b1) : program_counter[15:8], pro_ans};
+                    end
+                    FROM_PCH: begin
+                        pro_a = program_counter[15:8];
+                        program_counter_nxt = {pro_ans, program_counter[7:0]};
+                    end
                     NO_USED: pro_a = 8'b0;
                     default: ;
                 endcase
@@ -311,6 +333,9 @@ module CPU (
                     FROM_A: pro_b = acc;
                     FROM_ROM_DATA_REG: pro_b = rom_data_register;
                     FROM_RAM_DATA_REG: pro_b = ram_data_register;
+                    FROM_ADDR_OUT: pro_b = addr_register_out;
+                    FROM_PCH: pro_b = program_counter[15:8];
+                    FROM_PCL: pro_b = program_counter[7:0];
                     NO_USED: pro_b = 8'b0;
                     default: ;
                 endcase
@@ -322,6 +347,9 @@ module CPU (
                     FROM_A: data_out_nxt = acc;
                     FROM_RAM_DATA_REG: data_out_nxt = ram_data_register;
                     FROM_ROM_DATA_REG: data_out_nxt = rom_data_register;
+                    FROM_ADDR_OUT: data_out_nxt = addr_register_out;
+                    FROM_PCL: data_out_nxt = program_counter[7:0];
+                    FROM_PCH: data_out_nxt = program_counter[15:8];
                     NO_USED: data_out_nxt = 8'b0;
                     // TODO
                     default: ;
@@ -341,6 +369,12 @@ module CPU (
                     ram_write_done_nxt = 1'b1;
                     write_en_nxt = 1'b1;
                     addr_bus_nxt[7:0] = addr_register_out;
+                    case (addr_register_out) 
+                        `acc: acc_nxt = data_out_nxt;
+                        `b: b_nxt = data_out_nxt;
+                        `psw: psw_nxt = data_out_nxt;
+                        default: ;
+                    endcase
                 end
             end
             status[NOP_INDEX]: begin // NOP命令空闲
@@ -379,6 +413,7 @@ module CPU (
             rom_data_register <= 8'b0;
             psw <= 8'b0;
             acc <= 8'b0;
+            b <= 8'b0;
             program_counter <= 16'ha845;
         end
         else begin
@@ -399,6 +434,7 @@ module CPU (
             // 内部寄存器
             acc <= acc_nxt;
             psw <= psw_nxt;
+            b <= b_nxt;
             ram_data_register <= ram_data_register_nxt;
             rom_data_register <= rom_data_register_nxt;
             ins_register <= ins_register_nxt;

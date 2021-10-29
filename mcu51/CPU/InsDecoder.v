@@ -29,13 +29,16 @@ module InsDecoder(
     parameter TO_ROM_READ = 3'b010;
     parameter TO_PROCESS = 3'b011;
     parameter TO_RAM_WRITE = 3'b100;
-    parameter TO_INS_DECODE = 3'b101;
+    parameter TO_GET_INS = 3'b101;
     parameter NOT_DONE = 3'b111;
 
     // 数据来源标识
     parameter FROM_A = 3'b000;
     parameter FROM_RAM_DATA_REG = 3'b001;
     parameter FROM_ROM_DATA_REG = 3'b010;
+    parameter FROM_ADDR_OUT = 3'b011;
+    parameter FROM_PCH = 3'b100;
+    parameter FROM_PCL = 3'b101;
     parameter NO_USED = 3'b111;
 
     reg[7:0]   tmp, tmp_nxt; // 暂存器
@@ -185,8 +188,300 @@ module InsDecoder(
                     default: ;
                 endcase
             end
+            8'b001?_1???: begin // add/addc a, rn
+                run_phase_init = 2;
+                ram_read({3'b0, psw[4:3], instruction[2:0]});
+                if (run_phase == 1) pro(FROM_A, FROM_RAM_DATA_REG, (instruction[4] ? `addc : `add));
+            end
+            8'b001?_011?: begin // add/addc a, @ri
+                run_phase_init = 3;
+                ram_read({3'b0, psw[4:3], 2'b0, instruction[0]});
+                case (run_phase)
+                    2: ram_read(ram_data_register);
+                    1: pro(FROM_A, ram_data_register, (instruction[4] ? `addc : `add));
+                    default: ;
+                endcase
+            end
+            8'b001?_0100: begin // add/addc a, #data
+                run_phase_init = 2;
+                next_status = TO_ROM_READ;
+                if (run_phase == 1) pro(FROM_A, FROM_ROM_DATA_REG, (instruction[4] ? `addc : `add));
+            end
+            8'b001?_0101: begin // add/addc a, direct
+                run_phase_init = 3;
+                next_status = TO_ROM_READ;
+                case (run_phase)
+                    2: ram_read(rom_data_register);
+                    1: pro(FROM_A, ram_data_register, (instruction[4] ? `addc : `add));
+                    default: ;
+                endcase
+            end
+            8'b010?_1???: begin // orl/anl a, rn
+                run_phase_init = 2;
+                ram_read({3'b0, psw[4:3], instruction[2:0]});
+                if (run_phase == 1) pro(FROM_A, FROM_RAM_DATA_REG, (instruction[4] ? `anl : `orl));
+            end
+            8'b010?_011?: begin // orl/anl a, @ri
+                run_phase_init = 3;
+                ram_read({3'b0, psw[4:3], 2'b0, instruction[0]});
+                case (run_phase)
+                    2: ram_read(ram_data_register);
+                    1: pro(FROM_A, ram_data_register, (instruction[4] ? `anl : `orl));
+                    default: ;
+                endcase
+            end
+            8'b010?_0100: begin // orl/anl a, #data
+                run_phase_init = 2;
+                next_status = TO_ROM_READ;
+                if (run_phase == 1) pro(FROM_A, FROM_ROM_DATA_REG, (instruction[4] ? `anl : `orl));
+            end
+            8'b010?_0101: begin // orl/anl a, direct
+                run_phase_init = 3;
+                next_status = TO_ROM_READ;
+                case (run_phase)
+                    2: ram_read(rom_data_register);
+                    1: pro(FROM_A, FROM_RAM_DATA_REG, (instruction[4] ? `anl : `orl));
+                    default: ;
+                endcase
+            end
+            8'b0110_1???: begin // xrl a, rn
+                run_phase_init = 2;
+                ram_read({3'b0, psw[4:3], instruction[2:0]});
+                if (run_phase == 1) pro(FROM_A, FROM_RAM_DATA_REG, `xrl);
+            end
+            8'b0110_011?: begin // xrl a, @ri
+                run_phase_init = 3;
+                ram_read({3'b0, psw[4:3], 2'b0, instruction[0]});
+                case (run_phase)
+                    2: ram_read(ram_data_register);
+                    1: pro(FROM_A, FROM_RAM_DATA_REG, `xrl);
+                    default: ;
+                endcase
+            end
+            8'b0110_0100: begin // xrl a, #data
+                run_phase_init = 2;
+                next_status = TO_ROM_READ;
+                if (run_phase == 1) pro(FROM_A, rom_data_register, `xrl);
+            end
+            8'b0110_0101: begin // xrl a, direct
+                run_phase_init = 3;
+                next_status = TO_ROM_READ;
+                case (run_phase)
+                    2: ram_read(rom_data_register);
+                    1: pro(FROM_A, FROM_RAM_DATA_REG, `xrl);
+                    default: ;
+                endcase
+            end
+            8'b1001_1???: begin // subb a, rn
+                run_phase_init = 2;
+                ram_read({3'b0, psw[4:3], instruction[2:0]});
+                if (run_phase == 1) pro(FROM_A, FROM_RAM_DATA_REG, `subb);
+            end
+            8'b1001_011?: begin // subb a, @ri
+                run_phase_init = 3;
+                ram_read({3'b0, psw[4:3], 2'b0, instruction[0]});
+                case (run_phase)
+                    2: ram_read(ram_data_register);
+                    1: pro(FROM_A, FROM_RAM_DATA_REG, `subb);
+                    default: ;
+                endcase
+            end
+            8'b1001_0100: begin // subb a, #data
+                run_phase_init = 2;
+                next_status = TO_ROM_READ;
+                if (run_phase == 1) pro(FROM_A, rom_data_register, `subb);
+            end
+            8'b1001_0101: begin // subb a, direct
+                run_phase_init = 3;
+                next_status = TO_ROM_READ;
+                case (run_phase)
+                    2: ram_read(rom_data_register);
+                    1: pro(FROM_A, FROM_RAM_DATA_REG, `subb);
+                    default: ;
+                endcase
+            end
+            8'b1110_1???: begin // mov a, rn
+                run_phase_init = 2;
+                ram_read({3'b0, psw[4:3], instruction[2:0]});
+                if (run_phase == 1) pro(FROM_A, FROM_RAM_DATA_REG, `mov);
+            end
+            8'b1110_011?: begin // mov a, @ri
+                run_phase_init = 3;
+                ram_read({3'b0, psw[4:3], 2'b0, instruction[0]});
+                case (run_phase)
+                    2: ram_read(ram_data_register);
+                    1: pro(FROM_A, FROM_RAM_DATA_REG, `mov);
+                    default: ;
+                endcase
+            end
+            8'b1110_0101: begin // mov a, direct
+                run_phase_init = 3;
+                next_status = TO_ROM_READ;
+                case (run_phase)
+                    2: ram_read(rom_data_register);
+                    1: pro(FROM_A, FROM_RAM_DATA_REG, `mov);
+                    default: ;
+                endcase
+            end
+            8'b0111_0100: begin // mov a, #data
+                run_phase_init = 2;
+                next_status = TO_ROM_READ;
+                if (run_phase == 1) pro(FROM_A, FROM_ROM_DATA_REG, `mov);
+            end
+            8'b1110_0100: begin // clr a
+                run_phase_init = 1;
+                pro(FROM_A, NO_USED, `mov); // A清零
+            end
+            8'b1111_0100: begin // cpl a
+                run_phase_init = 1;
+                pro(FROM_A, NO_USED, `no_alu);
+            end
+            8'b0000_0011: begin // rr a
+                run_phase_init = 1;
+                pro(FROM_A, NO_USED, `no_alu);
+            end
+            8'b0001_0011: begin // rrc a
+                run_phase_init = 1;
+                pro(FROM_A, NO_USED, `no_alu);
+            end
+            8'b0010_0011: begin // rl a
+                run_phase_init = 1;
+                pro(FROM_A, NO_USED, `no_alu);
+            end
+            8'b0011_0011: begin // rlc a
+                run_phase_init = 1;
+                pro(FROM_A, NO_USED, `no_alu);
+            end
+            8'b1100_0100: begin // swap a
+                run_phase_init = 1;
+                pro(FROM_A, NO_USED, `no_alu);
+            end
+            8'b10?0_0100: begin // mul/div ab
+                run_phase_init  = 2;
+                ram_read(`b);
+                if (run_phase == 1) pro(FROM_A, FROM_RAM_DATA_REG, (instruction[5] ? `mul : `div));
+            end
+            8'b???0_0001: begin // ajum addr11
+                run_phase_init = 3;
+                addr_register_out = {5'b0, instruction[7:5]};
+                pro(FROM_PCH, FROM_ADDR_OUT, `no_alu);
+                case (run_phase)
+                    2: next_status = TO_ROM_READ;
+                    1: pro(FROM_PCL, FROM_ROM_DATA_REG, `mov);
+                    default: ;
+                endcase
+            end
+            8'b0000_0010: begin // LJUMP addr16
+                run_phase_init = 4;
+                next_status = TO_ROM_READ;
+                case (run_phase)
+                    3: pro(FROM_PCH, FROM_ROM_DATA_REG, `mov);
+                    2: next_status = TO_ROM_READ;
+                    1: pro(FROM_PCL, FROM_ROM_DATA_REG, `mov);
+                    default: ;
+                endcase
+            end
+            8'b1000_0000: begin // SJUMP rel
+                run_phase_init = 2;
+                next_status = TO_ROM_READ;
+                if (run_phase == 1) pro(FROM_PCL, FROM_ROM_DATA_REG, `add);
+            end
+            8'b1001_0000: begin // mov dptr, #data16
+                run_phase_init = 4;
+                next_status = TO_ROM_READ;
+                case (run_phase)
+                    3: ram_write(FROM_ROM_DATA_REG, `dph);
+                    2: next_status = TO_ROM_READ;
+                    1: ram_write(FROM_ROM_DATA_REG, `dpl);
+                    default: ;
+                endcase
+            end
+            8'b1010_0011: begin // inc dptr
+                run_phase_init = 6;
+                ram_read(`dpl);
+                case (run_phase)
+                    5: pro(FROM_RAM_DATA_REG, NO_USED, `inc);
+                    4: ram_write(FROM_RAM_DATA_REG, `dpl);
+                    3: begin
+                        if (ram_data_register == 8'b0) begin
+                            ram_read(`dph);
+                        end
+                        else begin
+                            next_status = TO_GET_INS;
+                        end
+                    end
+                    2: pro(FROM_RAM_DATA_REG, NO_USED, `inc);
+                    1: ram_write(FROM_RAM_DATA_REG, `dph);
+                    default: ;
+                endcase
+            end
+            8'b1100_0000: begin // push direct
+                run_phase_init = 6;
+                ram_read(`sp);
+                case (run_phase)
+                    5: begin
+                        tmp_nxt = ram_data_register;
+                        pro(FROM_RAM_DATA_REG, NO_USED, `inc);
+                    end
+                    4: ram_write(FROM_RAM_DATA_REG, `sp);
+                    3: next_status = TO_ROM_READ;
+                    2: ram_read(rom_data_register);
+                    1: ram_write(FROM_RAM_DATA_REG, tmp);
+                    default: ;
+                endcase
+            end
+            8'b1101_0000: begin // pop direct
+                run_phase_init = 6;
+                ram_read(`sp);
+                case (run_phase)
+                    5: begin
+                        tmp_nxt = ram_data_register;
+                        pro(FROM_RAM_DATA_REG, NO_USED, `dec);
+                    end
+                    4: ram_write(FROM_RAM_DATA_REG, `sp);
+                    3: ram_read(tmp);
+                    2: next_status = TO_ROM_READ;
+                    1: ram_write(FROM_RAM_DATA_REG, rom_data_register);
+                    default: ;
+                endcase
+            end
+            8'b0110_0000: begin // jz rel
+                run_phase_init = 3;
+                ram_read(`acc);
+                case (run_phase)
+                    2: next_status = TO_ROM_READ;
+                    1: begin
+                        if (ram_data_register == 8'b0) pro(FROM_PCL, FROM_ROM_DATA_REG, `add);
+                        else next_status = TO_GET_INS;
+                    end
+                    default: ;
+                endcase
+            end
+            8'b0101_0000: begin // jnz rel
+                run_phase_init = 3;
+                ram_read(`acc);
+                case (run_phase)
+                    2: next_status = TO_ROM_READ;
+                    1: begin
+                        if (ram_data_register != 8'b0) pro(FROM_PCL, FROM_ROM_DATA_REG, `add);
+                        else next_status = TO_GET_INS;
+                    end
+                    default: ;
+                endcase
+            end
+            8'b0111_0011: begin // JMP @A+DPTR
+                run_phase_init = 5;
+                ram_read(`dph);
+                case (run_phase)
+                    4: pro(FROM_PCH, FROM_RAM_DATA_REG, `mov);
+                    3: ram_read(`dpl);
+                    2: pro(FROM_PCL, FROM_RAM_DATA_REG, `mov);
+                    1: pro(FROM_PCL, FROM_A, `add);
+                    default: ;
+                endcase
+            end
             default: begin // 错误指令无法译码，取下一条指令
-                next_status = TO_INS_DECODE;
+                next_status = TO_GET_INS;
             end
         endcase
     end

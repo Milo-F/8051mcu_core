@@ -2,7 +2,7 @@ Magic 271485
 Revision Verdi3_L-2016.06-1
 
 ; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
-viewPort 0 28 1018 365 185 65
+viewPort 0 28 1536 683 202 65
 
 ; File list:
 ; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
@@ -16,16 +16,16 @@ signalSpacing 5
 
 ; windowTimeUnit is used for zoom, cursor & marker
 ; waveform viewport range
-zoom 103913.891936 172050.239391
-cursor 153000.000000
-marker 155000.000000
+zoom 34533.386967 96043.443282
+cursor 63000.000000
+marker 65000.000000
 
 ; user define markers
 ; userMarker time_pos marker_name color linestyle
 ; visible top row signal index
 top 0
 ; marker line index
-markerPos 7
+markerPos 2
 
 ; event list
 ; addEvent event_name event_expression
@@ -48,12 +48,7 @@ curSTATUS ByChange
 addGroup "G1"
 activeDirFile "" "/home/milo/ICCodes/mcu51/inter.fsdb"
 addSignal -h 15 /tb_get_ins/cpu/status[6:0]
-addSignal -h 15 /tb_get_ins/cpu/ram_data_register[7:0]
-addSignal -h 15 /tb_get_ins/cpu/read_en
-addSignal -h 15 /tb_get_ins/cpu/write_en
-addSignal -h 15 /tb_get_ins/cpu/addr_bus[15:0]
-addSignal -h 15 /tb_get_ins/cpu/data_bus[7:0]
-addSignal -h 15 /tb_get_ins/cpu/data_in[7:0]
+addSignal -h 15 /tb_get_ins/cpu/program_counter[15:0]
 addGroup "G2"
 
 ; getSignalForm Scope Hierarchy Status

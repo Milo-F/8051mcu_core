@@ -21,6 +21,10 @@
 `define ie 8'ha8
 `define p3 8'hb0
 `define ip 8'hb8
+// CPU内部寄存器地址映射
+`define b 8'hf0
+`define acc 8'he0
+`define psw 8'hd0
 
 // alu操作选择宏定义------------------------------------------
 `define inc 4'b0000 //0
@@ -37,4 +41,5 @@
 `define clr 4'b1011 //11
 `define cpla 4'b1100 //12
 `define cplb 4'b1101 
+`define mov 4'b1110
 `define no_alu 4'b1111

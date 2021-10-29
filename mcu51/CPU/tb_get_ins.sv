@@ -8,6 +8,7 @@ module tb_get_ins;
     reg EA;
     reg[1:0]    interupt;
     reg[1:0]    timer;
+    reg[7:0]    ram_data;
     wire [7:0] data_bus;
     wire read_en;
     wire write_en;
@@ -31,16 +32,16 @@ module tb_get_ins;
     end
     initial begin
         instruction = 0;
+        ram_data = 8'h50;
         @(posedge clk);
         forever begin
-           #8 instruction = 8'b0000_1011;
-           #8 instruction = 8'b0001_1010;
+           #5 instruction = 8'b0110_0000;
         end
         // forever begin
         //     #2 instruction = instruction;
         // end
     end
-    assign data_bus = (read_en) ? instruction : 8'bz;
+    assign data_bus = (read_en) ? (memory_select ? ram_data : instruction) : 8'bz;
     assign data_out = (write_en)? data_bus : data_out;
 
     CPU cpu(

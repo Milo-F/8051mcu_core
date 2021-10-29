@@ -6,7 +6,7 @@ Warning-[LCA_FEATURES_ENABLED] Usage warning
   features" in the VCS/VCS-MX Release Notes
 Chronologic VCS simulator copyright 1991-2016
 Contains Synopsys proprietary information.
-Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 28 14:44 2021
+Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 29 11:29 2021
 
 ucli% synUtils::getArch
 linux64
@@ -23,20 +23,20 @@ FSDB Dumper for VCS, Release Verdi3_L-2016.06-1, Linux x86_64/64bit, 07/10/2016
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
 ucli% sps_interactive
-*Verdi3* : Enable RPC Server(5333)
+*Verdi3* : Enable RPC Server(12191)
 
 ucli% ucliCore::getToolPID
-5333
+12191
 ucli% if {[catch {ucliCore::setFocus tool}]} {}
 
 ucli% puts $ucliCore::nativeUcliMode
 0
 
 ucli% ucliCore::getToolTopPID
-5333
+12191
 ucli% pid
-5340
-ucli% synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.milo.5333 }
+12198
+ucli% synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.milo.12191 }
 
 ucli% if { [info vars watch::vcbp_str_len_limit_of_get_value] != ""} {set watch::vcbp_str_len_limit_of_get_value 1024}
 1024
@@ -81,7 +81,7 @@ line: 3
 logFilename: sim.log
 macroIndex: -1
 macroOffset: -1
-pid: 5333
+pid: 12191
 scope: tb_get_ins
 startCol: 0
 state: stopped
@@ -107,38 +107,22 @@ ucli% fsdbDumpvars 1 {tb_get_ins.cpu.status} ;fsdbDumpflush
 *Verdi3* : Dumping the signal (tb_get_ins.cpu.status).
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.ram_data_register} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.ram_data_register).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.read_en} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.read_en).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.write_en} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.write_en).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.addr_bus} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.addr_bus).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.data_bus} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.data_bus).
+ucli% fsdbDumpvars 1 {tb_get_ins.cpu.program_counter} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.program_counter).
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
 ucli% if {[catch {ucliCore::setFocus tool}]} {}
 
-ucli% run 200ns
-200000 ps
+ucli% run 100ns
+100000 ps
 ucli% ucliCore::getToolPID
-5333
+12191
 ucli% synEnv::isFinished
 0
 ucli% if {[catch {ucliCore::setFocus tool}]} {}
 
 ucli% fsdbDumpflush 
-*Verdi3* : Flush all FSDB Files at 200,000 ps.
+*Verdi3* : Flush all FSDB Files at 100,000 ps.
 
 ucli% senv
 activeDomain: Verilog
@@ -158,215 +142,12 @@ line: 3
 logFilename: sim.log
 macroIndex: -1
 macroOffset: -1
-pid: 5333
+pid: 12191
 scope: tb_get_ins
 startCol: 0
 state: stopped
 thread: 
-time: 200000
-timePrecision: 1 ps
-vcdFilename: 
-vpdFilename:
-ucli% synUtils::resolveSourceFilename ./CPU/tb_get_ins.sv
-./CPU/tb_get_ins.sv
-ucli% puts $::ucliCore::cbug_active
-0
-
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% checkpoint -list -all
-There are no checkpoints present.
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% stop
-No stop points are set
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.data_in} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.data_in).
-*Verdi3* : Flush all FSDB Files at 200,000 ps.
-
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% finish -immediate_from_verdi;quit
-
-VERDI_SIM_Terminated
-
-Command: /home/milo/ICCodes/mcu51/simv -ucli -a sim.log +UVM_CONFIG_DB_TRACE +UVM_PHASE_TRACE +UVM_OBJECTION_TRACE +UVM_RESOURCE_DB_TRACE +UVM_LOG_RECORD +UVM_VERDI_TRACE=UVM_AWARE -ucli2Proc -lca
-Warning-[LCA_FEATURES_ENABLED] Usage warning
-  LCA features enabled by '-lca' argument on the command line.  For more 
-  information regarding list of LCA features please refer to Chapter "LCA 
-  features" in the VCS/VCS-MX Release Notes
-Chronologic VCS simulator copyright 1991-2016
-Contains Synopsys proprietary information.
-Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 28 14:48 2021
-
-ucli% synUtils::getArch
-linux64
-ucli% loaddl -simv /home/milo/Synopsys/verdi/share/PLI/VCS/LINUXAMD64/libnovas.so LoadFSDBDumpCmd;LoadFSDBDumpCmd
-
-ucli% config ckptfsdbcheck off;config endofsim noexit;config onfail {enable all};catch {setUcliVerdiConnected};cbug::config pretty_print auto;fsdbDumpfile {/home/milo/ICCodes/mcu51/inter.fsdb}; fsdbDumpflush;
-*Verdi3* Loading libsscore_vcs201606.so
-*Verdi3* : FSDB_GATE is set.
-*Verdi3* : FSDB_RTL is set.
-*Verdi3* : Enable Parallel Dumping.
-FSDB Dumper for VCS, Release Verdi3_L-2016.06-1, Linux x86_64/64bit, 07/10/2016
-(C) 1996 - 2016 by Synopsys, Inc.
-*Verdi3* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
-*Verdi3* : Create FSDB file '/home/milo/ICCodes/mcu51/inter.fsdb'
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.status} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.status).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.ram_data_register} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.ram_data_register).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.read_en} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.read_en).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.write_en} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.write_en).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.addr_bus} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.addr_bus).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.data_bus} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.data_bus).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.data_in} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.data_in).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% sps_interactive
-*Verdi3* : Enable RPC Server(5368)
-
-ucli% ucliCore::getToolPID
-5368
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% puts $ucliCore::nativeUcliMode
-0
-
-ucli% ucliCore::getToolTopPID
-5368
-ucli% pid
-5375
-ucli% synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.milo.5368 }
-
-ucli% if { [info vars watch::vcbp_str_len_limit_of_get_value] != ""} {set watch::vcbp_str_len_limit_of_get_value 1024}
-1024
-ucli% info command stateVerdiChangeCB
-
-ucli% proc stateVerdiChangeCB args { if {$ucliGUI::state eq "terminated"} {puts "\nVERDI_SIM_Terminated\n";catch {setVerdiSimTerminated}}}
-
-ucli% trace variable ucliGUI::state wu stateVerdiChangeCB
-
-ucli% if {[catch {rename synopsys::restore verdiHack::restore} ]} {puts "0"}
-
-ucli% proc synopsys::restore {args} { verdiHack::restore $args; puts "\nVERDI_SIM_RESTORE\n"}
-
-ucli% if {[catch {rename quit verdiHack::quit} ]} {puts "0"}
-
-ucli% proc quit {args} { if {[string length $args] == 0} { verdiHack::quit; } elseif {([string equal "-h" $args] == 1)||([string equal "-he" $args] == 1)||([string equal "-hel" $args] == 1)||([string equal "-help" $args] == 1)} { puts "\n quit           # Exit the simulation.\n \[-noprompt\]        (Exit the simulation and Verdi.)\n"} elseif {([string equal "-n" $args] == 1)||([string equal "-no" $args] == 1)||([string equal "-nop" $args] == 1)||([string equal "-nopr" $args] == 1)||([string equal "-nopro" $args] == 1)||([string equal "-noprom" $args] == 1)||([string equal "-nopromp" $args] == 1)||([string equal "-noprompt" $args] == 1)} { puts "\nVERDI_EXIT_N\n" } else { verdiHack::quit $args; } }
-
-ucli% if {[catch {rename exit verdiHack::exit} ]} {puts "0"}
-
-ucli% proc exit {args} { if {[string length $args] == 0} { verdiHack::exit; } elseif {([string equal "-h" $args] == 1)||([string equal "-he" $args] == 1)||([string equal "-hel" $args] == 1)||([string equal "-help" $args] == 1)} { puts "\n exit           # Exit the simulation.\n \[-noprompt\]        (Exit the simulation and Verdi.)\n"} elseif {([string equal "-n" $args] == 1)||([string equal "-no" $args] == 1)||([string equal "-nop" $args] == 1)||([string equal "-nopr" $args] == 1)||([string equal "-nopro" $args] == 1)||([string equal "-noprom" $args] == 1)||([string equal "-nopromp" $args] == 1)||([string equal "-noprompt" $args] == 1)} { puts "\nVERDI_EXIT_N\n" } else { verdiHack::exit $args; } }
-
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% fsdbDumpflush 
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% fsdbDumpflush 
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% senv
-activeDomain: Verilog
-activeFile: ./CPU/tb_get_ins.sv
-activeFrame: 
-activeLine: 3
-activeScope: tb_get_ins
-activeThread: 
-endCol: 0
-file: ./CPU/tb_get_ins.sv
-frame: 
-fsdbFilename: 
-hasTB: 0
-inputFilename: 
-keyFilename: ucli.key
-line: 3
-logFilename: sim.log
-macroIndex: -1
-macroOffset: -1
-pid: 5368
-scope: tb_get_ins
-startCol: 0
-state: stopped
-thread: 
-time: 0
-timePrecision: 1 ps
-vcdFilename: 
-vpdFilename:
-ucli% synUtils::resolveSourceFilename ./CPU/tb_get_ins.sv
-./CPU/tb_get_ins.sv
-ucli% puts $::ucliCore::cbug_active
-0
-
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% checkpoint -list -all
-There are no checkpoints present.
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% stop
-No stop points are set
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% run 200ns
-200000 ps
-ucli% ucliCore::getToolPID
-5368
-ucli% synEnv::isFinished
-0
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% fsdbDumpflush 
-*Verdi3* : Flush all FSDB Files at 200,000 ps.
-
-ucli% senv
-activeDomain: Verilog
-activeFile: ./CPU/tb_get_ins.sv
-activeFrame: 
-activeLine: 3
-activeScope: tb_get_ins
-activeThread: 
-endCol: 0
-file: ./CPU/tb_get_ins.sv
-frame: 
-fsdbFilename: 
-hasTB: 0
-inputFilename: 
-keyFilename: ucli.key
-line: 3
-logFilename: sim.log
-macroIndex: -1
-macroOffset: -1
-pid: 5368
-scope: tb_get_ins
-startCol: 0
-state: stopped
-thread: 
-time: 200000
+time: 100000
 timePrecision: 1 ps
 vcdFilename: 
 vpdFilename:
@@ -387,9 +168,9 @@ ucli% if {[catch {ucliCore::setFocus tool}]} {}
 
 ucli% finish; quit
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 200000 ps
-CPU Time:      0.080 seconds;       Data structure size:   0.0Mb
-Thu Oct 28 14:50:39 2021
+Time: 100000 ps
+CPU Time:      0.110 seconds;       Data structure size:   0.0Mb
+Fri Oct 29 11:29:57 2021
 
 VERDI_SIM_Terminated
 

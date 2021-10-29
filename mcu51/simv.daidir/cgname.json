@@ -1,22 +1,22 @@
 {
-    "...MASTER...": [
-        "SIM",
-        "amcQw",
-        "module"
-    ],
     "std": [
         "std",
         "reYIK",
         "module"
     ],
-    "tb_get_ins": [
-        "tb_get_ins",
-        "GLQFB",
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
         "module"
     ],
     "ALEGen": [
         "ALEGen",
         "x91G7",
+        "module"
+    ],
+    "tb_get_ins": [
+        "tb_get_ins",
+        "GLQFB",
         "module"
     ],
     "ClkDiv": [

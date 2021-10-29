@@ -23,11 +23,9 @@ module ALU (
             `addc: {psw_out[7], ans} = a_data + b_data + psw_in[7]; // ADDC 带进位的加法
             `inc: begin
                 ans = a_data + 8'b1; // INC 自加1运算
-                if (ans == 0) psw_out[2] = 1;
             end
             `dec: begin
                 ans = a_data - 8'b1; // DEC 自减1运算
-                if (ans == 8'hff) psw_out[2] = 1;
             end
             `subb: ans = a_data - b_data - {7'b0, psw_in[7]}; // SUBB 减法
             `mul: {psw_out[7], ans} = a_data * b_data; // MUL 乘法
@@ -39,17 +37,7 @@ module ALU (
             `clr: ans = 8'b0; // CLR 清0
             `cpla: ans = ~a_data; // CPL 取反
             `cplb:;//TODO
-            // 5'hE: ans = {a_data[6:0], a_data[7]}; // RL 左移
-            // 5'hF: begin
-            //     ans = {a_data[6:0], psw_in[7]};
-            //     psw_out[7] = a_data[7];
-            // end // RLC 进位左移
-            // 5'h10: ans = {a_data[0], a_data[7:1]}; // RR 右移
-            // 5'h11: begin
-            //     ans = {psw_in[7], a_data[7:1]};
-            //     psw_out[7] = a_data[0];
-            // end // RRC 进位右移
-            // 5'h12: {ans[3:0], ans[7:4]} = a_data; // SWAP 半字节交换
+            `mov: ans = b_data;
             default:;
         endcase
     end
