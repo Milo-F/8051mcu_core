@@ -1,7 +1,7 @@
 {
-    "ALEGen": [
-        "ALEGen",
-        "x91G7",
+    "ClkDiv": [
+        "ClkDiv",
+        "PJbHW",
         "module"
     ],
     "std": [
@@ -14,9 +14,9 @@
         "GLQFB",
         "module"
     ],
-    "ClkDiv": [
-        "ClkDiv",
-        "PJbHW",
+    "ALEGen": [
+        "ALEGen",
+        "x91G7",
         "module"
     ],
     "Process": [

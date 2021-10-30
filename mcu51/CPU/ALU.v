@@ -51,6 +51,7 @@ module ALU (
                 `setb: ans[a_bit_location] = 1'b1;
                 `clr: ans[a_bit_location] = 1'b0;
                 `cpl: ans[a_bit_location] = ~a_data[a_bit_location];
+                `mov: ans[a_bit_location] = b_data[b_bit_location];
                 default: ;
             endcase
         end

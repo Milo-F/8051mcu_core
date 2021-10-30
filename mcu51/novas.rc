@@ -273,12 +273,12 @@ CellNameToCase =
 PinNameToCase = 
 [InteractiveDebug]
 tbvLocalWatchArrayLimit = 50
-Watch_0 = 150 80 83 0 
-Watch_1 = 150 80 80 200 
-Watch_2 = 150 80 80 200 
-Watch_3 = 150 80 80 200 
-Watch_4 = 150 80 80 200 
-Watch_5 = 150 80 80 200 
+Watch_0 = 150 80 80 0
+Watch_1 = 150 80 80 200
+Watch_2 = 150 80 80 200
+Watch_3 = 150 80 80 200
+Watch_4 = 150 80 80 200
+Watch_5 = 150 80 80 200
 [Language]
 EditWindow_Font = COURIER12
 Background = ID_WHITE
@@ -357,10 +357,7 @@ saveFsdbStat = TRUE
 savePropStat = FALSE
 savePropDtl = TRUE
 [QtDialog]
-QwWarnMsgDlg = 458,267,600,250
-ExpressionDialog = 379,197,778,493
-tbvRebuildRestartDlg = 543,228,450,430
-QwUserAskDlg = 860,661,324,134
+QwUserAskDlg = 516,404,324,134
 [Relationship]
 hideRecursiceNode = FALSE
 [Session Cache]
@@ -431,15 +428,15 @@ iscCmdSep = FALSE
 ScsDebugAll = FALSE
 NoAppendOption = FALSE
 invokeSimPath = work
-uvmAware = TRUE
-smartlog = FALSE
 simType = vcssv
 bSVTBMode = TRUE
 SimMode = TRUE
 interactiveDebugging = TRUE
 KeepBreakPoints = FALSE
 vcs_svPath = ./simv
-vcs_svOption = -fromCmd
+vcs_svOption = -a sim.log
+uvmAware = TRUE
+smartlog = FALSE
 [SimulationPlus2]
 eventDumpUnfinish = FALSE
 dumpPowerRoot = FALSE
@@ -550,7 +547,7 @@ pdmlCommand = ID_BLACK
 pdmlMacro = ID_BLACK
 font = COURIER12
 [Text.1]
-viewport = 0 23 1536 841 45
+viewport = 0 23 1024 745 45
 [TextPrinter]
 Orientation = Landscape
 Indicator = FALSE
@@ -652,7 +649,7 @@ scope_to_save_with_macro
 open_file_dir
 open_rc_file_dir
 getSignalForm = 0 0 800 479 100 30 100 30
-viewPort = 0 28 1017 300 222 65
+viewPort = 0 28 676 306 100 65
 signalSpacing = 5
 digitalSignalHeight = 15
 analogSignalHeight = 98
@@ -1153,7 +1150,7 @@ StopAfterCompileOption = -tcl
 [turboSchema_Printer_Options]
 Orientation = Landscape
 [turbo_library]
-bdb_load_scope
+bdb_load_scope = 
 [verisity]
 TPLanguage = Verilog
 TPName = "Verisity SpeXsim"
@@ -1163,7 +1160,7 @@ AddImportArgument = FALSE
 LineBreakWithScope = TRUE
 StopAfterCompileOption = -s
 [wave.0]
-viewPort = 0 28 1017 300 222 65
+viewPort = 0 28 676 306 100 65
 [wave.1]
 viewPort = 127 219 960 332 100 65
 [wave.2]

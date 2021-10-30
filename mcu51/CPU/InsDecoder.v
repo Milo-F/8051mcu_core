@@ -613,7 +613,7 @@ module InsDecoder(
                     2: begin
                         bit_en = 1;
                         a_bit_location = 7;
-                        pro(FROM_RAM_DATA_REG, NO_USED, `setb);
+                        pro(FROM_RAM_DATA_REG, NO_USED, instruction[4] ? `setb : `clr);
                     end
                     1: ram_write(FROM_RAM_DATA_REG, `psw);
                     default: ;
@@ -629,6 +629,180 @@ module InsDecoder(
                         pro(FROM_RAM_DATA_REG, NO_USED, `cpl);
                     end
                     1: ram_write(FROM_RAM_DATA_REG, `psw);
+                    default: ;
+                endcase
+            end
+            8'b110?_0010: begin // setb/clr bit
+                run_phase_init = 4;
+                next_status = TO_ROM_READ;
+                case (run_phase)
+                    3: ram_read(bit2addr(rom_data_register));
+                    2: begin
+                        bit_en = 1;
+                        a_bit_location = rom_data_register[2:0];
+                        pro(FROM_RAM_DATA_REG, NO_USED, instruction[4] ? `setb : `clr);
+                    end
+                    1: ram_write(FROM_RAM_DATA_REG, bit2addr(rom_data_register));
+                    default: ;
+                endcase
+            end
+            8'b1011_0010: begin // cpl bit
+                run_phase_init = 4;
+                next_status = TO_ROM_READ;
+                case (run_phase)
+                    3: ram_read(bit2addr(rom_data_register));
+                    2: begin
+                        bit_en = 1;
+                        a_bit_location = rom_data_register[2:0];
+                        pro(FROM_RAM_DATA_REG, NO_USED, `cpl);
+                    end
+                    1: ram_write(FROM_RAM_DATA_REG, bit2addr(rom_data_register));
+                    default: ;
+                endcase
+            end
+            8'b1010_0010: begin // mov c, bit
+                run_phase_init = 6;
+                ram_read(`psw);
+                case (run_phase)
+                    5: pro(FROM_B, FROM_RAM_DATA_REG, `mov);
+                    4: next_status = TO_ROM_READ;
+                    3: ram_read(bit2addr(rom_data_register));
+                    2: begin
+                        bit_en = 1;
+                        a_bit_location = 7;
+                        b_bit_location = rom_data_register[2:0];
+                        pro(FROM_B, FROM_RAM_DATA_REG, `mov);
+                    end
+                    1: ram_write(FROM_B, `psw);
+                    default: ;
+                endcase
+            end
+            8'b1001_0010: begin // mov bit, c
+                run_phase_init = 6;
+                next_status = TO_ROM_READ;
+                case (run_phase)
+                    5: ram_read(bit2addr(rom_data_register));
+                    4: pro(FROM_B, FROM_RAM_DATA_REG, `mov);
+                    3: ram_read(`psw);
+                    2: begin
+                        bit_en = 1;
+                        a_bit_location = rom_data_register[2:0];
+                        b_bit_location = 7;
+                        pro(FROM_B, FROM_RAM_DATA_REG, `mov);
+                    end
+                    1: ram_write(FROM_B, bit2addr(rom_data_register));
+                    default: ;
+                endcase
+            end
+            8'b010?_0000: begin // jc/jnc rel
+                run_phase_init = 3;
+                next_status = TO_ROM_READ;
+                case (run_phase)
+                    2: ram_read(`psw);
+                    1: begin
+                        if (ram_data_register[7] != instruction[4]) pro(FROM_PCL, FROM_ROM_DATA_REG, `add);
+                        else next_status = TO_GET_INS;
+                    end
+                    default: ;
+                endcase
+            end
+            8'b001?_0000: begin // jb/jnb bit, rel
+                run_phase_init = 4;
+                next_status = TO_ROM_READ;
+                case (run_phase)
+                    3: begin
+                        tmp_nxt = rom_data_register;
+                        ram_read(bit2addr(rom_data_register));
+                    end
+                    2: next_status = TO_ROM_READ;
+                    1: begin
+                        if (ram_data_register[tmp[2:0]] != instruction[4]) pro(FROM_PCL, FROM_ROM_DATA_REG, `add);
+                        else next_status = TO_GET_INS;
+                    end
+                    default: ;
+                endcase
+            end
+            8'b0001_0000: begin // jbc bit, rel
+                run_phase_init = 6; 
+                next_status = TO_ROM_READ;
+                case (run_phase)
+                    5: begin
+                        tmp_nxt = rom_data_register;
+                        ram_read(bit2addr(rom_data_register));
+                    end
+                    4: next_status = TO_ROM_READ;
+                    3: begin
+                        if (ram_data_register[tmp[2:0]] == 1) pro(FROM_PCL, FROM_ROM_DATA_REG, `add);
+                        else pro(NO_USED, NO_USED, `no_alu);
+                    end
+                    2: begin
+                        bit_en = 1;
+                        a_bit_location = tmp[2:0];
+                        pro(FROM_RAM_DATA_REG, NO_USED, `clr);
+                    end
+                    1: ram_write(FROM_RAM_DATA_REG, bit2addr(tmp));
+                    default: ;
+                endcase
+            end
+            8'b1011_0100: begin // cjne #data, rel
+                run_phase_init = 7;
+                pro(FROM_B, FROM_A, `mov);
+                case (run_phase)
+                    6: next_status = TO_ROM_READ;
+                    5: pro(FROM_A, FROM_ROM_DATA_REG, `subb);
+                    4: next_status = TO_ROM_READ;
+                    3: ram_read(`acc);
+                    2: ram_write(FROM_B, `acc);
+                    1: begin
+                        if (ram_data_register == 8'b0) next_status = TO_GET_INS;
+                        else pro(FROM_PCL, FROM_ROM_DATA_REG, `add);
+                    end
+                    default: ;
+                endcase
+            end
+            8'b1011_0101: begin // cjne direct, rel
+                run_phase_init = 8;
+                pro(FROM_B, FROM_A, `mov);
+                case (run_phase)
+                    7: next_status = TO_ROM_READ;
+                    6: ram_read(rom_data_register);
+                    5: pro(FROM_A, ram_data_register, `subb);
+                    4: next_status = TO_ROM_READ;
+                    3: ram_read(`acc);
+                    2: ram_write(FROM_B, `acc);
+                    1: begin
+                        if (ram_data_register == 8'b0) next_status = TO_GET_INS;
+                        else pro(FROM_PCL, FROM_ROM_DATA_REG, `add);
+                    end
+                    default: ;
+                endcase
+            end
+            8'b1011_1???: begin // cjne rn, #data, rel
+                run_phase_init = 5;
+                ram_read(`Rn);
+                case (run_phase)
+                    4: next_status = TO_ROM_READ;
+                    3: pro(FROM_RAM_DATA_REG, FROM_ROM_DATA_REG, `subb);
+                    2: next_status = TO_ROM_READ;
+                    1: begin
+                        if (ram_data_register == 8'b0) next_status = TO_GET_INS;
+                        else pro(FROM_PCL, FROM_ROM_DATA_REG, `add);
+                    end
+                    default: ;
+                endcase
+            end
+            8'b1011_011?: begin // cjne @ri, #data, rel
+                run_phase_init = 6;
+                ram_read(`Ri);
+                case (run_phase)
+                    5: ram_read(ram_data_register);
+                    4: next_status = TO_ROM_READ;
+                    3: pro(FROM_RAM_DATA_REG, FROM_ROM_DATA_REG, `subb);
+                    2: next_status = TO_ROM_READ;
+                    1: begin
+                        if (ram_data_register == 8'b0) next_status = TO_GET_INS;
+                        else pro(FROM_PCL, FROM_ROM_DATA_REG, `add);
+                    end
                     default: ;
                 endcase
             end
@@ -671,7 +845,7 @@ module InsDecoder(
             alu_op = op;
         end
     endtask
-    // 位地址转ram地址，bit_location为位所在位置，addr_register_out为ram地址
+    // 位地址转ram地址，bit_location为位所在位置，返回值为对应的ram地址
     function reg[7:0] bit2addr(reg[7:0] bit_addr);
         begin
             reg[7:0] ram_addr;

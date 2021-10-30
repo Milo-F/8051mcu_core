@@ -39,7 +39,7 @@ module tb_get_ins;
         ram_data = 8'h50;
         @(posedge clk);
         forever begin
-           #50 instruction = 8'b1000_0010;
+           #50 instruction = 8'b1011_0100;
         end
         // forever begin
         //     #2 instruction = instruction;
