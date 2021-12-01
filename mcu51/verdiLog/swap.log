@@ -1,16 +1,16 @@
 version: (200506)
 
 available memory: 64M bytes
-used memory: 172032 bytes [need 168K bytes if disable swap]
+used memory: 466944 bytes [need 456K bytes if disable swap]
 
-used block: 7 [memory(7) file(0)]
-                 [ 8K(5) 64K(2) { total 168K bytes } ]
-overhead: (9531) bytes for (7) blocks [Average: (1361) bytes/block]
+used block: 29 [memory(29) file(0)]
+                 [ 8K(25) 64K(4) { total 456K bytes } ]
+overhead: (9540) bytes for (29) blocks [Average: (328) bytes/block]
 
 write  => 0(times) 0K(bytes) [0K bytes to file]
-read   => 2(times) 70K(bytes) [11K bytes compressed data from file]
-access => 192744(times) 1517M(bytes)
-          [hit ratio: 99.999%]
+read   => 4(times) 153K(bytes) [16K bytes compressed data from file]
+access => 65640(times) 561M(bytes)
+          [hit ratio: 99.9939%]
 
 time: write(0) read(0)  unit: second
 
@@ -25,11 +25,11 @@ idxCnt: (4)
 closeHead: (1)
 closeTail: (3)
 openCnt: (3)
-fid(3): fd(1073741825) fileName(/home/milo/ICCodes/mcu51/simv.daidir/kdb.elab++/work.lib++/CPU.v.tdc)
-	size(18239) lastModTime(1638329912) curModTime(1638329912)
+fid(3): fd(1073741825) fileName(/home/milo/ICCodes/mcu51/simv.daidir/kdb.elab++/work.lib++/InsDecoder.v.tdc)
+	size(26408) lastModTime(1638329912) curModTime(1638329912)
 	mode(rb)	hot(0) cool(2) pos(0)
-fid(2): fd(29) fileName(/home/milo/ICCodes/mcu51/verdiLog/_swap_0001#8323329#12615)
-	size(0) lastModTime(0) curModTime(1638329921)
+fid(2): fd(29) fileName(/home/milo/ICCodes/mcu51/verdiLog/_swap_0001#8323329#13167)
+	size(0) lastModTime(0) curModTime(1638340282)
 	mode(w+b)	hot(3) cool(1) pos(0)
 fid(1): fd(1073741824) fileName(/home/milo/ICCodes/mcu51/simv.daidir/kdb.elab++/work.lib++/tb_get_ins.sv.tdc)
 	size(2539) lastModTime(1638329912) curModTime(1638329912)
@@ -37,6 +37,6 @@ fid(1): fd(1073741824) fileName(/home/milo/ICCodes/mcu51/simv.daidir/kdb.elab++/
 fid(0): fd(0) fileName(NULL)
 	mode(NULL)	hot(0) cool(0) pos(0)
 ==================================================
-mySelf(1199b630) pre(10536090) next(0)
+mySelf(1212c4c0) pre(10d544d0) next(0)
 version(200506)
 date(May 20 2016 01:21:05)

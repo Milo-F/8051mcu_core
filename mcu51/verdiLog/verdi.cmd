@@ -1,81 +1,209 @@
 debImport "-i" "-simflow" "-simBin" "./simv" "-simDelim" "-a sim.log"
 srcTBInvokeSim
-srcHBSelect "tb_get_ins.cpu" -win $_nTrace1
-srcSetScope -win $_nTrace1 "tb_get_ins.cpu" -delim "."
-srcSignalView -on
-srcSignalViewSelect "tb_get_ins.cpu.interupt\[4:0\]"
-wvCreateWindow
-srcSignalViewAddSelectedToWave -win $_nTrace1
-srcSignalViewSelect "tb_get_ins.cpu.int_addr\[15:0\]"
-srcSignalViewAddSelectedToWave -win $_nTrace1
-srcSignalViewSelect "tb_get_ins.cpu.interupt_en"
-srcSignalViewAddSelectedToWave -win $_nTrace1
-srcSignalViewSelect "tb_get_ins.cpu.ins_register\[7:0\]"
-srcSignalViewAddSelectedToWave -win $_nTrace1
-srcSignalViewSelect "tb_get_ins.cpu.status\[6:0\]"
-srcSignalViewAddSelectedToWave -win $_nTrace1
-wvSetPosition -win $_nWave3 {("G1" 1)}
-wvSetPosition -win $_nWave3 {("G1" 0)}
-wvMoveSelected -win $_nWave3
-wvSetPosition -win $_nWave3 {("G1" 0)}
-wvSetPosition -win $_nWave3 {("G1" 1)}
-srcSignalViewSelect "tb_get_ins.cpu.run_phase\[3:0\]"
-srcSignalViewAddSelectedToWave -win $_nTrace1
-wvSelectSignal -win $_nWave3 {( "G1" 6 )} 
-srcSignalViewSelect "tb_get_ins.cpu.read_en"
-srcSignalViewAddSelectedToWave -win $_nTrace1
-srcSignalViewSelect "tb_get_ins.cpu.write_en"
-srcSignalViewAddSelectedToWave -win $_nTrace1
-wvSelectSignal -win $_nWave3 {( "G1" 4 )} 
-wvSelectSignal -win $_nWave3 {( "G1" 3 )} 
-wvSelectSignal -win $_nWave3 {( "G1" 3 4 )} 
-wvSetPosition -win $_nWave3 {("G1" 3)}
-wvSetPosition -win $_nWave3 {("G1" 4)}
-wvSetPosition -win $_nWave3 {("G1" 5)}
-wvSetPosition -win $_nWave3 {("G1" 6)}
-wvSetPosition -win $_nWave3 {("G1" 7)}
-wvSetPosition -win $_nWave3 {("G1" 8)}
-wvMoveSelected -win $_nWave3
-wvSetPosition -win $_nWave3 {("G1" 8)}
-wvSetPosition -win $_nWave3 {("G1" 7)}
-wvSetPosition -win $_nWave3 {("G1" 6)}
-wvSetPosition -win $_nWave3 {("G1" 8)}
-srcSignalViewSelect "tb_get_ins.cpu.program_counter\[15:0\]"
-wvSetPosition -win $_nWave3 {("G1" 6)}
-srcSignalViewSelect "tb_get_ins.cpu.program_counter\[15:0\]"
-srcSignalViewAddSelectedToWave -win $_nTrace1
-wvSetPosition -win $_nWave3 {("G1" 9)}
-srcSignalViewSelect "tb_get_ins.cpu.ram_data_register\[7:0\]"
-srcSignalViewAddSelectedToWave -win $_nTrace1
-srcTBRunSim -opt {150ns}
-srcSignalView -off
-verdiDockWidgetMaximize -dock windowDock_nWave_3
-wvZoom -win $_nWave3 42933.224756 104618.892508
-wvSetCursor -win $_nWave3 45193.693037 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 47000.000000
-wvSetCursor -win $_nWave3 49011.372800 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 53000.000000
-wvSetCursor -win $_nWave3 53029.983077 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 55000.000000
-wvSetCursor -win $_nWave3 54788.125073 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 59000.000000
-wvSetCursor -win $_nWave3 61217.901516 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 63000.000000
-wvSetCursor -win $_nWave3 65336.977050 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 69000.000000
-wvSetCursor -win $_nWave3 71063.496695 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 73000.000000
-wvSetCursor -win $_nWave3 75082.106972 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 79000.000000
-wvSetCursor -win $_nWave3 81160.255016 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 85000.000000
-wvSetCursor -win $_nWave3 87037.472546 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 89000.000000
-wvSetCursor -win $_nWave3 91257.013337 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 95000.000000
-wvSetCursor -win $_nWave3 97385.394009 -snap {("G1" 1)}
-wvSetMarker -win $_nWave3 99000.000000
-srcSignalView -on
-srcSignalView -off
-srcSignalView -on
+srcHBSelect "tb_get_ins" -win $_nTrace1
+srcTBRunSim -opt {100ns}
+schCreateWindow -delim "." -win $_nSchema1 -scope "tb_get_ins"
+verdiDockWidgetMaximize -dock windowDock_nSchema_3
+schSelect -win $_nSchema3 -inst "cpu"
+schPushViewIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schSelect -win $_nSchema3 -inst "insdecoder"
+schPushViewIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schSetOptions -win $_nSchema3 -detailRTL on
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+verdiWindowBeWindow -win $_nSchema_3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoom {156205} {928721} {182452} {935414} -win $_nSchema3
+schFit -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schSelect -win $_nSchema3 -signal "instruction\[7:0\]" "rom_data_register\[7:0\]"
+schDeselectAll -win $_nSchema3
+schZoom {160740} {1014123} {185283} {1021623} -win $_nSchema3
+schFit -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schSelect -win $_nSchema3 -inst \
+          "InsDecoder\(@1\):Always108#Always0:52:816:EqComp"
+schZoomIn -win $_nSchema3
+schSelect -win $_nSchema3 -inst "InsDecoder\(@1\):Always263#Always0:52:816:Mux"
+schSelect -win $_nSchema3 -inst "InsDecoder\(@1\):Always263#Always0:52:816:Mux"
+schPushViewIn -win $_nSchema3
+srcSetScope -win $_nTrace1 "tb_get_ins.cpu.insdecoder" -delim "."
+srcSelect -win $_nTrace1 -range {686 698 1 3 1 1}
+schSelect -win $_nSchema3 -inst "InsDecoder\(@1\):Always94#Always0:52:816:SigOp"
+schPushViewIn -win $_nSchema3
+srcSelect -win $_nTrace1 -range {275 275 1 24 1 1}
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schSelect -win $_nSchema3 -inst "InsDecoder\(@1\):Always707#Always0:52:816:Mux"
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomIn -win $_nSchema3
+schSelect -win $_nSchema3 -signal "a_data_from\[3:0\]"
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schSelect -win $_nSchema3 -port "addr_register_out\[7:0\]"
+schSelect -win $_nSchema3 -signal "addr_register_out\[7:0\]"
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schSelect -win $_nSchema3 -signal "run_phase_init\[3:0\]"
+schSetOptions -win $_nSchema3 -detailRTL off
+schSelect -win $_nSchema3 -inst "InsDecoder\(@1\):Always1:818:825:Reg"
+schSelect -win $_nSchema3 -inst "InsDecoder\(@1\):Always1:818:825:Reg"
+schPushViewIn -win $_nSchema3
+srcSelect -win $_nTrace1 -range {818 825 1 3 1 1}
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoom {6740} {3899} {7480} {7243} -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schSelect -win $_nSchema3 -toggle -inst \
+          "InsDecoder\(@1\):Always0:52:816:LatchCombo"
+schZoomIn -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schZoomOut -win $_nSchema3
+schPopViewUp -win $_nSchema3
+schZoomOut -win $_nSchema3
+schSelect -win $_nSchema3 -inst "CPU\(@1\):FSM0:216:496:FSM"
+schPushViewIn -win $_nSchema3
+fsmSetCurrentWindow -win $_nState4
+fsmResizeWindow 0 28 854 254 -win $_nState4
+fsmResizeWindow 0 28 854 254 -win $_nState4
+fsmResizeWindow 0 28 854 254 -win $_nState4
+schSelect -win $_nSchema3 -inst "CPU\(@1\):FSM0:216:496:FSM"
+schSelect -win $_nSchema3 -inst "pro"
+schPushViewIn -win $_nSchema3
+schSetOptions -win $_nSchema3 -detailRTL on
+schZoomIn -win $_nSchema3
+schSelect -win $_nSchema3 -inst "alu"
+schPushViewIn -win $_nSchema3
+schZoomIn -win $_nSchema3
+schZoomOut -win $_nSchema3
+schSelect -win $_nSchema3 -inst "ALU:Always15#Always0:20:58:Div"
+schProperties -win $_nSchema3
+schFocusConnection -win $_nSchema3
+schSelect -win $_nSchema3 -signal "psw_in\[7:0\]"
+schSelect -win $_nSchema3 -inst "ALU:Always3#Always0:20:58:Mul"
+schSelect -win $_nSchema3 -inst "ALU:Always2#Always0:20:58:Adder"
+schCloseWindow -win $_nSchema3
+verdiDockWidgetMaximize -dock windowDock_nState_4
+fsmResizeWindow 0 28 1536 683 -win $_nState4
+fsmZoomIn -win $_nState4
+fsmZoomIn -win $_nState4
+fsmZoomIn -win $_nState4
+fsmZoomIn -win $_nState4
+fsmZoomIn -win $_nState4
+fsmZoomIn -win $_nState4
+fsmZoomOut -win $_nState4
+fsmZoomOut -win $_nState4
+fsmZoomOut -win $_nState4
+fsmZoomIn -win $_nState4
+fsmZoomIn -win $_nState4
+fsmZoomIn -win $_nState4
+fsmSelect -add -state "INS_DECODE" -win $_nState4
+fsmSelect -state "GET_INS_INDEX" -win $_nState4
+fsmCloseWindow -win $_nState4
 debExit

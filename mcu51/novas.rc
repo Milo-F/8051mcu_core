@@ -359,7 +359,7 @@ savePropDtl = TRUE
 [QtDialog]
 QwWarnMsgDlg = 458,267,600,250
 tbvRebuildRestartDlg = 543,228,450,430
-QwUserAskDlg = 516,404,324,134
+QwUserAskDlg = 516,404,324,130
 [Relationship]
 hideRecursiceNode = FALSE
 [Session Cache]

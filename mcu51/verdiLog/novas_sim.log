@@ -3,7 +3,7 @@ Invoking simulator...
 ./simv -ucli -a sim.log +UVM_CONFIG_DB_TRACE +UVM_PHASE_TRACE +UVM_OBJECTION_TRACE +UVM_RESOURCE_DB_TRACE +UVM_LOG_RECORD +UVM_VERDI_TRACE=UVM_AWARE -ucli2Proc -lca
 *Verdi3* Loading libsscore_vcs201606.so
 
-12651
+13220
 
 Warning-[LCA_FEATURES_ENABLED] Usage warning
   LCA features enabled by '-lca' argument on the command line.  For more 
@@ -11,13 +11,13 @@ Warning-[LCA_FEATURES_ENABLED] Usage warning
   features" in the VCS/VCS-MX Release Notes
 Chronologic VCS simulator copyright 1991-2016
 Contains Synopsys proprietary information.
-Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Dec  1 11:38 2021
-SimCMD>run 150ns
-150000 ps
+Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Dec  1 14:31 2021
+SimCMD>run 100ns
+100000 ps
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 150000 ps
-CPU Time:      0.320 seconds;       Data structure size:   0.0Mb
-Wed Dec  1 14:22:01 2021
+Time: 100000 ps
+CPU Time:      0.090 seconds;       Data structure size:   0.0Mb
+Wed Dec  1 14:38:29 2021
 
 VERDI_SIM_Terminated
 
