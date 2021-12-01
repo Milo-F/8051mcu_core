@@ -14,8 +14,8 @@ module CPU (
     inout   [7:0]       data_bus,   // 数据总线
     output  reg[15:0]   addr_bus,    // 地址总线
     input               EA,         // 内/外部程序存储器选择使能，1：内部；0：外部
-    input   [1:0]       interupt,   // 中断控制信号
-    input   [1:0]       timer,     // 计时器中断控制信号
+    input   [4:0]       interupt,   // 中断控制信号
+    // input   [1:0]       timer,     // 计时器中断控制信号
     output  reg         read_en,    // 读数据使能
     output  reg         write_en,   // 写数据使能
     output              clk_1M,     // 机器周期
@@ -96,14 +96,16 @@ module CPU (
     parameter DECODE_NOT_DONE = 3'b111;
 
     // 写ram数据来源
-    parameter FROM_A = 3'b000;
-    parameter FROM_RAM_DATA_REG = 3'b001;
-    parameter FROM_ROM_DATA_REG = 3'b010;
-    parameter FROM_ADDR_OUT = 3'b011;
-    parameter FROM_PCH = 3'b100;
-    parameter FROM_PCL = 3'b101;
-    parameter FROM_B = 3'b110;
-    parameter NO_USED = 3'b111;
+    parameter FROM_A = 4'b0000;
+    parameter FROM_RAM_DATA_REG = 4'b0001;
+    parameter FROM_ROM_DATA_REG = 4'b0010;
+    parameter FROM_ADDR_OUT = 4'b0011;
+    parameter FROM_PCH = 4'b0100;
+    parameter FROM_PCL = 4'b0101;
+    parameter FROM_B = 4'b0110;
+    parameter FROM_INT_ADDRL = 4'b1000;
+    parameter FROM_INT_ADDRH = 4'b1001;
+    parameter NO_USED = 4'b0111;
 
     // 常量定义
     parameter NOP_DURATION = 6; // NOP指令空闲6个时钟周期
@@ -136,13 +138,17 @@ module CPU (
     wire[2:0]   decoder_next_status; // 下个状态标识
     reg[3:0]    run_phase, run_phase_nxt; // 当前指令所在的执行节点
     wire[3:0]   run_phase_init; // 指令初始执行需要的步骤数
-    wire[2:0]   a_data_from, b_data_from; // 写ram操作数据来源标识
+    wire[3:0]   a_data_from, b_data_from; // 写ram操作数据来源标识
     wire[3:0]   alu_op;
     wire[3:0]   run_phase_minus1; // 步骤减一
     wire[7:0]   addr_register_out; // 译码器输出地址
     wire[2:0]   a_bit_location, b_bit_location;
     wire bit_en;
     assign run_phase_minus1 = run_phase - 1;
+
+    // 中断
+    reg[15:0] int_addr, int_addr_nxt;
+    reg interupt_en, interupt_en_nxt;
     
     InsDecoder insdecoder(
         .clk(clk),
@@ -153,6 +159,7 @@ module CPU (
         .psw(psw),
         .ram_data_register(ram_data_register),
         .rom_data_register(rom_data_register),
+        .interupt_en(interupt_en),
         .a_data_from(a_data_from),
         .b_data_from(b_data_from),
         .alu_op(alu_op),
@@ -180,6 +187,30 @@ module CPU (
         .ans(pro_ans),
         .psw_out(pro_psw_out)
     );
+    // 中断程序入口地址选择
+    always @(*) begin
+        interupt_en_nxt = 1'b1;
+        int_addr_nxt = int_addr;
+        case (1'b1)
+            interupt[0]: int_addr_nxt = 16'h0003; // INT0中断
+            interupt[1]: int_addr_nxt = 16'h000b; // T0
+            interupt[2]: int_addr_nxt = 16'h0013; // INT1
+            interupt[3]: int_addr_nxt = 16'h001B; // T1
+            interupt[4]: int_addr_nxt = 16'h0023; // urt
+            default: ;
+        endcase
+    end
+    // 中断次态传递
+    always @(posedge clk, negedge rst_n) begin
+        if (!rst_n) begin
+            interupt_en <= 1'b0;
+            int_addr <= 16'b0;
+        end
+        else begin
+            interupt_en <= interupt_en_nxt;
+            int_addr <= int_addr_nxt;
+        end
+    end
 
     // 状态转移逻辑，包含次态方程和相关线网的处理
     always @(*) begin
@@ -211,19 +242,27 @@ module CPU (
         rom_data_register_nxt = rom_data_register;
         case (1'b1)
             status[GET_INS_INDEX]:begin // 取指，负责把ROM中的数据取出送入ins_register
-                memory_select_nxt = 1'b0; // 选中rom
-                ins_register_nxt = data_in;
                 run_phase_nxt = 0;
-                if (get_ins_done) begin // 当取指完成转移到下个状态
+                if (interupt_en^get_ins_done) begin // 取指之前判断是否响应中断
+                    get_ins_done_nxt = interupt_en;
+                    ins_register_nxt = 8'b0001_0010; // 利用长跳转指令跳转到中断程序入口
                     status_nxt = INS_DECODE;
-                    read_en_nxt = 1'b0;
-                    get_ins_done_nxt = 1'b0;
-                    program_counter_nxt = program_counter_plus1; // 完成取指程序计数器+1
                 end
                 else begin
-                    addr_bus_nxt = program_counter;
-                    read_en_nxt = 1'b1;
-                    get_ins_done_nxt = 1'b1;
+                    interupt_en_nxt = 1'b0;
+                    memory_select_nxt = 1'b0; // 选中rom
+                    ins_register_nxt = data_in;
+                    if (get_ins_done) begin // 当取指完成转移到下个状态
+                        status_nxt = INS_DECODE;
+                        read_en_nxt = 1'b0;
+                        get_ins_done_nxt = 1'b0;
+                        program_counter_nxt = program_counter_plus1; // 完成取指程序计数器+1
+                    end
+                    else begin
+                        addr_bus_nxt = program_counter;
+                        read_en_nxt = 1'b1;
+                        get_ins_done_nxt = 1'b1;
+                    end
                 end
             end 
             status[INS_DECODE_INDEX]: begin // 译码，根据指令输出控制信号
@@ -347,6 +386,8 @@ module CPU (
                     FROM_PCH: pro_b = program_counter[15:8];
                     FROM_PCL: pro_b = program_counter[7:0];
                     FROM_B: pro_b = b;
+                    FROM_INT_ADDRL: pro_b = int_addr[7:0];
+                    FROM_INT_ADDRH: pro_b = int_addr[15:8];
                     NO_USED: pro_b = 8'b0;
                     default: ;
                 endcase

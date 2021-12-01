@@ -6,7 +6,7 @@ Warning-[LCA_FEATURES_ENABLED] Usage warning
   features" in the VCS/VCS-MX Release Notes
 Chronologic VCS simulator copyright 1991-2016
 Contains Synopsys proprietary information.
-Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Oct 30 11:36 2021
+Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Dec  1 11:38 2021
 
 ucli% synUtils::getArch
 linux64
@@ -23,20 +23,20 @@ FSDB Dumper for VCS, Release Verdi3_L-2016.06-1, Linux x86_64/64bit, 07/10/2016
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
 ucli% sps_interactive
-*Verdi3* : Enable RPC Server(16642)
+*Verdi3* : Enable RPC Server(12651)
 
 ucli% ucliCore::getToolPID
-16642
+12651
 ucli% if {[catch {ucliCore::setFocus tool}]} {}
 
 ucli% puts $ucliCore::nativeUcliMode
 0
 
 ucli% ucliCore::getToolTopPID
-16642
+12651
 ucli% pid
-16649
-ucli% synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.milo.16642 }
+12658
+ucli% synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.milo.12651 }
 
 ucli% if { [info vars watch::vcbp_str_len_limit_of_get_value] != ""} {set watch::vcbp_str_len_limit_of_get_value 1024}
 1024
@@ -81,7 +81,7 @@ line: 3
 logFilename: sim.log
 macroIndex: -1
 macroOffset: -1
-pid: 16642
+pid: 12651
 scope: tb_get_ins
 startCol: 0
 state: stopped
@@ -103,6 +103,22 @@ ucli% stop
 No stop points are set
 ucli% if {[catch {ucliCore::setFocus tool}]} {}
 
+ucli% fsdbDumpvars 1 {tb_get_ins.cpu.interupt} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.interupt).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+ucli% fsdbDumpvars 1 {tb_get_ins.cpu.int_addr} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.int_addr).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+ucli% fsdbDumpvars 1 {tb_get_ins.cpu.interupt_en} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.interupt_en).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+ucli% fsdbDumpvars 1 {tb_get_ins.cpu.ins_register} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.ins_register).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
 ucli% fsdbDumpvars 1 {tb_get_ins.cpu.status} ;fsdbDumpflush
 *Verdi3* : Dumping the signal (tb_get_ins.cpu.status).
 *Verdi3* : Flush all FSDB Files at 0 ps.
@@ -111,134 +127,28 @@ ucli% fsdbDumpvars 1 {tb_get_ins.cpu.run_phase} ;fsdbDumpflush
 *Verdi3* : Dumping the signal (tb_get_ins.cpu.run_phase).
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.psw} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.psw).
+ucli% fsdbDumpvars 1 {tb_get_ins.cpu.read_en} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.read_en).
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.b} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.b).
-*Verdi3* : Flush all FSDB Files at 0 ps.
-
-ucli% fsdbDumpvars 1 {tb_get_ins.cpu.acc} ;fsdbDumpflush
-*Verdi3* : Dumping the signal (tb_get_ins.cpu.acc).
+ucli% fsdbDumpvars 1 {tb_get_ins.cpu.write_en} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.write_en).
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
 ucli% fsdbDumpvars 1 {tb_get_ins.cpu.program_counter} ;fsdbDumpflush
 *Verdi3* : Dumping the signal (tb_get_ins.cpu.program_counter).
 *Verdi3* : Flush all FSDB Files at 0 ps.
 
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% run 50ns
-50000 ps
-ucli% ucliCore::getToolPID
-16642
-ucli% synEnv::isFinished
-0
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% fsdbDumpflush 
-*Verdi3* : Flush all FSDB Files at 50,000 ps.
-
-ucli% senv
-activeDomain: Verilog
-activeFile: ./CPU/tb_get_ins.sv
-activeFrame: 
-activeLine: 3
-activeScope: tb_get_ins
-activeThread: 
-endCol: 0
-file: ./CPU/tb_get_ins.sv
-frame: 
-fsdbFilename: 
-hasTB: 0
-inputFilename: 
-keyFilename: ucli.key
-line: 3
-logFilename: sim.log
-macroIndex: -1
-macroOffset: -1
-pid: 16642
-scope: tb_get_ins
-startCol: 0
-state: stopped
-thread: 
-time: 50000
-timePrecision: 1 ps
-vcdFilename: 
-vpdFilename:
-ucli% synUtils::resolveSourceFilename ./CPU/tb_get_ins.sv
-./CPU/tb_get_ins.sv
-ucli% puts $::ucliCore::cbug_active
-0
+ucli% fsdbDumpvars 1 {tb_get_ins.cpu.ram_data_register} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb_get_ins.cpu.ram_data_register).
+*Verdi3* : Flush all FSDB Files at 0 ps.
 
 ucli% if {[catch {ucliCore::setFocus tool}]} {}
 
-ucli% checkpoint -list -all
-There are no checkpoints present.
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% stop
-No stop points are set
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% run 50ns
-100000 ps
-ucli% ucliCore::getToolPID
-16642
-ucli% synEnv::isFinished
-0
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% fsdbDumpflush 
-*Verdi3* : Flush all FSDB Files at 100,000 ps.
-
-ucli% senv
-activeDomain: Verilog
-activeFile: ./CPU/tb_get_ins.sv
-activeFrame: 
-activeLine: 3
-activeScope: tb_get_ins
-activeThread: 
-endCol: 0
-file: ./CPU/tb_get_ins.sv
-frame: 
-fsdbFilename: 
-hasTB: 0
-inputFilename: 
-keyFilename: ucli.key
-line: 3
-logFilename: sim.log
-macroIndex: -1
-macroOffset: -1
-pid: 16642
-scope: tb_get_ins
-startCol: 0
-state: stopped
-thread: 
-time: 100000
-timePrecision: 1 ps
-vcdFilename: 
-vpdFilename:
-ucli% synUtils::resolveSourceFilename ./CPU/tb_get_ins.sv
-./CPU/tb_get_ins.sv
-ucli% puts $::ucliCore::cbug_active
-0
-
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% checkpoint -list -all
-There are no checkpoints present.
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% stop
-No stop points are set
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% run 50ns
+ucli% run 150ns
 150000 ps
 ucli% ucliCore::getToolPID
-16642
+12651
 ucli% synEnv::isFinished
 0
 ucli% if {[catch {ucliCore::setFocus tool}]} {}
@@ -264,7 +174,7 @@ line: 3
 logFilename: sim.log
 macroIndex: -1
 macroOffset: -1
-pid: 16642
+pid: 12651
 scope: tb_get_ins
 startCol: 0
 state: stopped
@@ -288,64 +198,11 @@ ucli% stop
 No stop points are set
 ucli% if {[catch {ucliCore::setFocus tool}]} {}
 
-ucli% run 50ns
-200000 ps
-ucli% ucliCore::getToolPID
-16642
-ucli% synEnv::isFinished
-0
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% fsdbDumpflush 
-*Verdi3* : Flush all FSDB Files at 200,000 ps.
-
-ucli% senv
-activeDomain: Verilog
-activeFile: ./CPU/tb_get_ins.sv
-activeFrame: 
-activeLine: 3
-activeScope: tb_get_ins
-activeThread: 
-endCol: 0
-file: ./CPU/tb_get_ins.sv
-frame: 
-fsdbFilename: 
-hasTB: 0
-inputFilename: 
-keyFilename: ucli.key
-line: 3
-logFilename: sim.log
-macroIndex: -1
-macroOffset: -1
-pid: 16642
-scope: tb_get_ins
-startCol: 0
-state: stopped
-thread: 
-time: 200000
-timePrecision: 1 ps
-vcdFilename: 
-vpdFilename:
-ucli% synUtils::resolveSourceFilename ./CPU/tb_get_ins.sv
-./CPU/tb_get_ins.sv
-ucli% puts $::ucliCore::cbug_active
-0
-
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% checkpoint -list -all
-There are no checkpoints present.
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
-ucli% stop
-No stop points are set
-ucli% if {[catch {ucliCore::setFocus tool}]} {}
-
 ucli% finish; quit
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 200000 ps
-CPU Time:      0.170 seconds;       Data structure size:   0.0Mb
-Sat Oct 30 11:38:45 2021
+Time: 150000 ps
+CPU Time:      0.320 seconds;       Data structure size:   0.0Mb
+Wed Dec  1 14:22:01 2021
 
 VERDI_SIM_Terminated
 

@@ -2,7 +2,7 @@ Magic 271485
 Revision Verdi3_L-2016.06-1
 
 ; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
-viewPort 0 28 1024 587 100 65
+viewPort 0 28 1536 683 217 65
 
 ; File list:
 ; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
@@ -16,16 +16,16 @@ signalSpacing 5
 
 ; windowTimeUnit is used for zoom, cursor & marker
 ; waveform viewport range
-zoom 130059.537134 174563.306133
-cursor 109000.000000
-marker 111000.000000
+zoom 42933.224756 104618.892508
+cursor 97000.000000
+marker 99000.000000
 
 ; user define markers
 ; userMarker time_pos marker_name color linestyle
 ; visible top row signal index
 top 0
 ; marker line index
-markerPos 6
+markerPos 10
 
 ; event list
 ; addEvent event_name event_expression
@@ -49,10 +49,14 @@ addGroup "G1"
 activeDirFile "" "/home/milo/ICCodes/mcu51/inter.fsdb"
 addSignal -h 15 /tb_get_ins/cpu/status[6:0]
 addSignal -h 15 /tb_get_ins/cpu/run_phase[3:0]
-addSignal -h 15 /tb_get_ins/cpu/psw[7:0]
-addSignal -h 15 /tb_get_ins/cpu/b[7:0]
-addSignal -h 15 /tb_get_ins/cpu/acc[7:0]
+addSignal -h 15 /tb_get_ins/cpu/interupt[4:0]
+addSignal -h 15 /tb_get_ins/cpu/int_addr[15:0]
+addSignal -h 15 /tb_get_ins/cpu/interupt_en
+addSignal -h 15 /tb_get_ins/cpu/ins_register[7:0]
 addSignal -h 15 /tb_get_ins/cpu/program_counter[15:0]
+addSignal -h 15 /tb_get_ins/cpu/read_en
+addSignal -h 15 /tb_get_ins/cpu/write_en
+addSignal -h 15 /tb_get_ins/cpu/ram_data_register[7:0]
 addGroup "G2"
 
 ; getSignalForm Scope Hierarchy Status

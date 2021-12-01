@@ -14,9 +14,10 @@ module InsDecoder(
     input [7:0]     psw,
     input [7:0]     ram_data_register,
     input [7:0]     rom_data_register,
+    input           interupt_en, // 中断标志
     output reg[3:0] run_phase_init,
-    output reg[2:0] a_data_from,
-    output reg[2:0] b_data_from,
+    output reg[3:0] a_data_from,
+    output reg[3:0] b_data_from,
     output reg[3:0] alu_op,
     output reg[2:0] a_bit_location,
     output reg[2:0] b_bit_location,
@@ -35,14 +36,16 @@ module InsDecoder(
     parameter NOT_DONE = 3'b111;
 
     // 数据来源标识
-    parameter FROM_A = 3'b000;
-    parameter FROM_RAM_DATA_REG = 3'b001;
-    parameter FROM_ROM_DATA_REG = 3'b010;
-    parameter FROM_ADDR_OUT = 3'b011;
-    parameter FROM_PCH = 3'b100;
-    parameter FROM_PCL = 3'b101;
-    parameter FROM_B = 3'b110;
-    parameter NO_USED = 3'b111;
+    parameter FROM_A = 4'b0000;
+    parameter FROM_RAM_DATA_REG = 4'b0001;
+    parameter FROM_ROM_DATA_REG = 4'b0010;
+    parameter FROM_ADDR_OUT = 4'b0011;
+    parameter FROM_PCH = 4'b0100;
+    parameter FROM_PCL = 4'b0101;
+    parameter FROM_B = 4'b0110;
+    parameter FROM_INT_ADDRL = 4'b1000;
+    parameter FROM_INT_ADDRH = 4'b1001;
+    parameter NO_USED = 4'b0111;
 
     reg[7:0]   tmp, tmp_nxt; // 暂存器
 
@@ -525,9 +528,9 @@ module InsDecoder(
                     6: pro(FROM_RAM_DATA_REG, NO_USED, `inc);
                     5: ram_write(FROM_RAM_DATA_REG, `sp);
                     4: next_status = TO_ROM_READ;
-                    3: pro(FROM_PCH, FROM_ROM_DATA_REG, `mov);
+                    3: pro(FROM_PCH, interupt_en ? FROM_INT_ADDRH : FROM_ROM_DATA_REG, `mov);
                     2: next_status = TO_ROM_READ;
-                    1: pro(FROM_PCL, FROM_ROM_DATA_REG, `mov);
+                    1: pro(FROM_PCL, interupt_en ? FROM_INT_ADDRL : FROM_ROM_DATA_REG, `mov);
                     default: ;
                 endcase
             end
@@ -837,7 +840,7 @@ module InsDecoder(
         end
     endtask
     // process运算任务
-    task automatic pro(reg[2:0] a_from, b_from, reg[3:0] op);
+    task automatic pro(reg[3:0] a_from, b_from, reg[3:0] op);
         begin
             next_status = TO_PROCESS;
             a_data_from = a_from;

@@ -6,8 +6,8 @@ module tb_get_ins;
     reg rst_n;
     reg [7:0] instruction;
     reg EA;
-    reg[1:0]    interupt;
-    reg[1:0]    timer;
+    reg[4:0]    interupt;
+    // reg[1:0]    timer;
     reg[7:0]    ram_data;
     wire [7:0] data_bus;
     wire read_en;
@@ -21,6 +21,7 @@ module tb_get_ins;
 
     initial begin
         clk = 0;
+        interupt = 1;
         forever begin
             #1 clk = ~clk;
         end
@@ -57,7 +58,6 @@ module tb_get_ins;
         .write_en(write_en),
         .EA(EA),
         .interupt(interupt),
-        .timer(timer),
         .clk_1M(clk_1M),
         .clk_6M(clk_6M),
         .memory_select(memory_select),

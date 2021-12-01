@@ -1,0 +1,124 @@
+debImport "-i" "-simflow" "-simBin" "./simv" "-simDelim" "-a sim.log"
+srcTBInvokeSim
+srcHBSelect "tb_get_ins.cpu" -win $_nTrace1
+srcSetScope -win $_nTrace1 "tb_get_ins.cpu" -delim "."
+srcSignalView -on
+srcSignalViewSelect "tb_get_ins.cpu.interupt\[4:0\]"
+wvCreateWindow
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.rst_n"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.int_addr\[15:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.program_counter\[15:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.status\[6:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcTBRunSim -opt {150ns}
+srcSignalView -off
+verdiDockWidgetMaximize -dock windowDock_nWave_3
+wvSetPosition -win $_nWave3 {("G1" 4)}
+wvSetPosition -win $_nWave3 {("G1" 3)}
+wvSetPosition -win $_nWave3 {("G1" 2)}
+wvSetPosition -win $_nWave3 {("G1" 1)}
+wvSetPosition -win $_nWave3 {("G1" 0)}
+wvMoveSelected -win $_nWave3
+wvSetPosition -win $_nWave3 {("G1" 0)}
+wvSetPosition -win $_nWave3 {("G1" 1)}
+wvZoom -win $_nWave3 42069.625407 105852.605863
+wvSelectSignal -win $_nWave3 {( "G1" 4 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 5 )} 
+srcSignalView -on
+srcSignalView -off
+srcSignalView -on
+verdiDockWidgetRestore -dock windowDock_nWave_3
+srcHBSelect "tb_get_ins.cpu" -win $_nTrace1
+srcSetScope -win $_nTrace1 "tb_get_ins.cpu" -delim "."
+srcSignalViewSelect "tb_get_ins.cpu.a_data_from\[3:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.b_data_from\[3:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcTBRunSim -opt {150ns}
+srcSignalView -off
+verdiDockWidgetMaximize -dock windowDock_nWave_3
+wvZoom -win $_nWave3 260077.408410 265230.544406
+srcTBRunSim -opt {150ns}
+srcSignalView -off
+verdiDockWidgetMaximize -dock windowDock_nWave_3
+wvZoomAll -win $_nWave3
+wvZoom -win $_nWave3 146565.146580 340134.771987
+wvZoom -win $_nWave3 204888.242183 264472.377691
+wvSelectSignal -win $_nWave3 {( "G1" 2 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 3 )} 
+wvSelectSignal -win $_nWave3 {( "G1" 2 )} 
+wvSetCursor -win $_nWave3 260930.324033 -snap {("G1" 1)}
+wvSetCursor -win $_nWave3 259086.515279 -snap {("G1" 1)}
+wvSetCursor -win $_nWave3 250789.375889 -snap {("G1" 1)}
+wvSetCursor -win $_nWave3 249042.609701 -snap {("G1" 1)}
+wvSetCursor -win $_nWave3 250837.897172 -snap {("G1" 1)}
+wvSetCursor -win $_nWave3 249382.258682 -snap {("G1" 1)}
+srcSignalView -on
+srcSignalView -off
+srcSignalView -on
+verdiDockWidgetRestore -dock windowDock_nWave_3
+srcHBSelect "tb_get_ins.cpu" -win $_nTrace1
+srcSetScope -win $_nTrace1 "tb_get_ins.cpu" -delim "."
+srcSelect -win $_nTrace1 -range {367 367 1 8 1 1}
+srcTBAddBrkPnt -line 367 -file /home/milo/ICCodes/mcu51/CPU/CPU.v
+srcSelect -win $_nTrace1 -range {368 368 1 27 1 1}
+srcTBAddBrkPnt -line 368 -file /home/milo/ICCodes/mcu51/CPU/CPU.v
+srcSelect -win $_nTrace1 -range {371 371 1 8 1 1}
+srcTBAddBrkPnt -line 371 -file /home/milo/ICCodes/mcu51/CPU/CPU.v
+srcSelect -win $_nTrace1 -range {372 372 1 13 1 1}
+srcTBAddBrkPnt -line 372 -file /home/milo/ICCodes/mcu51/CPU/CPU.v
+srcSelect -win $_nTrace1 -range {371 371 1 8 1 1}
+srcTBSetBrkPnt -disable -index 3
+srcSelect -win $_nTrace1 -range {372 372 1 13 1 1}
+srcTBSetBrkPnt -disable -index 4
+srcTBAddToWatchFromSrc -win $_nTrace1 -tab 1
+srcSelect -win $_nTrace1 -range {371 371 1 8 1 1}
+srcTBSetBrkPnt -delete -index 3
+srcTBAddToWatchFromSrc -win $_nTrace1 -tab 1
+srcSelect -win $_nTrace1 -range {368 368 1 27 1 1}
+srcTBSetBrkPnt -disable -index 2
+srcTBAddToWatchFromSrc -win $_nTrace1 -tab 1
+srcSelect -win $_nTrace1 -range {367 367 1 8 1 1}
+srcTBSetBrkPnt -disable -index 1
+srcTBAddToWatchFromSrc -win $_nTrace1 -tab 1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "a_data_from" -win $_nTrace1
+srcTBAddToWatchFromSrc -win $_nTrace1 -tab 1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "b_data_from" -win $_nTrace1
+srcTBAddToWatchFromSrc -win $_nTrace1 -tab 1
+srcTBSimReset
+srcHBSelect "tb_get_ins" -win $_nTrace1
+srcHBSelect "tb_get_ins.cpu" -win $_nTrace1
+srcSetScope -win $_nTrace1 "tb_get_ins.cpu" -delim "."
+srcSelect -win $_nTrace1 -range {371 371 1 8 1 1}
+srcTBAddBrkPnt -line 371 -file /home/milo/ICCodes/mcu51/CPU/CPU.v
+srcTBRunSim -opt {150ns}
+srcTBStepIn
+srcTBStepIn
+srcTBStepIn
+srcTBRebuild -fromCmd "make com" -reloadKDB -restartSim -simOpt "-a sim.log "
+wvSaveSignal -win $_nWave3 "/home/milo/ICCodes/mcu51/rebuild.rc"
+srcTBDelAllBrkPnt
+wvCreateWindow
+wvRestoreSignal -win $_nWave4 "./rebuild.rc" -overWriteAutoAlias on
+srcHBSelect "tb_get_ins.cpu" -win $_nTrace1
+srcSetScope -win $_nTrace1 "tb_get_ins.cpu" -delim "."
+srcSignalViewSelect "tb_get_ins.cpu.interupt\[4:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.status\[6:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcSignalViewSelect "tb_get_ins.cpu.program_counter\[15:0\]"
+srcSignalViewAddSelectedToWave -win $_nTrace1
+srcTBRunSim -opt {150ns}
+srcTBStepIn
+srcTBStepIn
+srcTBStepIn
+srcTBStepIn
+srcTBRunSim -opt {150ns}
+wvZoom -win $_nWave4 42522.422535 102896.239437
+debExit

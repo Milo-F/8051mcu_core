@@ -4,14 +4,14 @@
         "PJbHW",
         "module"
     ],
-    "std": [
-        "std",
-        "reYIK",
-        "module"
-    ],
     "tb_get_ins": [
         "tb_get_ins",
         "GLQFB",
+        "module"
+    ],
+    "std": [
+        "std",
+        "reYIK",
         "module"
     ],
     "ALEGen": [

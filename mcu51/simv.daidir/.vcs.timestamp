@@ -32,18 +32,19 @@
 -sverilog
 /home/milo/Synopsys/vcs/linux64/bin/vcs1
 com.log
-50
+51
 sysc_uni_pwd=/home/milo/ICCodes/mcu51
 XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
 XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
-WSL_INTEROP=/run/WSL/14530_interop
+WSL_INTEROP=/run/WSL/1583_interop
 WSL_DISTRO_NAME=Ubuntu
 WSLENV=VSCODE_WSL_EXT_LOCATION/up
 WAYLAND_DISPLAY=wayland-0
-VSCODE_IPC_HOOK_CLI=/mnt/wslg/runtime-dir/vscode-ipc-bdc297d1-b711-4dec-bb90-4f5f90c73baa.sock
+VSCODE_IPC_HOOK_CLI=/mnt/wslg/runtime-dir/vscode-ipc-8d54faf2-80b8-4d4a-89e7-2a1fcd07433d.sock
 VSCODE_GIT_IPC_HANDLE=/mnt/wslg/runtime-dir/vscode-git-cfb7a7da1b.sock
-VSCODE_GIT_ASKPASS_NODE=/home/milo/.vscode-server/bin/6cba118ac49a1b88332f312a8f67186f7f3c1643/node
-VSCODE_GIT_ASKPASS_MAIN=/home/milo/.vscode-server/bin/6cba118ac49a1b88332f312a8f67186f7f3c1643/extensions/git/dist/askpass-main.js
+VSCODE_GIT_ASKPASS_NODE=/home/milo/.vscode-server/bin/ccbaa2d27e38e5afa3e5c21c1c7bef4657064247/node
+VSCODE_GIT_ASKPASS_MAIN=/home/milo/.vscode-server/bin/ccbaa2d27e38e5afa3e5c21c1c7bef4657064247/extensions/git/dist/askpass-main.js
+VSCODE_GIT_ASKPASS_EXTRA_ARGS=
 VMR_MODE_FLAG=64
 VERDI_HOME=/home/milo/Synopsys/verdi
 VCS_MX_HOME_INTERNAL=1
@@ -57,7 +58,7 @@ VCS_ARCH_OVERRIDE=linux
 VCS_ARCH=linux64
 UNAME=/bin/uname
 TOOL_HOME=/home/milo/Synopsys/vcs/linux64
-TERM_PROGRAM_VERSION=1.61.2
+TERM_PROGRAM_VERSION=1.62.3
 TERM_PROGRAM=vscode
 SYNOPSYS=/home/milo/synopsys/dc
 SPYGLASS_HOME=/home/milo/Synopsys/SpyGlass/SpyGlass-L2016.06/SPYGLASS_HOME
@@ -71,15 +72,15 @@ NOVAS_HOME=/home/milo/Synopsys/verdi
 NAME=Milo
 MOTD_SHOWN=update-motd
 MFLAGS=
-MAKE_TERMOUT=/dev/pts/2
-MAKE_TERMERR=/dev/pts/2
+MAKE_TERMOUT=/dev/pts/3
+MAKE_TERMERR=/dev/pts/3
 MAKELEVEL=1
 MAKEFLAGS=
 LESSOPEN=| /usr/bin/lesspipe %s
 LESSCLOSE=/usr/bin/lesspipe %s %s
 LC_ALL=C
 HOSTTYPE=x86_64
-GIT_ASKPASS=/home/milo/.vscode-server/bin/6cba118ac49a1b88332f312a8f67186f7f3c1643/extensions/git/dist/askpass.sh
+GIT_ASKPASS=/home/milo/.vscode-server/bin/ccbaa2d27e38e5afa3e5c21c1c7bef4657064247/extensions/git/dist/askpass.sh
 FM_HOME=/home/milo/Synopsys/fm
 DC_HOME=/home/milo/Synopsys/dc
 COLORTERM=truecolor
@@ -90,9 +91,9 @@ COLORTERM=truecolor
 1635498113 ./CPU/Process.v
 1635226771 ./CPU/ClkDiv.v
 1635226771 ./CPU/ALEGen.v
-1635569636 ./CPU/InsDecoder.v
-1635497231 ./CPU/CPU.v
-1635564915 ./CPU/tb_get_ins.sv
+1638329844 ./CPU/InsDecoder.v
+1638329386 ./CPU/CPU.v
+1638327765 ./CPU/tb_get_ins.sv
 1635395992 filelist.f
 1464145466 /home/milo/Synopsys/vcs/linux64/lib/vcsdp.tab
 4
@@ -100,4 +101,4 @@ COLORTERM=truecolor
 1464147802 /home/milo/Synopsys/vcs/linux64/lib/libvirsim.so
 1464147272 /home/milo/Synopsys/vcs/linux64/lib/liberrorinf.so
 1464147248 /home/milo/Synopsys/vcs/linux64/lib/libsnpsmalloc.so
-1635569788 simv.daidir
+1638329913 simv.daidir
