@@ -528,9 +528,23 @@ module InsDecoder(
                     6: pro(FROM_RAM_DATA_REG, NO_USED, `inc);
                     5: ram_write(FROM_RAM_DATA_REG, `sp);
                     4: next_status = TO_ROM_READ;
-                    3: pro(FROM_PCH, interupt_en ? FROM_INT_ADDRH : FROM_ROM_DATA_REG, `mov);
+                    3: pro(FROM_PCH, FROM_ROM_DATA_REG, `mov);
                     2: next_status = TO_ROM_READ;
-                    1: pro(FROM_PCL, interupt_en ? FROM_INT_ADDRL : FROM_ROM_DATA_REG, `mov);
+                    1: pro(FROM_PCL, FROM_ROM_DATA_REG, `mov);
+                    default: ;
+                endcase
+            end
+            8'b1111_0000: begin // 中断转移程序
+                run_phase_init = 8;
+                ram_read(`sp);
+                case (run_phase)
+                    7: ram_write(FROM_PCL, ram_data_register);
+                    6: pro(FROM_RAM_DATA_REG, NO_USED, `inc);
+                    5: ram_write(FROM_PCH, ram_data_register);
+                    4: pro(FROM_RAM_DATA_REG, NO_USED, `inc);
+                    3: ram_write(FROM_RAM_DATA_REG, `sp);
+                    2: pro(FROM_PCH, FROM_INT_ADDRH, `mov);
+                    1: pro(FROM_PCL, FROM_INT_ADDRL, `mov);
                     default: ;
                 endcase
             end
@@ -825,7 +839,7 @@ module InsDecoder(
     end
 
     // 写ram任务
-    task automatic ram_write(reg[2:0] data_from_val, reg[7:0] addr);
+    task automatic ram_write(reg[3:0] data_from_val, reg[7:0] addr);
         begin
             next_status = TO_RAM_WRITE;
             a_data_from = data_from_val;
