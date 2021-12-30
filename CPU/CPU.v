@@ -10,7 +10,7 @@
 
 module CPU (
     input               clk,        // 振荡时钟12M
-    input               reset,      // 复位信号，低电平有效
+    input               rst_n,      // 复位信号，低电平有效
     inout   [7:0]       data_bus,   // 数据总线
     output  reg[15:0]   addr_bus,    // 地址总线
     input   [4:0]       interupt,   // 中断控制信号
@@ -22,24 +22,7 @@ module CPU (
     output  reg         memory_select // 片选，1为ram，0为rom
 );
 
-    /*****************************************复位信号*********************************************/
-    reg[3:0]    cnt_rst = 4'b0; // 复位信号计数器 
-    reg         rst_n = 1'b1; // 有效复位信号
-    // 复位信号持续10个时钟周期有效
-     always @(posedge clk) begin
-        if (!reset) begin
-            if (cnt_rst == 10) begin
-                rst_n <= 1'b0;
-            end
-            else begin
-                cnt_rst <= cnt_rst + 1'b1;
-            end
-        end
-        else begin
-            rst_n <= 1'b1;
-            cnt_rst <= 4'b0;
-        end
-     end
+    
     //-------------------------------------------------------------------------------------------
 
     /********************************************时钟分频******************************************/
@@ -468,7 +451,7 @@ module CPU (
             psw <= 8'b0;
             acc <= 8'b0;
             b <= 8'b0;
-            program_counter <= 16'ha845;
+            program_counter <= 16'h0;
         end
         else begin
             // 状态机控制
