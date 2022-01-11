@@ -2,10 +2,8 @@ module Mcu(
     input reset,
     input clk,
     
-    inout[7:0] p0,
-    inout[7:0] p1,
-    inout[7:0] p2,
-    inout[7:0] p3
+    input[7:0] p0_in, p1_in, p2_in, p3_in,
+    output reg[7:0] p0_out, p1_out, p2_out, p3_out
 );
 
 
@@ -45,7 +43,7 @@ module Mcu(
         if (memory_select) begin // 选中ram
             ram_en = 1'b1;
             if (addr_bus[7:0] < 8'h80) begin // 低127位寻址片内ram
-                ram_addr = addr_bus;
+                ram_addr = addr_bus[7:0];
                 ram_read = read_en;
                 ram_write = write_en;
                 data_to_cpu = (read_en) ? data_from_ram : 8'b0;
@@ -131,10 +129,21 @@ module Mcu(
         end
         else begin  // 选中rom
             rom_en = 1'b1;
+            rom_addr = addr_bus;
+            rom_read = read_en;
+            data_to_cpu = (read_en) ? data_from_rom : 8'b0;
         end
     end
 
 
+    // -------------------------------------------------------
+
+    // IO port set-------------------------------------------------------
+    wire[7:0] p0_out_nxt, p1_out_nxt, p2_out_nxt,p3_out_nxt;
+    assign p0_out_nxt = p0;
+    assign p1_out_nxt = p1;
+    assign p2_out_nxt = p2;
+    assign p3_out_nxt = p3;
     // -------------------------------------------------------
 
     // ram inst-------------------------------------------------------\
@@ -153,8 +162,14 @@ module Mcu(
     // -------------------------------------------------------
     
     // rom inst-------------------------------------------------------
+    wire rom_en, rom_read;
+    wire[15:0] rom_addr;
+    wire[7:0] data_from_rom;
     Rom rom(
-
+        .rom_en(rom_en),
+        .read_en(rom_read),
+        .addr(rom_addr),
+        .data_out(data_from_rom)
     );
     // -------------------------------------------------------
 
