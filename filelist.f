@@ -4,10 +4,10 @@
 -kdb
 -lca
 
-./CPU/tb_get_ins.sv
-./CPU/CPU.v
-./CPU/InsDecoder.v
-./CPU/ALEGen.v
-./CPU/ClkDiv.v
-./CPU/Process.v 
-./CPU/ALU.v 
+./rtl/tb_get_ins.v
+./rtl/CPU.v
+./rtl/InsDecoder.v
+./rtl/ALEGen.v
+./rtl/ClkDiv.v
+./rtl/Process.v 
+./rtl/ALU.v 

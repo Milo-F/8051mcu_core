@@ -1,7 +1,0 @@
-./CPU/ClkDiv.v
-./CPU/InsDecoder.v
-./CPU/CPU.v
-./CPU/ALEGen.v
-./CPU/Process.v
-./CPU/ALU.v
-./CPU/tb_get_ins.sv

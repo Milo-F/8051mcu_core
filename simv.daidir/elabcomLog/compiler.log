@@ -1,3 +1,0 @@
-*design* DebussyLib (btIdent Verdi3_L-2016.06)
-Command arguments:  -lib  simv.daidir/work  -elab  simv.daidir/kdb  -simflow  -top  tb_get_ins ALEGen   -ssz  -ssv  -ssy  -ssz  -ssv  -ssy  -SNPS_ELABCOM  -saveElab 
-Total	0 error(s),   0 warning(s)

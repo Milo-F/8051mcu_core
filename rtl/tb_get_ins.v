@@ -50,7 +50,7 @@ module tb_get_ins;
 
     CPU cpu(
         .clk(clk),
-        .reset(rst_n),
+        .rst_n(rst_n),
         .data_bus(data_bus),
         .addr_bus(addr_bus),
         .read_en(read_en),
