@@ -10,35 +10,34 @@ module IntControl (
     input                   clk,
     input                   rst_n,
     // input interupt source
-    input                   int0,
-    input                   int1,
-    input                   t0,
-    input                   t1,
-    input                   uart,
+    input       [7:0]       IE,
+    input       [7:0]       TCON,
+    input       [1:0]       SCON,
     // output interupt info
-    output      [4:0]       interupt
+    output      [4:0]       interupt,
+    output      [7:0]       TCON_out
 );
-    reg         [4:0]       int_early, int_reg;
-    wire        [4:0]       int_early_nxt;
 
-    assign interupt = int_reg;
+    reg         [7:0]       TCON_reg;
+    reg         [1:0]       SCON_reg;
+    wire        [7:0]       TCON_nxt;
+
+    assign TCON_out = TCON_reg;
 
     IntArbiter IntArbiter_ins (
-    .int0(int0),
-    .int1(int1),
-    .t0(t0),
-    .t1(t1),
-    .uart(uart),
-    .int_early(int_early_nxt)
+        .IE(IE),
+        .TCON(TCON),
+        .SCON(SCON),
+        .int_early(interupt),
+        .TCON_nxt(TCON_nxt)
     );
     
     always @(posedge clk) begin
         if (!rst_n) begin
-            int_reg <= 0;
+            TCON_reg <= 0;
         end
         else begin
-            int_reg <= int_early;
-            int_early <= int_early_nxt;
+            TCON_reg <= TCON_nxt;
         end
     end
 endmodule

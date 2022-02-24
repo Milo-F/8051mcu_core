@@ -4,7 +4,9 @@
 -kdb
 -lca
 
-./rtl/tb_get_ins.v
+./rtl/MCU.v
+./rtl/IntControl.v 
+./rtl/IntArbiter.v
 ./rtl/CPU.v
 ./rtl/InsDecoder.v
 ./rtl/ALEGen.v

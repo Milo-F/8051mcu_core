@@ -1,9 +1,11 @@
+`include "rtl/para.v"
+
 module Mcu(
     input reset,
-    input clk,
+    input clk
     
-    input[7:0] p0_in, p1_in, p2_in, p3_in,
-    output reg[7:0] p0_out, p1_out, p2_out, p3_out
+    // input[7:0] p0_in, p1_in, p2_in, p3_in,
+    // output reg[7:0] p0_out, p1_out, p2_out, p3_out
 );
 
 
@@ -31,15 +33,39 @@ module Mcu(
     reg[7:0] p0, sp, dpl, dph, pcon, tcon, tmod, tl0, tl1, th0, th1, p1, scon, sbuf, p2, ie, p3, ip;
     reg[7:0] p0_nxt, sp_nxt, dpl_nxt, dph_nxt, pcon_nxt, tcon_nxt, tmod_nxt, tl0_nxt, tl1_nxt, th0_nxt, th1_nxt, p1_nxt, scon_nxt, sbuf_nxt, p2_nxt, ie_nxt, p3_nxt, ip_nxt;
 
+    reg[7:0] data_to_cpu, data_to_ram;
+    wire[4:0] interupt;
+    wire[15:0] addr_bus;
+    reg[15:0] rom_addr;
+    reg[7:0] ram_addr;
+    wire[7:0] data_bus, data_from_cpu, data_from_ram, data_from_rom;
+    wire read_en, write_en, clk_1M, clk_6M, memory_select;
+    reg ram_en, rom_en, ram_write, ram_read, rom_read;
+
+    // SFR 复位与状态更新
+    // always @(posedge clk) begin
+    //     if (!rst_n) begin
+    //         p0 <= 0;
+    //         p1 <= 0;
+    //         p2 <= 0;
+    //         p3 <= 0;
+    //         dpl <= 0;
+    //         dph <= 0;
+    //         ie <= 8'hff;
+
+    //     end
+    //     else begin
+            
+    //     end
+    // end
+
     // 内部存储器访问控制-------------------------------------------------------
     always @(*) begin
         ram_en = 1'b0;
         ram_read = 1'b0;
-        ram_write = 1'b0;
-        
+        ram_write = 1'b0;        
         rom_en = 1'b0;
         rom_read = 1'b0;
-
         if (memory_select) begin // 选中ram
             ram_en = 1'b1;
             if (addr_bus[7:0] < 8'h80) begin // 低127位寻址片内ram
@@ -71,9 +97,9 @@ module Mcu(
                         data_to_cpu = (read_en) ? pcon : 8'b0;
                         pcon_nxt = (write_en) ? data_from_cpu : pcon;
                     end
-                    `tcon:begin
+                    `tcon:begin 
                         data_to_cpu = (read_en) ? tcon : 8'b0;
-                        tcon_nxt = (write_en) ? data_from_cpu : tcon;
+                        // tcon_nxt = (write_en) ? data_from_cpu : tcon;
                     end
                     `tmod:begin
                         data_to_cpu = (read_en) ? tmod : 8'b0;
@@ -139,47 +165,25 @@ module Mcu(
     // -------------------------------------------------------
 
     // IO port set-------------------------------------------------------
-    wire[7:0] p0_out_nxt, p1_out_nxt, p2_out_nxt,p3_out_nxt;
-    assign p0_out_nxt = p0;
-    assign p1_out_nxt = p1;
-    assign p2_out_nxt = p2;
-    assign p3_out_nxt = p3;
-    // -------------------------------------------------------
+    // wire[7:0] p0_out_nxt, p1_out_nxt, p2_out_nxt,p3_out_nxt;
+    // assign p0_out_nxt = p0;
+    // assign p1_out_nxt = p1;
+    // assign p2_out_nxt = p2;
+    // assign p3_out_nxt = p3;
 
-    // // ram inst-------------------------------------------------------\
-    // reg ram_en, ram_read, ram_write;
-    // reg[7:0] ram_addr, data_to_ram;
-    // wire[7:0] data_from_ram;
-    // Ram ram(
-    //     .clk(clk),
-    //     .ram_en(ram_en),
-    //     .read_en(ram_read),
-    //     .write_en(ram_write),
-    //     .addr(ram_addr[6:0]),
-    //     .data_out(data_from_ram),
-    //     .data_in(data_to_ram)
-    // );
-    // // -------------------------------------------------------
-    
-    // // rom inst-------------------------------------------------------
-    // wire rom_en, rom_read;
-    // wire[15:0] rom_addr;
-    // wire[7:0] data_from_rom;
-    // Rom rom(
-    //     .rom_en(rom_en),
-    //     .read_en(rom_read),
-    //     .addr(rom_addr),
-    //     .data_out(data_from_rom)
-    // );
-    // // -------------------------------------------------------
+    // int_ctl_ins
+    IntControl  IntControl_ins (
+        .clk(clk),
+        .rst_n(rst_n),
 
+        .IE(ie),
+        .TCON(tcon),
+        .SCON(scon),
 
+        .interupt(interupt),
+        .TCON_out(tcon_nxt)
+    );
     // CPU inst-------------------------------------------------------
-    reg[7:0] data_to_cpu;
-    reg[4:0] interupt;
-    wire[15:0] addr_bus;
-    wire[7:0] data_bus, data_from_cpu;
-    wire read_en, write_en, clk_1M, clk_6M, memory_select;
     // 双向端口配置
     assign data_bus = (read_en) ? data_to_cpu : 8'bz;
     assign data_from_cpu = (write_en) ? data_bus : data_from_cpu;
