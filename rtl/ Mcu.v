@@ -146,32 +146,32 @@ module Mcu(
     assign p3_out_nxt = p3;
     // -------------------------------------------------------
 
-    // ram inst-------------------------------------------------------\
-    reg ram_en, ram_read, ram_write;
-    reg[7:0] ram_addr, data_to_ram;
-    wire[7:0] data_from_ram;
-    Ram ram(
-        .clk(clk),
-        .ram_en(ram_en),
-        .read_en(ram_read),
-        .write_en(ram_write),
-        .addr(ram_addr[6:0]),
-        .data_out(data_from_ram),
-        .data_in(data_to_ram)
-    );
-    // -------------------------------------------------------
+    // // ram inst-------------------------------------------------------\
+    // reg ram_en, ram_read, ram_write;
+    // reg[7:0] ram_addr, data_to_ram;
+    // wire[7:0] data_from_ram;
+    // Ram ram(
+    //     .clk(clk),
+    //     .ram_en(ram_en),
+    //     .read_en(ram_read),
+    //     .write_en(ram_write),
+    //     .addr(ram_addr[6:0]),
+    //     .data_out(data_from_ram),
+    //     .data_in(data_to_ram)
+    // );
+    // // -------------------------------------------------------
     
-    // rom inst-------------------------------------------------------
-    wire rom_en, rom_read;
-    wire[15:0] rom_addr;
-    wire[7:0] data_from_rom;
-    Rom rom(
-        .rom_en(rom_en),
-        .read_en(rom_read),
-        .addr(rom_addr),
-        .data_out(data_from_rom)
-    );
-    // -------------------------------------------------------
+    // // rom inst-------------------------------------------------------
+    // wire rom_en, rom_read;
+    // wire[15:0] rom_addr;
+    // wire[7:0] data_from_rom;
+    // Rom rom(
+    //     .rom_en(rom_en),
+    //     .read_en(rom_read),
+    //     .addr(rom_addr),
+    //     .data_out(data_from_rom)
+    // );
+    // // -------------------------------------------------------
 
 
     // CPU inst-------------------------------------------------------
