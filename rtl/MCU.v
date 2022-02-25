@@ -2,7 +2,12 @@
 
 module Mcu(
     input reset,
-    input clk
+    input clk,
+
+    input cnt_0,
+    input cnt_1,
+    input inti0,
+    input inti1
     
     // input[7:0] p0_in, p1_in, p2_in, p3_in,
     // output reg[7:0] p0_out, p1_out, p2_out, p3_out
@@ -42,22 +47,84 @@ module Mcu(
     wire read_en, write_en, clk_1M, clk_6M, memory_select;
     reg ram_en, rom_en, ram_write, ram_read, rom_read;
 
-    // SFR 复位与状态更新
-    // always @(posedge clk) begin
-    //     if (!rst_n) begin
-    //         p0 <= 0;
-    //         p1 <= 0;
-    //         p2 <= 0;
-    //         p3 <= 0;
-    //         dpl <= 0;
-    //         dph <= 0;
-    //         ie <= 8'hff;
+    // timer/counter 0
+    wire [7:0] th0_out, tl0_out;
+    wire to0;
+    Timer Timer_ins_0 (
+        .clk(clk),
+        .rst_n(rst_n),
 
-    //     end
-    //     else begin
-            
-    //     end
-    // end
+        .cnt_sig(cnt_0),
+        .t_s(tcon[6]),
+        .tmod(tmod[3:0]),
+        .th(th0),
+        .tl(tl0),
+
+        .th_nxt(th0_out),
+        .tl_nxt(tl0_out),
+        .t_o(to0)
+    );
+    // timer/counter 1
+    wire [7:0] th1_out, tl1_out;
+    wire to1;
+    Timer Timer_ins_1 (
+        .clk(clk),
+        .rst_n(rst_n),
+
+        .cnt_sig(cnt_1),
+        .t_s(tcon[7]),
+        .tmod(tmod[7:4]),
+        .th(th1),
+        .tl(tl1),
+
+        .th_nxt(th1_out),
+        .tl_nxt(tl1_out),
+        .t_o(to1)
+    );
+
+    // SFR 复位与状态更新
+    always @(posedge clk) begin
+        if (!rst_n) begin
+            p0 <= 8'hff;
+            p1 <= 8'hff;
+            p2 <= 8'hff;
+            p3 <= 8'hff;
+            sp <= 8'h07;
+            dpl <= 0;
+            dph <= 0;
+            ie <= 0;
+            pcon <= 0;
+            tcon <= 0;
+            tmod <= 0;
+            tl0 <= 0;
+            tl1 <= 0;
+            th0 <= 0;
+            th1 <= 0;
+            scon <= 0;
+            sbuf <= 0;
+            ip <= 0;
+        end
+        else begin
+            p0 <= p0_nxt;
+            p1 <= p1_nxt;
+            p2 <= p2_nxt;
+            p3 <= p3_nxt;
+            sp <= sp_nxt;
+            dpl <= dpl_nxt;
+            dph <= dph_nxt;
+            ie <= ie_nxt;
+            pcon <= pcon_nxt;
+            tcon <= tcon_nxt;
+            tmod <= tmod_nxt;
+            tl0 <= tl0_nxt;
+            tl1 <= tl1_nxt;
+            th0 <= th0_nxt;
+            th1 <= th1_nxt;
+            scon <= scon_nxt;
+            sbuf <= sbuf_nxt;
+            ip <= ip_nxt;
+        end
+    end
 
     // 内部存储器访问控制-------------------------------------------------------
     always @(*) begin
@@ -107,19 +174,19 @@ module Mcu(
                     end
                     `tl0:begin
                         data_to_cpu = (read_en) ? tl0 : 8'b0;
-                        tl0_nxt = (write_en) ? data_from_cpu : tl0;
+                        tl0_nxt = (write_en) ? data_from_cpu : tl0_out;
                     end
                     `tl1:begin
                         data_to_cpu = (read_en) ? tl1 : 8'b0;
-                        tl1_nxt = (write_en) ? data_from_cpu : tl1;
+                        tl1_nxt = (write_en) ? data_from_cpu : tl1_out;
                     end
                     `th0:begin
                         data_to_cpu = (read_en) ? th0 : 8'b0;
-                        th0_nxt = (write_en) ? data_from_cpu : th0;
+                        th0_nxt = (write_en) ? data_from_cpu : th0_out;
                     end
                     `th1:begin
                         data_to_cpu = (read_en) ? th1 : 8'b0;
-                        th1_nxt = (write_en) ? data_from_cpu : th1;
+                        th1_nxt = (write_en) ? data_from_cpu : th1_out;
                     end
                     `p1:begin
                         data_to_cpu = (read_en) ? p1 : 8'b0;
@@ -160,8 +227,6 @@ module Mcu(
             data_to_cpu = (read_en) ? data_from_rom : 8'b0;
         end
     end
-
-
     // -------------------------------------------------------
 
     // IO port set-------------------------------------------------------
@@ -172,6 +237,7 @@ module Mcu(
     // assign p3_out_nxt = p3;
 
     // int_ctl_ins
+    wire [7:0] tcon_out;
     IntControl  IntControl_ins (
         .clk(clk),
         .rst_n(rst_n),
@@ -181,8 +247,18 @@ module Mcu(
         .SCON(scon),
 
         .interupt(interupt),
-        .TCON_out(tcon_nxt)
+        .TCON_out(tcon_out)
     );
+    // 中断标志更新
+    always @* begin
+        tcon_nxt[7] = tcon[7] ? ~to1 : tcon[7];
+        tcon_nxt[6] = tcon[6] ? ~to0 : tcon[6];
+        tcon_nxt[5:4] = tcon_out[5:4];
+        tcon_nxt[3] = to1 | tcon_out[3];
+        tcon_nxt[2] = inti0 | tcon_out[2];
+        tcon_nxt[1] = to0 | tcon_out[1];
+        tcon_nxt[0] = inti1 | tcon_out[0];
+    end
     // CPU inst-------------------------------------------------------
     // 双向端口配置
     assign data_bus = (read_en) ? data_to_cpu : 8'bz;

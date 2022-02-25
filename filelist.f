@@ -5,6 +5,7 @@
 -lca
 
 ./rtl/MCU.v
+./rtl/Timer.v
 ./rtl/IntControl.v 
 ./rtl/IntArbiter.v
 ./rtl/CPU.v
