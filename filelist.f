@@ -4,6 +4,8 @@
 -kdb
 -lca
 
+./sim/tb_int_ctl.v
+
 ./rtl/MCU.v
 ./rtl/Timer.v
 ./rtl/IntControl.v 

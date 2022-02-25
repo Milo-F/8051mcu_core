@@ -9,7 +9,7 @@ com:
 	-debug_all \
 	-l com.log
 
-sim:
+run:
 	./simv -gui=verdi -l sim.log &
 
 clean:

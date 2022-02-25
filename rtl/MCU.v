@@ -37,7 +37,7 @@ module Mcu(
     // SFR特殊寄存器定义
     reg[7:0] p0, sp, dpl, dph, pcon, tcon, tmod, tl0, tl1, th0, th1, p1, scon, sbuf, p2, ie, p3, ip;
     reg[7:0] p0_nxt, sp_nxt, dpl_nxt, dph_nxt, pcon_nxt, tcon_nxt, tmod_nxt, tl0_nxt, tl1_nxt, th0_nxt, th1_nxt, p1_nxt, scon_nxt, sbuf_nxt, p2_nxt, ie_nxt, p3_nxt, ip_nxt;
-
+    reg [7:0] tcon_reg;
     reg[7:0] data_to_cpu, data_to_ram;
     wire[4:0] interupt;
     wire[15:0] addr_bus;
@@ -114,7 +114,7 @@ module Mcu(
             dph <= dph_nxt;
             ie <= ie_nxt;
             pcon <= pcon_nxt;
-            tcon <= tcon_nxt;
+            tcon <= tcon_reg;
             tmod <= tmod_nxt;
             tl0 <= tl0_nxt;
             tl1 <= tl1_nxt;
@@ -166,7 +166,7 @@ module Mcu(
                     end
                     `tcon:begin 
                         data_to_cpu = (read_en) ? tcon : 8'b0;
-                        // tcon_nxt = (write_en) ? data_from_cpu : tcon;
+                        tcon_reg = (write_en) ? data_from_cpu : tcon_nxt;
                     end
                     `tmod:begin
                         data_to_cpu = (read_en) ? tmod : 8'b0;
@@ -244,7 +244,7 @@ module Mcu(
 
         .IE(ie),
         .TCON(tcon),
-        .SCON(scon),
+        .SCON(scon[1:0]),
 
         .interupt(interupt),
         .TCON_out(tcon_out)

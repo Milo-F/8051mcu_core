@@ -32,18 +32,11 @@ module tb_get_ins;
     end
     initial begin
         instruction = 8'b110?_0011;
-        // forever begin
-        //     @(posedge read_en);
-        //     instruction = 8'b0010_0010;
-        // end
         ram_data = 8'h50;
         @(posedge clk);
         forever begin
            #50 instruction = 8'b1011_0100;
         end
-        // forever begin
-        //     #2 instruction = instruction;
-        // end
     end
     assign data_bus = (read_en) ? (memory_select ? ram_data : instruction) : 8'bz;
     assign data_out = (write_en)? data_bus : data_out;
