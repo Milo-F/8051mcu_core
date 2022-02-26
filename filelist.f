@@ -1,10 +1,4 @@
-+v2k
--debug_all
--debug_access+r
--kdb
--lca
-
-./sim/tb_int_ctl.v
+./tb/tb_timer.v
 
 ./rtl/MCU.v
 ./rtl/Timer.v
