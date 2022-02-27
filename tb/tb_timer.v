@@ -37,9 +37,32 @@ module tb_timer;
     `else
         // random input test
         initial begin
-            
+            // tmod = 4'b1 << {$random}%4;
+            tmod = 0;
+            cnt_sig = 0;
+            forever #2 cnt_sig = ~cnt_sig;
+            // t_s = 0;
         end
     `endif
+    
+    always @* begin
+        t_s = ~t_o;
+    end
+
+    always @(posedge clk) begin
+        if (!rst_n) begin
+            // th <= {$random}%2;
+            // tl <= {$random}%256;
+            // {th, tl} <= 'o500;
+            th <= 0;
+            tl <= 'd200;
+        end
+        else begin
+            th <= th_nxt;
+            tl <= tl_nxt;
+        end
+    end
+
     Timer Timer_ins (
         .clk(clk),
         .rst_n(rst_n),
