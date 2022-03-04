@@ -7,7 +7,7 @@
 --------------------------------------------------------------*/
 
 module ClkDiv #(
-    DIV_NUM
+    DIV_NUM = 2
 ) (
     input           clk_in,
     input           rst_n,

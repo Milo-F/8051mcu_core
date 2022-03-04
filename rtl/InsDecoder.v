@@ -840,7 +840,7 @@ module InsDecoder(
     end
 
     // 写ram任务
-    task automatic ram_write(reg[3:0] data_from_val, reg[7:0] addr);
+    task ram_write(reg[3:0] data_from_val, reg[7:0] addr);
         begin
             next_status = TO_RAM_WRITE;
             a_data_from = data_from_val;
@@ -848,14 +848,14 @@ module InsDecoder(
         end
     endtask
     // 读ram任务
-    task automatic ram_read(reg[7:0] addr);
+    task ram_read(reg[7:0] addr);
         begin
             next_status = TO_RAM_READ;
             addr_register_out = addr;
         end
     endtask
     // process运算任务
-    task automatic pro(reg[3:0] a_from, b_from, reg[3:0] op);
+    task pro(reg[3:0] a_from, b_from, reg[3:0] op);
         begin
             next_status = TO_PROCESS;
             a_data_from = a_from;

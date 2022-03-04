@@ -26,7 +26,7 @@ module IntArbiter(
     assign int_tmp[4] = IE[7] & IE[4] & (SCON[0]|SCON[1]) & ~int_tmp[0] & ~int_tmp[1] & ~int_tmp[2] & ~int_tmp[3];
     // int0/1 t0/1 interupt flag reset automatically
     assign TCON_nxt[3:0] = 0;
-    assign TCON_nxt[7:4] = TCON;
+    assign TCON_nxt[7:4] = TCON[7:4];
     // assign TCON_nxt[1] = ~(TCON[1] & int_tmp[0]);
     // assign TCON_nxt[0] = ~(TCON[0] & int_tmp[1]);
     // assign TCON_nxt[3] = ~(TCON[3] & int_tmp[2]);

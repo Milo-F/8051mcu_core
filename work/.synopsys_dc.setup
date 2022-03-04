@@ -1,6 +1,6 @@
 
 echo "set your project work path"
-set SYN_ROOT_PATH /rhys_li/dc_training/my_dc_lab/lab1
+set SYN_ROOT_PATH /home/milo/ICCodes/mcu51
 
 echo "set your rtl document path"
 set RTL_PATH $SYN_ROOT_PATH/rtl
@@ -24,7 +24,7 @@ echo "set your work document path"
 set WORK_PATH $SYN_ROOT_PATH/work
 
 #set your DC software path 
-set DC_PATH   /opt/Synopsys/Synplify2015
+set DC_PATH   /home/milo/Synopsys/dc
 
 echo "====================Define your library directory=================="
 
@@ -32,10 +32,10 @@ echo "====================Define your library directory=================="
 define_design_lib work -path $WORK_PATH
 
 echo "set your symbol library"
-set SYMBOL_PATH /opt/Foundary_Library/TSMC90/aci/sc-x/symbols/synopsys
+set SYMBOL_PATH /home/milo/TSMC.90/aci/sc-x/symbols/synopsys
 
 echo "set your lib path"
-set LIB_PATH /opt/Foundary_Library/TSMC90/aci/sc-x/synopsys
+set LIB_PATH /home/milo/TSMC.90/aci/sc-x/synopsys
 
 echo "*******************system variables settings***********************"
 
@@ -57,11 +57,11 @@ echo "************DC' own library path*********************"
 set_app_var synthetic_library [list dw_foundation.sldb standard.sldb]
 
 echo "***********Target library name *********"
-set_app_var target_library [list slow.db ]
+set_app_var target_library [list slow.db fast.db]
 								 
 							
 echo "***********Link library name************"
-set_app_var link_library [list * ${target_library} dw_foundation.sldb]
+set_app_var link_library [list {*} slow.db fast.db dw_foundation.sldb]
 
 echo "***********Symbol Library name**********"						 ]
 set_app_var symbol_library [list tsmc090.sdb]

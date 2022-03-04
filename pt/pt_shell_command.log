@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running pt_shell Version M-2016.12-SP1 for linux64 -- Jan 12, 2017
-#@ # Date:   Sun Feb 27 19:49:35 2022
+#@ # Date:   Tue Mar  1 10:11:12 2022
 #@ # Run by: milo@Milo
 #@ 
 
@@ -63,6 +63,20 @@ source /home/milo/Synopsys/pt/admin/setup/.synopsys_pt.setup
 #@ #alias q quit
 #@ 
 #@ # -- End source /home/milo/Synopsys/pt/admin/setup/.synopsys_pt.setup
+
+source /home/milo/ICCodes/mcu51/pt/.synopsys_pt.setup
+#@ # -- Starting source /home/milo/ICCodes/mcu51/pt/.synopsys_pt.setup
+
+#@ echo "set your project work path"
+#@ set SYN_ROOT_PATH /home/milo/ICCodes/mcu51
+#@ echo "set your ddc file path"
+#@ set FILE_PATH ${SYN_ROOT_PATH}/mapped
+#@ echo "====================Define your library directory=================="
+#@ set LIB_PATH /home/milo/TSMC.90/aci/sc-x/synopsys
+#@ 
+#@ set search_path [list "." ${LIB_PATH} ${FILE_PATH}]
+#@ set link_path [list * slow.db fast.db]
+#@ # -- End source /home/milo/ICCodes/mcu51/pt/.synopsys_pt.setup
 
 #@ # -- Starting source /home/milo/Synopsys/pt/auxx/tcllib/lib/itcl4.0.2/itcl.tcl
 
@@ -37233,4 +37247,29 @@ gui_start
 #@ 
 #@ # -- End source /home/milo/Synopsys/pt/auxx/tcllib/lib/iwidgets4.1/watch.itk
 
+read_ddc int_ctl.ddc
+link_design IntControl
+report_cell
+gui_zoom -window [gui_get_current_window -view] -rect {{74313 -98012} {81884 -90441}}
+gui_zoom -window [gui_get_current_window -view] -full
+gui_zoom -window [gui_get_current_window -view] -full
+gui_zoom -window [gui_get_current_window -view] -full
+gui_zoom -window [gui_get_current_window -view] -full
+gui_zoom -window [gui_get_current_window -view] -full
+gui_zoom -window [gui_get_current_window -view] -full
+gui_create_category_nodes -parent_categories {{ALL}} -rule_names {Blocks}
+gui_create_category_nodes -parent_categories {{ALL}} -rule_names {{Start Point}}
+gui_create_category_nodes -parent_categories {{ALL}} -rule_names {{Start Point}}
+list_libraries
+report_lib slow
+create_clock -period 10 [get_ports clk]
+set clock [get_clock clk]
+set_clock_uncertainty 0.2 $clock
+set_clock_latency -min 1 $clock
+set_clock_latency -max 2 $clock
+set_clock_transition -min 0.3 $clock
+set_clock_transition -max 0.5 $clock
+report_design
+check_timing
+check_timing -verbose
 exit

@@ -1,4 +1,4 @@
-`include "rtl/para.v"
+`include "para.vh"
 
 module Mcu(
     input reset,

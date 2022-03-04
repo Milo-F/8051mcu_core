@@ -169,11 +169,9 @@ module CPU (
     // 中断程序入口地址选择
     always @(*) begin
         int_addr_nxt = int_addr;
+        interupt_en_nxt = interupt_en;
         if (interupt != 0) begin
-            interupt_en_nxt = 1'b1;
-        end
-        else begin
-            interupt_en_nxt = 1'b0;
+            interupt_en_nxt = ~interupt_en;
         end
         case (1'b1)
             interupt[0]: int_addr_nxt = 16'h0003; // INT0中断
@@ -228,7 +226,7 @@ module CPU (
             status[GET_INS_INDEX]:begin // 取指，负责把ROM中的数据取出送入ins_register
                 run_phase_nxt = 0;
                 if (interupt_en) begin // 取指之前判断是否响应中断
-                    interupt_en_nxt = 1'b0;
+                    // interupt_en_nxt = 1'b0;
                     ins_register_nxt = 8'b1111_0000; // 利用长跳转指令跳转到中断程序入口
                     status_nxt = INS_DECODE;
                 end
