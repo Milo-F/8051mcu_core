@@ -34,7 +34,7 @@ module Timer(
     wire        [7:0]       m1_th_nxt;
     wire        [4:0]       m1_tl_nxt;
     assign m1_tl_nxt = t_s ? (tl - 1'b1) : tl;
-    assign m1_th_nxt = (t_s == 1'b1 && tl == 8'b???0 && th != 0) ? th - 1 : th;
+    assign m1_th_nxt = (t_s == 1'b1 && tl[4:0] == 5'b0 && th != 0) ? th - 1 : th;
     // reload timer
     wire        [7:0]       m2_tl_nxt;
     reg         [7:0]       ini_val;

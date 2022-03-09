@@ -840,7 +840,10 @@ module InsDecoder(
     end
 
     // 写ram任务
-    task ram_write(reg[3:0] data_from_val, reg[7:0] addr);
+    task ram_write(
+        input reg[3:0] data_from_val, 
+        input reg[7:0] addr
+    );
         begin
             next_status = TO_RAM_WRITE;
             a_data_from = data_from_val;
@@ -848,14 +851,18 @@ module InsDecoder(
         end
     endtask
     // 读ram任务
-    task ram_read(reg[7:0] addr);
+    task ram_read(
+        input reg[7:0] addr
+    );
         begin
             next_status = TO_RAM_READ;
             addr_register_out = addr;
         end
     endtask
     // process运算任务
-    task pro(reg[3:0] a_from, b_from, reg[3:0] op);
+    task pro(
+        input reg[3:0] a_from, b_from, op
+    );
         begin
             next_status = TO_PROCESS;
             a_data_from = a_from;
@@ -864,16 +871,18 @@ module InsDecoder(
         end
     endtask
     // 位地址转ram地址，bit_location为位所在位置，返回值为对应的ram地址
-    function reg[7:0] bit2addr(reg[7:0] bit_addr);
+    function [7:0] bit2addr(
+        input reg[7:0] bit_addr
+    );
         begin
-            reg[7:0] ram_addr;
+            // reg[7:0] ram_addr;
             if ((bit_addr >> 3) < 8'h0f) begin
-                ram_addr = {4'h2, bit_addr[6:3]};
+                bit2addr = {4'h2, bit_addr[6:3]};
             end
             else begin
-                ram_addr = {bit_addr[7:3], 3'b0};
+                bit2addr = {bit_addr[7:3], 3'b0};
             end
-            return ram_addr;
+            // return ram_addr;
         end
     endfunction
 

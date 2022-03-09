@@ -27,13 +27,13 @@ module Process (
         .b_data(b_data),
         .a_bit_location(a_bit_location),
         .b_bit_location(b_bit_location),
-        .bit_en,
+        .bit_en(bit_en),
         .alu_op(alu_op),
         .ans(alu_ans),
         .psw_out(alu_psw_out)
     );
-    reg[7:0] pro_ans = 0;
-    reg[7:0] pro_psw = 0;
+    reg[7:0] pro_ans;
+    reg[7:0] pro_psw;
 
     // 部分简单的运算操作
     always @(*) begin

@@ -15,8 +15,8 @@ module Mcu(
 
 
     // 复位控制---------------------------------------------------
-    reg[3:0]    cnt_rst = 4'b0; // 复位信号计数器 
-    reg         rst_n = 1'b1; // 有效复位信号
+    reg[3:0]    cnt_rst; // 复位信号计数器 
+    reg         rst_n; // 有效复位信号
     // 复位信号持续10个时钟周期有效
     always @(posedge clk) begin
         if (!reset) begin
@@ -56,7 +56,7 @@ module Mcu(
 
         .cnt_sig(cnt_0),
         .t_s(tcon[6]),
-        .tmod(tmod[3:0]),
+        .tmod(tmod[2:0]),
         .th(th0),
         .tl(tl0),
 
@@ -73,7 +73,7 @@ module Mcu(
 
         .cnt_sig(cnt_1),
         .t_s(tcon[7]),
-        .tmod(tmod[7:4]),
+        .tmod(tmod[6:4]),
         .th(th1),
         .tl(tl1),
 
