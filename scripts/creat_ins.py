@@ -45,7 +45,7 @@ f_content = ''.join(f_list)
 print(f_content)
 f_content = re.sub(r'\B ?inout *(?:wire|reg)? *(?:\[.*\])? *|\B ?output *(?:wire|reg)? *(?:\[.*\])? *|\B ?input *(?:wire)? *(?:\[.*\])? *','.',f_content)
 port_name = re.findall(r'\B\..*,?', f_content)
-print(port_name[-6])
+# print(port_name[-6])
 for str in port_name:
     name = str.replace('.','').replace(',','')
     end_dot = ',' if str.find(',') >0 else ''
