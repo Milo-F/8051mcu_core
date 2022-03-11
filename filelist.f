@@ -1,5 +1,3 @@
-./tb/tb_timer.v
-
 ./rtl/MCU.v
 ./rtl/Timer.v
 ./rtl/IntControl.v 

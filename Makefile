@@ -25,12 +25,13 @@ endif
 ifeq ($(TB_LANG), systemverilog)
 	COM_OP += -sverilog
 endif
-DEBUG_OP ?= -debug_all -debug_access+r
+DEBUG_OP ?= -debug_access+r
 UCLI ?= -ucli
 VERDI_OP = -lca -kdb
+INCDIR ?= rtl/
 
 $(COM):
-	@$(VCS) $(COM_OP) $(DEBUG_OP) -f $(COM_F) $(UCLI) $(VERDI_OP) -l $(COM_LOG) -o $(OUT_F) $(COM_P)
+	@$(VCS) $(COM_OP) $(DEBUG_OP) -f $(COM_F) $(UCLI) $(VERDI_OP) -l $(COM_LOG) -o $(OUT_F) $(COM_P) +incdir+$(INCDIR)
 
 # run simulation
 RUN := run
