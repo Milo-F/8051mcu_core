@@ -26,16 +26,17 @@ module UartIf (
     *   串口发送
     */
     wire                    clk_tx; // 发送时钟，波特率9600
-    // 读fifo时钟，发送时钟的12分频，包括1起始位+8数据位+1校验位+2空闲位
-    wire                    clk_rd; 
+    reg                     clk_rd; // 读fifo时钟，发送时钟的12分频，包括1起始位+8数据位+1校验位+2空闲位
     reg         [3:0]       tx_bit_cnt, tx_bit_cnt_nxt; // 发送数据计数，记录已经发了几个bit
     reg                     txd_out, txd_out_nxt;
-    reg                     tx_status, ts_status_nxt;
+    reg                     tx_status, tx_status_nxt;
+    reg         [11:0]      tx_tmp, tx_tmp_nxt;
     wire                    odd_bit;
     wire        [3:0]       tx_bit_cnt_minus_1;
     
     assign tx_bit_cnt_minus_1 = tx_bit_cnt - 1;
     assign odd_bit = ^txd_from_fifo;
+    assign txd = txd_out;
     // wire clk_tx;
     ClkDiv #(
         .DIV_NUM(16)
@@ -44,18 +45,50 @@ module UartIf (
         .rst_n(rst_n),
         .clk_out(clk_tx)
     );
-    ClkDiv #(
-        .DIV_NUM(12)
-    )  ClkDiv_rd (
-        .clk_in(clk_tx),
-        .rst_n(rst_n),
-        .clk_out(clk_rd)
-    );
     
-    assign r_en = clk_rd & fifo_empty; // 如果fifo非空，则按照读时钟去读数据
-    // reg                     txd_out, txd_out_nxt;
-    // reg                     r_en_out, r_en_out_nxt;
+    always @* begin
+        tx_bit_cnt_nxt = 4'b1011;
+        clk_rd = 0;
+        tx_status_nxt = 0;
+        if (!fifo_empty) begin
+            tx_status_nxt = 1;
+            if (tx_bit_cnt == 0) begin
+                tx_bit_cnt_nxt = 4'b1011;
+                clk_rd = 1;
+            end
+            else begin
+                tx_bit_cnt_nxt = tx_bit_cnt_minus_1;
+            end
+        end
+    end
 
+    assign r_en = clk_rd; // 按照读时钟去读数据
+
+    always @* begin
+        txd_out_nxt = 1;
+        tx_tmp_nxt = tx_tmp;
+        tx_status_nxt = tx_status;
+
+        if (tx_status) begin // 发送数据
+            txd_out_nxt = tx_tmp[0];
+            tx_tmp_nxt = {1, tx_tmp[11:1]};
+        end
+    end
+
+    always @(posedge clk_tx) begin
+        if (!rst_n) begin
+            tx_status <= 0;
+            txd_out <= 1;
+            tx_tmp <= 12'hfff;
+            tx_bit_cnt <= 4'b1011;
+        end
+        else begin
+            tx_status <= tx_status_nxt;
+            txd_out <= txd_out_nxt;
+            tx_tmp <= r_en ? {2'b11, odd_bit, txd_from_fifo, 1'b0} : tx_tmp_nxt; 
+            tx_bit_cnt <= tx_bit_cnt_nxt;
+        end
+    end
     /*
     *   串口接收：串口接收16倍波特率采样，波特率9600
     */
@@ -94,7 +127,7 @@ module UartIf (
                 if (start_cnt == 3'b0) begin
                     rx_status_nxt = 1;
                     bit_cnt_nxt = 4'b1010;
-                    sample_cnt_nxt = 3'b1111;
+                    sample_cnt_nxt = 3'b111;
                 end
                 start_cnt_nxt = start_cnt_minus_1;
             end 
