@@ -12,6 +12,7 @@ module fifo_ram #(
     ADDR_WIDTH      =       4
 )(
     input                                   clk,
+    input                                   rst_n,
     // read ports
     input                                   r_en,
     input       [ADDR_WIDTH - 1 : 0]        r_addr,
@@ -24,13 +25,16 @@ module fifo_ram #(
     reg         [DATA_WIDTH - 1 : 0]        mem[RAM_DEPTH - 1 : 0];
     reg         [DATA_WIDTH - 1 : 0]        r_data_out;
     always @(posedge clk) begin
-        if (r_addr !== w_addr) begin // 读写地址冲突选择只读
+        if (!rst_n) begin
+            r_data_out <= 0;
+        end
+        else begin
             if (w_en) begin
                 mem[w_addr] <= w_data;
             end
-        end
-        if (r_en) begin
-            r_data_out <= mem[r_addr];
+            if (r_en) begin
+                r_data_out <= mem[r_addr];
+            end
         end
     end
     assign r_data = r_data_out;

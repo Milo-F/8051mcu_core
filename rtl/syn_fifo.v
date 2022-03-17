@@ -3,7 +3,8 @@ module syn_fifo #(
     FIFO_DEPTH = 16,
     ADDR_WIDTH = 4
 ) (
-    input                                   clk, rst_n,
+    input                                   clk, 
+    input                                   rst_n,
     // write fifo ports
     input                                   w_en,
     input       [DATA_WIDTH - 1 : 0]        w_data,
@@ -12,7 +13,7 @@ module syn_fifo #(
     output      [DATA_WIDTH - 1 : 0]        r_data,
     // fifo control ports
     output                                  is_empty,
-    output                                  is_full,   
+    output                                  is_full,
     output      [ADDR_WIDTH : 0]            room_avail,
     output      [ADDR_WIDTH : 0]            data_avail
 );
@@ -25,6 +26,8 @@ module syn_fifo #(
     // write and read pointer
     reg         [ADDR_WIDTH : 0]            w_ptr, w_ptr_nxt;
     reg         [ADDR_WIDTH : 0]            r_ptr, r_ptr_nxt;
+    // avaliable room counter
+    // reg         [ADDR_WIDTH : 0]            avail_tmp;
 
     // write pointer control
     always @* begin
@@ -44,13 +47,35 @@ module syn_fifo #(
 
     // empty or full control
     always @* begin
-        is_empty_nxt = is_empty;
-        is_full_nxt = is_full;
+        is_empty_nxt = 0;
+        is_full_nxt = 0;
+        if (w_ptr[ADDR_WIDTH - 1 : 0] == r_ptr[ADDR_WIDTH - 1 : 0]) begin
+            if (w_ptr[ADDR_WIDTH] ^ r_ptr[ADDR_WIDTH]) begin
+                is_full_nxt = 1'b1;
+            end
+            else begin
+                is_empty_nxt = 1'b1;
+            end
+        end
     end
 
     // avaliable room or data calculate
     always @* begin
-        
+        room_avail_nxt = room_avail;
+        data_avail_nxt = data_avail;
+        // avail_tmp = w_ptr[ADDR_WIDTH - 1 : 0] - r_ptr[ADDR_WIDTH - 1 : 0]
+        if (w_ptr[ADDR_WIDTH - 1 : 0] > r_ptr[ADDR_WIDTH - 1 : 0]) begin
+            data_avail_nxt = w_ptr[ADDR_WIDTH - 1 : 0] - r_ptr[ADDR_WIDTH - 1 : 0];
+            room_avail_nxt = FIFO_DEPTH - w_ptr[ADDR_WIDTH - 1 : 0] + r_ptr[ADDR_WIDTH - 1 : 0];
+        end
+        else if (w_ptr[ADDR_WIDTH - 1 : 0] < r_ptr[ADDR_WIDTH - 1 : 0]) begin
+            data_avail_nxt = -(w_ptr[ADDR_WIDTH - 1 : 0] - r_ptr[ADDR_WIDTH - 1 : 0]);
+            room_avail_nxt = FIFO_DEPTH + w_ptr[ADDR_WIDTH - 1 : 0] - r_ptr[ADDR_WIDTH - 1 : 0];
+        end
+        else if (w_ptr[ADDR_WIDTH - 1 : 0] == r_ptr[ADDR_WIDTH - 1 : 0]) begin
+            data_avail_nxt = !(w_ptr[ADDR_WIDTH] ^ r_ptr[ADDR_WIDTH]) ? 0 : FIFO_DEPTH;
+            room_avail_nxt = (w_ptr[ADDR_WIDTH] ^ r_ptr[ADDR_WIDTH]) ? 0 : FIFO_DEPTH;
+        end
     end
 
     // update regs
@@ -80,6 +105,7 @@ module syn_fifo #(
         .ADDR_WIDTH(4)
     ) fifo_ram_ins (
         .clk(clk),
+        .rst_n(rst_n),
 
         .r_en(r_en),
         .r_addr(r_ptr[ADDR_WIDTH - 1 : 0]),
