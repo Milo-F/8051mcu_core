@@ -1,0 +1,93 @@
+module syn_fifo #(
+    DATA_WIDTH = 8,
+    FIFO_DEPTH = 16,
+    ADDR_WIDTH = 4
+) (
+    input                                   clk, rst_n,
+    // write fifo ports
+    input                                   w_en,
+    input       [DATA_WIDTH - 1 : 0]        w_data,
+    // read fifo ports
+    input                                   r_en,
+    output      [DATA_WIDTH - 1 : 0]        r_data,
+    // fifo control ports
+    output                                  is_empty,
+    output                                  is_full,   
+    output      [ADDR_WIDTH : 0]            room_avail,
+    output      [ADDR_WIDTH : 0]            data_avail
+);
+    // flip-flop output
+    // reg         [DATA_WIDTH - 1 : 0]    r_data, r_data_nxt;
+    reg         [ADDR_WIDTH : 0]            room_avail, room_avail_nxt;
+    reg         [ADDR_WIDTH : 0]            data_avail, data_avail_nxt;
+    reg                                     is_empty, is_empty_nxt;
+    reg                                     is_full, is_full_nxt;
+    // write and read pointer
+    reg         [ADDR_WIDTH : 0]            w_ptr, w_ptr_nxt;
+    reg         [ADDR_WIDTH : 0]            r_ptr, r_ptr_nxt;
+
+    // write pointer control
+    always @* begin
+        w_ptr_nxt = w_ptr;
+        if (w_en) begin
+            w_ptr_nxt = w_ptr + 1'b1;
+        end
+    end
+
+    // read pointer control
+    always @* begin
+        r_ptr_nxt = r_ptr;
+        if (r_en) begin
+            r_ptr_nxt = r_ptr + 1'b1;
+        end
+    end
+
+    // empty or full control
+    always @* begin
+        is_empty_nxt = is_empty;
+        is_full_nxt = is_full;
+    end
+
+    // avaliable room or data calculate
+    always @* begin
+        
+    end
+
+    // update regs
+    always @(posedge clk) begin
+        if (!rst_n) begin
+            w_ptr <= 0;
+            r_ptr <= 0;
+            is_full <= 0;
+            is_empty <= 1'b1;
+            room_avail <= FIFO_DEPTH;
+            data_avail <= 0;
+        end
+        else begin
+            w_ptr <= w_ptr_nxt;
+            r_ptr <= r_ptr_nxt;
+            is_full <= is_full_nxt;
+            is_empty <= is_empty_nxt;
+            room_avail <= room_avail_nxt;
+            data_avail <= data_avail_nxt;
+        end
+    end
+
+    // ram instance 
+    fifo_ram #(
+        .DATA_WIDTH(8),
+        .RAM_DEPTH(16),
+        .ADDR_WIDTH(4)
+    ) fifo_ram_ins (
+        .clk(clk),
+
+        .r_en(r_en),
+        .r_addr(r_ptr[ADDR_WIDTH - 1 : 0]),
+        .r_data(r_data),
+
+        .w_en(w_en),
+        .w_addr(w_ptr[ADDR_WIDTH - 1 : 0]),
+        .w_data(w_data)
+    );
+
+endmodule
