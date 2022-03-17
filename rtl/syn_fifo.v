@@ -100,9 +100,9 @@ module syn_fifo #(
 
     // ram instance 
     fifo_ram #(
-        .DATA_WIDTH(8),
-        .RAM_DEPTH(16),
-        .ADDR_WIDTH(4)
+        .DATA_WIDTH(DATA_WIDTH),
+        .RAM_DEPTH(FIFO_DEPTH),
+        .ADDR_WIDTH(ADDR_WIDTH)
     ) fifo_ram_ins (
         .clk(clk),
         .rst_n(rst_n),

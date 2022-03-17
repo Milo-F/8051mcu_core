@@ -60,9 +60,9 @@ module tb_syn_fifo;
         end
     end
     syn_fifo #(
-        .DATA_WIDTH(8),
-        .FIFO_DEPTH(16),
-        .ADDR_WIDTH(4)
+        .DATA_WIDTH(DATA_WIDTH),
+        .FIFO_DEPTH(FIFO_DEPTH),
+        .ADDR_WIDTH(ADDR_WIDTH)
     )  syn_fifo_ins (
         .clk(clk),
         .rst_n(rst_n),
