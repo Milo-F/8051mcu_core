@@ -7,17 +7,17 @@ module tb_syn_fifo();
     parameter ADDR_WIDTH = 4;
     /* ports defination  */
     
-    reg                                     clk, rst_n;
+    reg                                                     clk,rst_n;
     // read signal
-    reg                                     r_en;
-    wire        [DATA_WIDTH - 1 : 0]        r_data;
-    wire        [ADDR_WIDTH : 0]            data_avail;
-    wire                                    is_empty;
+    reg                                                     r_en;
+    wire                    [DATA_WIDTH - 1 : 0]            r_data;
+    wire                    [ADDR_WIDTH : 0]                data_avail;
+    wire                                                    is_empty;
     // write signal
-    reg                                     w_en;
-    reg         [DATA_WIDTH - 1 : 0]        w_data;
-    wire        [ADDR_WIDTH : 0]            room_avail;
-    wire                                    is_full;
+    reg                                                     w_en;
+    reg                     [DATA_WIDTH - 1 : 0]            w_data;
+    wire                    [ADDR_WIDTH : 0]                room_avail;
+    wire                                                    is_full;
     
     /* initial blocks */
     // generate clock and reset signal

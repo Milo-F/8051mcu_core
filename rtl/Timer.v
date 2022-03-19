@@ -19,26 +19,26 @@ module Timer(
     output                                                  t_o
 );
     // counter
-    wire         [7:0]       cnt_th_nxt, cnt_tl_nxt;
-    reg                     cnt_sig_early;
-    wire                    cnt_sig_early_nxt;
+    wire                    [7:0]                           cnt_th_nxt,cnt_tl_nxt;
+    reg                                                     cnt_sig_early;
+    wire                                                    cnt_sig_early_nxt;
     assign cnt_tl_nxt = t_s & (~cnt_sig & cnt_sig_early) ? tl - 1 : tl;
     assign cnt_th_nxt = (t_s == 1'b1 && tl == 0 && th != 0 && (~cnt_sig & cnt_sig_early)) ? th - 1 : th;
     // 16bit timer
-    wire        [7:0]       m0_th_nxt, m0_tl_nxt;
+    wire                    [7:0]                           m0_th_nxt,m0_tl_nxt;
     assign m0_tl_nxt = t_s ? (tl - 1'b1) : tl;
     assign m0_th_nxt = (t_s == 1'b1 && tl == 0 && th != 0) ? th - 1 : th;
     // 13bit timer
-    wire        [7:0]       m1_th_nxt;
-    wire        [4:0]       m1_tl_nxt;
+    wire                    [7:0]                           m1_th_nxt;
+    wire                    [4:0]                           m1_tl_nxt;
     assign m1_tl_nxt = t_s ? (tl - 1'b1) : tl;
     assign m1_th_nxt = (t_s == 1'b1 && tl[4:0] == 5'b0 && th != 0) ? th - 1 : th;
     // reload timer
-    wire        [7:0]       m2_tl_nxt;
-    reg         [7:0]       ini_val;
-    wire        [7:0]       ini_val_nxt;
-    reg                     t_s_early;
-    wire                    t_s_early_nxt;
+    wire                    [7:0]                           m2_tl_nxt;
+    reg                     [7:0]                           ini_val;
+    wire                    [7:0]                           ini_val_nxt;
+    reg                                                     t_s_early;
+    wire                                                    t_s_early_nxt;
     assign m2_tl_nxt         = t_s ? ((tl == 0) ? ini_val : tl - 1) : tl;
     assign t_s_early_nxt     = t_s;
     assign ini_val_nxt       = (t_s & ~t_s_early) ? tl : ini_val;

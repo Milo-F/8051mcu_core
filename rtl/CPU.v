@@ -87,44 +87,44 @@ module CPU (
     parameter NOP_DURATION = 6; // NOP指令空闲6个时钟周期
     
     // 指令处理线网定义
-    reg[6:0]    status, status_nxt;   // 状态
-    reg[2:0]    nop_cnt, nop_cnt_nxt; // NOP指令空闲时钟计数器
-    wire[2:0]   nop_cnt_minus1;
-    wire[15:0]  program_counter_plus1;
-    reg         get_ins_done, get_ins_done_nxt, ram_write_done, ram_write_done_nxt; // 状态完成标志
-    reg         ram_read_done, ram_read_done_nxt, rom_read_done, rom_read_done_nxt;
-    reg         read_en_nxt, memory_select_nxt, write_en_nxt;
-    reg[15:0]   addr_bus_nxt;
+    reg                     [6:0]                           status,status_nxt;    // 状态
+    reg                     [2:0]                           nop_cnt,nop_cnt_nxt;    // NOP指令空闲时钟计数器
+    wire                    [2:0]                           nop_cnt_minus1;
+    wire                    [15:0]                          program_counter_plus1;
+    reg                                                     get_ins_done,get_ins_done_nxt,ram_write_done,ram_write_done_nxt;    // 状态完成标志
+    reg                                                     ram_read_done,ram_read_done_nxt,rom_read_done,rom_read_done_nxt;
+    reg                                                     read_en_nxt,memory_select_nxt,write_en_nxt;
+    reg                     [15:0]                          addr_bus_nxt;
     assign nop_cnt_minus1 = nop_cnt - 1'b1;
     // CPU内部寄存器
-    reg[7:0]    psw, acc, b, b_nxt, psw_nxt, acc_nxt;     // 程序状态字psw，累加器acc，辅助寄存器b
-    reg[15:0]   program_counter, program_counter_nxt;     // rom程序计数器
-    reg[7:0]    ins_register, ins_register_nxt;           // 指令寄存器
-    reg[7:0]    ram_data_register, ram_data_register_nxt; // ram数据寄存器
-    reg[7:0]    rom_data_register, rom_data_register_nxt;
+    reg                     [7:0]                           psw,acc,b,b_nxt,psw_nxt,acc_nxt;    // 程序状态字psw，累加器acc，辅助寄存器b
+    reg                     [15:0]                          program_counter,program_counter_nxt;    // rom程序计数器
+    reg                     [7:0]                           ins_register,ins_register_nxt;    // 指令寄存器
+    reg                     [7:0]                           ram_data_register,ram_data_register_nxt;    // ram数据寄存器
+    reg                     [7:0]                           rom_data_register,rom_data_register_nxt;
     assign program_counter_plus1 = program_counter + 1'b1;
     
     // data_bus双向端口设置
-    reg[7:0]    data_out, data_out_nxt;
-    wire[7:0]   data_in;
+    reg                     [7:0]                           data_out,data_out_nxt;
+    wire                    [7:0]                           data_in;
     assign data_bus = (write_en) ? data_out : 8'bz;
     assign data_in  = (read_en) ? data_bus : data_in;
     
     // 译码器
-    wire[2:0]   decoder_next_status;      // 下个状态标识
-    reg[3:0]    run_phase, run_phase_nxt; // 当前指令所在的执行节点
-    wire[3:0]   run_phase_init;           // 指令初始执行需要的步骤数
-    wire[3:0]   a_data_from, b_data_from; // 写ram操作数据来源标识
-    wire[3:0]   alu_op;
-    wire[3:0]   run_phase_minus1;  // 步骤减一
-    wire[7:0]   addr_register_out; // 译码器输出地址
-    wire[2:0]   a_bit_location, b_bit_location;
-    wire bit_en;
+    wire                    [2:0]                           decoder_next_status;    // 下个状态标识
+    reg                     [3:0]                           run_phase,run_phase_nxt;    // 当前指令所在的执行节点
+    wire                    [3:0]                           run_phase_init;    // 指令初始执行需要的步骤数
+    wire                    [3:0]                           a_data_from,b_data_from;    // 写ram操作数据来源标识
+    wire                    [3:0]                           alu_op;
+    wire                    [3:0]                           run_phase_minus1;    // 步骤减一
+    wire                    [7:0]                           addr_register_out;    // 译码器输出地址
+    wire                    [2:0]                           a_bit_location,b_bit_location;
+    wire                                                    bit_en;
     assign run_phase_minus1 = run_phase - 1;
     
     // 中断
-    reg[15:0] int_addr, int_addr_nxt;
-    reg interupt_en, interupt_en_nxt;
+    reg                     [15:0]                          int_addr,int_addr_nxt;
+    reg                                                     interupt_en,interupt_en_nxt;
     
     
     InsDecoder insdecoder (
@@ -149,9 +149,9 @@ module CPU (
     
     
     // 运算处理相关定义
-    reg[7:0] pro_psw_in;
-    reg[7:0] pro_a, pro_b;
-    wire[7:0] pro_ans, pro_psw_out;
+    reg                     [7:0]                           pro_psw_in;
+    reg                     [7:0]                           pro_a,pro_b;
+    wire                    [7:0]                           pro_ans,pro_psw_out;
     // 运算处理
     
     

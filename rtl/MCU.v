@@ -11,8 +11,8 @@ module Mcu(
     
     
     // 复位控制---------------------------------------------------
-    reg[3:0]    cnt_rst; // 复位信号计数器
-    reg         rst_n; // 有效复位信号
+    reg                     [3:0]                           cnt_rst;     // 复位信号计数器
+    reg                                                     rst_n;     // 有效复位信号
     // 复位信号持续10个时钟周期有效
     always @(posedge clk) begin
         if (!reset) begin
@@ -31,21 +31,21 @@ module Mcu(
     // -------------------------------------------------------
     
     // SFR特殊寄存器定义
-    reg[7:0] p0, sp, dpl, dph, pcon, tcon, tmod, tl0, tl1, th0, th1, p1, scon, sbuf, p2, ie, p3, ip;
-    reg[7:0] p0_nxt, sp_nxt, dpl_nxt, dph_nxt, pcon_nxt, tcon_nxt, tmod_nxt, tl0_nxt, tl1_nxt, th0_nxt, th1_nxt, p1_nxt, scon_nxt, sbuf_nxt, p2_nxt, ie_nxt, p3_nxt, ip_nxt;
-    reg [7:0] tcon_reg;
-    reg[7:0] data_to_cpu, data_to_ram;
-    wire[4:0] interupt;
-    wire[15:0] addr_bus;
-    reg[15:0] rom_addr;
-    reg[7:0] ram_addr;
-    wire[7:0] data_bus, data_from_cpu, data_from_ram, data_from_rom;
-    wire read_en, write_en, clk_1M, clk_6M, memory_select;
-    reg ram_en, rom_en, ram_write, ram_read, rom_read;
+    reg                     [7:0]                           p0,sp,dpl,dph,pcon,tcon,tmod,tl0,tl1,th0,th1,p1,scon,sbuf,p2,ie,p3,ip;
+    reg                     [7:0]                           p0_nxt,sp_nxt,dpl_nxt,dph_nxt,pcon_nxt,tcon_nxt,tmod_nxt,tl0_nxt,tl1_nxt,th0_nxt,th1_nxt,p1_nxt,scon_nxt,sbuf_nxt,p2_nxt,ie_nxt,p3_nxt,ip_nxt;
+    reg                     [7:0]                           tcon_reg;
+    reg                     [7:0]                           data_to_cpu,data_to_ram;
+    wire                    [4:0]                           interupt;
+    wire                    [15:0]                          addr_bus;
+    reg                     [15:0]                          rom_addr;
+    reg                     [7:0]                           ram_addr;
+    wire                    [7:0]                           data_bus,data_from_cpu,data_from_ram,data_from_rom;
+    wire                                                    read_en,write_en,clk_1M,clk_6M,memory_select;
+    reg                                                     ram_en,rom_en,ram_write,ram_read,rom_read;
     
     // timer/counter 0
-    wire [7:0] th0_out, tl0_out;
-    wire to0;
+    wire                    [7:0]                           th0_out,tl0_out;
+    wire                                                    to0;
     Timer Timer_ins_0 (
         .clk(clk),
         .rst_n(rst_n),
@@ -59,8 +59,8 @@ module Mcu(
         .t_o(to0)
     );
     // timer/counter 1
-    wire [7:0] th1_out, tl1_out;
-    wire to1;
+    wire                    [7:0]                           th1_out,tl1_out;
+    wire                                                    to1;
     Timer Timer_ins_1 (
         .clk(clk),
         .rst_n(rst_n),
@@ -229,7 +229,7 @@ module Mcu(
     // assign p3_out_nxt = p3;
     
     // int_ctl_ins
-    wire [7:0] tcon_out;
+    wire                    [7:0]                           tcon_out;
     IntControl IntControl_ins (
         .clk(clk),
         .rst_n(rst_n),

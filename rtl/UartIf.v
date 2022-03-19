@@ -21,14 +21,14 @@ module UartIf (
     /*
      *   串口发送
      */
-    wire                    clk_tx; // 发送时钟，波特率9600
-    reg                     clk_rd; // 读fifo时钟，发送时钟的12分频，包括1起始位+8数据位+1校验位+2空闲位
-    reg         [3:0]       tx_bit_cnt, tx_bit_cnt_nxt; // 发送数据计数，记录已经发了几个bit
-    reg                     txd_out, txd_out_nxt;
-    reg                     tx_status, tx_status_nxt;
-    reg         [11:0]      tx_tmp, tx_tmp_nxt;
-    wire                    odd_bit;
-    wire        [3:0]       tx_bit_cnt_minus_1;
+    wire                                                    clk_tx;    // 发送时钟，波特率9600
+    reg                                                     clk_rd;    // 读fifo时钟，发送时钟的12分频，包括1起始位+8数据位+1校验位+2空闲位
+    reg                     [3:0]                           tx_bit_cnt,tx_bit_cnt_nxt;    // 发送数据计数，记录已经发了几个bit
+    reg                                                     txd_out,txd_out_nxt;
+    reg                                                     tx_status,tx_status_nxt;
+    reg                     [11:0]                          tx_tmp,tx_tmp_nxt;
+    wire                                                    odd_bit;
+    wire                    [3:0]                           tx_bit_cnt_minus_1;
     
     assign tx_bit_cnt_minus_1 = tx_bit_cnt - 1;
     assign odd_bit            = ^txd_from_fifo;
@@ -89,17 +89,17 @@ module UartIf (
      *   串口接收：串口接收16倍波特率采样，波特率9600
      */
     // 计数器等寄存器声明
-    reg                     int_hold, int_hold_nxt; // 中断保持
-    reg         [7:0]       r_data_out, r_data_out_nxt;
-    reg                     rxd_int_out, rxd_int_out_nxt;
-    reg         [8:0]       rx_tmp, rx_tmp_nxt;
-    reg                     rx_status, rx_status_nxt; // 0 : wait  1 : busy
-    reg         [2:0]       start_cnt, start_cnt_nxt;
-    reg         [3:0]       sample_cnt, sample_cnt_nxt;
-    reg         [3:0]       bit_cnt, bit_cnt_nxt;
-    wire        [2:0]       start_cnt_minus_1;
-    wire        [3:0]       sample_cnt_minus_1;
-    wire        [3:0]       bit_cnt_minus_1;
+    reg                                                     int_hold,int_hold_nxt;    // 中断保持
+    reg                     [7:0]                           r_data_out,r_data_out_nxt;
+    reg                                                     rxd_int_out,rxd_int_out_nxt;
+    reg                     [8:0]                           rx_tmp,rx_tmp_nxt;
+    reg                                                     rx_status,rx_status_nxt;    // 0 : wait  1 : busy
+    reg                     [2:0]                           start_cnt,start_cnt_nxt;
+    reg                     [3:0]                           sample_cnt,sample_cnt_nxt;
+    reg                     [3:0]                           bit_cnt,bit_cnt_nxt;
+    wire                    [2:0]                           start_cnt_minus_1;
+    wire                    [3:0]                           sample_cnt_minus_1;
+    wire                    [3:0]                           bit_cnt_minus_1;
     // counter
     assign start_cnt_minus_1  = start_cnt - 1;
     assign sample_cnt_minus_1 = sample_cnt - 1;

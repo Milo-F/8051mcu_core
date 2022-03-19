@@ -13,8 +13,8 @@ module ClkDiv #(
     input                                                   rst_n,
     output                                                  clk_out
 );
-    reg [4:0] cnt_p, cnt_n;
-    reg clk_p, clk_n, clk_o;
+    reg                     [4:0]                           cnt_p,cnt_n;
+    reg                                                     clk_p,clk_n,clk_o;
     
     // 根据DIV_NUM的数值进行分频
     always @(posedge clk_in, negedge rst_n) begin

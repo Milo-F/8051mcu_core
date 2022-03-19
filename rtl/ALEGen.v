@@ -11,7 +11,7 @@ module ALEGen (
     input                                                   rst_n,
     output      reg                                         ALE
 );
-    reg [2:0] cnt;
+    reg                     [2:0]                           cnt;
     
     always @(posedge clk, negedge rst_n) begin
         if (!rst_n) begin

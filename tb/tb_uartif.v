@@ -1,15 +1,15 @@
 `timescale 10ps/1ps
 module tb_uartif();
-    reg clk;
-    reg rst_n;
-    reg rxd_int_reg;
-    wire rxd_int_nxt;
+    reg                                                     clk;
+    reg                                                     rst_n;
+    reg                                                     rxd_int_reg;
+    wire                                                    rxd_int_nxt;
     // reg rxd;
-    wire txd;
-    wire r_en;
-    reg man_set;
-    wire [7:0] r_data;
-    reg [7:0] txd_fifo;
+    wire                                                    txd;
+    wire                                                    r_en;
+    reg                                                     man_set;
+    wire                    [7:0]                           r_data;
+    reg                     [7:0]                           txd_fifo;
     
     // clk
     initial begin

@@ -13,7 +13,7 @@ module IntArbiter(
     output                  [4:0]                           int_early,
     output                  [7:0]                           TCON_nxt
 );
-    wire [4:0] int_tmp;
+    wire                    [4:0]                           int_tmp;
     assign int_early = int_tmp;
     // int priority
     assign int_tmp[0]    = IE[7] & IE[0] & TCON[1];

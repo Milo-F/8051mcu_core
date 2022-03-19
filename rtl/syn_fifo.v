@@ -16,13 +16,13 @@ module syn_fifo #(
 );
     // flip-flop output
     // reg         [DATA_WIDTH - 1 : 0]    r_data, r_data_nxt;
-    reg         [ADDR_WIDTH : 0]            room_avail, room_avail_nxt;
-    reg         [ADDR_WIDTH : 0]            data_avail, data_avail_nxt;
-    reg                                     is_empty, is_empty_nxt;
-    reg                                     is_full, is_full_nxt;
+    reg                     [ADDR_WIDTH : 0]                room_avail,room_avail_nxt;
+    reg                     [ADDR_WIDTH : 0]                data_avail,data_avail_nxt;
+    reg                                                     is_empty,is_empty_nxt;
+    reg                                                     is_full,is_full_nxt;
     // write and read pointer
-    reg         [ADDR_WIDTH : 0]            w_ptr, w_ptr_nxt;
-    reg         [ADDR_WIDTH : 0]            r_ptr, r_ptr_nxt;
+    reg                     [ADDR_WIDTH : 0]                w_ptr,w_ptr_nxt;
+    reg                     [ADDR_WIDTH : 0]                r_ptr,r_ptr_nxt;
     // avaliable room counter
     // reg         [ADDR_WIDTH : 0]            avail_tmp;
     

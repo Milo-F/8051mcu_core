@@ -16,9 +16,9 @@ module IntControl (
     output                  [7:0]                           TCON_out
 );
     
-    reg         [7:0]       TCON_reg;
-    reg         [1:0]       SCON_reg;
-    wire        [7:0]       TCON_nxt;
+    reg                     [7:0]                           TCON_reg;
+    reg                     [1:0]                           SCON_reg;
+    wire                    [7:0]                           TCON_nxt;
     
     assign TCON_out = TCON_reg;
     

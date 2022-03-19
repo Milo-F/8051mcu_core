@@ -3,20 +3,20 @@
 module tb_get_ins();
     
     
-    reg clk;
-    reg rst_n;
-    reg [7:0] instruction;
-    reg [4:0]    interupt;
-    reg [7:0]    ram_data;
-    wire [7:0] data_bus;
-    wire read_en;
-    wire write_en;
-    wire clk_1M;
-    wire clk_6M;
-    wire memory_select;
-    wire psen;
-    wire [15:0] addr_bus;
-    wire [7:0] data_out;
+    reg                                                     clk;
+    reg                                                     rst_n;
+    reg                     [7:0]                           instruction;
+    reg                     [4:0]                           interupt;
+    reg                     [7:0]                           ram_data;
+    wire                    [7:0]                           data_bus;
+    wire                                                    read_en;
+    wire                                                    write_en;
+    wire                                                    clk_1M;
+    wire                                                    clk_6M;
+    wire                                                    memory_select;
+    wire                                                    psen;
+    wire                    [15:0]                          addr_bus;
+    wire                    [7:0]                           data_out;
     
     initial begin
         clk      = 0;

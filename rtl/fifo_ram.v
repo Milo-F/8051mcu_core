@@ -20,8 +20,8 @@ module fifo_ram #(
     input                   [ADDR_WIDTH - 1 : 0]            w_addr,
     input                   [DATA_WIDTH - 1 : 0]            w_data
 );
-    reg         [DATA_WIDTH - 1 : 0]        mem[RAM_DEPTH - 1 : 0];
-    reg         [DATA_WIDTH - 1 : 0]        r_data_out;
+    reg                     [DATA_WIDTH - 1 : 0]            mem[RAM_DEPTH-1:0];
+    reg                     [DATA_WIDTH - 1 : 0]            r_data_out;
     always @(posedge clk) begin
         if (!rst_n) begin
             r_data_out <= 0;

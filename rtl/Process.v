@@ -17,7 +17,7 @@ module Process (
     output                  [7:0]                           psw_out
 );
     
-    wire[7:0] alu_ans, alu_psw_out;
+    wire                    [7:0]                           alu_ans,alu_psw_out;
     
     ALU alu(
         .psw_in(psw_in),
@@ -30,8 +30,8 @@ module Process (
         .ans(alu_ans),
         .psw_out(alu_psw_out)
     );
-    reg[7:0] pro_ans;
-    reg[7:0] pro_psw;
+    reg                     [7:0]                           pro_ans;
+    reg                     [7:0]                           pro_psw;
     
     // 部分简单的运算操作
     always @(*) begin

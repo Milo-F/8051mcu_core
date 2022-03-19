@@ -2,18 +2,18 @@
 `timescale 1ns/1ns
 // `define DEBUG 1
 module tb_timer();
-    reg                     clk;
-    reg                     rst_n;
+    reg                                                     clk;
+    reg                                                     rst_n;
     // input
-    reg                     cnt_sig;
-    reg                     t_s;
-    reg         [3:0]       tmod;
-    reg         [7:0]       th;
-    reg         [7:0]       tl;
+    reg                                                     cnt_sig;
+    reg                                                     t_s;
+    reg                     [3:0]                           tmod;
+    reg                     [7:0]                           th;
+    reg                     [7:0]                           tl;
     //output
-    wire        [7:0]       th_nxt;
-    wire        [7:0]       tl_nxt;
-    wire                    t_o;
+    wire                    [7:0]                           th_nxt;
+    wire                    [7:0]                           tl_nxt;
+    wire                                                    t_o;
     // clk generator
     initial begin
         clk            = 0;

@@ -48,7 +48,7 @@ module InsDecoder(
     parameter FROM_INT_ADDRH    = 4'b1001;
     parameter NO_USED           = 4'b0111;
     
-    reg[7:0]   tmp, tmp_nxt; // 暂存器
+    reg                     [7:0]                           tmp,tmp_nxt;     // 暂存器
     
     always @(*) begin
         next_status       = NOT_DONE;
