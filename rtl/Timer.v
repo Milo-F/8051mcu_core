@@ -4,21 +4,19 @@
  *    author: Milo
  *    Data: 2022-02-25
  *    Version: 1.0
-----------------------------------------*/
+ ----------------------------------------*/
 
 module Timer(
-    input                   clk,
-    input                   rst_n,
-
-    input                   cnt_sig,            // 计数信号输入
-    input                   t_s,                // 定时开始标识
-    input       [2:0]       tmod,               // 模式控制器
-    input       [7:0]       th,                 // 高8位
-    input       [7:0]       tl,                 // 低8位
-
-    output      reg[7:0]    th_nxt,
-    output      reg[7:0]    tl_nxt,
-    output                  t_o                 // 溢出中断标志
+    input                                                   clk,
+    input                                                   rst_n,
+    input                                                   cnt_sig, // 计数信号输入
+    input                                                   t_s,     // 定时开始标识
+    input                   [2:0]                           tmod,    // 模式控制器
+    input                   [7:0]                           th,      // 高8位
+    input                   [7:0]                           tl,      // 低8位
+    output      reg         [7:0]                           th_nxt,
+    output      reg         [7:0]                           tl_nxt,
+    output                                                  t_o
 );
     // counter
     wire         [7:0]       cnt_th_nxt, cnt_tl_nxt;
@@ -41,20 +39,20 @@ module Timer(
     wire        [7:0]       ini_val_nxt;
     reg                     t_s_early;
     wire                    t_s_early_nxt;
-    assign m2_tl_nxt = t_s ? ((tl == 0) ? ini_val : tl - 1) : tl;
-    assign t_s_early_nxt = t_s;
-    assign ini_val_nxt = (t_s & ~t_s_early) ? tl : ini_val;
+    assign m2_tl_nxt         = t_s ? ((tl == 0) ? ini_val : tl - 1) : tl;
+    assign t_s_early_nxt     = t_s;
+    assign ini_val_nxt       = (t_s & ~t_s_early) ? tl : ini_val;
     assign cnt_sig_early_nxt = cnt_sig;
     // mode 2 save initial value
     always @(posedge clk) begin
         if (!rst_n) begin
-            t_s_early <= 0;
-            ini_val <= 0;
+            t_s_early     <= 0;
+            ini_val       <= 0;
             cnt_sig_early <= 0;
         end
         else begin
-            t_s_early <= t_s_early_nxt;
-            ini_val <= ini_val_nxt;
+            t_s_early     <= t_s_early_nxt;
+            ini_val       <= ini_val_nxt;
             cnt_sig_early <= cnt_sig_early_nxt;
         end
     end
