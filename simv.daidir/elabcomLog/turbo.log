@@ -1,3 +1,0 @@
-Command Line: /home/milo/Synopsys/vcs/linux64/bin/elabcom -logdir simv.daidir/elabcomLog -simvdaidir simv.daidir -lib simv.daidir/work -elab simv.daidir/kdb -simflow -top Uart  -ssz -ssv -ssy -ssz -ssv -ssy -Lf work
-uname(Linux milo 5.10.16.3-microsoft-standard-WSL2 #1 SMP Fri Apr 2 22:23:49 UTC 2021 x86_64)
-au time 0.048705 0.011852 0.016840 delta 228052992 228052992 total 290525184 290525184
