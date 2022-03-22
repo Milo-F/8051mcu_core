@@ -105,7 +105,8 @@ module syn_fifo #(
         .RAM_DEPTH(FIFO_DEPTH),
         .ADDR_WIDTH(ADDR_WIDTH)
     ) fifo_ram_ins (
-        .clk(clk),
+        .w_clk(clk),
+        .r_clk(clk),
         .rst_n(rst_n),
         .r_en(r_en),
         .r_addr(r_ptr[ADDR_WIDTH - 1 : 0]),
