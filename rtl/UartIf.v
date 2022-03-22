@@ -46,7 +46,7 @@ module UartIf (
         tx_bit_cnt_nxt = 4'b1011;
         clk_rd         = 0;
         tx_status_nxt  = 0;
-        if (!fif o_empty) begin
+        if (!fifo_empty) begin
             tx_status_nxt = 1;
             if (tx_bit_cnt == 0) begin
                 tx_bit_cnt_nxt = 4'b1011;

@@ -1,11 +1,3 @@
-/*----------------------------------------
- *    File Name: rtl/bin2gray.v
- *    function: 二进制码转化为格雷码
- *    author: Milo
- *    Data: 2022-03-22
- *    Version: 1.0
-----------------------------------------*/
-
 module bin2gray #(
     BIT_WIDTH               =        4
 ) (

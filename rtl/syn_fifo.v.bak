@@ -1,11 +1,3 @@
-/*----------------------------------------
- *    File Name: rtl/syn_fifo.v
- *    function: 同步FIFO，
- *    author: Milo
- *    Data: 2022-03-22
- *    Version: 1.0
-----------------------------------------*/
-
 module syn_fifo #(
     DATA_WIDTH              =        8,
     FIFO_DEPTH              =        16,
