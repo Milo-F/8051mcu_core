@@ -1,0 +1,7 @@
+/home/milo/ICCodes/mcu51/rtl/ClkDiv.v
+/home/milo/ICCodes/mcu51/rtl/Uart.v
+/home/milo/ICCodes/mcu51/rtl/UartFiFo.v
+/home/milo/ICCodes/mcu51/rtl/UartIf.v
+/home/milo/ICCodes/mcu51/rtl/bin2gray.v
+/home/milo/ICCodes/mcu51/rtl/fifo_ram.v
+/home/milo/ICCodes/mcu51/rtl/gray2bin.v

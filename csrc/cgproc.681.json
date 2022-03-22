@@ -1,0 +1,39 @@
+{
+    "reusePaths": {},
+    "Modules": {
+        "Uart": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "...MASTER...": {}
+    },
+    "CompUnits": {
+        "amcQw_d": {
+            "out": "objs/amcQw_d.o",
+            "mod": "...MASTER...",
+            "mode": 4,
+            "bytes": 8595,
+            "checksum": 0
+        },
+        "r9I4x_d": {
+            "archive": "archive.0/_681_archive_1.a",
+            "out": "r9I4x_d.o",
+            "mod": "Uart",
+            "mode": 4,
+            "bytes": 72806,
+            "checksum": 0
+        }
+    },
+    "ObjArchives": [
+        {
+            "archive": "archive.0/_681_archive_1.a",
+            "objects": [
+                [
+                    "r9I4x_d.o",
+                    72806
+                ]
+            ],
+            "size": 72806
+        }
+    ]
+}

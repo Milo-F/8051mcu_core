@@ -1,0 +1,92 @@
+{
+    "MlibObjs": {},
+    "PrevCompiledModules": {},
+    "NameTable": {
+        "...MASTER...": [
+            "SIM",
+            "amcQw",
+            "module"
+        ],
+        "Uart": [
+            "Uart",
+            "r9I4x",
+            "module"
+        ]
+    },
+    "CurCompileModules": [
+        "...MASTER...",
+        "...MASTER...",
+        "Uart",
+        "Uart"
+    ],
+    "CompileStrategy": "fullobj",
+    "Misc": {
+        "cwd": "/home/milo/ICCodes/mcu51",
+        "csrc_abs": "/home/milo/ICCodes/mcu51/csrc",
+        "csrc": "csrc",
+        "daidir": "simv.daidir",
+        "daidir_abs": "/home/milo/ICCodes/mcu51/simv.daidir",
+        "archive_dir": "archive.0",
+        "default_output_dir": "csrc"
+    },
+    "stat": {
+        "nQuads": 1974,
+        "mopSpeed": 81615.309559031826,
+        "outputSizePerQuad": 86.0,
+        "ru_self_cgstart": {
+            "ru_utime_sec": 0.110027,
+            "ru_stime_sec": 0.033008000000000003,
+            "ru_maxrss_kb": 101164,
+            "ru_nivcsw": 3,
+            "ru_minflt": 7775,
+            "ru_majflt": 0,
+            "ru_nvcsw": 128
+        },
+        "ru_childs_cgstart": {
+            "ru_utime_sec": 0.031827000000000001,
+            "ru_stime_sec": 0.020125000000000001,
+            "ru_maxrss_kb": 99372,
+            "ru_nivcsw": 0,
+            "ru_minflt": 7632,
+            "ru_majflt": 0,
+            "ru_nvcsw": 111
+        },
+        "nMops": 5186,
+        "ru_childs_end": {
+            "ru_utime_sec": 0.031827000000000001,
+            "ru_stime_sec": 0.020125000000000001,
+            "ru_maxrss_kb": 99372,
+            "ru_nivcsw": 0,
+            "ru_minflt": 7632,
+            "ru_majflt": 0,
+            "ru_nvcsw": 111
+        },
+        "Frontend(%)": 63.390928103520793,
+        "totalObjSize": 171155,
+        "ru_self_end": {
+            "ru_utime_sec": 0.173569,
+            "ru_stime_sec": 0.033008000000000003,
+            "ru_maxrss_kb": 112532,
+            "ru_nivcsw": 4,
+            "ru_minflt": 9913,
+            "ru_majflt": 0,
+            "ru_nvcsw": 128
+        },
+        "quadSpeed": 31066.066538667339,
+        "mop/quad": 2.6271529888551166,
+        "CodeGen(%)": 36.609071896479215
+    },
+    "CurCompileUdps": {},
+    "PEModules": [],
+    "SIMBData": {
+        "out": "amcQwB.o",
+        "bytes": 89754
+    },
+    "LVLData": [
+        "SIM"
+    ],
+    "CompileProcesses": [
+        "cgproc.681.json"
+    ],
+    "CompileStatus": "Successful"
+}
