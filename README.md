@@ -19,7 +19,11 @@
 11. [UartIf.v](./rtl/UartIf.v) ：  UART 串口通信模块，实现将串口FIFO中的数据通过 UART 通信协议进行发送，以及以16倍波特率进行接收串口数据采样，并产生对应的串口中断标志；
 12. [UartFiFo.v](./rtl/UartFiFo.v) ： 串口异步 fifo 模块，将要发送的数据缓存，并交给串口进行发送，以及在使用独立串口时钟的时候对 MCU 时钟和串口时钟进行数据同步；
 13. [syn_fifo.v](./rtl/syn_fifo.v) ： 同步 fifo 模块；
-14. [fifo_ram.v](./rtl/fifo_ram.v) ： fifo 中的 ram 模块，仅仿真。
+14. [Uart.v](./rtl/Uart.v) ： 串口顶层模块，内部包括串口通信接口以及一块fifo控制器；
+15. [fifo_ram.v](./rtl/fifo_ram.v) ： fifo 中的 ram 模块，仅仿真；
+16. [bin2gray.v](./rtl/bin2gray.v) ： 二进制转化为格雷码模块；
+17. [gray2bin.v](./rtl/gray2bin.v) ： 格雷码转化为二进制模块；
+18. [para.vh](./rtl/para.vh) ： 宏定义。
 
 ## 编译
 &emsp;&emsp; 将需要编译的rtl文件名记录在[根目录](./)下的[filelist.f](./filelist.f)文件中，并使用 make com 命令进行编译，具体参数命令见[Makefile](./Makefile)文件。清除编译产生的文件使用 make clr 命令。
