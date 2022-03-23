@@ -8,3 +8,9 @@
 ./rtl/ClkDiv.v
 ./rtl/Process.v 
 ./rtl/ALU.v 
+./rtl/Uart.v
+./rtl/UartIf.v
+./rtl/UartFiFo.v
+./rtl/bin2gray.v
+./rtl/gray2bin.v
+./rtl/fifo_ram.v

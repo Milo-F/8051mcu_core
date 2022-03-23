@@ -46,13 +46,15 @@ module UartFiFo #(
      * 写指针控制
      */
     // 写指针累加
+    wire w_en_real;
+    assign w_en_real = (~is_full) & w_en; // 满了禁止写入
     always @* begin
         w_pt_nxt = w_pt;
         if (!w_pt_reset) begin
             w_pt_nxt = 0;
         end
         else begin
-            if (w_en) begin
+            if (w_en_real) begin
                 w_pt_nxt = w_pt + 1'b1;
             end
         end

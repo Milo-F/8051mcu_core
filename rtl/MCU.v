@@ -4,23 +4,26 @@
  *    author: Milo
  *    Data: 2022-03-22
  *    Version: 1.0
-----------------------------------------*/
+ ----------------------------------------*/
 
 `include "para.vh"
 
 module Mcu(
     input                                                   reset,
     input                                                   clk,
+    input                                                   tx_clk,
     input                                                   cnt_0,
     input                                                   cnt_1,
     input                                                   inti0,
-    input                                                   inti1
+    input                                                   inti1,
+    input                                                   rxd,
+    output                                                  txd
 );
     
     
     // 复位控制---------------------------------------------------
-    reg                     [3:0]                           cnt_rst;     // 复位信号计数器
-    reg                                                     rst_n;     // 有效复位信号
+    reg                     [3:0]                           cnt_rst;    // 复位信号计数器
+    reg                                                     rst_n;    // 有效复位信号
     // 复位信号持续10个时钟周期有效
     always @(posedge clk) begin
         if (!reset) begin
@@ -50,7 +53,46 @@ module Mcu(
     wire                    [7:0]                           data_bus,data_from_cpu,data_from_ram,data_from_rom;
     wire                                                    read_en,write_en,clk_1M,clk_6M,memory_select;
     reg                                                     ram_en,rom_en,ram_write,ram_read,rom_read;
+    /*
+     * 串口通信
+     */
+    localparam FIFO_DEPTH = 16;
+    localparam FIFO_WIDTH = 8;
+    localparam ADDR_WIDTH = 4;
     
+    wire                                                    fifo_w_clk;
+    wire                                                    tx_clk;
+    wire                                                    fifo_w_en;
+    wire                    [FIFO_WIDTH-1:0]                fifo_w_data;
+    wire                                                    rxd_int_in;
+    wire                                                    rxd;
+    wire                                                    txd;
+    wire                                                    is_full;
+    wire                    [FIFO_WIDTH-1:0]                r_data;
+    wire                                                    rxd_int;
+    
+    assign fifo_w_clk  = clk; // 写时钟使用MCU内部时钟
+    assign fifo_w_data = sbuf_nxt;
+    assign fifo_w_en   = write_en;
+    assign rxd_int_in = tcon[4];
+    
+    Uart #(
+        .FIFO_DEPTH(FIFO_DEPTH),
+        .FIFO_WIDTH(FIFO_WIDTH),
+        .ADDR_WIDTH(ADDR_WIDTH)
+    ) Uart_ins (
+        .fifo_w_clk(fifo_w_clk),
+        .tx_clk(tx_clk),
+        .rst_n(rst_n),
+        .fifo_w_en(fifo_w_en),
+        .fifo_w_data(fifo_w_data),
+        .rxd_int_in(rxd_int_in),
+        .rxd(rxd),
+        .is_full(is_full),
+        .rxd_int(rxd_int),
+        .r_data(r_data),
+        .txd(txd)
+    );
     // timer/counter 0
     wire                    [7:0]                           th0_out,tl0_out;
     wire                                                    to0;
@@ -121,7 +163,7 @@ module Mcu(
             th0  <= th0_nxt;
             th1  <= th1_nxt;
             scon <= scon_nxt;
-            sbuf <= sbuf_nxt;
+            sbuf <= r_data;
             ip   <= ip_nxt;
         end
     end
@@ -198,7 +240,7 @@ module Mcu(
                     end
                     `sbuf:begin
                         data_to_cpu = (read_en) ? sbuf : 8'b0;
-                        sbuf_nxt    = (write_en) ? data_from_cpu : sbuf;
+                        sbuf_nxt    = (write_en) ? data_from_cpu : 8'b0; //
                     end
                     `p2:begin
                         data_to_cpu = (read_en) ? p2 : 8'b0;
@@ -249,13 +291,15 @@ module Mcu(
     );
     // 中断标志更新
     always @* begin
-        tcon_nxt[7]   = tcon[7] ? ~to1 : tcon[7];
-        tcon_nxt[6]   = tcon[6] ? ~to0 : tcon[6];
-        tcon_nxt[5:4] = tcon_out[5:4];
-        tcon_nxt[3]   = to1 | tcon_out[3];
-        tcon_nxt[2]   = inti0 | tcon_out[2];
-        tcon_nxt[1]   = to0 | tcon_out[1];
-        tcon_nxt[0]   = inti1 | tcon_out[0];
+        tcon_nxt[7]      = tcon[7] ? ~to1 : tcon[7];
+        tcon_nxt[6]      = tcon[6] ? ~to0 : tcon[6];
+        // tcon_nxt[5:4] = tcon_out[5:4]; // 5 txd_int; 4 rxd_int
+        tcon_nxt[5]      = is_full;
+        tcon_nxt[4]      = rxd_int;
+        tcon_nxt[3]      = to1 | tcon_out[3];
+        tcon_nxt[2]      = inti0 | tcon_out[2];
+        tcon_nxt[1]      = to0 | tcon_out[1];
+        tcon_nxt[0]      = inti1 | tcon_out[0];
     end
     // CPU inst-------------------------------------------------------
     // 双向端口配置
@@ -275,4 +319,5 @@ module Mcu(
         .clk_6M(clk_6M)
     );
     // -------------------------------------------------------
+    
 endmodule

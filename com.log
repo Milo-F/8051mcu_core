@@ -1,0 +1,109 @@
+Command: vcs -full64 -cpp g++-4.8 -cc gcc-4.8 -LDFLAGS -Wl,--no-as-needed +v2k -sverilog \
+-debug_access+r -f filelist.f -ucli -lca -kdb -l com.log -o simv +incdir+rtl/
+*** Using c compiler gcc-4.8 instead of cc ...
+                         Chronologic VCS (TM)
+         Version L-2016.06_Full64 -- Wed Mar 23 21:45:28 2022
+               Copyright (c) 1991-2016 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+
+Warning-[LCA_FEATURES_ENABLED] Usage warning
+  LCA features enabled by '-lca' argument on the command line.  For more 
+  information regarding list of LCA features please refer to Chapter "LCA 
+  features" in the VCS/VCS-MX Release Notes
+
+Parsing design file './rtl/MCU.v'
+Parsing included file 'rtl/para.vh'.
+Back to file './rtl/MCU.v'.
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+./rtl/MCU.v, 64
+  Redeclaration of ANSI ports not allowed for 'tx_clk', this will be an error 
+  in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+./rtl/MCU.v, 68
+  Redeclaration of ANSI ports not allowed for 'rxd', this will be an error in 
+  a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+./rtl/MCU.v, 69
+  Redeclaration of ANSI ports not allowed for 'txd', this will be an error in 
+  a future release
+
+Parsing design file './rtl/Timer.v'
+Parsing design file './rtl/IntControl.v'
+Parsing design file './rtl/IntArbiter.v'
+Parsing design file './rtl/CPU.v'
+Parsing design file './rtl/InsDecoder.v'
+Parsing design file './rtl/ALEGen.v'
+Parsing design file './rtl/ClkDiv.v'
+Parsing design file './rtl/Process.v'
+Parsing design file './rtl/ALU.v'
+Parsing design file './rtl/Uart.v'
+Parsing design file './rtl/UartIf.v'
+Parsing design file './rtl/UartFiFo.v'
+Parsing design file './rtl/bin2gray.v'
+Parsing design file './rtl/gray2bin.v'
+Parsing design file './rtl/fifo_ram.v'
+Top Level Modules:
+       Mcu
+       ALEGen
+No TimeScale specified
+
+Warning-[CWUC] Concatenations with unsized constants
+./rtl/UartIf.v, 70
+"1"
+  An unsized constant '1' is used in the concatenation. The unsized constant 
+  will be used as a 32-bit constant.
+
+Notice: Ports coerced to inout, use -notice for details
+Starting vcs inline pass...
+Parsing design file './rtl/Timer.v'
+Parsing design file './rtl/IntControl.v'
+Parsing design file './rtl/IntArbiter.v'
+Parsing design file './rtl/CPU.v'
+Parsing design file './rtl/InsDecoder.v'
+Parsing design file './rtl/ALEGen.v'
+Parsing design file './rtl/ClkDiv.v'
+Parsing design file './rtl/Process.v'
+Parsing design file './rtl/ALU.v'
+Parsing design file './rtl/Uart.v'
+Parsing design file './rtl/UartIf.v'
+Parsing design file './rtl/UartFiFo.v'
+Parsing design file './rtl/bin2gray.v'
+Parsing design file './rtl/gray2bin.v'
+Parsing design file './rtl/fifo_ram.v'
+Top Level Modules:
+       Mcu
+       ALEGen
+No TimeScale specified
+6 unique modules to generate
+6 modules and 0 UDP read. 
+	However, due to incremental compilation, only 1 module needs to be compiled. 
+recompiling module Mcu
+All of 1 modules done
+make[1]: Entering directory '/home/milo/ICCodes/mcu51/csrc'
+rm -f _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+ld -shared  -o .//../simv.daidir//_csrc0.so objs/amcQw_d.o 
+rm -f _csrc0.so
+if [ -x ../simv ]; then chmod -x ../simv; fi
+g++-4.8  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ \
+-Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -Wl,--no-as-needed -rdynamic   amcQwB.o \
+_1317_archive_1.so _prev_archive_1.so _csrc0.so  SIM_l.o  _csrc0.so     rmapats_mop.o \
+rmapats.o rmar.o  rmar_llvm_0_1.o rmar_llvm_0_0.o          /home/milo/Synopsys/vcs/linux64/lib/libzerosoft_rt_stubs.so \
+/home/milo/Synopsys/vcs/linux64/lib/libvirsim.so /home/milo/Synopsys/vcs/linux64/lib/liberrorinf.so \
+/home/milo/Synopsys/vcs/linux64/lib/libsnpsmalloc.so    /home/milo/Synopsys/vcs/linux64/lib/libvcsnew.so \
+/home/milo/Synopsys/vcs/linux64/lib/libsimprofile.so /home/milo/Synopsys/vcs/linux64/lib/libuclinative.so \
+-Wl,-whole-archive /home/milo/Synopsys/vcs/linux64/lib/libvcsucli.so -Wl,-no-whole-archive \
+_vcs_pli_stub_.o   /home/milo/Synopsys/vcs/linux64/lib/vcs_save_restore_new.o /home/milo/Synopsys/verdi/share/PLI/VCS/LINUX64/pli.a \
+-ldl  -lc -lm -lpthread -ldl 
+../simv up to date
+make[1]: Leaving directory '/home/milo/ICCodes/mcu51/csrc'
+CPU time: .476 seconds to compile + .268 seconds to elab + .195 seconds to link

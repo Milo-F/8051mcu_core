@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version L-2016.03-SP1 for linux64 -- Apr 18, 2016
-#@ # Date:   Wed Mar  9 12:44:41 2022
+#@ # Date:   Wed Mar 23 21:46:43 2022
 #@ # Run by: milo@milo
 #@ 
 
@@ -41870,28 +41870,4 @@ gui_start
 #@ 
 #@ # -- End source /home/milo/Synopsys/dc/auxx/tcllib/lib/iwidgets4.1/watch.itk
 
-analyze -library WORK -format verilog {/home/milo/ICCodes/mcu51/rtl/ALEGen.v /home/milo/ICCodes/mcu51/rtl/ALU.v /home/milo/ICCodes/mcu51/rtl/Process.v /home/milo/ICCodes/mcu51/rtl/ClkDiv.v /home/milo/ICCodes/mcu51/rtl/InsDecoder.v /home/milo/ICCodes/mcu51/rtl/CPU.v /home/milo/ICCodes/mcu51/rtl/Timer.v /home/milo/ICCodes/mcu51/rtl/IntControl.v /home/milo/ICCodes/mcu51/rtl/para.vh /home/milo/ICCodes/mcu51/rtl/MCU.v}
-analyze -format verilog {/home/milo/ICCodes/mcu51/rtl/Timer.v /home/milo/ICCodes/mcu51/rtl/Process.v /home/milo/ICCodes/mcu51/rtl/MCU.v /home/milo/ICCodes/mcu51/rtl/IntControl.v /home/milo/ICCodes/mcu51/rtl/IntArbiter.v /home/milo/ICCodes/mcu51/rtl/InsDecoder.v /home/milo/ICCodes/mcu51/rtl/CPU.v /home/milo/ICCodes/mcu51/rtl/ClkDiv.v /home/milo/ICCodes/mcu51/rtl/ALU.v /home/milo/ICCodes/mcu51/rtl/para.vh /home/milo/ICCodes/mcu51/rtl/ALEGen.v}
-analyze -format verilog {/home/milo/ICCodes/mcu51/rtl/InsDecoder.v /home/milo/ICCodes/mcu51/rtl/ClkDiv.v /home/milo/ICCodes/mcu51/rtl/Timer.v /home/milo/ICCodes/mcu51/rtl/IntControl.v /home/milo/ICCodes/mcu51/rtl/IntArbiter.v /home/milo/ICCodes/mcu51/rtl/MCU.v /home/milo/ICCodes/mcu51/rtl/para.vh /home/milo/ICCodes/mcu51/rtl/CPU.v /home/milo/ICCodes/mcu51/rtl/ALEGen.v /home/milo/ICCodes/mcu51/rtl/Process.v /home/milo/ICCodes/mcu51/rtl/ALU.v}
-analyze -format verilog {MCU.v para.vh InsDecoder.v ClkDiv.v Timer.v IntControl.v IntArbiter.v  CPU.v ALEGen.v Process.v ALU.v}
-analyze -format verilog {MCU.v para.vh InsDecoder.v ClkDiv.v Timer.v IntControl.v IntArbiter.v  CPU.v ALEGen.v Process.v ALU.v}
-elaborate Mcu -architecture verilog -library WORK
-analyze -format verilog {MCU.v para.vh InsDecoder.v ClkDiv.v Timer.v IntControl.v IntArbiter.v  CPU.v ALEGen.v Process.v ALU.v}
-list_designs
-elaborate Mcu
-remove_design -designs
-elaborate Mcu
-link
-change_selection [get_s Mcu]
-gui_zoom -window [gui_get_current_window -view] -full
-change_selection [get_s Mcu]
-change_selection [get_s Mcu]
-change_selection [get_s cpu/clk_1]
-change_selection [get_s cpu/clk_6]
-change_selection [get_s cpu/clk_1]
-change_selection [get_s cpu/clk_6]
-change_selection [get_s cpu/clk_1]
-change_selection [get_s cpu/clk_6]
-change_selection [get_s clk]
-change_selection 
-current_design Mcu
+exit
