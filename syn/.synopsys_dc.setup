@@ -4,7 +4,6 @@ set source_path ../src
 set rtl_path $source_path/rtl
 set scripts_path ./scripts
 set log_path ./log
-set config_path ./config
 set mapped_path ./mapped
 set unmapped_path ./unmapped
 set work_path ./work
