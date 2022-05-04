@@ -61,12 +61,12 @@ module Mcu(
     localparam ADDR_WIDTH = 4;
     
     wire                                                    fifo_w_clk;
-    wire                                                    tx_clk;
+    // wire                                                    tx_clk;
     wire                                                    fifo_w_en;
     wire                    [FIFO_WIDTH-1:0]                fifo_w_data;
     wire                                                    rxd_int_in;
-    wire                                                    rxd;
-    wire                                                    txd;
+    // wire                                                    rxd;
+    // wire                                                    txd;
     wire                                                    is_full;
     wire                    [FIFO_WIDTH-1:0]                r_data;
     wire                                                    rxd_int;
@@ -74,7 +74,7 @@ module Mcu(
     assign fifo_w_clk  = clk; // 写时钟使用MCU内部时钟
     assign fifo_w_data = sbuf_nxt;
     assign fifo_w_en   = write_en;
-    assign rxd_int_in = tcon[4];
+    assign rxd_int_in  = tcon[4];
     
     Uart #(
         .FIFO_DEPTH(FIFO_DEPTH),
@@ -170,11 +170,29 @@ module Mcu(
     
     // 内部存储器访问控制-------------------------------------------------------
     always @(*) begin
-        ram_en    = 1'b0;
-        ram_read  = 1'b0;
-        ram_write = 1'b0;
-        rom_en    = 1'b0;
-        rom_read  = 1'b0;
+        ram_en      = 1'b0;
+        ram_read    = 1'b0;
+        ram_write   = 1'b0;
+        rom_en      = 1'b0;
+        rom_read    = 1'b0;
+        data_to_cpu = 0;
+        ie_nxt      = ie;
+        p2_nxt      = p2;
+        ip_nxt      = ip;
+        sp_nxt      = sp;
+        p3_nxt      = p3;
+        scon_nxt    = scon;
+        p1_nxt      = p1;
+        th1_nxt     = th1;
+        th0_nxt     = th0;
+        tl1_nxt     = tl1;
+        tl0_nxt     = tl0;
+        tmod_nxt    = tmod;
+        pcon_nxt    = pcon;
+        dph_nxt     = dph;
+        dpl_nxt     = dpl;
+        p0_nxt      = p0;
+        sbuf_nxt    = sbuf;
         if (memory_select) begin // 选中ram
             ram_en = 1'b1;
             if (addr_bus[7:0] < 8'h80) begin // 低127位寻址片内ram

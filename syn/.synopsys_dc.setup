@@ -1,76 +1,26 @@
 
-echo "set your project work path"
-set SYN_ROOT_PATH /home/milo/ICCodes/mcu51
+echo "Define path directories for files and libraries"
+set source_path ../src
+set rtl_path $source_path/rtl
+set scripts_path ./scripts
+set log_path ./log
+set config_path ./config
+set mapped_path ./mapped
+set unmapped_path ./unmapped
+set work_path ./work
+set netlist_path ./netlist
+set symbol_path /home/milo/TSMC.90/aci/sc-x/symbols/synopsys
+set library_path /home/milo/TSMC.90/aci/sc-x/synopsys
+set sh_command_log_file ./log/command.log
 
-echo "set your rtl document path"
-set RTL_PATH $SYN_ROOT_PATH/rtl
+echo "set work directory"
+define_design_lib work -path $work_path
 
-echo "set your config document path"
-set CONFIG_PATH $SYN_ROOT_PATH/config
+echo "set libraries"
+set search_path [list $search_path $source_path $rtl_path $symbol_path $library_path]
+set target_library [list fast.db]
+set symbol_library [list tsmc090.sdb]
+set link_library [list $target_library $symbol_library]
 
-echo "set your scripts document path"
-set SCRIPT_PATH $SYN_ROOT_PATH/scripts
-
-echo "set your unmapped document path"
-set UNMAPPED_PATH $SYN_ROOT_PATH/unmapped
-
-echo "set your mapped document path"
-set MAPPED_PATH $SYN_ROOT_PATH/mapped
-
-echo "set your report document path"
-set REPORT_PATH $SYN_ROOT_PATH/report
-
-echo "set your work document path"
-set WORK_PATH $SYN_ROOT_PATH/work
-
-#set your DC software path 
-set DC_PATH   /home/milo/Synopsys/dc
-
-echo "====================Define your library directory=================="
-
-#Maps a design library to a UNIX directory. This directory is used to store intermediate representations of designs.
-define_design_lib work -path $WORK_PATH
-
-echo "set your symbol library"
-set SYMBOL_PATH /home/milo/TSMC.90/aci/sc-x/symbols/synopsys
-
-echo "set your lib path"
-set LIB_PATH /home/milo/TSMC.90/aci/sc-x/synopsys
-
-echo "*******************system variables settings***********************"
-
-echo "************library path automatic search settings*****************"
-
-set_app_var search_path [list  . $search_path \
-                                 $LIB_PATH \
-							                   $SYMBOL_PATH \
-								                 $RTL_PATH \
-								                 $SCRIPT_PATH \
-								                 ${DC_PATH}/libraries/syn \
-						]
-# This virables are automatically set if you perform ultra command.
-# Specify for use during optimization
-# You do not need to be anything to access the standard library.
-# DC is setup to use this lirary by default
-
-echo "************DC' own library path*********************"
-set_app_var synthetic_library [list dw_foundation.sldb standard.sldb]
-
-echo "***********Target library name *********"
-set_app_var target_library [list slow.db fast.db]
-								 
-							
-echo "***********Link library name************"
-set_app_var link_library [list {*} slow.db fast.db dw_foundation.sldb]
-
-echo "***********Symbol Library name**********"						 ]
-set_app_var symbol_library [list tsmc090.sdb]
-
-#Source the naming rules
-						  
-echo "*****************************************************"
-echo "***************End of Load .synopsys_dc.setup********"
-echo "*****************************************************"
-
-echo "******************************************************"
-echo "*************************author:ciscomonkey***********"
+echo "set informations"
+set designer Milo

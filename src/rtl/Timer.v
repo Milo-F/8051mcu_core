@@ -58,6 +58,8 @@ module Timer(
     end
     // timer run
     always @* begin
+        th_nxt = th;
+        tl_nxt = tl;
         if (!rst_n) begin
             th_nxt = th;
             tl_nxt = tl;

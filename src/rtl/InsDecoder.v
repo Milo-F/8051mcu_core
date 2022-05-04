@@ -60,6 +60,7 @@ module InsDecoder(
         alu_op            = `no_alu;
         a_data_from       = NO_USED;
         b_data_from       = NO_USED;
+        b_bit_location    = 0;
         // bit2addr_tmp   = 11'b0;
         casez (instruction)
             8'h00: begin // NOP

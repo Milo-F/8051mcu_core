@@ -61,20 +61,20 @@ module UartIf (
     assign r_en = clk_rd; // 按照读时钟去读数据
     
     always @* begin
-        txd_out_nxt   = 1;
+        txd_out_nxt   = 1'b1;
         tx_tmp_nxt    = tx_tmp;
-        tx_status_nxt = tx_status;
+        // tx_status_nxt = tx_status;
         
         if (tx_status) begin // 发送数据
             txd_out_nxt = tx_tmp[0];
-            tx_tmp_nxt  = {1, tx_tmp[11:1]};
+            tx_tmp_nxt  = {1'b1, tx_tmp[11:1]};
         end
     end
     
     always @(posedge clk_tx) begin
         if (!rst_n) begin
             tx_status  <= 0;
-            txd_out    <= 1;
+            txd_out    <= 1'b1;
             tx_tmp     <= 12'hfff;
             tx_bit_cnt <= 4'b1011;
         end
@@ -101,9 +101,9 @@ module UartIf (
     wire                    [3:0]                           sample_cnt_minus_1;
     wire                    [3:0]                           bit_cnt_minus_1;
     // counter
-    assign start_cnt_minus_1  = start_cnt - 1;
-    assign sample_cnt_minus_1 = sample_cnt - 1;
-    assign bit_cnt_minus_1    = bit_cnt - 1;
+    assign start_cnt_minus_1  = start_cnt - 1'b1;
+    assign sample_cnt_minus_1 = sample_cnt - 1'b1;
+    assign bit_cnt_minus_1    = bit_cnt - 1'b1;
     // receive out
     assign rxd_int = rxd_int_out;
     assign r_data  = r_data_out;
@@ -121,7 +121,7 @@ module UartIf (
         if (!rx_status) begin // when bus is empty : detecting 0
             if (!rxd) begin
                 if (start_cnt == 3'b0) begin
-                    rx_status_nxt  = 1;
+                    rx_status_nxt  = 1'b1;
                     bit_cnt_nxt    = 4'b1010;
                     sample_cnt_nxt = 3'b111;
                 end

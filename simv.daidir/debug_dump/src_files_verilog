@@ -1,0 +1,17 @@
+/home/milo/ICCodes/mcu51/src/rtl/ALEGen.v
+/home/milo/ICCodes/mcu51/src/rtl/ALU.v
+/home/milo/ICCodes/mcu51/src/rtl/CPU.v
+/home/milo/ICCodes/mcu51/src/rtl/ClkDiv.v
+/home/milo/ICCodes/mcu51/src/rtl/InsDecoder.v
+/home/milo/ICCodes/mcu51/src/rtl/IntArbiter.v
+/home/milo/ICCodes/mcu51/src/rtl/IntControl.v
+/home/milo/ICCodes/mcu51/src/rtl/MCU.v
+/home/milo/ICCodes/mcu51/src/rtl/Process.v
+/home/milo/ICCodes/mcu51/src/rtl/Timer.v
+/home/milo/ICCodes/mcu51/src/rtl/Uart.v
+/home/milo/ICCodes/mcu51/src/rtl/UartFiFo.v
+/home/milo/ICCodes/mcu51/src/rtl/UartIf.v
+/home/milo/ICCodes/mcu51/src/rtl/bin2gray.v
+/home/milo/ICCodes/mcu51/src/rtl/fifo_ram.v
+/home/milo/ICCodes/mcu51/src/rtl/gray2bin.v
+/home/milo/ICCodes/mcu51/src/rtl/para.vh

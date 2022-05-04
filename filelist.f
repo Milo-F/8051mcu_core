@@ -1,16 +1,16 @@
-./rtl/MCU.v
-./rtl/Timer.v
-./rtl/IntControl.v 
-./rtl/IntArbiter.v
-./rtl/CPU.v
-./rtl/InsDecoder.v
-./rtl/ALEGen.v
-./rtl/ClkDiv.v
-./rtl/Process.v 
-./rtl/ALU.v 
-./rtl/Uart.v
-./rtl/UartIf.v
-./rtl/UartFiFo.v
-./rtl/bin2gray.v
-./rtl/gray2bin.v
-./rtl/fifo_ram.v
+ ./src/rtl/MCU.v
+ ./src/rtl/Timer.v
+ ./src/rtl/IntControl.v
+ ./src/rtl/IntArbiter.v
+ ./src/rtl/CPU.v
+ ./src/rtl/InsDecoder.v
+ ./src/rtl/ALEGen.v
+ ./src/rtl/ClkDiv.v
+ ./src/rtl/Process.v 
+ ./src/rtl/ALU.v 
+ ./src/rtl/Uart.v
+ ./src/rtl/UartIf.v
+ ./src/rtl/UartFiFo.v
+ ./src/rtl/bin2gray.v
+ ./src/rtl/gray2bin.v
+ ./src/rtl/fifo_ram.v
