@@ -6,7 +6,7 @@
  *    Version: 1.0
  ----------------------------------------*/
 
-`include "para.vh"
+`include "./src/rtl/para.vh"
 
 module Mcu(
     input                                                   reset,
@@ -51,7 +51,7 @@ module Mcu(
     reg                     [15:0]                          rom_addr;
     reg                     [7:0]                           ram_addr;
     wire                    [7:0]                           data_bus,data_from_cpu,data_from_ram,data_from_rom;
-    wire                                                    read_en,write_en,clk_1M,clk_6M,memory_select;
+    wire                                                    read_en,write_en,memory_select;
     reg                                                     ram_en,rom_en,ram_write,ram_read,rom_read;
     /*
      * 串口通信
@@ -297,7 +297,7 @@ module Mcu(
     // assign p3_out_nxt = p3;
     
     // int_ctl_ins
-    wire                    [7:0]                           tcon_out;
+    wire                    [3:0]                           tcon_out;
     IntControl IntControl_ins (
         .clk(clk),
         .rst_n(rst_n),
@@ -333,8 +333,8 @@ module Mcu(
         .read_en(read_en),
         .write_en(write_en),
         .memory_select(memory_select),
-        .clk_1M(clk_1M),
-        .clk_6M(clk_6M)
+        .clk_1M(),
+        .clk_6M()
     );
     // -------------------------------------------------------
     

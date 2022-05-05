@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version L-2016.03-SP1 for linux64 -- Apr 18, 2016
-#@ # Date:   Wed May  4 17:15:24 2022
+#@ # Date:   Thu May  5 13:58:33 2022
 #@ # Run by: milo@milo
 #@ 
 
@@ -5443,7 +5443,6 @@ source /home/milo/ICCodes/mcu51/syn/.synopsys_dc.setup
 #@ set rtl_path $source_path/rtl
 #@ set scripts_path ./scripts
 #@ set log_path ./log
-#@ set config_path ./config
 #@ set mapped_path ./mapped
 #@ set unmapped_path ./unmapped
 #@ set work_path ./work
@@ -5452,22 +5451,25 @@ source /home/milo/ICCodes/mcu51/syn/.synopsys_dc.setup
 #@ set library_path /home/milo/TSMC.90/aci/sc-x/synopsys
 #@ set sh_command_log_file ./log/command.log
 #@ 
-#@ echo "set work directory"
-#@ define_design_lib work -path $work_path
 #@ 
 #@ echo "set libraries"
-#@ set search_path [list $search_path $source_path $rtl_path $symbol_path $library_path]
-#@ set target_library [list fast.db]
-#@ set symbol_library [list tsmc090.sdb]
-#@ set link_library [list $target_library $symbol_library]
+#@ set_app_var search_path [list $search_path $source_path $rtl_path $symbol_path $library_path $scripts_path]
+#@ set_app_var target_library [list fast.db]
+#@ set_app_var symbol_library [list tsmc090.sdb]
+#@ set_app_var synthetic_library [list standard.sldb dw_foundation.sldb]
+#@ set_app_var link_library [list * $target_library dw_foundation.sldb]
 #@ 
 #@ echo "set informations"
 #@ set designer Milo
 #@ # -- End source /home/milo/ICCodes/mcu51/syn/.synopsys_dc.setup
 
-source $scripts_path/read.tcl
-#@ # -- Starting source ./scripts/read.tcl
+source read.tcl
+#@ # -- Starting source read.tcl
 
+#@ echo "set work directory"
+#@ define_design_lib WORK -path $work_path
+#@ 
+#@ echo "analyze and elaborate design"
 #@ read_file -format verilog para.vh
 #@ set file_list [list]
 #@ set fp [open ../filelist.f r]
@@ -5475,84 +5477,766 @@ source $scripts_path/read.tcl
 #@     lappend file_list [string range $line 11 [string length [string trim $line ]]]
 #@ }
 #@ puts $file_list
-#@ read_file -format verilog $file_list
-#@ # -- End source ./scripts/read.tcl
+#@ analyze -format verilog $file_list
+#@ current_design Mcu
+#@ elaborate Mcu
+#@ echo "link design"
+#@ link
+#@ redirect -tee -file $log_path/check_design.log {check_design}
+#@ # -- End source read.tcl
 
-source $scripts_path/read.tcl
-#@ # -- Starting source ./scripts/read.tcl
+source com.tcl
+#@ # -- Starting source com.tcl
 
-#@ read_file -format verilog para.vh
-#@ set file_list [list]
-#@ set fp [open ../filelist.f r]
-#@ while {[gets $fp line] != -1} {
-#@     lappend file_list [string range $line 11 [string length [string trim $line ]]]
-#@ }
-#@ puts $file_list
-#@ read_file -format verilog $file_list
-#@ # -- End source ./scripts/read.tcl
+#@ source design_env.tcl 
+#@ # -- Starting source design_env.tcl
 
-source $scripts_path/read.tcl
-#@ # -- Starting source ./scripts/read.tcl
+#@ reset_design
+#@ 
+#@ echo "define operating condition"
+#@ set_operating_conditions fast -library fast
+#@ 
+#@ echo "set wire load model"
+#@ set auto_wire_load_selection false
+#@ set_wire_load_mode top
+#@ set_wire_load_model -name tsmc090_wl50 -library fast
+#@ 
+#@ echo "set drive and fanout"
+#@ set_drive 1.5 [all_inputs]
+#@ set_fanout_load 4 [all_outputs]
+#@ set_load 30 [all_outputs]
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ # -- End source design_env.tcl
 
-#@ read_file -format verilog para.vh
-#@ set file_list [list]
-#@ set fp [open ../filelist.f r]
-#@ while {[gets $fp line] != -1} {
-#@     lappend file_list [string range $line 11 [string length [string trim $line ]]]
-#@ }
-#@ puts $file_list
-#@ read_file -format verilog $file_list
-#@ # -- End source ./scripts/read.tcl
+#@ source design_con.tcl
+#@ # -- Starting source design_con.tcl
 
-source $scripts_path/read.tcl
-#@ # -- Starting source ./scripts/read.tcl
+#@ echo "create clock"
+#@ set     CLK_NAME            clk
+#@ set     CLK_PERIOD          20
+#@ set     CLK_SKEW            [expr   $CLK_PERIOD*0.05]
+#@ set     CLK_TRAN            [expr   $CLK_PERIOD*0.01]
+#@ set     CLK_SRC_LATENCY     [expr   $CLK_PERIOD*0.1]
+#@ set     CLK_LATENCY         [expr   $CLK_PERIOD*0.1]
+#@ create_clock -period ${CLK_PERIOD} [get_ports ${CLK_NAME}]
+#@ set_clock_uncertainty       -setup  $CLK_SKEW           [get_ports  $CLK_NAME]
+#@ set_clock_transition        -max    $CLK_TRAN           [get_ports  $CLK_NAME]
+#@ set_clock_latency -source   -max    $CLK_SRC_LATENCY    [get_ports  $CLK_NAME]
+#@ set_clock_latency           -max    $CLK_LATENCY        [get_ports  $CLK_NAME]
+#@ 
+#@ echo "set design rule"
+#@ set_max_transition 1 [get_clocks clk]
+#@ set_max_fanout 8 [get_designs]
+#@ set_max_capacitance 50 [get_designs]
+#@ set_max_area 0
+#@ 
+#@ set     INPUT_DELAY         [expr   $CLK_PERIOD*0.6]
+#@ set     OUTPUT_DELAY        [expr   $CLK_PERIOD*0.6]
+#@ set     ALL_IN_EXCEPT_CLK   [remove_from_collection [all_inputs] [get_ports $CLK_NAME]]
+#@ set_input_delay     $INPUT_DELAY    -clock  $CLK_NAME   $ALL_IN_EXCEPT_CLK
+#@ set_output_delay    $OUTPUT_DELAY   -clock  $CLK_NAME   [all_outputs]
+#@ # -- End source design_con.tcl
 
-#@ read_file -format verilog para.vh
-#@ set file_list [list]
-#@ set fp [open ../filelist.f r]
-#@ while {[gets $fp line] != -1} {
-#@     lappend file_list [string range $line 11 [string length [string trim $line ]]]
-#@ }
-#@ puts $file_list
-#@ read_file -format verilog $file_list
-#@ # -- End source ./scripts/read.tcl
+#@ redirect -tee ${log_path}/compile.log {compile}
+#@ # -- End source com.tcl
 
-source $scripts_path/read.tcl
-#@ # -- Starting source ./scripts/read.tcl
+source report.tcl
+#@ # -- Starting source report.tcl
 
-#@ read_file -format verilog para.vh
-#@ set file_list [list]
-#@ set fp [open ../filelist.f r]
-#@ while {[gets $fp line] != -1} {
-#@     lappend file_list [string range $line 11 [string length [string trim $line ]]]
-#@ }
-#@ puts $file_list
-#@ read_file -format verilog $file_list
-#@ # -- End source ./scripts/read.tcl
+#@ redirect -tee $log_path/area.rpt {report_area}
+#@ redirect -tee $log_path/timing.rpt {report_timing}
+#@ redirect -tee $log_path/voilators.rpt {report_constraint -all_violators}
+#@ redirect -tee $log_path/min_pulse_width.rpt {report_min_pulse_width}
+#@ # -- End source report.tcl
 
-source $scripts_path/read.tcl
-#@ # -- Starting source ./scripts/read.tcl
+source com.tcl
+#@ # -- Starting source com.tcl
 
-#@ read_file -format verilog para.vh
-#@ set file_list [list]
-#@ set fp [open ../filelist.f r]
-#@ while {[gets $fp line] != -1} {
-#@     lappend file_list [string range $line 11 [string length [string trim $line ]]]
-#@ }
-#@ puts $file_list
-#@ read_file -format verilog $file_list
-#@ # -- End source ./scripts/read.tcl
+#@ source design_env.tcl 
+#@ # -- Starting source design_env.tcl
 
-source $scripts_path/read.tcl
-#@ # -- Starting source ./scripts/read.tcl
+#@ reset_design
+#@ 
+#@ echo "define operating condition"
+#@ set_operating_conditions fast -library fast
+#@ 
+#@ echo "set wire load model"
+#@ set auto_wire_load_selection false
+#@ set_wire_load_mode top
+#@ set_wire_load_model -name tsmc090_wl50 -library fast
+#@ 
+#@ echo "set drive and fanout"
+#@ set_drive 1.5 [all_inputs]
+#@ set_fanout_load 4 [all_outputs]
+#@ set_load 30 [all_outputs]
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ # -- End source design_env.tcl
 
-#@ read_file -format verilog para.vh
-#@ set file_list [list]
-#@ set fp [open ../filelist.f r]
-#@ while {[gets $fp line] != -1} {
-#@     lappend file_list [string range $line 11 [string length [string trim $line ]]]
-#@ }
-#@ puts $file_list
-#@ read_file -format verilog $file_list
-#@ # -- End source ./scripts/read.tcl
+#@ source design_con.tcl
+#@ # -- Starting source design_con.tcl
 
+#@ echo "create clock"
+#@ set     CLK_NAME            clk
+#@ set     CLK_PERIOD          20
+#@ set     CLK_SKEW            [expr   $CLK_PERIOD*0.05]
+#@ set     CLK_TRAN            [expr   $CLK_PERIOD*0.01]
+#@ set     CLK_SRC_LATENCY     [expr   $CLK_PERIOD*0.1]
+#@ set     CLK_LATENCY         [expr   $CLK_PERIOD*0.1]
+#@ create_clock -period ${CLK_PERIOD} [get_ports ${CLK_NAME}]
+#@ set_clock_uncertainty       -setup  $CLK_SKEW           [get_ports  $CLK_NAME]
+#@ set_clock_transition        -max    $CLK_TRAN           [get_ports  $CLK_NAME]
+#@ set_clock_latency -source   -max    $CLK_SRC_LATENCY    [get_ports  $CLK_NAME]
+#@ set_clock_latency           -max    $CLK_LATENCY        [get_ports  $CLK_NAME]
+#@ 
+#@ echo "set design rule"
+#@ # set_max_transition 1 [get_clocks clk]
+#@ # set_max_fanout 8 [get_designs]
+#@ # set_max_capacitance 50 [get_designs]
+#@ set_max_area 0
+#@ 
+#@ set     INPUT_DELAY         [expr   $CLK_PERIOD*0.6]
+#@ set     OUTPUT_DELAY        [expr   $CLK_PERIOD*0.6]
+#@ set     ALL_IN_EXCEPT_CLK   [remove_from_collection [all_inputs] [get_ports $CLK_NAME]]
+#@ set_input_delay     $INPUT_DELAY    -clock  $CLK_NAME   $ALL_IN_EXCEPT_CLK
+#@ set_output_delay    $OUTPUT_DELAY   -clock  $CLK_NAME   [all_outputs]
+#@ # -- End source design_con.tcl
+
+#@ redirect -tee ${log_path}/compile.log {compile}
+#@ # -- End source com.tcl
+
+source report.tcl
+#@ # -- Starting source report.tcl
+
+#@ redirect -tee $log_path/area.rpt {report_area}
+#@ redirect -tee $log_path/timing.rpt {report_timing}
+#@ redirect -tee $log_path/voilators.rpt {report_constraint -all_violators}
+#@ redirect -tee $log_path/min_pulse_width.rpt {report_min_pulse_width}
+#@ # -- End source report.tcl
+
+source com.tcl
+#@ # -- Starting source com.tcl
+
+#@ source design_env.tcl 
+#@ # -- Starting source design_env.tcl
+
+#@ reset_design
+#@ 
+#@ echo "define operating condition"
+#@ set_operating_conditions fast -library fast
+#@ 
+#@ echo "set wire load model"
+#@ set auto_wire_load_selection false
+#@ set_wire_load_mode top
+#@ set_wire_load_model -name tsmc090_wl50 -library fast
+#@ 
+#@ echo "set drive and fanout"
+#@ set_drive 1.5 [all_inputs]
+#@ set_fanout_load 4 [all_outputs]
+#@ set_load 50 [all_outputs]
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ # -- End source design_env.tcl
+
+#@ source design_con.tcl
+#@ # -- Starting source design_con.tcl
+
+#@ echo "create clock"
+#@ set     CLK_NAME            clk
+#@ set     CLK_PERIOD          10
+#@ set     CLK_SKEW            [expr   $CLK_PERIOD*0.05]
+#@ set     CLK_TRAN            [expr   $CLK_PERIOD*0.01]
+#@ set     CLK_SRC_LATENCY     [expr   $CLK_PERIOD*0.1]
+#@ set     CLK_LATENCY         [expr   $CLK_PERIOD*0.1]
+#@ create_clock -period ${CLK_PERIOD} [get_ports ${CLK_NAME}]
+#@ set_clock_uncertainty       -setup  $CLK_SKEW           [get_ports  $CLK_NAME]
+#@ set_clock_transition        -max    $CLK_TRAN           [get_ports  $CLK_NAME]
+#@ set_clock_latency -source   -max    $CLK_SRC_LATENCY    [get_ports  $CLK_NAME]
+#@ set_clock_latency           -max    $CLK_LATENCY        [get_ports  $CLK_NAME]
+#@ 
+#@ echo "set design rule"
+#@ # set_max_transition 1 [get_clocks clk]
+#@ # set_max_fanout 8 [get_designs]
+#@ # set_max_capacitance 50 [get_designs]
+#@ set_max_area 0
+#@ 
+#@ set     INPUT_DELAY         [expr   $CLK_PERIOD*0.6]
+#@ set     OUTPUT_DELAY        [expr   $CLK_PERIOD*0.6]
+#@ set     ALL_IN_EXCEPT_CLK   [remove_from_collection [all_inputs] [get_ports $CLK_NAME]]
+#@ set_input_delay     $INPUT_DELAY    -clock  $CLK_NAME   $ALL_IN_EXCEPT_CLK
+#@ set_output_delay    $OUTPUT_DELAY   -clock  $CLK_NAME   [all_outputs]
+#@ # -- End source design_con.tcl
+
+#@ redirect -tee ${log_path}/compile.log {compile}
+#@ # -- End source com.tcl
+
+source report.tcl
+#@ # -- Starting source report.tcl
+
+#@ redirect -tee $log_path/area.rpt {report_area}
+#@ redirect -tee $log_path/timing.rpt {report_timing}
+#@ redirect -tee $log_path/voilators.rpt {report_constraint -all_violators}
+#@ redirect -tee $log_path/min_pulse_width.rpt {report_min_pulse_width}
+#@ # -- End source report.tcl
+
+source com.tcl
+#@ # -- Starting source com.tcl
+
+#@ source design_env.tcl 
+#@ # -- Starting source design_env.tcl
+
+#@ reset_design
+#@ 
+#@ echo "define operating condition"
+#@ set_operating_conditions fast -library fast
+#@ 
+#@ echo "set wire load model"
+#@ set auto_wire_load_selection false
+#@ set_wire_load_mode top
+#@ set_wire_load_model -name tsmc090_wl50 -library fast
+#@ 
+#@ echo "set drive and fanout"
+#@ set_drive 1.5 [all_inputs]
+#@ set_fanout_load 4 [all_outputs]
+#@ set_load 5 [all_outputs]
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ # -- End source design_env.tcl
+
+#@ source design_con.tcl
+#@ # -- Starting source design_con.tcl
+
+#@ echo "create clock"
+#@ set     CLK_NAME            clk
+#@ set     CLK_PERIOD          10
+#@ set     CLK_SKEW            [expr   $CLK_PERIOD*0.05]
+#@ set     CLK_TRAN            [expr   $CLK_PERIOD*0.01]
+#@ set     CLK_SRC_LATENCY     [expr   $CLK_PERIOD*0.1]
+#@ set     CLK_LATENCY         [expr   $CLK_PERIOD*0.1]
+#@ create_clock -period ${CLK_PERIOD} [get_ports ${CLK_NAME}]
+#@ set_clock_uncertainty       -setup  $CLK_SKEW           [get_ports  $CLK_NAME]
+#@ set_clock_transition        -max    $CLK_TRAN           [get_ports  $CLK_NAME]
+#@ set_clock_latency -source   -max    $CLK_SRC_LATENCY    [get_ports  $CLK_NAME]
+#@ set_clock_latency           -max    $CLK_LATENCY        [get_ports  $CLK_NAME]
+#@ 
+#@ echo "set design rule"
+#@ # set_max_transition 1 [get_clocks clk]
+#@ # set_max_fanout 8 [get_designs]
+#@ # set_max_capacitance 50 [get_designs]
+#@ set_max_area 0
+#@ 
+#@ set     INPUT_DELAY         [expr   $CLK_PERIOD*0.6]
+#@ set     OUTPUT_DELAY        [expr   $CLK_PERIOD*0.6]
+#@ set     ALL_IN_EXCEPT_CLK   [remove_from_collection [all_inputs] [get_ports $CLK_NAME]]
+#@ set_input_delay     $INPUT_DELAY    -clock  $CLK_NAME   $ALL_IN_EXCEPT_CLK
+#@ set_output_delay    $OUTPUT_DELAY   -clock  $CLK_NAME   [all_outputs]
+#@ # -- End source design_con.tcl
+
+#@ redirect -tee ${log_path}/compile.log {compile}
+#@ # -- End source com.tcl
+
+source report.tcl
+#@ # -- Starting source report.tcl
+
+#@ redirect -tee $log_path/area.rpt {report_area}
+#@ redirect -tee $log_path/timing.rpt {report_timing}
+#@ redirect -tee $log_path/voilators.rpt {report_constraint -all_violators}
+#@ redirect -tee $log_path/min_pulse_width.rpt {report_min_pulse_width}
+#@ # -- End source report.tcl
+
+source com.tcl
+#@ # -- Starting source com.tcl
+
+#@ source design_env.tcl 
+#@ # -- Starting source design_env.tcl
+
+#@ reset_design
+#@ 
+#@ echo "define operating condition"
+#@ set_operating_conditions fast -library fast
+#@ 
+#@ echo "set wire load model"
+#@ set auto_wire_load_selection false
+#@ set_wire_load_mode top
+#@ set_wire_load_model -name tsmc090_wl50 -library fast
+#@ 
+#@ echo "set drive and fanout"
+#@ set_drive 1.5 [all_inputs]
+#@ set_fanout_load 4 [all_outputs]
+#@ set_load 5 [all_outputs]
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ # -- End source design_env.tcl
+
+#@ source design_con.tcl
+#@ # -- Starting source design_con.tcl
+
+#@ echo "create clock"
+#@ set     CLK_NAME            clk
+#@ set     CLK_PERIOD          30
+#@ set     CLK_SKEW            [expr   $CLK_PERIOD*0.05]
+#@ set     CLK_TRAN            [expr   $CLK_PERIOD*0.01]
+#@ set     CLK_SRC_LATENCY     [expr   $CLK_PERIOD*0.1]
+#@ set     CLK_LATENCY         [expr   $CLK_PERIOD*0.1]
+#@ create_clock -period ${CLK_PERIOD} [get_ports ${CLK_NAME}]
+#@ set_clock_uncertainty       -setup  $CLK_SKEW           [get_ports  $CLK_NAME]
+#@ set_clock_transition        -max    $CLK_TRAN           [get_ports  $CLK_NAME]
+#@ set_clock_latency -source   -max    $CLK_SRC_LATENCY    [get_ports  $CLK_NAME]
+#@ set_clock_latency           -max    $CLK_LATENCY        [get_ports  $CLK_NAME]
+#@ 
+#@ echo "set design rule"
+#@ # set_max_transition 1 [get_clocks clk]
+#@ # set_max_fanout 8 [get_designs]
+#@ # set_max_capacitance 50 [get_designs]
+#@ set_max_area 0
+#@ 
+#@ set     INPUT_DELAY         [expr   $CLK_PERIOD*0.6]
+#@ set     OUTPUT_DELAY        [expr   $CLK_PERIOD*0.6]
+#@ set     ALL_IN_EXCEPT_CLK   [remove_from_collection [all_inputs] [get_ports $CLK_NAME]]
+#@ set_input_delay     $INPUT_DELAY    -clock  $CLK_NAME   $ALL_IN_EXCEPT_CLK
+#@ set_output_delay    $OUTPUT_DELAY   -clock  $CLK_NAME   [all_outputs]
+#@ # -- End source design_con.tcl
+
+#@ redirect -tee ${log_path}/compile.log {compile}
+#@ # -- End source com.tcl
+
+source report.tcl
+#@ # -- Starting source report.tcl
+
+#@ redirect -tee $log_path/area.rpt {report_area}
+#@ redirect -tee $log_path/timing.rpt {report_timing}
+#@ redirect -tee $log_path/voilators.rpt {report_constraint -all_violators}
+#@ redirect -tee $log_path/min_pulse_width.rpt {report_min_pulse_width}
+#@ # -- End source report.tcl
+
+source com.tcl
+#@ # -- Starting source com.tcl
+
+#@ source design_env.tcl 
+#@ # -- Starting source design_env.tcl
+
+#@ reset_design
+#@ 
+#@ echo "define operating condition"
+#@ set_operating_conditions fast -library fast
+#@ 
+#@ echo "set wire load model"
+#@ set auto_wire_load_selection false
+#@ set_wire_load_mode top
+#@ set_wire_load_model -name tsmc090_wl50 -library fast
+#@ 
+#@ echo "set drive and fanout"
+#@ set_drive 1.5 [all_inputs]
+#@ set_fanout_load 1 [all_outputs]
+#@ set_load 5 [all_outputs]
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ # -- End source design_env.tcl
+
+#@ source design_con.tcl
+#@ # -- Starting source design_con.tcl
+
+#@ echo "create clock"
+#@ set     CLK_NAME            clk
+#@ set     CLK_PERIOD          10
+#@ set     CLK_SKEW            [expr   $CLK_PERIOD*0.05]
+#@ set     CLK_TRAN            [expr   $CLK_PERIOD*0.01]
+#@ set     CLK_SRC_LATENCY     [expr   $CLK_PERIOD*0.1]
+#@ set     CLK_LATENCY         [expr   $CLK_PERIOD*0.1]
+#@ create_clock -period ${CLK_PERIOD} [get_ports ${CLK_NAME}]
+#@ set_clock_uncertainty       -setup  $CLK_SKEW           [get_ports  $CLK_NAME]
+#@ set_clock_transition        -max    $CLK_TRAN           [get_ports  $CLK_NAME]
+#@ set_clock_latency -source   -max    $CLK_SRC_LATENCY    [get_ports  $CLK_NAME]
+#@ set_clock_latency           -max    $CLK_LATENCY        [get_ports  $CLK_NAME]
+#@ 
+#@ echo "set design rule"
+#@ # set_max_transition 1 [get_clocks clk]
+#@ # set_max_fanout 8 [get_designs]
+#@ # set_max_capacitance 50 [get_designs]
+#@ set_max_area 0
+#@ 
+#@ set     INPUT_DELAY         [expr   $CLK_PERIOD*0.6]
+#@ set     OUTPUT_DELAY        [expr   $CLK_PERIOD*0.6]
+#@ set     ALL_IN_EXCEPT_CLK   [remove_from_collection [all_inputs] [get_ports $CLK_NAME]]
+#@ set_input_delay     $INPUT_DELAY    -clock  $CLK_NAME   $ALL_IN_EXCEPT_CLK
+#@ set_output_delay    $OUTPUT_DELAY   -clock  $CLK_NAME   [all_outputs]
+#@ # -- End source design_con.tcl
+
+#@ redirect -tee ${log_path}/compile.log {compile}
+#@ # -- End source com.tcl
+
+source report.tcl
+#@ # -- Starting source report.tcl
+
+#@ redirect -tee $log_path/area.rpt {report_area}
+#@ redirect -tee $log_path/timing.rpt {report_timing}
+#@ redirect -tee $log_path/voilators.rpt {report_constraint -all_violators}
+#@ redirect -tee $log_path/min_pulse_width.rpt {report_min_pulse_width}
+#@ # -- End source report.tcl
+
+source com.tcl
+#@ # -- Starting source com.tcl
+
+#@ source design_env.tcl 
+#@ # -- Starting source design_env.tcl
+
+#@ reset_design
+#@ 
+#@ echo "define operating condition"
+#@ set_operating_conditions fast -library fast
+#@ 
+#@ echo "set wire load model"
+#@ set auto_wire_load_selection false
+#@ set_wire_load_mode top
+#@ set_wire_load_model -name tsmc090_wl50 -library fast
+#@ 
+#@ echo "set drive and fanout"
+#@ set_drive 1.5 [all_inputs]
+#@ set_fanout_load 2 [all_outputs]
+#@ set_load 1 [all_outputs]
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ # -- End source design_env.tcl
+
+#@ source design_con.tcl
+#@ # -- Starting source design_con.tcl
+
+#@ echo "create clock"
+#@ set     CLK_NAME            clk
+#@ set     CLK_PERIOD          10
+#@ set     CLK_SKEW            [expr   $CLK_PERIOD*0.05]
+#@ set     CLK_TRAN            [expr   $CLK_PERIOD*0.01]
+#@ set     CLK_SRC_LATENCY     [expr   $CLK_PERIOD*0.1]
+#@ set     CLK_LATENCY         [expr   $CLK_PERIOD*0.1]
+#@ create_clock -period ${CLK_PERIOD} [get_ports ${CLK_NAME}]
+#@ set_clock_uncertainty       -setup  $CLK_SKEW           [get_ports  $CLK_NAME]
+#@ set_clock_transition        -max    $CLK_TRAN           [get_ports  $CLK_NAME]
+#@ set_clock_latency -source   -max    $CLK_SRC_LATENCY    [get_ports  $CLK_NAME]
+#@ set_clock_latency           -max    $CLK_LATENCY        [get_ports  $CLK_NAME]
+#@ 
+#@ echo "set design rule"
+#@ # set_max_transition 1 [get_clocks clk]
+#@ # set_max_fanout 8 [get_designs]
+#@ # set_max_capacitance 50 [get_designs]
+#@ set_max_area 0
+#@ 
+#@ set     INPUT_DELAY         [expr   $CLK_PERIOD*0.6]
+#@ set     OUTPUT_DELAY        [expr   $CLK_PERIOD*0.6]
+#@ set     ALL_IN_EXCEPT_CLK   [remove_from_collection [all_inputs] [get_ports $CLK_NAME]]
+#@ set_input_delay     $INPUT_DELAY    -clock  $CLK_NAME   $ALL_IN_EXCEPT_CLK
+#@ set_output_delay    $OUTPUT_DELAY   -clock  $CLK_NAME   [all_outputs]
+#@ # -- End source design_con.tcl
+
+#@ redirect -tee ${log_path}/compile.log {compile}
+#@ # -- End source com.tcl
+
+source com.tcl
+#@ # -- Starting source com.tcl
+
+#@ source design_env.tcl 
+#@ # -- Starting source design_env.tcl
+
+#@ reset_design
+#@ 
+#@ echo "define operating condition"
+#@ set_operating_conditions fast -library fast
+#@ 
+#@ echo "set wire load model"
+#@ set auto_wire_load_selection false
+#@ set_wire_load_mode top
+#@ set_wire_load_model -name tsmc090_wl50 -library fast
+#@ 
+#@ echo "set drive and fanout"
+#@ set_drive 1.5 [all_inputs]
+#@ set_fanout_load 2 [all_outputs]
+#@ set_load 1 [all_outputs]
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ # -- End source design_env.tcl
+
+#@ source design_con.tcl
+#@ # -- Starting source design_con.tcl
+
+#@ echo "create clock"
+#@ set     CLK_NAME            clk
+#@ set     CLK_PERIOD          10
+#@ set     CLK_SKEW            [expr   $CLK_PERIOD*0.05]
+#@ set     CLK_TRAN            [expr   $CLK_PERIOD*0.01]
+#@ set     CLK_SRC_LATENCY     [expr   $CLK_PERIOD*0.1]
+#@ set     CLK_LATENCY         [expr   $CLK_PERIOD*0.1]
+#@ create_clock -period ${CLK_PERIOD} [get_ports ${CLK_NAME}]
+#@ set_clock_uncertainty       -setup  $CLK_SKEW           [get_ports  $CLK_NAME]
+#@ set_clock_transition        -max    $CLK_TRAN           [get_ports  $CLK_NAME]
+#@ set_clock_latency -source   -max    $CLK_SRC_LATENCY    [get_ports  $CLK_NAME]
+#@ set_clock_latency           -max    $CLK_LATENCY        [get_ports  $CLK_NAME]
+#@ 
+#@ echo "set design rule"
+#@ set_max_transition 1 [get_clocks clk]
+#@ set_max_fanout 8 [get_designs]
+#@ set_max_capacitance 10 [get_designs]
+#@ set_max_area 0
+#@ 
+#@ set     INPUT_DELAY         [expr   $CLK_PERIOD*0.6]
+#@ set     OUTPUT_DELAY        [expr   $CLK_PERIOD*0.6]
+#@ set     ALL_IN_EXCEPT_CLK   [remove_from_collection [all_inputs] [get_ports $CLK_NAME]]
+#@ set_input_delay     $INPUT_DELAY    -clock  $CLK_NAME   $ALL_IN_EXCEPT_CLK
+#@ set_output_delay    $OUTPUT_DELAY   -clock  $CLK_NAME   [all_outputs]
+#@ # -- End source design_con.tcl
+
+#@ redirect -tee ${log_path}/compile.log {compile}
+#@ # -- End source com.tcl
+
+source report.tcl
+#@ # -- Starting source report.tcl
+
+#@ redirect -tee $log_path/area.rpt {report_area}
+#@ redirect -tee $log_path/timing.rpt {report_timing}
+#@ redirect -tee $log_path/voilators.rpt {report_constraint -all_violators}
+#@ redirect -tee $log_path/min_pulse_width.rpt {report_min_pulse_width}
+#@ # -- End source report.tcl
+
+source com.tcl
+#@ # -- Starting source com.tcl
+
+#@ source design_env.tcl 
+#@ # -- Starting source design_env.tcl
+
+#@ reset_design
+#@ 
+#@ echo "define operating condition"
+#@ set_operating_conditions fast -library fast
+#@ 
+#@ echo "set wire load model"
+#@ set auto_wire_load_selection false
+#@ set_wire_load_mode top
+#@ set_wire_load_model -name tsmc090_wl50 -library fast
+#@ 
+#@ echo "set drive and fanout"
+#@ set_drive 1.5 [all_inputs]
+#@ set_fanout_load 2 [all_outputs]
+#@ set_load 1 [all_outputs]
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ # -- End source design_env.tcl
+
+#@ source design_con.tcl
+#@ # -- Starting source design_con.tcl
+
+#@ echo "create clock"
+#@ set     CLK_NAME            clk
+#@ set     CLK_PERIOD          8
+#@ set     CLK_SKEW            [expr   $CLK_PERIOD*0.05]
+#@ set     CLK_TRAN            [expr   $CLK_PERIOD*0.01]
+#@ set     CLK_SRC_LATENCY     [expr   $CLK_PERIOD*0.1]
+#@ set     CLK_LATENCY         [expr   $CLK_PERIOD*0.1]
+#@ create_clock -period ${CLK_PERIOD} [get_ports ${CLK_NAME}]
+#@ set_clock_uncertainty       -setup  $CLK_SKEW           [get_ports  $CLK_NAME]
+#@ set_clock_transition        -max    $CLK_TRAN           [get_ports  $CLK_NAME]
+#@ set_clock_latency -source   -max    $CLK_SRC_LATENCY    [get_ports  $CLK_NAME]
+#@ set_clock_latency           -max    $CLK_LATENCY        [get_ports  $CLK_NAME]
+#@ 
+#@ echo "set design rule"
+#@ set_max_transition 1 [get_clocks clk]
+#@ set_max_fanout 8 [get_designs]
+#@ set_max_capacitance 10 [get_designs]
+#@ set_max_area 0
+#@ 
+#@ set     INPUT_DELAY         [expr   $CLK_PERIOD*0.6]
+#@ set     OUTPUT_DELAY        [expr   $CLK_PERIOD*0.6]
+#@ set     ALL_IN_EXCEPT_CLK   [remove_from_collection [all_inputs] [get_ports $CLK_NAME]]
+#@ set_input_delay     $INPUT_DELAY    -clock  $CLK_NAME   $ALL_IN_EXCEPT_CLK
+#@ set_output_delay    $OUTPUT_DELAY   -clock  $CLK_NAME   [all_outputs]
+#@ # -- End source design_con.tcl
+
+#@ redirect -tee ${log_path}/compile.log {compile}
+#@ # -- End source com.tcl
+
+source report.tcl
+#@ # -- Starting source report.tcl
+
+#@ redirect -tee $log_path/area.rpt {report_area}
+#@ redirect -tee $log_path/timing.rpt {report_timing}
+#@ redirect -tee $log_path/voilators.rpt {report_constraint -all_violators}
+#@ redirect -tee $log_path/min_pulse_width.rpt {report_min_pulse_width}
+#@ # -- End source report.tcl
+
+source com.tcl
+#@ # -- Starting source com.tcl
+
+#@ source design_env.tcl 
+#@ # -- Starting source design_env.tcl
+
+#@ reset_design
+#@ 
+#@ echo "define operating condition"
+#@ set_operating_conditions fast -library fast
+#@ 
+#@ echo "set wire load model"
+#@ set auto_wire_load_selection false
+#@ set_wire_load_mode top
+#@ set_wire_load_model -name tsmc090_wl50 -library fast
+#@ 
+#@ echo "set drive and fanout"
+#@ set_drive 1.5 [all_inputs]
+#@ set_fanout_load 2 [all_outputs]
+#@ set_load 1 [all_outputs]
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ # -- End source design_env.tcl
+
+#@ source design_con.tcl
+#@ # -- Starting source design_con.tcl
+
+#@ echo "create clock"
+#@ set     CLK_NAME            clk
+#@ set     CLK_PERIOD          4
+#@ set     CLK_SKEW            [expr   $CLK_PERIOD*0.05]
+#@ set     CLK_TRAN            [expr   $CLK_PERIOD*0.01]
+#@ set     CLK_SRC_LATENCY     [expr   $CLK_PERIOD*0.1]
+#@ set     CLK_LATENCY         [expr   $CLK_PERIOD*0.1]
+#@ create_clock -period ${CLK_PERIOD} [get_ports ${CLK_NAME}]
+#@ set_clock_uncertainty       -setup  $CLK_SKEW           [get_ports  $CLK_NAME]
+#@ set_clock_transition        -max    $CLK_TRAN           [get_ports  $CLK_NAME]
+#@ set_clock_latency -source   -max    $CLK_SRC_LATENCY    [get_ports  $CLK_NAME]
+#@ set_clock_latency           -max    $CLK_LATENCY        [get_ports  $CLK_NAME]
+#@ 
+#@ echo "set design rule"
+#@ set_max_transition 1 [get_clocks clk]
+#@ set_max_fanout 8 [get_designs]
+#@ set_max_capacitance 10 [get_designs]
+#@ set_max_area 0
+#@ 
+#@ set     INPUT_DELAY         [expr   $CLK_PERIOD*0.6]
+#@ set     OUTPUT_DELAY        [expr   $CLK_PERIOD*0.6]
+#@ set     ALL_IN_EXCEPT_CLK   [remove_from_collection [all_inputs] [get_ports $CLK_NAME]]
+#@ set_input_delay     $INPUT_DELAY    -clock  $CLK_NAME   $ALL_IN_EXCEPT_CLK
+#@ set_output_delay    $OUTPUT_DELAY   -clock  $CLK_NAME   [all_outputs]
+#@ # -- End source design_con.tcl
+
+#@ redirect -tee ${log_path}/compile.log {compile}
+#@ # -- End source com.tcl
+
+source report.tcl
+#@ # -- Starting source report.tcl
+
+#@ redirect -tee $log_path/area.rpt {report_area}
+#@ redirect -tee $log_path/timing.rpt {report_timing}
+#@ redirect -tee $log_path/voilators.rpt {report_constraint -all_violators}
+#@ redirect -tee $log_path/min_pulse_width.rpt {report_min_pulse_width}
+#@ # -- End source report.tcl
+
+source com.tcl
+#@ # -- Starting source com.tcl
+
+#@ source design_env.tcl 
+#@ # -- Starting source design_env.tcl
+
+#@ reset_design
+#@ 
+#@ echo "define operating condition"
+#@ set_operating_conditions fast -library fast
+#@ 
+#@ echo "set wire load model"
+#@ set auto_wire_load_selection false
+#@ set_wire_load_mode top
+#@ set_wire_load_model -name tsmc090_wl50 -library fast
+#@ 
+#@ echo "set drive and fanout"
+#@ set_drive 1.5 [all_inputs]
+#@ set_fanout_load 2 [all_outputs]
+#@ set_load 1 [all_outputs]
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ # -- End source design_env.tcl
+
+#@ source design_con.tcl
+#@ # -- Starting source design_con.tcl
+
+#@ echo "create clock"
+#@ set     CLK_NAME            clk
+#@ set     CLK_PERIOD          10
+#@ set     CLK_SKEW            [expr   $CLK_PERIOD*0.05]
+#@ set     CLK_TRAN            [expr   $CLK_PERIOD*0.01]
+#@ set     CLK_SRC_LATENCY     [expr   $CLK_PERIOD*0.1]
+#@ set     CLK_LATENCY         [expr   $CLK_PERIOD*0.1]
+#@ create_clock -period ${CLK_PERIOD} [get_ports ${CLK_NAME}]
+#@ set_clock_uncertainty       -setup  $CLK_SKEW           [get_ports  $CLK_NAME]
+#@ set_clock_transition        -max    $CLK_TRAN           [get_ports  $CLK_NAME]
+#@ set_clock_latency -source   -max    $CLK_SRC_LATENCY    [get_ports  $CLK_NAME]
+#@ set_clock_latency           -max    $CLK_LATENCY        [get_ports  $CLK_NAME]
+#@ 
+#@ echo "set design rule"
+#@ set_max_transition 1 [get_clocks clk]
+#@ set_max_fanout 8 [get_designs]
+#@ set_max_capacitance 10 [get_designs]
+#@ set_max_area 0
+#@ 
+#@ set     INPUT_DELAY         [expr   $CLK_PERIOD*0.6]
+#@ set     OUTPUT_DELAY        [expr   $CLK_PERIOD*0.6]
+#@ set     ALL_IN_EXCEPT_CLK   [remove_from_collection [all_inputs] [get_ports $CLK_NAME]]
+#@ set_input_delay     $INPUT_DELAY    -clock  $CLK_NAME   $ALL_IN_EXCEPT_CLK
+#@ set_output_delay    $OUTPUT_DELAY   -clock  $CLK_NAME   [all_outputs]
+#@ # -- End source design_con.tcl
+
+#@ redirect -tee ${log_path}/compile.log {compile}
+#@ # -- End source com.tcl
+
+source report.tcl
+#@ # -- Starting source report.tcl
+
+#@ redirect -tee $log_path/area.rpt {report_area}
+#@ redirect -tee $log_path/timing.rpt {report_timing}
+#@ redirect -tee $log_path/voilators.rpt {report_constraint -all_violators}
+#@ redirect -tee $log_path/min_pulse_width.rpt {report_min_pulse_width}
+#@ # -- End source report.tcl
+
+write -hierarchy -format ddc -output $mapped_path/mcu.ddc
+write -hierarchy -format verilog -output $netlist_path/mcu.v
+write_sdc dc.sdc
+remove_design -designs
+exit

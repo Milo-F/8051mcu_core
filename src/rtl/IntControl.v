@@ -13,14 +13,14 @@ module IntControl (
     input                   [7:0]                           TCON,
     input                   [1:0]                           SCON,
     output                  [4:0]                           interupt,
-    output                  [7:0]                           TCON_out
+    output                  [3:0]                           TCON_out
 );
     
     reg                     [7:0]                           TCON_reg;
     reg                     [1:0]                           SCON_reg;
     wire                    [7:0]                           TCON_nxt;
     
-    assign TCON_out = TCON_reg;
+    assign TCON_out = TCON_reg[3:0];
     
     IntArbiter IntArbiter_ins (
         .IE(IE),

@@ -1,0 +1,235 @@
+
+Information: There are 572 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'CPU_DW01_inc_1'
+  Processing 'CPU_DW01_inc_0'
+  Processing 'ALU_DW01_add_60'
+  Processing 'ALU_DW01_add_59'
+  Processing 'ALU_DW01_add_58'
+  Processing 'ALU_DW01_add_53'
+  Processing 'ALU_DW01_add_57'
+  Processing 'ALU_DW01_add_47'
+  Processing 'ALU_DW01_add_52'
+  Processing 'ALU_DW01_add_51'
+  Processing 'ALU_DW01_add_35'
+  Processing 'ALU_DW01_add_28'
+  Processing 'ALU_DW01_add_42'
+  Processing 'ALU_DW01_add_41'
+  Processing 'ALU_DW01_add_40'
+  Processing 'ALU_DW01_add_31'
+  Processing 'ALU_DW01_add_34'
+  Processing 'ALU_DW01_add_1'
+  Processing 'ALU_DW01_add_2'
+  Processing 'ALU_DW01_sub_1'
+  Processing 'ALU_DW01_add_6'
+  Processing 'ALU_DW01_add_12'
+  Processing 'ALU_DW01_add_15'
+  Processing 'ALU_DW_mult_uns_0'
+  Processing 'ALU_DW01_add_4'
+  Processing 'ALU_DW01_add_3'
+  Processing 'ALU_DW01_inc_0'
+  Processing 'ALU_DW01_sub_0'
+  Processing 'ALU'
+  Processing 'Process'
+  Processing 'InsDecoder'
+  Processing 'ClkDiv_DIV_NUM12'
+  Processing 'ClkDiv_DIV_NUM2'
+  Processing 'CPU'
+  Processing 'IntArbiter'
+  Processing 'IntControl'
+  Processing 'Timer_1'
+  Processing 'Timer_0'
+  Processing 'ClkDiv_DIV_NUM16'
+  Processing 'UartIf'
+  Processing 'fifo_ram_DATA_WIDTH8_RAM_DEPTH16_ADDR_WIDTH4'
+  Processing 'gray2bin_BIT_WIDTH5_1'
+  Processing 'bin2gray_BIT_WIDTH5_1'
+  Processing 'gray2bin_BIT_WIDTH5_0'
+  Processing 'bin2gray_BIT_WIDTH5_0'
+  Processing 'UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4'
+  Processing 'Uart_FIFO_DEPTH16_FIFO_WIDTH8_ADDR_WIDTH4'
+  Processing 'Mcu'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Timing loop detected. (OPT-150)
+	U6/A1 U6/Y 
+Information: Timing loop detected. (OPT-150)
+	U4/A1 U4/Y 
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U6'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U4'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U9'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U3'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U7'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U5'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U323'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U305'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U9'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U5'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U3'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U299'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U11'
+         to break a timing loop. (OPT-314)
+
+  Beginning Implementation Selection
+  ----------------------------------
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:04   63763.0      0.00       0.0     467.3 cpu/pro/alu/*cell*250701/U1/Y
+    0:00:04   63763.0      0.00       0.0     467.3 cpu/pro/alu/*cell*250701/U1/Y
+    0:00:04   63595.7      0.00       0.0     467.3 cpu/pro/alu/*cell*250701/U31/Y
+    0:00:05   63535.8      0.00       0.0     467.3                          
+    0:00:05   63535.8      0.00       0.0     467.3                          
+    0:00:05   63535.8      0.00       0.0     467.3                          
+    0:00:05   63535.8      0.00       0.0     467.3                          
+    0:00:05   63535.8      0.00       0.0     467.3                          
+    0:00:07   33995.1      4.20      98.6     454.5                          
+    0:00:08   34964.6      2.97      62.1     452.2                          
+    0:00:08   35181.2      2.18      37.7     451.3                          
+    0:00:08   35107.8      2.00      35.0     450.8                          
+    0:00:08   35182.6      1.99      31.8     449.8                          
+    0:00:08   35177.7      1.94      32.0     449.2                          
+    0:00:08   35185.4      1.89      29.2     448.2                          
+    0:00:08   35210.9      1.79      27.6     447.9                          
+    0:00:09   35236.3      1.66      24.5     447.9                          
+    0:00:09   35223.6      1.73      26.0     447.9                          
+    0:00:09   35223.6      1.73      26.0     447.9                          
+    0:00:09   35223.6      1.73      26.0     447.9                          
+    0:00:09   35223.6      1.73      26.0     447.9                          
+    0:00:10   35839.5      1.82      27.5     387.6                          
+    0:00:12   36059.7      1.77      25.6     358.0                          
+    0:00:13   36353.9      1.74      24.9     330.5                          
+    0:00:14   36497.2      1.75      24.4     284.7                          
+    0:00:14   36636.9      1.74      24.0     256.4                          
+    0:00:15   36698.3      1.74      24.0     219.9                          
+    0:00:16   36677.8      1.74      24.0     205.2                          
+    0:00:16   36679.9      1.74      23.9     191.5                          
+    0:00:16   36694.0      1.74      23.9     178.4                          
+    0:00:16   36694.0      1.74      23.9     178.4                          
+    0:00:16   37206.3      0.67       7.1     185.7 cpu/psw_reg[0]/D         
+    0:00:17   37493.5      0.00       0.0     192.8                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:17   37493.5      0.00       0.0     192.8                          
+    0:00:17   37493.5      0.00       0.0     192.8                          
+    0:00:17   37151.3      0.00       0.0     395.9                          
+    0:00:18   37021.4      0.00       0.0     438.4                          
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_fanout)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:18   37021.4      0.00       0.0     438.4                          
+    0:00:18   37139.3      0.00       0.0     406.1 Timer_ins_0/net215346    
+    0:00:18   37171.7      0.00       0.0     392.6 cpu/n475                 
+    0:00:18   37143.5      0.00       0.0     389.1 cpu/net215384            
+    0:00:18   37108.9      0.00       0.0     388.3 cpu/insdecoder/n262      
+    0:00:19   37302.2      0.00       0.0     296.0 n9129                    
+    0:00:19   37381.3      0.00       0.0     267.2 n9086                    
+    0:00:19   37367.2      0.00       0.0     250.3 net209820                
+    0:00:19   37389.0      0.00       0.0     233.9 net215540                
+    0:00:19   37391.9      0.00       0.0     230.0 net218312                
+    0:00:19   37377.0      0.00       0.0     229.8 n8674                    
+    0:00:20   37388.3      0.00       0.0     229.2 Uart_ins/UartFiFo_ins/n101
+    0:00:20   37412.3      0.00       0.0     228.1 net218269                
+    0:00:20   37591.5      0.00       0.0     224.1 Timer_ins_1/n41          
+    0:00:20   37697.4      0.00       0.0     175.0 cpu/pro/alu/net211841    
+    0:00:20   37809.6      0.00       0.0     140.0 cpu/insdecoder/net211566 
+    0:00:21   37799.0      0.00       0.0     127.0 cpu/pro/alu/net211740    
+    0:00:21   37798.3      0.00       0.0     116.0 cpu/pro/alu/net211859    
+    0:00:21   37889.3      0.00       0.0      97.0 net211405                
+    0:00:21   37907.7      0.00       0.0      86.0 cpu/net218058            
+    0:00:21   37904.1      0.00       0.0      85.0 cpu/insdecoder/net218488 
+    0:00:22   38003.6      0.00       0.0      13.0 Uart_ins/UartFiFo_ins/fifo_ram_ins/w_data[1]
+    0:00:22   38066.4      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (max_area 0)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:22   38066.4      0.00       0.0       0.0                          
+    0:00:22   38066.4      0.00       0.0       0.0                          
+    0:00:22   36901.5      0.12       0.3       0.0                          
+    0:00:22   36494.3      0.07       0.1       0.0                          
+    0:00:22   36341.9      0.07       0.1       0.0                          
+    0:00:22   36264.3      0.07       0.1       0.0                          
+    0:00:22   36253.7      0.07       0.1       0.0                          
+    0:00:22   36253.7      0.07       0.1       0.0                          
+    0:00:22   36261.5      0.00       0.0       0.0                          
+    0:00:23   34908.9      1.16      21.3       0.0                          
+    0:00:23   34873.6      1.16      21.3       0.0                          
+    0:00:23   34856.6      1.16      21.3       0.0                          
+    0:00:23   34856.6      1.16      21.3       0.0                          
+    0:00:23   34856.6      1.16      21.3       0.0                          
+    0:00:23   34856.6      1.16      21.3       0.0                          
+    0:00:23   34856.6      1.16      21.3       0.0                          
+    0:00:23   34856.6      1.16      21.3       0.0                          
+    0:00:24   35510.0      0.15       0.4       0.0 cpu/psw_reg[0]/D         
+    0:00:24   35549.5      0.00       0.0       0.0                          
+    0:00:24   35452.9      0.00       0.0       0.0                          
+    0:00:24   35404.2      0.00       0.0       0.0                          
+    0:00:24   35312.5      0.00       0.0       0.0                          
+    0:00:25   35202.4      0.00       0.0       0.0                          
+    0:00:25   35202.4      0.00       0.0       0.0                          
+    0:00:26   34510.2      0.96      15.9       0.0                          
+    0:00:26   34443.9      0.96      15.7       0.0                          
+    0:00:26   34443.9      0.96      15.7       0.0                          
+    0:00:26   34443.9      0.96      15.7       0.0                          
+    0:00:26   34443.9      0.96      15.7       0.0                          
+    0:00:26   34443.9      0.96      15.7       0.0                          
+    0:00:26   34443.9      0.96      15.7       0.0                          
+    0:00:26   34854.5      0.21       1.3       0.0 cpu/psw_reg[0]/D         
+    0:00:26   35060.6      0.00       0.0       0.0                          
+Loading db file '/home/milo/TSMC.90/aci/sc-x/synopsys/fast.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1

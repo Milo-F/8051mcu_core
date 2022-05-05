@@ -1,0 +1,142 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : Mcu
+Version: L-2016.03-SP1
+Date   : Thu May  5 14:22:56 2022
+****************************************
+
+Operating Conditions: fast   Library: fast
+Wire Load Model Mode: top
+
+  Startpoint: cpu/ins_register_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: cpu/psw_reg[0]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Mcu                tsmc090_wl50          fast
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             2.00       2.00
+  cpu/ins_register_reg[0]/CK (DFFRQX4)                    0.00       2.00 r
+  cpu/ins_register_reg[0]/Q (DFFRQX4)                     0.20       2.20 r
+  cpu/U43/Y (INVX6)                                       0.05       2.24 f
+  cpu/U42/Y (INVX12)                                      0.17       2.41 r
+  cpu/insdecoder/instruction[0] (InsDecoder)              0.00       2.41 r
+  cpu/insdecoder/U320/Y (OR3X2)                           0.15       2.56 r
+  cpu/insdecoder/U236/Y (INVX5)                           0.12       2.68 f
+  cpu/insdecoder/U450/Y (CLKNAND2X12)                     0.14       2.83 r
+  cpu/insdecoder/U115/Y (INVX18)                          0.09       2.91 f
+  cpu/insdecoder/U164/Y (CLKNAND2X2)                      0.13       3.05 r
+  cpu/insdecoder/U107/Y (CLKBUFX4)                        0.24       3.29 r
+  cpu/insdecoder/U126/Y (INVX8)                           0.18       3.46 f
+  cpu/insdecoder/U516/Y (NOR2X8)                          0.26       3.73 r
+  cpu/insdecoder/U609/Y (NAND2X8)                         0.18       3.90 f
+  cpu/insdecoder/U56/Y (OR2X8)                            0.09       3.99 f
+  cpu/insdecoder/U153/Y (INVX6)                           0.18       4.18 r
+  cpu/insdecoder/U770/Y (OAI211X2)                        0.16       4.33 f
+  cpu/insdecoder/U286/Y (NAND4BBX4)                       0.16       4.49 f
+  cpu/insdecoder/U285/Y (NOR4X6)                          0.22       4.71 r
+  cpu/insdecoder/U432/Y (NAND4X8)                         0.07       4.78 f
+  cpu/insdecoder/a_data_from[0] (InsDecoder)              0.00       4.78 f
+  cpu/U14/Y (CLKBUFX40)                                   0.08       4.86 f
+  cpu/U27/Y (CLKINVX32)                                   0.06       4.92 r
+  cpu/U66/Y (OR3X4)                                       0.15       5.06 r
+  cpu/U159/Y (CLKINVX4)                                   0.26       5.33 f
+  cpu/U532/Y (AO22X1)                                     0.26       5.59 f
+  cpu/U164/Y (AOI221X4)                                   0.17       5.75 r
+  cpu/U371/Y (OAI2B11X4)                                  0.09       5.85 f
+  cpu/U17/Y (BUFX20)                                      0.07       5.91 f
+  cpu/U53/Y (CLKINVX12)                                   0.08       5.99 r
+  cpu/U415/Y (NOR2X2)                                     0.08       6.08 f
+  cpu/pro/a_data[3] (Process)                             0.00       6.08 f
+  cpu/pro/U11/Y (INVX2)                                   0.25       6.33 r
+  cpu/pro/U12/Y (INVX6)                                   0.18       6.50 f
+  cpu/pro/alu/a_data[3] (ALU)                             0.00       6.50 f
+  cpu/pro/alu/U300/Y (INVX2)                              0.16       6.66 r
+  cpu/pro/alu/U47/Y (CLKBUFX4)                            0.24       6.90 r
+  cpu/pro/alu/U117/Y (BUFX5)                              0.19       7.08 r
+  cpu/pro/alu/U43/Y (INVX14)                              0.11       7.20 f
+  cpu/pro/alu/div_35/u_div/u_add_PartRem_1_5/A[0] (ALU_DW01_add_41)
+                                                          0.00       7.20 f
+  cpu/pro/alu/div_35/u_div/u_add_PartRem_1_5/U70/Y (BUFX2)
+                                                          0.18       7.37 f
+  cpu/pro/alu/div_35/u_div/u_add_PartRem_1_5/U56/Y (NOR2X5)
+                                                          0.23       7.60 r
+  cpu/pro/alu/div_35/u_div/u_add_PartRem_1_5/U55/Y (OAI21X6)
+                                                          0.09       7.69 f
+  cpu/pro/alu/div_35/u_div/u_add_PartRem_1_5/U75/Y (AO21X4)
+                                                          0.13       7.82 f
+  cpu/pro/alu/div_35/u_div/u_add_PartRem_1_5/U81/Y (AOI21X4)
+                                                          0.23       8.06 r
+  cpu/pro/alu/div_35/u_div/u_add_PartRem_1_5/U61/Y (OA21X2)
+                                                          0.22       8.28 r
+  cpu/pro/alu/div_35/u_div/u_add_PartRem_1_5/U71/Y (MXI2X2)
+                                                          0.11       8.39 f
+  cpu/pro/alu/div_35/u_div/u_add_PartRem_1_5/CO (ALU_DW01_add_41)
+                                                          0.00       8.39 f
+  cpu/pro/alu/U256/Y (OAI221X4)                           0.20       8.59 r
+  cpu/pro/alu/U73/Y (CLKINVX12)                           0.05       8.65 f
+  cpu/pro/alu/U255/Y (AOI21X8)                            0.11       8.76 r
+  cpu/pro/alu/U62/Y (INVX6)                               0.14       8.89 f
+  cpu/pro/alu/U35/Y (INVX4)                               0.15       9.04 r
+  cpu/pro/alu/U215/Y (AOI32X4)                            0.17       9.22 f
+  cpu/pro/alu/U214/Y (CLKBUFX32)                          0.10       9.32 f
+  cpu/pro/alu/div_35/u_div/u_add_PartRem_0_4/A[4] (ALU_DW01_add_47)
+                                                          0.00       9.32 f
+  cpu/pro/alu/div_35/u_div/u_add_PartRem_0_4/U66/Y (NAND2X2)
+                                                          0.12       9.44 r
+  cpu/pro/alu/div_35/u_div/u_add_PartRem_0_4/U63/Y (OR2X2)
+                                                          0.13       9.57 r
+  cpu/pro/alu/div_35/u_div/u_add_PartRem_0_4/U88/Y (NAND2BX2)
+                                                          0.12       9.69 f
+  cpu/pro/alu/div_35/u_div/u_add_PartRem_0_4/U78/Y (AOI21X6)
+                                                          0.11       9.80 r
+  cpu/pro/alu/div_35/u_div/u_add_PartRem_0_4/U103/Y (OAI21X8)
+                                                          0.04       9.84 f
+  cpu/pro/alu/div_35/u_div/u_add_PartRem_0_4/CO (ALU_DW01_add_47)
+                                                          0.00       9.84 f
+  cpu/pro/alu/U189/Y (BUFX20)                             0.06       9.91 f
+  cpu/pro/alu/U72/Y (INVX6)                               0.09       9.99 r
+  cpu/pro/alu/U192/Y (AOI22X4)                            0.08      10.07 f
+  cpu/pro/alu/U71/Y (BUFX20)                              0.07      10.14 f
+  cpu/pro/alu/U186/Y (INVX4)                              0.12      10.25 r
+  cpu/pro/alu/U285/Y (AOI22X2)                            0.12      10.38 f
+  cpu/pro/alu/U193/Y (OAI22X4)                            0.17      10.55 r
+  cpu/pro/alu/U146/Y (AOI31X4)                            0.11      10.66 f
+  cpu/pro/alu/U277/Y (OAI21X8)                            0.07      10.73 r
+  cpu/pro/alu/ans[0] (ALU)                                0.00      10.73 r
+  cpu/pro/U24/Y (OAI2B2X4)                                0.15      10.88 r
+  cpu/pro/ans[0] (Process)                                0.00      10.88 r
+  cpu/U64/Y (BUFX18)                                      0.08      10.96 r
+  cpu/U148/Y (INVX20)                                     0.04      11.00 f
+  cpu/U275/Y (CLKXOR2X4)                                  0.09      11.10 f
+  cpu/U321/Y (XNOR2X4)                                    0.10      11.19 r
+  cpu/U183/Y (XNOR2X4)                                    0.07      11.27 f
+  cpu/U182/Y (OAI222X4)                                   0.17      11.44 r
+  cpu/psw_reg[0]/D (DFFRQX2)                              0.00      11.44 r
+  data arrival time                                                 11.44
+
+  clock clk (rise edge)                                  10.00      10.00
+  clock network delay (ideal)                             2.00      12.00
+  clock uncertainty                                      -0.50      11.50
+  cpu/psw_reg[0]/CK (DFFRQX2)                             0.00      11.50 r
+  library setup time                                     -0.06      11.44
+  data required time                                                11.44
+  --------------------------------------------------------------------------
+  data required time                                                11.44
+  data arrival time                                                -11.44
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.01
+
+
+1

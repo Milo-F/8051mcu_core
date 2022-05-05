@@ -12,14 +12,13 @@ set symbol_path /home/milo/TSMC.90/aci/sc-x/symbols/synopsys
 set library_path /home/milo/TSMC.90/aci/sc-x/synopsys
 set sh_command_log_file ./log/command.log
 
-echo "set work directory"
-define_design_lib work -path $work_path
 
 echo "set libraries"
-set search_path [list $search_path $source_path $rtl_path $symbol_path $library_path]
-set target_library [list fast.db]
-set symbol_library [list tsmc090.sdb]
-set link_library [list $target_library $symbol_library]
+set_app_var search_path [list $search_path $source_path $rtl_path $symbol_path $library_path $scripts_path]
+set_app_var target_library [list fast.db]
+set_app_var symbol_library [list tsmc090.sdb]
+set_app_var synthetic_library [list standard.sldb dw_foundation.sldb]
+set_app_var link_library [list * $target_library dw_foundation.sldb]
 
 echo "set informations"
 set designer Milo

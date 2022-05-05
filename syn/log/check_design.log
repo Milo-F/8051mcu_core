@@ -1,0 +1,105 @@
+ 
+****************************************
+check_design summary:
+Version:     L-2016.03-SP1
+Date:        Thu May  5 13:58:42 2022
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     30
+    Unconnected ports (LINT-28)                                     9
+    Feedthrough (LINT-29)                                          13
+    Shorted outputs (LINT-31)                                       3
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                              37
+    Cells do not drive (LINT-1)                                    36
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Nets                                                               13
+    Unloaded nets (LINT-2)                                         13
+--------------------------------------------------------------------------------
+
+Warning: In design 'Mcu', cell 'C1759' does not drive any nets. (LINT-1)
+Warning: In design 'Timer', cell 'C379' does not drive any nets. (LINT-1)
+Warning: In design 'Timer', cell 'C410' does not drive any nets. (LINT-1)
+Warning: In design 'Timer', cell 'C411' does not drive any nets. (LINT-1)
+Warning: In design 'Timer', cell 'C412' does not drive any nets. (LINT-1)
+Warning: In design 'Timer', cell 'C413' does not drive any nets. (LINT-1)
+Warning: In design 'Timer', cell 'C414' does not drive any nets. (LINT-1)
+Warning: In design 'Timer', cell 'C415' does not drive any nets. (LINT-1)
+Warning: In design 'CPU', cell 'C2434' does not drive any nets. (LINT-1)
+Warning: In design 'UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4', cell 'C220' does not drive any nets. (LINT-1)
+Warning: In design 'UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4', cell 'C238' does not drive any nets. (LINT-1)
+Warning: In design 'ClkDiv_DIV_NUM2', cell 'C84' does not drive any nets. (LINT-1)
+Warning: In design 'ClkDiv_DIV_NUM12', cell 'C86' does not drive any nets. (LINT-1)
+Warning: In design 'InsDecoder', cell 'C6099' does not drive any nets. (LINT-1)
+Warning: In design 'InsDecoder', cell 'C6100' does not drive any nets. (LINT-1)
+Warning: In design 'InsDecoder', cell 'C6101' does not drive any nets. (LINT-1)
+Warning: In design 'InsDecoder', cell 'C6108' does not drive any nets. (LINT-1)
+Warning: In design 'InsDecoder', cell 'C6113' does not drive any nets. (LINT-1)
+Warning: In design 'InsDecoder', cell 'C6119' does not drive any nets. (LINT-1)
+Warning: In design 'InsDecoder', cell 'C6122' does not drive any nets. (LINT-1)
+Warning: In design 'InsDecoder', cell 'C6127' does not drive any nets. (LINT-1)
+Warning: In design 'InsDecoder', cell 'C6130' does not drive any nets. (LINT-1)
+Warning: In design 'InsDecoder', cell 'C6135' does not drive any nets. (LINT-1)
+Warning: In design 'InsDecoder', cell 'C6140' does not drive any nets. (LINT-1)
+Warning: In design 'InsDecoder', cell 'C6143' does not drive any nets. (LINT-1)
+Warning: In design 'InsDecoder', cell 'C6150' does not drive any nets. (LINT-1)
+Warning: In design 'InsDecoder', cell 'C6158' does not drive any nets. (LINT-1)
+Warning: In design 'InsDecoder', cell 'C6162' does not drive any nets. (LINT-1)
+Warning: In design 'ClkDiv_DIV_NUM16', cell 'C87' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C662' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C663' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C664' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C665' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C666' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C667' does not drive any nets. (LINT-1)
+Warning: In design 'ALU', cell 'C668' does not drive any nets. (LINT-1)
+Warning: In design 'Mcu', net 'IntControl_ins/TCON_nxt[7]' driven by pin 'IntControl_ins/IntArbiter_ins/TCON_nxt[7]' has no loads. (LINT-2)
+Warning: In design 'Mcu', net 'addr_bus[8]' driven by pin 'cpu/addr_bus[8]' has no loads. (LINT-2)
+Warning: In design 'Mcu', net 'addr_bus[9]' driven by pin 'cpu/addr_bus[9]' has no loads. (LINT-2)
+Warning: In design 'Mcu', net 'addr_bus[10]' driven by pin 'cpu/addr_bus[10]' has no loads. (LINT-2)
+Warning: In design 'Mcu', net 'addr_bus[11]' driven by pin 'cpu/addr_bus[11]' has no loads. (LINT-2)
+Warning: In design 'Mcu', net 'addr_bus[12]' driven by pin 'cpu/addr_bus[12]' has no loads. (LINT-2)
+Warning: In design 'Mcu', net 'addr_bus[13]' driven by pin 'cpu/addr_bus[13]' has no loads. (LINT-2)
+Warning: In design 'Mcu', net 'addr_bus[14]' driven by pin 'cpu/addr_bus[14]' has no loads. (LINT-2)
+Warning: In design 'Mcu', net 'addr_bus[15]' driven by pin 'cpu/addr_bus[15]' has no loads. (LINT-2)
+Warning: In design 'Mcu', net 'IntControl_ins/TCON_nxt[4]' driven by pin 'IntControl_ins/IntArbiter_ins/TCON_nxt[4]' has no loads. (LINT-2)
+Warning: In design 'Mcu', net 'IntControl_ins/TCON_nxt[5]' driven by pin 'IntControl_ins/IntArbiter_ins/TCON_nxt[5]' has no loads. (LINT-2)
+Warning: In design 'Mcu', net 'IntControl_ins/TCON_nxt[6]' driven by pin 'IntControl_ins/IntArbiter_ins/TCON_nxt[6]' has no loads. (LINT-2)
+Warning: In design 'Mcu', net 'cpu/pro_psw_out[0]' driven by pin 'cpu/pro/psw_out[0]' has no loads. (LINT-2)
+Warning: In design 'IntArbiter', port 'IE[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'IntArbiter', port 'IE[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'InsDecoder', port 'psw[7]' is not connected to any nets. (LINT-28)
+Warning: In design 'InsDecoder', port 'psw[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'InsDecoder', port 'psw[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'InsDecoder', port 'psw[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'InsDecoder', port 'psw[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'InsDecoder', port 'psw[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'InsDecoder', port 'interupt_en' is not connected to any nets. (LINT-28)
+Warning: In design 'IntArbiter', input port 'TCON[7]' is connected directly to output port 'TCON_nxt[7]'. (LINT-29)
+Warning: In design 'IntArbiter', input port 'TCON[6]' is connected directly to output port 'TCON_nxt[6]'. (LINT-29)
+Warning: In design 'IntArbiter', input port 'TCON[5]' is connected directly to output port 'TCON_nxt[5]'. (LINT-29)
+Warning: In design 'IntArbiter', input port 'TCON[4]' is connected directly to output port 'TCON_nxt[4]'. (LINT-29)
+Warning: In design 'bin2gray_BIT_WIDTH5', input port 'bin_data[4]' is connected directly to output port 'gray_data[4]'. (LINT-29)
+Warning: In design 'gray2bin_BIT_WIDTH5', input port 'gray_data[4]' is connected directly to output port 'bin_data[4]'. (LINT-29)
+Warning: In design 'ALU', input port 'psw_in[6]' is connected directly to output port 'psw_out[6]'. (LINT-29)
+Warning: In design 'ALU', input port 'psw_in[5]' is connected directly to output port 'psw_out[5]'. (LINT-29)
+Warning: In design 'ALU', input port 'psw_in[4]' is connected directly to output port 'psw_out[4]'. (LINT-29)
+Warning: In design 'ALU', input port 'psw_in[3]' is connected directly to output port 'psw_out[3]'. (LINT-29)
+Warning: In design 'ALU', input port 'psw_in[2]' is connected directly to output port 'psw_out[2]'. (LINT-29)
+Warning: In design 'ALU', input port 'psw_in[1]' is connected directly to output port 'psw_out[1]'. (LINT-29)
+Warning: In design 'ALU', input port 'psw_in[0]' is connected directly to output port 'psw_out[0]'. (LINT-29)
+Warning: In design 'IntArbiter', output port 'TCON_nxt[3]' is connected directly to output port 'TCON_nxt[0]'. (LINT-31)
+Warning: In design 'IntArbiter', output port 'TCON_nxt[3]' is connected directly to output port 'TCON_nxt[1]'. (LINT-31)
+Warning: In design 'IntArbiter', output port 'TCON_nxt[3]' is connected directly to output port 'TCON_nxt[2]'. (LINT-31)
+Warning: In design 'Uart_FIFO_DEPTH16_FIFO_WIDTH8_ADDR_WIDTH4', the same net is connected to more than one pin on submodule 'UartFiFo_ins'. (LINT-33)
+   Net 'rst_n' is connected to pins 'w_rst_n', 'w_pt_reset'', 'r_rst_n', 'r_pt_reset'.
+Warning: In design 'IntArbiter', output port 'TCON_nxt[3]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'IntArbiter', output port 'TCON_nxt[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'IntArbiter', output port 'TCON_nxt[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'IntArbiter', output port 'TCON_nxt[0]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'InsDecoder', output port 'a_data_from[3]' is connected directly to 'logic 0'. (LINT-52)
+1

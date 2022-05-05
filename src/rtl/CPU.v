@@ -10,7 +10,7 @@
 module CPU (
     input                                                   clk,             // 振荡时钟12M
     input                                                   rst_n,           // 复位信号，低电平有效
-    output                  [7:0]                           data_bus,        // 数据总线
+    inout                   [7:0]                           data_bus,        // 数据总线
     output      reg         [15:0]                          addr_bus,        // 地址总线
     input                   [4:0]                           interupt,        // 中断控制信号
     output      reg                                         read_en,         // 读数据使能
