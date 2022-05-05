@@ -33,6 +33,8 @@
 &emsp;&emsp; 在[syn](./syn)目录下运行DC，在dc_shell下使用
 ```
     source $scripts_path/read.tcl
+    source $scripts_path/com.tcl
+    source $scripts_path/report.tcl
 ```
-读入设计文件。
+在[log](./syn/log/)目录下查看对应的综合报告
 ## STA
