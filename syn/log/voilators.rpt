@@ -4,7 +4,7 @@ Report : constraint
         -all_violators
 Design : Mcu
 Version: L-2016.03-SP1
-Date   : Thu May  5 14:22:56 2022
+Date   : Fri May  6 12:25:04 2022
 ****************************************
 
 
@@ -13,7 +13,7 @@ Date   : Thu May  5 14:22:56 2022
                              Required        Actual
    Design                      Area           Area           Slack
    -----------------------------------------------------------------
-   Mcu                          0.00       2808941.50     -2808941.50
+   Mcu                          0.00       1470368.50     -1470368.50
                                                                     (VIOLATED)
 
 

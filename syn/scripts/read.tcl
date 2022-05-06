@@ -11,7 +11,7 @@ while {[gets $fp line] != -1} {
 puts $file_list
 analyze -format verilog $file_list
 current_design Mcu
-elaborate Mcu
+redirect -tee -file $log_path/elaborate.log {elaborate Mcu}
 echo "link design"
 link
 redirect -tee -file $log_path/check_design.log {check_design}

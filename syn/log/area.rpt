@@ -3,65 +3,28 @@
 Report : area
 Design : Mcu
 Version: L-2016.03-SP1
-Date   : Thu May  5 14:22:56 2022
+Date   : Fri May  6 12:25:04 2022
 ****************************************
 
-Information: Updating design information... (UID-85)
-Information: Timing loop detected. (OPT-150)
-	U9/A1 U9/Y 
-Information: Timing loop detected. (OPT-150)
-	U7/A1 U7/Y 
-Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U9'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U7'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U5'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U10'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U3'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U8'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U6'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U4'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U323'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U305'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U8'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U9'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U5'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U299'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U11'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U3'
-         to break a timing loop. (OPT-314)
 Library(s) Used:
 
     fast (File: /home/milo/TSMC.90/aci/sc-x/synopsys/fast.db)
 
-Number of ports:                         1331
-Number of nets:                          6171
-Number of cells:                         5060
-Number of combinational cells:           4284
-Number of sequential cells:               732
+Number of ports:                          734
+Number of nets:                          4931
+Number of cells:                         4093
+Number of combinational cells:           3352
+Number of sequential cells:               714
 Number of macros/black boxes:               0
-Number of buf/inv:                       1384
-Number of references:                      88
+Number of buf/inv:                        964
+Number of references:                      81
 
-Combinational area:              25169.457810
-Buf/Inv area:                     6207.163259
-Noncombinational area:            9891.100913
+Combinational area:              18352.656177
+Buf/Inv area:                     3609.849656
+Noncombinational area:            9728.812980
 Macro/Black Box area:                0.000000
-Net Interconnect area:         2773880.848755
+Net Interconnect area:         1442287.055176
 
-Total cell area:                 35060.558723
-Total area:                    2808941.407478
+Total cell area:                 28081.469157
+Total area:                    1470368.524333
 1

@@ -1,0 +1,117 @@
+Information: Updating design information... (UID-85)
+Warning: A non-unate path in clock network for clock 'uart_clk'
+ from pin 'Uart_ins/UartIf_ins/ClkDiv_tx/U3/Y' is detected. (TIM-052)
+Information: Timing loop detected. (OPT-150)
+	U9/A1 U9/Y 
+Information: Timing loop detected. (OPT-150)
+	U7/A1 U7/Y 
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U9'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U7'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U5'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U3'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U6'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U8'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U4'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U272'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U3'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U6'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U287'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U284'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U276'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U291'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U281'
+         to break a timing loop. (OPT-314)
+ 
+****************************************
+Report : design
+Design : Mcu
+Version: L-2016.03-SP1
+Date   : Fri May  6 12:25:04 2022
+****************************************
+
+Design allows ideal nets on clock nets.
+
+Library(s) Used:
+
+    fast (File: /home/milo/TSMC.90/aci/sc-x/synopsys/fast.db)
+
+Local Link Library:
+
+    {fast.db}
+
+Flip-Flop Types:
+
+    No flip-flop types specified.
+
+Latch Types:
+
+    No latch types specified.
+
+Operating Conditions:
+
+
+    Operating Condition Name : fast
+    Library : fast
+    Process :   1.00
+    Temperature : -40.00
+    Voltage :   1.10
+    Interconnect Model : balanced_tree
+
+Wire Loading Model:
+
+    Selected manually by the user.
+
+Name           :   tsmc090_wl30
+Location       :   fast
+Resistance     :   8.5e-08
+Capacitance    :   0.00015
+Area           :   0.7
+Slope          :   200.001
+Fanout   Length   Points Average Cap Std Deviation
+--------------------------------------------------------------
+     1   200.00
+
+
+
+Wire Loading Model Mode: top.
+
+Timing Ranges:
+
+    No timing ranges specified.
+
+Pin Input Delays:
+
+    None specified.
+
+Pin Output Delays:
+
+    None specified.
+
+Disabled Timing Arcs:
+
+    No arcs disabled.
+
+Required Licenses:
+
+    None Required
+
+Design Parameters:
+
+    None specified.
+1

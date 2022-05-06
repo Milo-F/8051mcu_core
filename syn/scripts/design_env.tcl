@@ -6,7 +6,7 @@ set_operating_conditions fast -library fast
 echo "set wire load model"
 set auto_wire_load_selection false
 set_wire_load_mode top
-set_wire_load_model -name tsmc090_wl50 -library fast
+set_wire_load_model -name tsmc090_wl30 -library fast
 
 echo "set drive and fanout"
 set_drive 1.5 [all_inputs]

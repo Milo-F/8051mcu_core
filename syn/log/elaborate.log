@@ -1,0 +1,483 @@
+Running PRESTO HDLC
+
+Statistics for case statements in always block at line 172 in file
+	'../src/rtl/MCU.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           208            |    auto/auto     |
+===============================================
+Warning:  ../src/rtl/MCU.v:83: Net tcon_nxt connected to instance Uart_ins is declared as reg data type but is not driven by an always block. (VER-1004)
+
+Inferred memory devices in process
+	in routine Mcu line 28 in file
+		'../src/rtl/MCU.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     cnt_rst_reg     | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|      rst_n_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine Mcu line 128 in file
+		'../src/rtl/MCU.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      sbuf_reg       | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|       ip_reg        | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|       p0_reg        | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|       p1_reg        | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|       p2_reg        | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|       p3_reg        | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|       sp_reg        | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|       dpl_reg       | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|       dph_reg       | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|       ie_reg        | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|      pcon_reg       | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|      tcon_reg       | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|      tmod_reg       | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|       tl0_reg       | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|       tl1_reg       | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|       th0_reg       | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|       th1_reg       | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|      scon_reg       | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred tri-state devices in process
+	in routine Mcu line 326 in file
+		'../src/rtl/MCU.v'.
+============================================
+| Register Name |       Type       | Width |
+============================================
+| data_bus_tri  | Tri-State Buffer |   8   |
+============================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'Mcu'.
+Information: Building the design 'Uart' instantiated from design 'Mcu' with
+	the parameters "FIFO_DEPTH=16,FIFO_WIDTH=8,ADDR_WIDTH=4". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'Timer'. (HDL-193)
+
+Statistics for case statements in always block at line 60 in file
+	'../src/rtl/Timer.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            73            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine Timer line 47 in file
+		'../src/rtl/Timer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     ini_val_reg     | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|  cnt_sig_early_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    t_s_early_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'IntControl'. (HDL-193)
+
+Inferred memory devices in process
+	in routine IntControl line 33 in file
+		'../src/rtl/IntControl.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    TCON_reg_reg     | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'CPU'. (HDL-193)
+
+Statistics for case statements in always block at line 173 in file
+	'../src/rtl/CPU.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           179            |     auto/no      |
+===============================================
+
+Statistics for case statements in always block at line 201 in file
+	'../src/rtl/CPU.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           228            |     auto/no      |
+|           254            |    auto/auto     |
+|           280            |    auto/auto     |
+|           333            |    auto/auto     |
+|           365            |    auto/auto     |
+|           382            |    auto/auto     |
+|           409            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine CPU line 189 in file
+		'../src/rtl/CPU.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   interupt_en_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    int_addr_reg     | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine CPU line 431 in file
+		'../src/rtl/CPU.v'.
+=================================================================================
+|     Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=================================================================================
+|         b_reg         | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  program_counter_reg  | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      status_reg       | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      status_reg       | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|      nop_cnt_reg      | Flip-flop |   2   |  Y  | N  | N  | Y  | N  | N  | N  |
+|      nop_cnt_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     run_phase_reg     | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   get_ins_done_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  ram_write_done_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   ram_read_done_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   rom_read_done_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      read_en_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     write_en_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     addr_bus_reg      | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     data_out_reg      | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   memory_select_reg   | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|   ins_register_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+| ram_data_register_reg | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+| rom_data_register_reg | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|        psw_reg        | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|        acc_reg        | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+=================================================================================
+
+Inferred tri-state devices in process
+	in routine CPU line 110 in file
+		'../src/rtl/CPU.v'.
+============================================
+| Register Name |       Type       | Width |
+============================================
+| data_bus_tri  | Tri-State Buffer |   8   |
+============================================
+Presto compilation completed successfully.
+Information: Building the design 'UartFiFo' instantiated from design 'Uart_FIFO_DEPTH16_FIFO_WIDTH8_ADDR_WIDTH4' with
+	the parameters "FIFO_WIDTH=8,FIFO_DEPTH=16,ADDR_WIDTH=4". (HDL-193)
+
+Inferred memory devices in process
+	in routine UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4 line 34 in file
+		'../src/rtl/UartFiFo.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     r_data_reg      | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4 line 63 in file
+		'../src/rtl/UartFiFo.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      w_pt_reg       | Flip-flop |   5   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4 line 80 in file
+		'../src/rtl/UartFiFo.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    w_pt_gray_reg    | Flip-flop |   5   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4 line 91 in file
+		'../src/rtl/UartFiFo.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    w_pt_syn1_reg    | Flip-flop |   5   |  Y  | N  | N  | N  | N  | N  | N  |
+|    w_pt_syn2_reg    | Flip-flop |   5   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4 line 110 in file
+		'../src/rtl/UartFiFo.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  w_pt_rdomain_reg   | Flip-flop |   5   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4 line 134 in file
+		'../src/rtl/UartFiFo.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      r_pt_reg       | Flip-flop |   5   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4 line 151 in file
+		'../src/rtl/UartFiFo.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    r_pt_gray_reg    | Flip-flop |   5   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4 line 162 in file
+		'../src/rtl/UartFiFo.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    r_pt_syn1_reg    | Flip-flop |   5   |  Y  | N  | N  | N  | N  | N  | N  |
+|    r_pt_syn2_reg    | Flip-flop |   5   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4 line 181 in file
+		'../src/rtl/UartFiFo.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  r_pt_wdomain_reg   | Flip-flop |   5   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4 line 220 in file
+		'../src/rtl/UartFiFo.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    is_empty_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'UartIf'. (HDL-193)
+
+Inferred memory devices in process
+	in routine UartIf line 74 in file
+		'../src/rtl/UartIf.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     txd_out_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|     tx_tmp_reg      | Flip-flop |  12   |  Y  | N  | N  | N  | N  | N  | N  |
+|   tx_bit_cnt_reg    | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|    tx_status_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine UartIf line 152 in file
+		'../src/rtl/UartIf.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     rx_tmp_reg      | Flip-flop |   9   |  Y  | N  | N  | N  | N  | N  | N  |
+|    int_hold_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   r_data_out_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|   rxd_int_out_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    start_cnt_reg    | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+|   sample_cnt_reg    | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|     bit_cnt_reg     | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|    rx_status_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'IntArbiter'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'ClkDiv' instantiated from design 'CPU' with
+	the parameters "DIV_NUM=2". (HDL-193)
+Warning:  ../src/rtl/ClkDiv.v:29: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../src/rtl/ClkDiv.v:38: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../src/rtl/ClkDiv.v:44: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../src/rtl/ClkDiv.v:62: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../src/rtl/ClkDiv.v:66: signed to unsigned conversion occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine ClkDiv_DIV_NUM2 line 20 in file
+		'../src/rtl/ClkDiv.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      clk_o_reg      | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|      cnt_p_reg      | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'ClkDiv' instantiated from design 'CPU' with
+	the parameters "DIV_NUM=12". (HDL-193)
+Warning:  ../src/rtl/ClkDiv.v:29: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../src/rtl/ClkDiv.v:38: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../src/rtl/ClkDiv.v:44: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../src/rtl/ClkDiv.v:62: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../src/rtl/ClkDiv.v:66: signed to unsigned conversion occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine ClkDiv_DIV_NUM12 line 20 in file
+		'../src/rtl/ClkDiv.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      clk_o_reg      | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|      cnt_p_reg      | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'InsDecoder'. (HDL-193)
+
+Statistics for case statements in always block at line 53 in file
+	'../src/rtl/InsDecoder.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            65            |     auto/no      |
+|            90            |    auto/auto     |
+|           100            |    auto/auto     |
+|           110            |    auto/auto     |
+|           123            |    auto/auto     |
+|           132            |    auto/auto     |
+|           146            |    auto/auto     |
+|           159            |    auto/auto     |
+|           171            |    auto/auto     |
+|           184            |    auto/auto     |
+|           194            |    auto/auto     |
+|           212            |    auto/auto     |
+|           226            |    auto/auto     |
+|           240            |    auto/auto     |
+|           254            |    auto/auto     |
+|           268            |    auto/auto     |
+|           282            |    auto/auto     |
+|           296            |    auto/auto     |
+|           310            |    auto/auto     |
+|           324            |    auto/auto     |
+|           333            |    auto/auto     |
+|           381            |    auto/auto     |
+|           390            |    auto/auto     |
+|           405            |    auto/auto     |
+|           415            |    auto/auto     |
+|           434            |    auto/auto     |
+|           449            |    auto/auto     |
+|           464            |    auto/auto     |
+|           476            |    auto/auto     |
+|           488            |    auto/auto     |
+|           499            |    auto/auto     |
+|           512            |    auto/auto     |
+|           526            |    auto/auto     |
+|           542            |    auto/auto     |
+|           556            |    auto/auto     |
+|           574            |    auto/auto     |
+|           593            |    auto/auto     |
+|           612            |    auto/auto     |
+|           631            |    auto/auto     |
+|           644            |    auto/auto     |
+|           657            |    auto/auto     |
+|           671            |    auto/auto     |
+|           685            |    auto/auto     |
+|           702            |    auto/auto     |
+|           719            |    auto/auto     |
+|           731            |    auto/auto     |
+|           747            |    auto/auto     |
+|           769            |    auto/auto     |
+|           785            |    auto/auto     |
+|           802            |    auto/auto     |
+|           816            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine InsDecoder line 834 in file
+		'../src/rtl/InsDecoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       tmp_reg       | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|  InsDecoder/738  |   8    |    1    |      3       |
+======================================================
+Presto compilation completed successfully.
+Information: Building the design 'Process'. (HDL-193)
+
+Statistics for case statements in always block at line 37 in file
+	'../src/rtl/Process.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            41            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'bin2gray' instantiated from design 'UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4' with
+	the parameters "BIT_WIDTH=5". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'gray2bin' instantiated from design 'UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4' with
+	the parameters "BIT_WIDTH=5". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'fifo_ram' instantiated from design 'UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4' with
+	the parameters "DATA_WIDTH=8,RAM_DEPTH=16,ADDR_WIDTH=4". (HDL-193)
+
+Inferred memory devices in process
+	in routine fifo_ram_DATA_WIDTH8_RAM_DEPTH16_ADDR_WIDTH4 line 26 in file
+		'../src/rtl/fifo_ram.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   r_data_out_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine fifo_ram_DATA_WIDTH8_RAM_DEPTH16_ADDR_WIDTH4 line 37 in file
+		'../src/rtl/fifo_ram.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       mem_reg       | Flip-flop |  128  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+=====================================================================================
+|                block name/line                  | Inputs | Outputs | # sel inputs |
+=====================================================================================
+| fifo_ram_DATA_WIDTH8_RAM_DEPTH16_ADDR_WIDTH4/32 |   16   |    8    |      4       |
+=====================================================================================
+Presto compilation completed successfully.
+Information: Building the design 'ClkDiv' instantiated from design 'UartIf' with
+	the parameters "DIV_NUM=16". (HDL-193)
+Warning:  ../src/rtl/ClkDiv.v:29: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../src/rtl/ClkDiv.v:38: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../src/rtl/ClkDiv.v:44: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../src/rtl/ClkDiv.v:62: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../src/rtl/ClkDiv.v:66: signed to unsigned conversion occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine ClkDiv_DIV_NUM16 line 20 in file
+		'../src/rtl/ClkDiv.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      clk_o_reg      | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|      cnt_p_reg      | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'ALU'. (HDL-193)
+
+Statistics for case statements in always block at line 20 in file
+	'../src/rtl/ALU.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            24            |    auto/auto     |
+|            47            |    auto/auto     |
+===============================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|      ALU/48      |   8    |    1    |      3       |
+|      ALU/48      |   8    |    1    |      3       |
+======================================================
+Presto compilation completed successfully.
+1
