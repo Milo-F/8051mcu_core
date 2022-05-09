@@ -26,7 +26,8 @@
 16. [bin2gray.v]( ./src/rtl/bin2gray.v) ： 二进制转化为格雷码模块；
 17. [gray2bin.v]( ./src/rtl/gray2bin.v) ： 格雷码转化为二进制模块；
 18. [para.vh]( ./src/rtl/para.vh) ： 宏定义。
-
+&emsp;&emsp;设计的系统结构如图
+![系统结构](./figures/系统结构.jpg)
 ## 编译
 &emsp;&emsp; 将需要编译的rtl文件名记录在[根目录](./)下的[filelist.f](./filelist.f)文件中，并使用 make com 命令进行编译，具体参数命令见[Makefile](./Makefile)文件。清除编译产生的文件使用 make clr 命令。
 ## 综合
