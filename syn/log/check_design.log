@@ -2,7 +2,7 @@
 ****************************************
 check_design summary:
 Version:     L-2016.03-SP1
-Date:        Fri May  6 11:51:11 2022
+Date:        Sat May  7 18:21:31 2022
 ****************************************
 
                    Name                                            Total
@@ -32,8 +32,8 @@ Warning: In design 'Timer', cell 'C415' does not drive any nets. (LINT-1)
 Warning: In design 'CPU', cell 'C2434' does not drive any nets. (LINT-1)
 Warning: In design 'UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4', cell 'C220' does not drive any nets. (LINT-1)
 Warning: In design 'UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4', cell 'C238' does not drive any nets. (LINT-1)
-Warning: In design 'ClkDiv_DIV_NUM2', cell 'C83' does not drive any nets. (LINT-1)
-Warning: In design 'ClkDiv_DIV_NUM12', cell 'C85' does not drive any nets. (LINT-1)
+Warning: In design 'ClkDiv_DIV_NUM2', cell 'C84' does not drive any nets. (LINT-1)
+Warning: In design 'ClkDiv_DIV_NUM12', cell 'C86' does not drive any nets. (LINT-1)
 Warning: In design 'InsDecoder', cell 'C6099' does not drive any nets. (LINT-1)
 Warning: In design 'InsDecoder', cell 'C6100' does not drive any nets. (LINT-1)
 Warning: In design 'InsDecoder', cell 'C6101' does not drive any nets. (LINT-1)
@@ -49,7 +49,7 @@ Warning: In design 'InsDecoder', cell 'C6143' does not drive any nets. (LINT-1)
 Warning: In design 'InsDecoder', cell 'C6150' does not drive any nets. (LINT-1)
 Warning: In design 'InsDecoder', cell 'C6158' does not drive any nets. (LINT-1)
 Warning: In design 'InsDecoder', cell 'C6162' does not drive any nets. (LINT-1)
-Warning: In design 'ClkDiv_DIV_NUM16', cell 'C86' does not drive any nets. (LINT-1)
+Warning: In design 'ClkDiv_DIV_NUM16', cell 'C87' does not drive any nets. (LINT-1)
 Warning: In design 'ALU', cell 'C662' does not drive any nets. (LINT-1)
 Warning: In design 'ALU', cell 'C663' does not drive any nets. (LINT-1)
 Warning: In design 'ALU', cell 'C664' does not drive any nets. (LINT-1)

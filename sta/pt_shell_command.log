@@ -1,7 +1,7 @@
 #@ # 
 #@ # Running pt_shell Version M-2016.12-SP1 for linux64 -- Jan 12, 2017
-#@ # Date:   Tue Mar  1 10:11:12 2022
-#@ # Run by: milo@Milo
+#@ # Date:   Sat May  7 18:25:19 2022
+#@ # Run by: milo@milo
 #@ 
 
 source /home/milo/Synopsys/pt/admin/setup/.synopsys_pt.setup
@@ -64,19 +64,23 @@ source /home/milo/Synopsys/pt/admin/setup/.synopsys_pt.setup
 #@ 
 #@ # -- End source /home/milo/Synopsys/pt/admin/setup/.synopsys_pt.setup
 
-source /home/milo/ICCodes/mcu51/pt/.synopsys_pt.setup
-#@ # -- Starting source /home/milo/ICCodes/mcu51/pt/.synopsys_pt.setup
+source /home/milo/ICCodes/mcu51/sta/.synopsys_pt.setup
+#@ # -- Starting source /home/milo/ICCodes/mcu51/sta/.synopsys_pt.setup
 
-#@ echo "set your project work path"
-#@ set SYN_ROOT_PATH /home/milo/ICCodes/mcu51
-#@ echo "set your ddc file path"
-#@ set FILE_PATH ${SYN_ROOT_PATH}/mapped
-#@ echo "====================Define your library directory=================="
-#@ set LIB_PATH /home/milo/TSMC.90/aci/sc-x/synopsys
+#@ echo "===============set path================="
+#@ set         STA_ROOT_PATH       ./
+#@ set         SYN_ROOT_PATH       ../syn
+#@ set         LOG_PATH            ${STA_ROOT_PATH}/log
+#@ set         SCPT_PATH           ${STA_ROOT_PATH}/scripts
+#@ set         WORK_PATH           ${STA_ROOT_PATH}/work
+#@ set         DDC_PATH            ${SYN_ROOT_PATH}/mapped
 #@ 
-#@ set search_path [list "." ${LIB_PATH} ${FILE_PATH}]
-#@ set link_path [list * slow.db fast.db]
-#@ # -- End source /home/milo/ICCodes/mcu51/pt/.synopsys_pt.setup
+#@ echo "====================Define library directory=================="
+#@ set         LIB_PATH            /home/milo/TSMC.90/aci/sc-x/synopsys
+#@ 
+#@ set         search_path         [list "." ${LIB_PATH} ${DDC_PATH} ${SCPT_PATH}]
+#@ set         link_path           [list * fast.db]
+#@ # -- End source /home/milo/ICCodes/mcu51/sta/.synopsys_pt.setup
 
 #@ # -- Starting source /home/milo/Synopsys/pt/auxx/tcllib/lib/itcl4.0.2/itcl.tcl
 
@@ -37247,29 +37251,49 @@ gui_start
 #@ 
 #@ # -- End source /home/milo/Synopsys/pt/auxx/tcllib/lib/iwidgets4.1/watch.itk
 
-read_ddc int_ctl.ddc
-link_design IntControl
-report_cell
-gui_zoom -window [gui_get_current_window -view] -rect {{74313 -98012} {81884 -90441}}
-gui_zoom -window [gui_get_current_window -view] -full
-gui_zoom -window [gui_get_current_window -view] -full
-gui_zoom -window [gui_get_current_window -view] -full
-gui_zoom -window [gui_get_current_window -view] -full
-gui_zoom -window [gui_get_current_window -view] -full
-gui_zoom -window [gui_get_current_window -view] -full
-gui_create_category_nodes -parent_categories {{ALL}} -rule_names {Blocks}
-gui_create_category_nodes -parent_categories {{ALL}} -rule_names {{Start Point}}
-gui_create_category_nodes -parent_categories {{ALL}} -rule_names {{Start Point}}
-list_libraries
-report_lib slow
-create_clock -period 10 [get_ports clk]
-set clock [get_clock clk]
-set_clock_uncertainty 0.2 $clock
-set_clock_latency -min 1 $clock
-set_clock_latency -max 2 $clock
-set_clock_transition -min 0.3 $clock
-set_clock_transition -max 0.5 $clock
-report_design
-check_timing
-check_timing -verbose
+source rd.tcl
+source $SCPT_PATH/rd.tcl
+#@ # -- Starting source .//scripts/rd.tcl
+
+#@ # define_design_lib WORK -path $WORK_PATH
+#@ 
+#@ read_ddc        ${DDC_PATH}/design.ddc 
+#@ current_design  Mcu
+#@ link_design     Mcu
+#@ # -- End source .//scripts/rd.tcl
+
+list_designs
+link_design Mcu
+source $SCPT_PATH/rpt.tcl
+#@ # -- Starting source .//scripts/rpt.tcl
+
+#@ report_design > $LOG_PATH/report_design.rpt
+#@ # report_area > $LOG_PATH/area.rpt
+#@ report_timing > $LOG_PATH/timing.rpt
+#@ report_timing -delay_type min >> $LOG_PATH/timing.rpt
+#@ report_constraint > $LOG_PATH/constraints.rpt 
+#@ report_constraint -all_violators > $LOG_PATH/voilators.rpt 
+#@ report_min_pulse_width > $LOG_PATH/min_pulse_width.rpt 
+#@ check_timing > $LOG_PATH/check_timing.log 
+#@ report_timing -nworst 2  -max_paths 2 > $LOG_PATH/worst_max_path.rpt 
+#@ # -- End source .//scripts/rpt.tcl
+
+report_clock_timing -type latency
+set_clock_latency  -source -min 1 [get_clocks clk]
+report_clock_timing -type latency
+source $SCPT_PATH/rpt.tcl
+#@ # -- Starting source .//scripts/rpt.tcl
+
+#@ report_design > $LOG_PATH/report_design.rpt
+#@ # report_area > $LOG_PATH/area.rpt
+#@ report_timing > $LOG_PATH/timing.rpt
+#@ report_timing -delay_type min >> $LOG_PATH/timing.rpt
+#@ report_constraint > $LOG_PATH/constraints.rpt 
+#@ report_constraint -all_violators > $LOG_PATH/voilators.rpt 
+#@ report_min_pulse_width > $LOG_PATH/min_pulse_width.rpt 
+#@ check_timing > $LOG_PATH/check_timing.log 
+#@ report_timing -nworst 2  -max_paths 2 > $LOG_PATH/worst_max_path.rpt 
+#@ # -- End source .//scripts/rpt.tcl
+
+write_sdc pt.sdc
 exit

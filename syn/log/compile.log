@@ -1,5 +1,5 @@
 
-Information: There are 86 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+Information: There are 70 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
 
 
 
@@ -7,7 +7,6 @@ Information: There are 86 potential problems in your design. Please run 'check_d
   ------------------------
   Processing 'CPU_DW01_inc_1'
   Processing 'CPU_DW01_inc_0'
-  Processing 'ALU_add_299_DP_OP_295_3336_0'
   Processing 'ALU_DW_div_uns_6'
   Processing 'ALU_DW_mult_uns_0'
   Processing 'ALU_DW01_add_4'
@@ -27,12 +26,12 @@ Information: There are 86 potential problems in your design. Please run 'check_d
   Processing 'ClkDiv_DIV_NUM16'
   Processing 'UartIf'
   Processing 'fifo_ram_DATA_WIDTH8_RAM_DEPTH16_ADDR_WIDTH4'
-Warning: The design named fifo_ram_DATA_WIDTH8_RAM_DEPTH16_ADDR_WIDTH4 has 136 out of 359 cells marked size-only, which may limit optimization. (OPT-301)
+Warning: The design named fifo_ram_DATA_WIDTH8_RAM_DEPTH16_ADDR_WIDTH4 has 136 out of 349 cells marked size-only, which may limit optimization. (OPT-301)
   Processing 'gray2bin_BIT_WIDTH5_1'
   Processing 'bin2gray_BIT_WIDTH5_1'
   Processing 'bin2gray_BIT_WIDTH5_0'
   Processing 'UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4'
-Warning: The design named UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4 has 59 out of 128 cells marked size-only, which may limit optimization. (OPT-301)
+Warning: The design named UartFiFo_FIFO_WIDTH8_FIFO_DEPTH16_ADDR_WIDTH4 has 59 out of 117 cells marked size-only, which may limit optimization. (OPT-301)
   Processing 'Uart_FIFO_DEPTH16_FIFO_WIDTH8_ADDR_WIDTH4'
   Processing 'Mcu'
 
@@ -41,40 +40,40 @@ Information: Updating design information... (UID-85)
 Warning: A non-unate path in clock network for clock 'uart_clk'
  from pin 'Uart_ins/UartIf_ins/ClkDiv_tx/U3/Y' is detected. (TIM-052)
 Information: Timing loop detected. (OPT-150)
-	U7/A1 U7/Y 
+	U10/A1 U10/Y 
 Information: Timing loop detected. (OPT-150)
-	U3/A1 U3/Y 
-Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U7'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U3'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U5'
-         to break a timing loop. (OPT-314)
+	U8/A1 U8/Y 
 Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U10'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U9'
          to break a timing loop. (OPT-314)
 Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U8'
          to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U6'
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U3'
          to break a timing loop. (OPT-314)
 Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U4'
          to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U272'
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U7'
          to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U6'
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U9'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U5'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'A1' and 'Y' on cell 'U6'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U10'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U9'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U8'
          to break a timing loop. (OPT-314)
 Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U3'
          to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U291'
+Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U5'
          to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U276'
+Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U6'
          to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U281'
+Warning: Disabling timing arc between pins 'B1' and 'Y' on cell 'cpu/U7'
          to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U284'
-         to break a timing loop. (OPT-314)
-Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U287'
+Warning: Disabling timing arc between pins 'A' and 'Y' on cell 'cpu/U272'
          to break a timing loop. (OPT-314)
 
   Beginning Implementation Selection
@@ -86,72 +85,42 @@ Warning: A non-unate path in clock network for clock 'uart_clk'
 
   Beginning Mapping Optimizations  (Medium effort)
   -------------------------------
-  Selecting implementations
-  Allocating blocks in 'DW_div_uns_a_width8_b_width8'
-  Allocating blocks in 'DW_div_a_width8_b_width8_tc_mode0_rem_mode1'
-  Building model 'DW01_NAND2'
-  Building model 'DW_div_a_width8_b_width8_tc_mode0_rem_mode1' (mlt)
-  Allocating blocks in 'DW_div_a_width8_b_width8_tc_mode0_rem_mode1'
-  Building model 'DW_div_uns_a_width8_b_width8' (mlt)
-  Structuring 'ALU_DW_div_uns_6_0'
-  Mapping 'ALU_DW_div_uns_6_0'
-  Building model 'DW_div_uns_a_width8_b_width8' (rpl)
-  Structuring 'ALU_DW_div_uns_6_0'
-  Mapping 'ALU_DW_div_uns_6_0'
-  Building model 'DW_div_uns_a_width8_b_width8' (cla)
-  Structuring 'ALU_DW_div_uns_6_0'
-  Mapping 'ALU_DW_div_uns_6_0'
-  Building model 'DW_div_uns_a_width8_b_width8' (cla2)
-  Structuring 'ALU_DW_div_uns_6_0'
-  Mapping 'ALU_DW_div_uns_6_0'
-  Building model 'DW_div_uns_a_width8_b_width8' (cla3)
-  Allocating blocks in 'DW_div_uns_a_width8_b_width8'
-  Allocating blocks in 'DW_div_a_width8_b_width8_tc_mode0_rem_mode1'
-  Structuring 'ALU_DW_div_uns_6_0'
-  Mapping 'ALU_DW_div_uns_6_0'
-  Structuring 'ALU_DW_div_uns_6_0'
-  Mapping 'ALU_DW_div_uns_6_0'
 
                                   TOTAL                                      
    ELAPSED            WORST NEG   SETUP    DESIGN                            
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
   --------- --------- --------- --------- --------- -------------------------
-    0:00:12   53782.9      0.00       0.0     288.4                          
-    0:00:12   53782.9      0.00       0.0     288.4                          
-    0:00:12   53782.9      0.00       0.0     288.4                          
-    0:00:12   53782.9      0.00       0.0     288.4                          
-    0:00:12   53782.9      0.00       0.0     288.4                          
-    0:00:14   27128.2      6.30     100.1     281.0                          
-    0:00:15   28046.9      3.93      48.4     280.0                          
-    0:00:15   28113.9      3.77      45.8     279.9                          
-    0:00:15   28095.6      3.51      41.2     279.8                          
-    0:00:15   28089.9      3.46      40.4     278.9                          
-    0:00:15   28138.6      3.39      39.2     278.9                          
-    0:00:15   28147.1      3.39      39.1     278.5                          
-    0:00:16   28163.3      3.34      38.2     278.5                          
-    0:00:16   28153.4      3.32      37.7     278.5                          
-    0:00:16   28185.9      3.30      37.5     278.5                          
-    0:00:16   28195.1      3.29      37.2     278.5                          
-    0:00:16   28235.3      3.26      36.6     278.5                          
-    0:00:16   28238.1      3.25      36.4     278.5                          
-    0:00:16   28257.2      3.19      35.3     278.5                          
-    0:00:16   28260.7      3.16      35.3     278.5                          
-    0:00:16   28260.7      3.16      35.3     278.5                          
-    0:00:16   28260.7      3.16      35.3     278.5                          
-    0:00:16   28260.7      3.16      35.3     278.5                          
-    0:00:18   28413.1      3.17      35.9     241.2                          
-    0:00:18   28502.0      2.99      32.7     205.8                          
-    0:00:19   28603.6      2.65      26.9     180.5                          
-    0:00:20   28742.6      2.65      26.8     159.3                          
-    0:00:20   28786.4      2.54      24.8     137.4                          
-    0:00:20   28893.6      2.48      22.0     124.1                          
-    0:00:21   28945.1      2.40      20.2     112.9                          
-    0:00:21   28984.6      2.39      20.0     103.7                          
-    0:00:21   29027.7      2.34      19.3      95.6                          
-    0:00:21   29027.7      2.34      19.3      95.6                          
-    0:00:21   29555.5      0.98       5.8     104.6 cpu/psw_reg[0]/D         
-    0:00:22   29934.4      0.63       3.8     109.2 cpu/psw_reg[0]/D         
-    0:00:22   30273.8      0.00       0.0     113.4                          
+    0:00:02   50650.8      0.00       0.0     357.9                          
+    0:00:02   50650.8      0.00       0.0     357.9                          
+    0:00:02   50650.8      0.00       0.0     357.9                          
+    0:00:02   50650.8      0.00       0.0     357.9                          
+    0:00:02   50650.8      0.00       0.0     357.9                          
+    0:00:04   26761.3      5.15      72.6     348.9                          
+    0:00:05   27284.8      4.30      58.6     348.8                          
+    0:00:05   27304.6      4.21      53.2     348.7                          
+    0:00:05   27347.6      3.93      49.7     348.8                          
+    0:00:05   27380.8      3.64      43.7     348.8                          
+    0:00:05   27397.0      3.64      43.7     348.8                          
+    0:00:05   27385.0      3.64      43.7     348.8                          
+    0:00:05   27397.7      3.64      43.7     348.8                          
+    0:00:06   27385.0      3.64      43.7     348.8                          
+    0:00:06   27397.7      3.64      43.7     348.8                          
+    0:00:06   27397.7      3.64      43.7     348.8                          
+    0:00:06   27397.7      3.64      43.7     348.8                          
+    0:00:06   27397.7      3.64      43.7     348.8                          
+    0:00:07   27622.1      3.61      44.1     298.1                          
+    0:00:08   27835.9      3.35      40.7     238.4                          
+    0:00:09   27992.6      3.35      40.7     211.3                          
+    0:00:09   28070.9      3.35      40.5     185.2                          
+    0:00:10   28128.0      3.24      38.6     165.9                          
+    0:00:11   28168.3      3.32      38.6     158.1                          
+    0:00:11   28285.4      3.26      37.5     147.3                          
+    0:00:11   28375.0      3.09      34.2     122.7                          
+    0:00:11   28409.6      3.09      34.2     112.7                          
+    0:00:11   28409.6      3.09      34.2     112.7                          
+    0:00:12   28995.2      0.96       7.3     121.2 cpu/acc_reg[0]/D         
+    0:00:12   29381.9      0.46       2.7     126.2 cpu/psw_reg[0]/D         
+    0:00:12   29652.8      0.00       0.0     130.8                          
 
 
 
@@ -162,10 +131,10 @@ Warning: A non-unate path in clock network for clock 'uart_clk'
    ELAPSED            WORST NEG   SETUP    DESIGN                            
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
   --------- --------- --------- --------- --------- -------------------------
-    0:00:22   30273.8      0.00       0.0     113.4                          
-    0:00:22   30273.8      0.00       0.0     113.4                          
-    0:00:23   29824.3      0.00       0.0     241.3                          
-    0:00:23   29734.0      0.00       0.0     283.6                          
+    0:00:12   29652.8      0.00       0.0     130.8                          
+    0:00:12   29652.8      0.00       0.0     130.8                          
+    0:00:14   29247.1      0.00       0.0     223.9                          
+    0:00:14   29200.6      0.00       0.0     228.8                          
 
 
   Beginning Design Rule Fixing  (max_transition)  (max_fanout)  (max_capacitance)
@@ -175,21 +144,23 @@ Warning: A non-unate path in clock network for clock 'uart_clk'
    ELAPSED            WORST NEG   SETUP    DESIGN                            
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
   --------- --------- --------- --------- --------- -------------------------
-    0:00:23   29734.0      0.00       0.0     283.6                          
-    0:00:24   29806.7      0.00       0.0     261.4 cpu/insdecoder/net49342  
-    0:00:24   29844.8      0.00       0.0     255.8 Uart_ins/UartFiFo_ins/r_data[0]
-    0:00:24   29814.4      0.00       0.0     252.7 cpu/insdecoder/n205      
-    0:00:24   29845.5      0.00       0.0     241.8 fifo_w_data[6]           
-    0:00:25   30009.2      0.00       0.0     196.0 net47709                 
-    0:00:25   30046.6      0.00       0.0     191.9 n859                     
-    0:00:25   30076.9      0.00       0.0     189.7 n891                     
-    0:00:25   30103.7      0.00       0.0     189.2 cpu/insdecoder/n314      
-    0:00:25   30117.8      0.00       0.0     176.1 Uart_ins/net58483        
-    0:00:26   30171.5      0.00       0.0     124.1 cpu/pro/alu/net49379     
-    0:00:26   30211.7      0.00       0.0     115.1 net49149                 
-    0:00:26   30214.5      0.00       0.0     106.0 cpu/insdecoder/n487      
-    0:00:26   30276.6      0.00       0.0      14.0 Uart_ins/UartFiFo_ins/fifo_ram_ins/w_data[1]
-    0:00:26   30272.4      0.00       0.0       0.0                          
+    0:00:14   29200.6      0.00       0.0     228.8                          
+    0:00:14   29229.5      0.00       0.0     207.7 cpu/pro/alu/div_35/net43626
+    0:00:14   29278.2      0.00       0.0     202.2 cpu/pro/alu/div_35/n12   
+    0:00:14   29263.3      0.00       0.0     199.5 cpu/pro/alu/mult_34/n177 
+    0:00:15   29306.4      0.00       0.0     186.4 net43109                 
+    0:00:15   29467.3      0.00       0.0     159.4 scon[1]                  
+    0:00:15   29495.5      0.00       0.0     157.0 net43106                 
+    0:00:15   29524.4      0.00       0.0     155.2 n847                     
+    0:00:15   29527.2      0.00       0.0     154.5 cpu/pro/ans[1]           
+    0:00:16   29588.6      0.00       0.0     109.1 Uart_ins/UartFiFo_ins/fifo_ram_ins/net44177
+    0:00:16   29612.6      0.00       0.0      78.1 cpu/pro/alu/net44189     
+    0:00:16   29605.6      0.00       0.0      71.1 cpu/insdecoder/net44112  
+    0:00:16   29601.3      0.00       0.0      63.1 cpu/insdecoder/net44130  
+    0:00:17   29606.3      0.00       0.0      62.1 cpu/insdecoder/net44126  
+    0:00:17   29640.8      0.00       0.0      12.0 cpu/insdecoder/instruction[1]
+    0:00:17   29643.0      0.01       0.0       0.0 cpu/insdecoder/net44132  
+    0:00:17   29655.0      0.00       0.0       0.0                          
 
 
   Beginning Area-Recovery Phase  (max_area 0)
@@ -199,37 +170,36 @@ Warning: A non-unate path in clock network for clock 'uart_clk'
    ELAPSED            WORST NEG   SETUP    DESIGN                            
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
   --------- --------- --------- --------- --------- -------------------------
-    0:00:26   30272.4      0.00       0.0       0.0                          
-    0:00:26   30272.4      0.00       0.0       0.0                          
-    0:00:27   29635.2      0.03       0.0       0.0                          
-    0:00:27   29317.7      0.00       0.0       0.0                          
-    0:00:27   29230.2      0.00       0.0       0.0                          
-    0:00:27   29172.3      0.00       0.0       0.0                          
-    0:00:27   29089.1      0.00       0.0       0.0                          
-    0:00:27   29089.1      0.00       0.0       0.0                          
-    0:00:27   29086.2      0.00       0.0       0.0                          
-    0:00:27   28039.1      0.78       5.2       0.0                          
-    0:00:27   27955.9      0.78       5.2       0.0                          
-    0:00:27   27938.2      0.78       5.2       0.0                          
-    0:00:27   27938.2      0.78       5.2       0.0                          
-    0:00:27   27938.2      0.78       5.2       0.0                          
-    0:00:27   27938.2      0.78       5.2       0.0                          
-    0:00:27   27938.2      0.78       5.2       0.0                          
-    0:00:27   27938.2      0.78       5.2       0.0                          
-    0:00:28   28474.5      0.14       0.3       0.0 cpu/psw_reg[0]/D         
-    0:00:28   28501.3      0.00       0.0       0.0                          
-    0:00:28   28430.0      0.00       0.0       0.0                          
-    0:00:28   28356.7      0.00       0.0       0.0                          
-    0:00:29   28344.7      0.00       0.0       0.0                          
-    0:00:29   28344.7      0.00       0.0       0.0                          
-    0:00:29   27806.3      0.51       2.9       0.0                          
-    0:00:29   27755.5      0.56       3.3       0.0                          
-    0:00:29   27755.5      0.56       3.3       0.0                          
-    0:00:29   27755.5      0.56       3.3       0.0                          
-    0:00:29   27755.5      0.56       3.3       0.0                          
-    0:00:29   27755.5      0.56       3.3       0.0                          
-    0:00:29   27755.5      0.56       3.3       0.0                          
-    0:00:30   28081.5      0.00       0.0       0.0                          
+    0:00:17   29655.0      0.00       0.0       0.0                          
+    0:00:17   29655.0      0.00       0.0       0.0                          
+    0:00:17   28801.9      0.47       3.0       0.0                          
+    0:00:18   28701.7      0.47       3.0       0.0                          
+    0:00:18   28667.8      0.47       3.0       0.0                          
+    0:00:18   28637.5      0.47       3.0       0.0                          
+    0:00:18   28622.0      0.47       3.0       0.0                          
+    0:00:18   28622.0      0.47       3.0       0.0                          
+    0:00:18   28789.2      0.00       0.0       0.0                          
+    0:00:18   27669.4      1.36      14.5       0.0                          
+    0:00:18   27633.4      1.35      14.4       0.0                          
+    0:00:18   27633.4      1.35      14.4       0.0                          
+    0:00:18   27633.4      1.35      14.4       0.0                          
+    0:00:18   27633.4      1.35      14.4       0.0                          
+    0:00:18   27633.4      1.35      14.4       0.0                          
+    0:00:18   27633.4      1.35      14.4       0.0                          
+    0:00:19   28240.9      0.48       3.1       0.0 cpu/psw_reg[0]/D         
+    0:00:19   28557.7      0.00       0.0       0.0                          
+    0:00:19   28446.3      0.00       0.0       0.0                          
+    0:00:19   28332.0      0.00       0.0       0.0                          
+    0:00:20   28276.2      0.00       0.0       0.0                          
+    0:00:20   27602.4      0.40       2.7       0.0                          
+    0:00:20   27539.6      0.40       2.7       0.0                          
+    0:00:20   27533.2      0.40       2.7       0.0                          
+    0:00:20   27533.2      0.40       2.7       0.0                          
+    0:00:20   27533.2      0.40       2.7       0.0                          
+    0:00:20   27533.2      0.40       2.7       0.0                          
+    0:00:20   27533.2      0.40       2.7       0.0                          
+    0:00:20   27533.2      0.40       2.7       0.0                          
+    0:00:21   27797.8      0.00       0.0       0.0                          
 Loading db file '/home/milo/TSMC.90/aci/sc-x/synopsys/fast.db'
 
 

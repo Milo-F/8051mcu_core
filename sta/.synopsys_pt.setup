@@ -1,9 +1,13 @@
-echo "set your project work path"
-set SYN_ROOT_PATH /home/milo/ICCodes/mcu51
-echo "set your ddc file path"
-set FILE_PATH ${SYN_ROOT_PATH}/mapped
-echo "====================Define your library directory=================="
-set LIB_PATH /home/milo/TSMC.90/aci/sc-x/synopsys
+echo "===============set path================="
+set         STA_ROOT_PATH       ./
+set         SYN_ROOT_PATH       ../syn
+set         LOG_PATH            ${STA_ROOT_PATH}/log
+set         SCPT_PATH           ${STA_ROOT_PATH}/scripts
+set         WORK_PATH           ${STA_ROOT_PATH}/work
+set         DDC_PATH            ${SYN_ROOT_PATH}/mapped
 
-set search_path [list "." ${LIB_PATH} ${FILE_PATH}]
-set link_path [list * slow.db fast.db]
+echo "====================Define library directory=================="
+set         LIB_PATH            /home/milo/TSMC.90/aci/sc-x/synopsys
+
+set         search_path         [list "." ${LIB_PATH} ${DDC_PATH} ${SCPT_PATH}]
+set         link_path           [list * fast.db]

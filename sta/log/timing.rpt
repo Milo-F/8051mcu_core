@@ -1,35 +1,28 @@
- 
 ****************************************
 Report : timing
-        -path full
-        -delay max
-        -max_paths 1
+	-path_type full
+	-delay_type max
+	-max_paths 1
+	-sort_by slack
 Design : Mcu
-Version: L-2016.03-SP1
-Date   : Sat May  7 18:23:46 2022
+Version: M-2016.12-SP1
+Date   : Sat May  7 18:28:15 2022
 ****************************************
 
-Operating Conditions: fast   Library: fast
-Wire Load Model Mode: top
 
   Startpoint: cpu/ins_register_reg[6]
-              (rising edge-triggered flip-flop clocked by clk)
+               (rising edge-triggered flip-flop clocked by clk)
   Endpoint: cpu/psw_reg[0]
-            (rising edge-triggered flip-flop clocked by clk)
+               (rising edge-triggered flip-flop clocked by clk)
   Path Group: clk
   Path Type: max
 
-  Des/Clust/Port     Wire Load Model       Library
-  ------------------------------------------------
-  Mcu                tsmc090_wl30          fast
-
   Point                                                   Incr       Path
-  --------------------------------------------------------------------------
+  ------------------------------------------------------------------------------
   clock clk (rise edge)                                   0.00       0.00
   clock network delay (ideal)                             2.00       2.00
   cpu/ins_register_reg[6]/CK (DFFRHQX8)                   0.00       2.00 r
   cpu/ins_register_reg[6]/Q (DFFRHQX8)                    0.17       2.17 r
-  cpu/insdecoder/instruction[6] (InsDecoder)              0.00       2.17 r
   cpu/insdecoder/U274/Y (INVX4)                           0.11       2.28 f
   cpu/insdecoder/U747/Y (NAND2X2)                         0.17       2.45 r
   cpu/insdecoder/U237/Y (INVX4)                           0.12       2.56 f
@@ -46,7 +39,6 @@ Wire Load Model Mode: top
   cpu/insdecoder/U233/Y (BUFX2)                           0.14       3.84 r
   cpu/insdecoder/U340/Y (NAND4X4)                         0.15       3.99 f
   cpu/insdecoder/U787/Y (NAND4BX2)                        0.18       4.17 f
-  cpu/insdecoder/b_data_from[2] (InsDecoder)              0.00       4.17 f
   cpu/U20/Y (CLKBUFX20)                                   0.07       4.24 f
   cpu/U33/Y (INVX6)                                       0.08       4.32 r
   cpu/U54/Y (NOR3X6)                                      0.05       4.37 f
@@ -56,9 +48,6 @@ Wire Load Model Mode: top
   cpu/U31/Y (NAND2X2)                                     0.08       4.90 r
   cpu/U117/Y (AND2X2)                                     0.10       5.00 r
   cpu/U150/Y (NAND2X4)                                    0.16       5.16 f
-  cpu/pro/b_data[4] (Process)                             0.00       5.16 f
-  cpu/pro/alu/b_data[4] (ALU)                             0.00       5.16 f
-  cpu/pro/alu/div_35/b[4] (ALU_DW_div_uns_6)              0.00       5.16 f
   cpu/pro/alu/div_35/U36/Y (OR3X8)                        0.09       5.25 f
   cpu/pro/alu/div_35/U38/Y (NAND2BX8)                     0.08       5.33 f
   cpu/pro/alu/div_35/U37/Y (NOR3X8)                       0.14       5.47 r
@@ -136,13 +125,10 @@ Wire Load Model Mode: top
                                                           0.17      10.66 f
   cpu/pro/alu/div_35/u_div/u_fa_PartRem_0_0_7/CO (ADDFHX4)
                                                           0.09      10.75 f
-  cpu/pro/alu/div_35/quotient[0] (ALU_DW_div_uns_6)       0.00      10.75 f
   cpu/pro/alu/U37/Y (AOI221X4)                            0.12      10.86 r
   cpu/pro/alu/U12/Y (AND3X2)                              0.10      10.96 r
   cpu/pro/alu/U36/Y (OAI222X4)                            0.06      11.02 f
-  cpu/pro/alu/ans[0] (ALU)                                0.00      11.02 f
   cpu/pro/U13/Y (AO22X4)                                  0.08      11.10 f
-  cpu/pro/ans[0] (Process)                                0.00      11.10 f
   cpu/U45/Y (BUFX14)                                      0.06      11.16 f
   cpu/U148/Y (XNOR2X4)                                    0.06      11.22 f
   cpu/U218/Y (XOR2X8)                                     0.06      11.28 f
@@ -153,105 +139,60 @@ Wire Load Model Mode: top
 
   clock clk (rise edge)                                  10.00      10.00
   clock network delay (ideal)                             2.00      12.00
+  clock reconvergence pessimism                           0.00      12.00
   clock uncertainty                                      -0.50      11.50
-  cpu/psw_reg[0]/CK (DFFRQX2)                             0.00      11.50 r
+  cpu/psw_reg[0]/CK (DFFRQX2)                                       11.50 r
   library setup time                                     -0.05      11.45
   data required time                                                11.45
-  --------------------------------------------------------------------------
+  ------------------------------------------------------------------------------
   data required time                                                11.45
   data arrival time                                                -11.45
-  --------------------------------------------------------------------------
+  ------------------------------------------------------------------------------
   slack (MET)                                                        0.00
 
 
-  Startpoint: Uart_ins/UartFiFo_ins/r_pt_reg[3]
-              (rising edge-triggered flip-flop clocked by tx_clk)
-  Endpoint: Uart_ins/UartFiFo_ins/fifo_ram_ins/r_data_out_reg[0]
-            (rising edge-triggered flip-flop clocked by tx_clk)
-  Path Group: tx_clk
-  Path Type: max
+1
+****************************************
+Report : timing
+	-path_type full
+	-delay_type min
+	-max_paths 1
+	-sort_by slack
+Design : Mcu
+Version: M-2016.12-SP1
+Date   : Sat May  7 18:28:15 2022
+****************************************
 
-  Des/Clust/Port     Wire Load Model       Library
-  ------------------------------------------------
-  Mcu                tsmc090_wl30          fast
+
+  Startpoint: Uart_ins/UartFiFo_ins/fifo_ram_ins/r_data_out_reg[0]
+               (rising edge-triggered flip-flop clocked by tx_clk)
+  Endpoint: Uart_ins/UartFiFo_ins/r_data_reg[0]
+               (rising edge-triggered flip-flop clocked by tx_clk)
+  Path Group: tx_clk
+  Path Type: min
 
   Point                                                   Incr       Path
-  --------------------------------------------------------------------------
+  ------------------------------------------------------------------------------
   clock tx_clk (rise edge)                                0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  Uart_ins/UartFiFo_ins/r_pt_reg[3]/CK (EDFFX2)           0.00       0.00 r
-  Uart_ins/UartFiFo_ins/r_pt_reg[3]/QN (EDFFX2)           0.18       0.18 f
-  Uart_ins/UartFiFo_ins/U16/Y (INVX4)                     0.22       0.40 r
-  Uart_ins/UartFiFo_ins/fifo_ram_ins/r_addr[3] (fifo_ram_DATA_WIDTH8_RAM_DEPTH16_ADDR_WIDTH4)
-                                                          0.00       0.40 r
-  Uart_ins/UartFiFo_ins/fifo_ram_ins/U113/Y (INVX2)       0.12       0.53 f
-  Uart_ins/UartFiFo_ins/fifo_ram_ins/U81/Y (NOR2X2)       0.28       0.81 r
-  Uart_ins/UartFiFo_ins/fifo_ram_ins/U102/Y (BUFX2)       0.19       1.00 r
-  Uart_ins/UartFiFo_ins/fifo_ram_ins/U87/Y (BUFX5)        0.21       1.21 r
-  Uart_ins/UartFiFo_ins/fifo_ram_ins/U194/Y (AOI22X2)     0.09       1.30 f
-  Uart_ins/UartFiFo_ins/fifo_ram_ins/U192/Y (AOI21X1)     0.20       1.50 r
-  Uart_ins/UartFiFo_ins/fifo_ram_ins/U64/Y (OR4X2)        0.11       1.60 r
-  Uart_ins/UartFiFo_ins/fifo_ram_ins/U63/Y (NOR2BX1)      0.18       1.78 r
-  Uart_ins/UartFiFo_ins/fifo_ram_ins/r_data_out_reg[0]/D (EDFFX2)
-                                                          0.00       1.78 r
-  data arrival time                                                  1.78
-
-  clock tx_clk (rise edge)                               40.00      40.00
-  clock network delay (ideal)                             0.00      40.00
   Uart_ins/UartFiFo_ins/fifo_ram_ins/r_data_out_reg[0]/CK (EDFFX2)
-                                                          0.00      40.00 r
-  library setup time                                     -0.04      39.96
-  data required time                                                39.96
-  --------------------------------------------------------------------------
-  data required time                                                39.96
-  data arrival time                                                 -1.78
-  --------------------------------------------------------------------------
-  slack (MET)                                                       38.17
+                                                          0.00       0.00 r
+  Uart_ins/UartFiFo_ins/fifo_ram_ins/r_data_out_reg[0]/Q (EDFFX2)
+                                                          0.10       0.10 f
+  Uart_ins/UartFiFo_ins/r_data_reg[0]/D (DFFTRX2)         0.00       0.10 f
+  data arrival time                                                  0.10
 
-
-  Startpoint: rst_n_reg (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: Uart_ins/UartIf_ins/tx_bit_cnt_reg[2]
-            (rising edge-triggered flip-flop clocked by uart_clk)
-  Path Group: uart_clk
-  Path Type: max
-
-  Des/Clust/Port     Wire Load Model       Library
-  ------------------------------------------------
-  Mcu                tsmc090_wl30          fast
-
-  Point                                                   Incr       Path
-  --------------------------------------------------------------------------
-  clock clk (rise edge)                                 630.00     630.00
-  clock network delay (ideal)                             2.00     632.00
-  rst_n_reg/CK (EDFFX2)                                   0.00     632.00 r
-  rst_n_reg/Q (EDFFX2)                                    0.26     632.26 r
-  U1206/Y (BUFX5)                                         0.21     632.47 r
-  Uart_ins/rst_n (Uart_FIFO_DEPTH16_FIFO_WIDTH8_ADDR_WIDTH4)
-                                                          0.00     632.47 r
-  Uart_ins/U2/Y (INVX2)                                   0.17     632.63 f
-  Uart_ins/U3/Y (INVX2)                                   0.12     632.75 r
-  Uart_ins/UartIf_ins/rst_n (UartIf)                      0.00     632.75 r
-  Uart_ins/UartIf_ins/U40/Y (INVX2)                       0.13     632.88 f
-  Uart_ins/UartIf_ins/U37/Y (BUFX2)                       0.18     633.06 f
-  Uart_ins/UartIf_ins/U16/Y (NOR2X4)                      0.18     633.24 r
-  Uart_ins/UartIf_ins/U56/Y (OAI21X4)                     0.08     633.32 f
-  Uart_ins/UartIf_ins/U42/Y (INVX4)                       0.16     633.48 r
-  Uart_ins/UartIf_ins/U69/Y (NAND2X2)                     0.14     633.62 f
-  Uart_ins/UartIf_ins/U68/Y (OAI2BB1X1)                   0.14     633.76 r
-  Uart_ins/UartIf_ins/U67/Y (OAI2BB2X2)                   0.09     633.86 r
-  Uart_ins/UartIf_ins/tx_bit_cnt_reg[2]/D (DFFQX2)        0.00     633.86 r
-  data arrival time                                                633.86
-
-  clock uart_clk (rise edge)                            640.00     640.00
-  clock network delay (ideal)                             0.00     640.00
-  Uart_ins/UartIf_ins/tx_bit_cnt_reg[2]/CK (DFFQX2)       0.00     640.00 r
-  library setup time                                     -0.02     639.98
-  data required time                                               639.98
-  --------------------------------------------------------------------------
-  data required time                                               639.98
-  data arrival time                                               -633.86
-  --------------------------------------------------------------------------
-  slack (MET)                                                        6.13
+  clock tx_clk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  clock reconvergence pessimism                           0.00       0.00
+  Uart_ins/UartFiFo_ins/r_data_reg[0]/CK (DFFTRX2)                   0.00 r
+  library hold time                                      -0.03      -0.03
+  data required time                                                -0.03
+  ------------------------------------------------------------------------------
+  data required time                                                -0.03
+  data arrival time                                                 -0.10
+  ------------------------------------------------------------------------------
+  slack (MET)                                                        0.13
 
 
 1

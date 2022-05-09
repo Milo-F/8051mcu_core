@@ -6,7 +6,7 @@
  *    Version: 1.0
  ----------------------------------------*/
 
-`include "./src/rtl/para.vh"
+`include "para.vh"
 
 module Mcu(
     input                                                   reset,
@@ -193,6 +193,8 @@ module Mcu(
         dpl_nxt     = dpl;
         p0_nxt      = p0;
         sbuf_nxt    = sbuf;
+        tcon_reg    = tcon;
+        // tcon_nxt    = tcon;
         if (memory_select) begin // 选中ram
             ram_en = 1'b1;
             if (addr_bus[7:0] < 8'h80) begin // 低127位寻址片内ram

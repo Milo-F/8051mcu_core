@@ -1,0 +1,16 @@
+****************************************
+Report : timing
+	-path_type full
+	-delay_type max
+	-nworst 2
+	-slack_lesser_than 0.00
+	-max_paths 2
+	-sort_by slack
+Design : Mcu
+Version: M-2016.12-SP1
+Date   : Sat May  7 18:28:15 2022
+****************************************
+
+No paths with slack less than 0.00.
+
+1

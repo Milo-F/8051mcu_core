@@ -1,0 +1,2 @@
+verdiDockWidgetDisplay -dock widgetDock_WelcomePage
+debExit

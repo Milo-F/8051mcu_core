@@ -1,7 +1,7 @@
-echo "set work directory"
-define_design_lib WORK -path $work_path
+echo "===================set work directory================"
+define_design_lib WORK -path $WORK_PATH
 
-echo "analyze and elaborate design"
+echo "===================analyze and elaborate design=================="
 read_file -format verilog para.vh
 set file_list [list]
 set fp [open ../filelist.f r]
@@ -11,7 +11,7 @@ while {[gets $fp line] != -1} {
 puts $file_list
 analyze -format verilog $file_list
 current_design Mcu
-redirect -tee -file $log_path/elaborate.log {elaborate Mcu}
+redirect -tee -file ${LOG_PATH}/elaborate.log {elaborate Mcu}
 echo "link design"
 link
-redirect -tee -file $log_path/check_design.log {check_design}
+check_design > ${LOG_PATH}/check_design.log 

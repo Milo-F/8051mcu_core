@@ -1,24 +1,24 @@
 
 echo "Define path directories for files and libraries"
-set source_path ../src
-set rtl_path $source_path/rtl
-set scripts_path ./scripts
-set log_path ./log
-set mapped_path ./mapped
-set unmapped_path ./unmapped
-set work_path ./work
-set netlist_path ./netlist
-set symbol_path /home/milo/TSMC.90/aci/sc-x/symbols/synopsys
-set library_path /home/milo/TSMC.90/aci/sc-x/synopsys
-set sh_command_log_file ./log/command.log
+set         SRC_PATH                    ../src
+set         RTL_PATH                    ${SRC_PATH}/rtl
+set         SCPT_PATH                   ./scripts
+set         LOG_PATH                    ./log
+set         MAPPED_PATH                 ./mapped
+set         UNMAPPED_PATH               ./unmapped
+set         WORK_PATH                   ./work
+set         NETLIST_PATH                ./netlist
+set         SYMBOL_PATH                 /home/milo/TSMC.90/aci/sc-x/symbols/synopsys
+set         LIB_PATH                    /home/milo/TSMC.90/aci/sc-x/synopsys
+set         sh_command_log_file         ./log/command.log
 
 
-echo "set libraries"
-set_app_var search_path [list $search_path $source_path $rtl_path $symbol_path $library_path $scripts_path]
-set_app_var target_library [list fast.db]
-set_app_var symbol_library [list tsmc090.sdb]
-set_app_var synthetic_library [list standard.sldb dw_foundation.sldb]
-set_app_var link_library [list * $target_library dw_foundation.sldb]
+echo "=================================set libraries============================="
+set_app_var     search_path         [list ${search_path} ${SRC_PATH} ${RTL_PATH} ${SYMBOL_PATH} ${LIB_PATH} ${SCPT_PATH}]
+set_app_var     target_library      [list fast.db]
+set_app_var     symbol_library      [list tsmc090.sdb]
+set_app_var     synthetic_library   [list standard.sldb dw_foundation.sldb]
+set_app_var     link_library        [list * $target_library dw_foundation.sldb]
 
 echo "set informations"
-set designer Milo
+set         designer        Milo

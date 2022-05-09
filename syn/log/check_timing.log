@@ -9,15 +9,15 @@ Warning: timing loops detected. (TIM-209)
 
                  cell_arc                            lib cell
 --------------------------------------------------------------------------------
+U5/A1                    -> U5/Y                     fast/AO22X4             #
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
 U9/A1                    -> U9/Y                     fast/AO22X4             #
 
                  cell_arc                            lib cell
 --------------------------------------------------------------------------------
 U7/A1                    -> U7/Y                     fast/AO22X4             #
-
-                 cell_arc                            lib cell
---------------------------------------------------------------------------------
-U5/A1                    -> U5/Y                     fast/AO22X4             #
 
                  cell_arc                            lib cell
 --------------------------------------------------------------------------------
@@ -33,51 +33,51 @@ U8/A1                    -> U8/Y                     fast/AO22X4             #
 
                  cell_arc                            lib cell
 --------------------------------------------------------------------------------
-U10/A1                   -> U10/Y                    fast/AO22X4             #
-
-                 cell_arc                            lib cell
---------------------------------------------------------------------------------
 U4/A1                    -> U4/Y                     fast/AO22X4             #
 
                  cell_arc                            lib cell
 --------------------------------------------------------------------------------
-cpu/U272/A               -> cpu/U272/Y               fast/CLKINVX16          #
+U10/A1                   -> U10/Y                    fast/AO22X4             #
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+cpu/U10/B1               -> cpu/U10/Y                fast/OAI2BB2X4          #
+cpu/U390/A               -> cpu/U390/Y               fast/CLKINVX12           
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+cpu/U9/B1                -> cpu/U9/Y                 fast/OAI2BB2X4          #
+cpu/U391/A               -> cpu/U391/Y               fast/CLKINVX12           
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+cpu/U8/B1                -> cpu/U8/Y                 fast/OAI2BB2X4          #
+cpu/U392/A               -> cpu/U392/Y               fast/CLKINVX12           
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+cpu/U6/B1                -> cpu/U6/Y                 fast/OAI2BB2X4          #
+cpu/U394/A               -> cpu/U394/Y               fast/CLKINVX12           
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+cpu/U272/A               -> cpu/U272/Y               fast/CLKINVX12          #
 cpu/U11/B1               -> cpu/U11/Y                fast/OAI2BB2X4           
 
                  cell_arc                            lib cell
 --------------------------------------------------------------------------------
 cpu/U3/B1                -> cpu/U3/Y                 fast/OAI2BB2X4          #
-cpu/U400/A               -> cpu/U400/Y               fast/CLKINVX12           
+cpu/U139/A               -> cpu/U139/Y               fast/CLKINVX12           
 
                  cell_arc                            lib cell
 --------------------------------------------------------------------------------
-cpu/U6/B1                -> cpu/U6/Y                 fast/OAI2BB2X4          #
-cpu/U402/A               -> cpu/U402/Y               fast/CLKINVX12           
+cpu/U7/B1                -> cpu/U7/Y                 fast/OAI2BB2X4          #
+cpu/U393/A               -> cpu/U393/Y               fast/CLKINVX12           
 
                  cell_arc                            lib cell
 --------------------------------------------------------------------------------
-cpu/U287/A               -> cpu/U287/Y               fast/CLKINVX12          #
-cpu/U9/B1                -> cpu/U9/Y                 fast/OAI2BB2X4           
-
-                 cell_arc                            lib cell
---------------------------------------------------------------------------------
-cpu/U8/B1                -> cpu/U8/Y                 fast/OAI2BB2X4           
-cpu/U284/A               -> cpu/U284/Y               fast/CLKINVX12          #
-
-                 cell_arc                            lib cell
---------------------------------------------------------------------------------
-cpu/U5/B1                -> cpu/U5/Y                 fast/OAI2BB2X4           
-cpu/U276/A               -> cpu/U276/Y               fast/CLKINVX12          #
-
-                 cell_arc                            lib cell
---------------------------------------------------------------------------------
-cpu/U10/B1               -> cpu/U10/Y                fast/OAI2BB2X4           
-cpu/U291/A               -> cpu/U291/Y               fast/CLKINVX12          #
-
-                 cell_arc                            lib cell
---------------------------------------------------------------------------------
-cpu/U7/B1                -> cpu/U7/Y                 fast/OAI2BB2X4           
-cpu/U281/A               -> cpu/U281/Y               fast/CLKINVX12          #
+cpu/U5/B1                -> cpu/U5/Y                 fast/OAI2BB2X4          #
+cpu/U395/A               -> cpu/U395/Y               fast/CLKINVX12           
 
 Information: Checking no_input_delay...
 

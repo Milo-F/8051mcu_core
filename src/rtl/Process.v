@@ -36,6 +36,7 @@ module Process (
     // 部分简单的运算操作
     always @(*) begin
         pro_psw = psw_in;
+        pro_ans = 0;
         if (alu_op == `no_alu) begin
             casez (instruction)
                 8'b0000_0011: pro_ans = {a_data[0], a_data[7:1]}; // rr a;
