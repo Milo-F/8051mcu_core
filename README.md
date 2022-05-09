@@ -33,9 +33,15 @@
 ## 综合
 &emsp;&emsp; 在[syn](./syn)目录下运行DC，在dc_shell下使用
 ```
-    source $scripts_path/read.tcl
+    source $scripts_path/rd.tcl
     source $scripts_path/com.tcl
-    source $scripts_path/report.tcl
+    source $scripts_path/rpt.tcl
 ```
 在[log](./syn/log/)目录下查看对应的综合报告
 ## STA
+&emsp;&emsp; 在[sta](./sta)目录下运行PT，通过read_sdc命令读入约束文件，在pt_shell下使用
+```
+    source $scripts_path/rd.tcl
+    source $scripts_path/rpt.tcl
+```
+在[log](./sta/log/)目录下查看对应的时序报告
